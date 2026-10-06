@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="香港學生公寓／PBSA 每日摘要：成交、消息、留意事項" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>香港學生公寓／PBSA 日報</title>
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=27" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <h1>香港學生公寓／PBSA 日報</h1>
+      <p class="updated">更新：<time id="last-updated">—</time></p>
+    </div>
+  </header>
+  <main class="wrap">
+    <p class="counts" id="counts" aria-live="polite">&nbsp;</p>
+    <section id="watch" aria-labelledby="h-watch">
+      <h2 id="h-watch">今日要留意</h2>
+      <ul class="watch-list" id="watch-list"><li class="muted">載入中…</li></ul>
+      <ul class="watch-list" id="watch-more" hidden></ul>
+      <button type="button" class="more-btn" id="watch-toggle" hidden aria-controls="watch-more" aria-expanded="false"></button>
+    </section>
+    <section id="news" aria-labelledby="h-news">
+      <h2 id="h-news">最新消息</h2>
+      <ul class="news-list" id="news-list"><li class="muted">載入中…</li></ul>
+    </section>
+    <section id="deals" aria-labelledby="h-deals">
+      <h2 id="h-deals">近5年成交</h2>
+      <details class="filters" id="filters" open>
+        <summary>篩選<span id="f-active"></span></summary>
+        <div class="f-grid">
+          <label class="f-wide">關鍵字<input type="search" id="f-q" placeholder="物業、地區、買賣方…" autocomplete="off" /></label>
+          <label>區域<select id="f-region"><option value="">全部</option></select></label>
+          <label>年份<select id="f-year"><option value="">全部</option></select></label>
+          <label>買家<input type="search" id="f-buyer" list="f-buyers" placeholder="例如：晶苑" autocomplete="off" /><datalist id="f-buyers"></datalist></label>
+          <label>狀態<select id="f-status"><option value="">全部</option></select></label>
+          <label>原用途<select id="f-use"><option value="">全部</option></select></label>
+          <label>每床價<select id="f-bed"><option value="">全部</option><option value="yes">有</option><option value="no">無</option></select></label>
+          <label class="m-sort">排序<select id="f-sort">
+            <option value="date:-1">日期（新→舊）</option><option value="date:1">日期（舊→新）</option>
+            <option value="price:-1">金額（高→低）</option><option value="price:1">金額（低→高）</option>
+            <option value="rooms:-1">房間／單位（多→少）</option><option value="rooms:1">房間／單位（少→多）</option>
+            <option value="unreno:-1">每床價未含翻新（高→低）</option><option value="beds:-1">床數（多→少）</option>
+            <option value="room:-1">每房價（高→低）</option><option value="room:1">每房價（低→高）</option>
+          </select></label>
+          <button type="button" class="f-reset" id="f-reset">重設</button>
+        </div>
+      </details>
+      <div class="summary" aria-live="polite">
+        <p class="sum-n"><span id="sum-n">&nbsp;</span>
+          <label class="toggle"><input type="checkbox" id="f-media" /> 計入媒體報導</label></p>
+        <ul class="sum-main" id="sum-main"></ul>
+        <ul class="sum-side" id="sum-side"></ul>
+        <p class="method">口徑：呎價一律用建築面積（GFA），本表沒有實用面積。每房價＝代價÷原有房間／單位。每床價（未含翻新）＝收購價÷改建後床數。床數有官網用官網，否則用報紙。房間、單位同床位唔可以互相代替。數字跟公開來源，未有統一第三方審計。範圍取中間值；未扣交易成本同改建成本；唔係估值。</p>
+      </div>
+      <div class="table-wrap">
+        <table class="deals" aria-labelledby="h-deals">
+          <thead>
+            <tr>
+              <th scope="col" class="sortable c-dt" data-sort="date" aria-sort="descending"><button type="button" title="按日期排序">日期</button></th>
+              <th scope="col" class="c-first">物業</th>
+              <th scope="col" class="c-parties">買方</th>
+              <th scope="col" class="sortable num c-price" data-sort="price" aria-sort="none"><button type="button">金額（HK$）</button></th>
+              <th scope="col" class="sortable num c-rooms" data-sort="rooms" aria-sort="none"><button type="button" title="原有房間／單位數">房間／單位</button></th>
+              <th scope="col" class="sortable num c-beds" data-sort="beds" aria-sort="none"><button type="button" title="改建後床數">床數</button></th>
+              <th scope="col" class="sortable num c-m" data-sort="psf" aria-sort="none"><button type="button" title="建築面積呎價">呎價</button></th>
+              <th scope="col" class="sortable num c-m" data-sort="room" aria-sort="none"><button type="button" title="代價 ÷ 原有房間／單位數">每房價</button></th>
+              <th scope="col" class="sortable num c-m c-bedh" data-sort="unreno" aria-sort="none"><button type="button" title="收購價 ÷ 改建後床位">每床價<small>（未含翻新）</small></button></th>
+              <th scope="col" class="c-src">來源</th>
+            </tr>
+          </thead>
+          <tbody><tr><td colspan="10" class="muted">載入中…</td></tr></tbody>
+        </table>
+        <p class="muted small" id="f-empty" hidden>冇符合篩選條件嘅成交。</p>
+      </div>
+      <p class="foot-note" id="est-note"></p>
+    </section>
+    <details class="fold" id="gaps">
+      <summary>資料缺口／建議跟進<span class="n" id="gaps-n"></span></summary>
+      <ul id="gaps-list"></ul>
+    </details>
+  </main>
+  <footer class="site-footer"><div class="wrap"><p>資料來自媒體及港交所公告；作決定前請自行核實。</p></div></footer>
+  <script src="js/app.js?v=27"></script>
+</body>
+</html>
