@@ -1,0 +1,627 @@
+(async function () {
+  "use strict";
+  const $ = (sel) => document.querySelector(sel);
+  const esc = (v) =>
+    String(v ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const link = (url, text, cls) =>
+    url
+      ? `<a${cls ? ` class="${cls}"` : ""} href="${esc(url)}" target="_blank" rel="noopener noreferrer">${text}</a>`
+      : text;
+  const DASH = `<span class="muted">—</span>`;
+
+  async function loadJSON(path) {
+    const res = await fetch(path, { cache: "no-cache" });
+    if (!res.ok) throw new Error("無法載入 " + path);
+    return res.json();
+  }
+
+  function fmtTs(iso) {
+    const t = new Date(iso);
+    if (isNaN(t)) return iso;
+    const p = Object.fromEntries(
+      new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Hong_Kong", year: "numeric", month: "2-digit", day: "2-digit",
+        hour: "2-digit", minute: "2-digit", hour12: false,
+      }).formatToParts(t).map((x) => [x.type, x.value])
+    );
+    return `${p.year}-${p.month}-${p.day} ${p.hour === "24" ? "00" : p.hour}:${p.minute} HKT`;
+  }
+
+  /* ---------- 成交狀態（口徑） ---------- */
+  // 已公布 covers announced deals even if the price is only in the media.
+  const STATUS = {
+    announced: { t: "已公布", tip: "交易方或其委任代理／律師正式公布，或交易所公告" },
+    media: { t: "媒體報導", tip: "只見可靠媒體報道，未見交易方公告" },
+  };
+  const STATUS_ORDER = ["announced", "media"];
+  const statusOf = (d) => (STATUS[d.deal_status] ? d.deal_status : "none");
+  function badge(d) {
+    const k = statusOf(d);
+    const st = STATUS[k] || { t: "未分類", tip: "" };
+    const tip = st.tip + (d.status_basis ? "。依據：" + d.status_basis : "");
+    return `<span class="badge st-${esc(k)}" title="${esc(tip)}">${st.t}</span>` +
+      (d.status_pending ? `<span class="pend">${esc(d.status_pending)}</span>` : "");
+  }
+  let DEAL_BY_ID = {};
+  // Badge(s) for news / watch items that refer to a deal in the table, so labels can't drift apart.
+  const shortAsset = (d) => {
+    if (d.ref_label) return d.ref_label;
+    const z = String(d.asset_zh || d.asset || "成交");
+    const tail = z.split("→").pop().split("（")[0].trim();
+    return tail.length > 18 ? tail.slice(0, 18) + "…" : tail;
+  };
+  const dealRefs = (ids) =>
+    (Array.isArray(ids) ? ids : [])
+      .map((k) => DEAL_BY_ID[k])
+      .filter(Boolean)
+      .map((d) => `<a class="deal-ref" href="#deal-${esc(d.id)}" title="${esc(d.asset_zh || d.asset)}：見近5年成交">${esc(shortAsset(d))} ${badge(d)}</a>`)
+      .join(" ");
+
+  /* ---------- 今日要留意 ---------- */
+  const PRI = { high: { t: "高", r: 0 }, medium: { t: "中", r: 1 }, low: { t: "低", r: 2 } };
+
+  function watchItem(item) {
+    const text = String(item.text || "");
+    const cut = text.indexOf("——");
+    const title = cut > 0 ? text.slice(0, cut) : text;
+    const rest = cut > 0 ? text.slice(cut + 2) : "";
+    const p = PRI[item.priority] || { t: item.priority || "", r: 9 };
+    const refs = dealRefs(item.deal_ids);
+    return `<li>
+      <span class="pri ${esc(item.priority)}" title="優先次序：${esc(p.t)}">${esc(p.t)}</span>
+      <div class="w-body">
+        <button type="button" class="w-title" aria-expanded="false">${esc(title)}</button>
+        ${rest ? `<p class="w-rest">${esc(rest)}</p>` : ""}
+        ${refs ? `<div class="refs">${refs}</div>` : ""}
+      </div>
+    </li>`;
+  }
+
+  function renderWatch(data) {
+    const items = (data.items || [])
+      .map((x, i) => ({ x, i }))
+      .sort((a, b) => ((PRI[a.x.priority] || { r: 9 }).r - (PRI[b.x.priority] || { r: 9 }).r) || a.i - b.i)
+      .map((o) => o.x);
+    const top = items.slice(0, 3);
+    const more = items.slice(3);
+    $("#watch-list").innerHTML = top.map(watchItem).join("") || `<li class="muted">今日未有項目</li>`;
+    const moreEl = $("#watch-more");
+    const btn = $("#watch-toggle");
+    if (more.length) {
+      moreEl.innerHTML = more.map(watchItem).join("");
+      btn.hidden = false;
+      const label = () => (moreEl.hidden ? `顯示更多（${more.length}）` : "收起");
+      btn.textContent = label();
+      btn.addEventListener("click", () => {
+        moreEl.hidden = !moreEl.hidden;
+        btn.setAttribute("aria-expanded", String(!moreEl.hidden));
+        btn.textContent = label();
+      });
+    }
+    document.querySelectorAll(".w-title").forEach((b) =>
+      b.addEventListener("click", () => {
+        const li = b.closest("li");
+        const open = li.classList.toggle("open");
+        b.setAttribute("aria-expanded", String(open));
+      })
+    );
+  }
+
+  /* ---------- 最新消息 ---------- */
+  // Window = items dated within the last 14 days of the reference (data "updated") date.
+  // Month-only dates are excluded: cannot tell if they fall inside two weeks.
+  function newsCutoff(refIso) {
+    const m = String(refIso || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!m) return null;
+    const ref = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    ref.setUTCDate(ref.getUTCDate() - 14);
+    const y = ref.getUTCFullYear(), mo = ref.getUTCMonth() + 1, day = ref.getUTCDate();
+    return `${y}-${String(mo).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+  }
+  function inWindow(dateStr, cutoff) {
+    if (!cutoff) return true;
+    const m = String(dateStr || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!m) return false;
+    return `${m[1]}-${m[2]}-${m[3]}` >= cutoff;
+  }
+
+  function renderNews(data, refIso) {
+    const cutoff = newsCutoff(refIso);
+    const items = (data.items || []).filter((n) => inWindow(n.date, cutoff));
+    $("#news-list").innerHTML =
+      items
+        .map((n) => {
+          const refs = dealRefs(n.deal_ids);
+          const listed = n.date || n.date_label || "";
+        const srcDate = n.source_date || "";
+        const same = !srcDate || srcDate === listed;
+        const monthOnly = n.date_precision === "month" || /^\d{4}-\d{2}$/.test(listed);
+        const dateBits = [
+          `<span class="n-date" title="入表日期">${monthOnly ? "入表 " : "入表 "}${esc(listed)}</span>`,
+          same ? "" : `<span class="n-orig" title="原文／公告日期">原文 ${esc(n.source_date_label || srcDate)}</span>`,
+          n.earlier_date_label ? `<span class="n-orig" title="較早或另一來源日期">另見 ${esc(n.earlier_date_label)}</span>` : "",
+        ].filter(Boolean).join("");
+        return `<li>
+        <span class="n-dates">${dateBits}</span>
+        <div class="n-body">
+          ${link(n.url, esc(n.title), "n-title")}
+          <span class="n-src">${esc(n.source)}${n.url2 ? ` · ${link(n.url2, esc(n.url2_label || "來源2"))}` : ""}</span>
+          ${n.summary ? `<details class="n-sum"><summary>摘要</summary><p>${esc(n.summary)}</p></details>` : ""}
+          ${refs ? `<div class="refs">${refs}</div>` : ""}
+        </div>
+      </li>`;
+        })
+        .join("") || `<li class="muted">近兩星期暫無消息</li>`;
+    return items.length;
+  }
+
+  /* ---------- 近5年成交 ---------- */
+  function fmtNum(v, digits) {
+    if (v === null || v === undefined || v === "") return null;
+    return Number(v).toLocaleString("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits });
+  }
+  function basisTag(d, key) {
+    const b = (d.metric_basis || {})[key];
+    if (b === "calc") return ` <span class="basis" title="按來源輸入計算">計算</span>`;
+    if (b === "source") return ` <span class="basis" title="來源列明">來源</span>`;
+    return "";
+  }
+  function metric(d, key, digits, prefix, suffix) {
+    const lo = fmtNum(d[key], digits);
+    if (lo === null) return null;
+    const hi = fmtNum(d[key + "_max"], digits);
+    const txt = hi && hi !== lo ? `${lo}–${hi}` : lo;
+    return `${prefix || ""}${txt}${suffix || ""}${basisTag(d, key)}`;
+  }
+  const range = (lo, hi, f) => (lo === undefined || lo === null ? null : hi ? `${f ? f(lo) : lo}–${f ? f(hi) : hi}` : `${f ? f(lo) : lo}`);
+  const n0 = (v) => fmtNum(v, 0);
+  const has = (v) => v !== null && v !== undefined && v !== "";
+
+  // Short amount for the table: text before the first note bracket, without the "HK$" (unit is in the header).
+  function shortPrice(label) {
+    const s = String(label || "").split(/[（(；;]/)[0].replace(/HK\$\s?/g, "").trim();
+    return s || "—";
+  }
+
+  function sizeTxt(r) {
+    if (r.size_sqft === undefined) return "未披露";
+    return `${range(r.size_sqft, r.size_sqft_max)} 平方呎${r.size_basis ? `（${esc(r.size_basis)}）` : ""}`;
+  }
+  function rentTxt(r) {
+    if (r.rent_hkd_month === undefined) return "未披露";
+    return `HK$${range(r.rent_hkd_month, r.rent_hkd_month_max, n0)}${r.rent_basis ? `（${esc(r.rent_basis)}）` : ""}`;
+  }
+
+  function openingTxt(d) {
+    let s = "";
+    if (d.opening_date) {
+      const st = d.opening_status === "actual" ? "實際" : d.opening_status === "target" ? "目標" : "";
+      s = `${esc(d.opening_date)}${st ? `（${st}）` : ""}`;
+    } else if (d.opening_label) s = esc(d.opening_label);
+    if (d.months_deal_to_open !== undefined && d.months_deal_to_open !== null)
+      s += `${s ? "；" : ""}成交→營運 ${esc(d.months_deal_to_open)} 個月${basisTag(d, "months_deal_to_open")}`;
+    return s || null;
+  }
+
+  // Full announcement date when known; otherwise YYYY-MM.
+  function dateLabel(d) {
+    const full = String(d.deal_date || "");
+    if (/^\d{4}-\d{2}-\d{2}$/.test(full)) return esc(full);
+    return esc(monthOf(d));
+  }
+  function dealKey(d) {
+    const s = String(d.deal_date || d.date || "");
+    const m = s.match(/(\d{4})-(\d{2})(?:-(\d{2}))?/);
+    return m ? `${m[1]}-${m[2]}-${m[3] || "00"}` : s;
+  }
+  const monthOf = (d) => dealKey(d).slice(0, 7);
+  const yearOf = (d) => dealKey(d).slice(0, 4);
+  const regionOf = (d) => String(d.district || "").split("（")[0].trim();
+
+  const mid = (d, key) => {
+    const lo = d[key];
+    if (!has(lo)) return null;
+    const hi = d[key + "_max"];
+    return has(hi) ? (Number(lo) + Number(hi)) / 2 : Number(lo);
+  };
+  const wan = (m) => fmtNum(Math.round(m * 100), 0); // 百萬 → 萬
+  const rangeTxt = (d, key, f) => {
+    const lo = f(d[key]);
+    const hi = has(d[key + "_max"]) ? f(d[key + "_max"]) : null;
+    return hi && hi !== lo ? `${lo}–${hi}` : lo;
+  };
+  const PSF_TAG = { GFA: ["建", "建築面積（GFA）"], saleable: ["實", "實用面積"] };
+  const useParts = (u) => String(u || "").split("／").map((x) => x.trim()).filter(Boolean);
+  // Words in a property name that already state a use type → don't repeat that type as a badge.
+  const USE_WORDS = {
+    酒店: ["酒店", "hotel", "旅館", "賓館"],
+    住宅: ["住宅", "residence", "residential", "apartment"],
+    學生宿舍: ["學生宿舍", "學生公寓", "宿舍", "學舍", "student"],
+    寫字樓: ["寫字樓", "office"],
+    商廈: ["商廈", "商業大廈"],
+    服務式住宅: ["服務式住宅", "serviced"],
+  };
+  function useTag(d) {
+    const name = String(d.asset_zh || d.asset || "").toLowerCase();
+    // Name already states a type (酒店／住宅／學生公寓／學生宿舍 …) → no type badge at all.
+    const typeWords = Object.values(USE_WORDS).flat().concat(useParts(d.original_use));
+    if (typeWords.some((w) => name.includes(w.toLowerCase()))) return "";
+    const left = useParts(d.original_use);
+    if (!left.length) return "";
+    return `<div class="type-row"><span class="use" title="原用途${d.original_use_note ? "：" + esc(d.original_use_note) : ""}">原用途 ${esc(left.join("／"))}</span></div>`;
+  }
+
+  function psfCell(d) {
+    if (!has(d.price_psf_hkd)) return DASH;
+    const t = PSF_TAG[d.psf_basis] || ["未明", "來源未註明面積口徑"];
+    return `$${rangeTxt(d, "price_psf_hkd", (v) => fmtNum(v, 0))}<span class="mtag" title="${t[1]}">${t[0]}</span>`;
+  }
+  function roomCell(d) {
+    if (!has(d.price_per_room_hkd_m)) return DASH;
+    return `$${rangeTxt(d, "price_per_room_hkd_m", wan)}萬`;
+  }
+  const UNRENO = `<span class="mtag warn" title="只計收購價；改建投資未有來源">未含翻新</span>`;
+  const RENO = `<span class="mtag" title="（代價＋有來源嘅改建投資）÷ 改建後床位">翻新後</span>`;
+  // Two separate columns; each deal's per-bed number appears in exactly one of them.
+  // 翻新後: only sourced post-renovation figures. 未含翻新: purchase-only, only when no 翻新後 figure exists.
+  function renoCell(d) {
+    return has(d.all_in_per_bed_hkd_m) ? `$${rangeTxt(d, "all_in_per_bed_hkd_m", wan)}萬` : DASH;
+  }
+  function unrenoCell(d) {
+    if (!has(d.price_per_bed_hkd_m)) return DASH;
+    return `$${rangeTxt(d, "price_per_bed_hkd_m", wan)}萬`;
+  }
+  function bedsCell(d) {
+    if (!has(d.beds_after)) return DASH;
+    const n = rangeTxt(d, "beds_after", (v) => fmtNum(v, 0));
+    const tip = d.beds_after_note ? ` title="${esc(d.beds_after_note)}"` : "";
+    return `<span${tip}>${n}</span>`;
+  }
+  const unrenoVal = (d) => (has(d.all_in_per_bed_hkd_m) ? null : mid(d, "price_per_bed_hkd_m"));
+  function areaCell(d) {
+    if (!has(d.gfa_sqft)) return DASH;
+    const t = d.psf_basis === "saleable" ? PSF_TAG.saleable : PSF_TAG.GFA; // gfa_sqft is GFA unless overridden
+    return `${rangeTxt(d, "gfa_sqft", (v) => fmtNum(v, 0))}<span class="mtag" title="${t[1]}">${t[0]}</span>`;
+  }
+  function roomsCell(d) {
+    if (!has(d.rooms)) return DASH;
+    return rangeTxt(d, "rooms", (v) => fmtNum(v, 0));
+  }
+
+  /* 翻新後每床價（估算）: only for deals with a sourced bed count but no sourced capex.
+     = purchase price ÷ beds + scenario capex per bed (by 原用途). Kept apart from the sourced column. */
+  let SCEN = null;
+  function scenarioFor(d) {
+    if (!SCEN || !Array.isArray(SCEN.scenarios)) return null;
+    for (const u of useParts(d.original_use)) {
+      const s = SCEN.scenarios.find((x) => (x.uses || []).includes(u));
+      if (s) return s;
+    }
+    return null;
+  }
+  function estimate(d) {
+    if (!has(d.beds_after) || has(d.capex_hkd_m) || has(d.all_in_per_bed_hkd_m) || !has(d.price_per_bed_hkd_m)) return null;
+    const s = scenarioFor(d);
+    if (!s || !Array.isArray(s.per_bed_hkd) || s.per_bed_hkd.length !== 3) return null;
+    const lo = Number(d.price_per_bed_hkd_m), hi = has(d.price_per_bed_hkd_m_max) ? Number(d.price_per_bed_hkd_m_max) : lo;
+    const c = s.per_bed_hkd.map(Number);
+    // values in HK$ 萬
+    return { low: lo * 100 + c[0] / 1e4, mid: ((lo + hi) / 2) * 100 + c[1] / 1e4, high: hi * 100 + c[2] / 1e4, s };
+  }
+  const w0 = (v) => fmtNum(Math.round(v), 0);
+  function estCell(d) {
+    const e = estimate(d);
+    if (!e) return DASH;
+    const tip = `估算：收購價÷床位＋${e.s.code} ${e.s.name}改建費（低／中／高）。${SCEN.basis || ""}`;
+    return `<span class="est" title="${esc(tip)}">$${w0(e.mid)}萬<span class="mtag est-tag">估算，非成交數</span><small class="est-rng">低–高 ${w0(e.low)}–${w0(e.high)}萬</small></span>`;
+  }
+  // One key per-bed/per-room figure for the compact mobile card.
+  function keyMetric(d) {
+    if (has(d.all_in_per_bed_hkd_m)) return `<span class="k-l">每床</span> $${rangeTxt(d, "all_in_per_bed_hkd_m", wan)}萬${RENO}`;
+    if (has(d.price_per_bed_hkd_m)) return `<span class="k-l">每床</span> $${rangeTxt(d, "price_per_bed_hkd_m", wan)}萬${UNRENO}`;
+    if (has(d.price_per_room_hkd_m)) return `<span class="k-l">每房</span> $${rangeTxt(d, "price_per_room_hkd_m", wan)}萬`;
+    return "";
+  }
+  const otherSources = (d) => (Array.isArray(d.other_sources) ? d.other_sources : []).filter((u) => typeof u === "string" && u.trim());
+
+  function details(d) {
+    const H = (v) => ({ html: v }); // pre-escaped HTML
+    const st = STATUS[statusOf(d)];
+    const stHtml = st
+      ? badge(d) + (d.status_basis ? ` ${esc(d.status_basis)}` : "") +
+        (d.status_source_url && d.status_source_url !== d.source_url ? " " + link(d.status_source_url, "依據") : "")
+      : null;
+    const others = otherSources(d);
+    // Shown on phones only: the columns hidden from the compact card.
+    // Columns moved out of the default table: shown in 詳情 on every screen size.
+    const moved = [
+      ["賣家", d.seller || "—"],
+      ["建築面積（GFA）", H(areaCell(d))],
+      ["原有房間／單位", H(roomsCell(d) + ' <span class="mtag">非床位</span>')],
+      ["翻新後每床價（估算）", estimate(d) ? H(estCell(d)) : null],
+    ];
+    // Shown on phones only: the remaining columns hidden from the compact card.
+    const mob = [
+      ["買家", d.buyer],
+      ["原用途", d.original_use ? H(esc(d.original_use) + (d.original_use_note ? `（${esc(d.original_use_note)}）` : "") + (d.original_use_source_url ? " " + link(d.original_use_source_url, "來源") : "")) : null],
+      ["呎價", H(psfCell(d))],
+      ["每房價", H(roomCell(d))],
+      ["翻新後每床價", H(renoCell(d))],
+      ["每床價（未含翻新）", H(unrenoCell(d))],
+      ["主來源", H(link(d.source_url, esc(d.source)) + (others.length ? ` · ${link(others[0], "第二來源")}` : ""))],
+    ];
+    const facts = [
+      ["狀態", stHtml ? H(stHtml) : null],
+      ["代價（原文）", d.price_label],
+      ["成交日期", d.deal_date],
+      ["英文名稱", d.asset_zh && d.asset !== d.asset_zh ? d.asset : null],
+      ["原用途", d.original_use ? H(esc(d.original_use) + (d.original_use_note ? `（${esc(d.original_use_note)}）` : "") + (d.original_use_source_url ? " " + link(d.original_use_source_url, "來源") : "")) : null, "d-only"],
+      ["位置", d.location],
+      ["地區", d.district],
+      ["類型", d.type],
+      ["指標", d.metrics],
+      ["每床價（未含翻新）", H(metric(d, "price_per_bed_hkd_m", 2, "HK$", "百萬"))],
+      ["開始營運", H(openingTxt(d))],
+      ["鄰近大學", d.nearest_university],
+      ["鄰近港鐵", d.nearest_mtr],
+      ["改建後床位", has(d.beds_after) ? range(d.beds_after, d.beds_after_max) + (d.beds_after_note ? `（${d.beds_after_note}）` : "") + "（非原有房間數）" : "來源未列"],
+      ["床／房比", H(metric(d, "beds_per_room", 2))],
+      ["改建投資（百萬）", range(d.capex_hkd_m, d.capex_hkd_m_max)],
+      ["總投資（百萬）", d.total_investment_hkd_m ? `${d.total_investment_hkd_m}${d.total_investment_note ? `（${d.total_investment_note}）` : ""}` : null],
+      ["翻新後每床（百萬）", has(d.all_in_per_bed_hkd_m) ? H(metric(d, "all_in_per_bed_hkd_m", 2) + (d.all_in_note ? `（${esc(d.all_in_note)}）` : "")) : null],
+      ["落成年份", d.completion_year],
+      ["地契", d.lease_note],
+      ["入住率", d.occupancy_pct !== undefined ? `${d.occupancy_pct}%${d.occupancy_note ? `（${d.occupancy_note}）` : ""}` : null],
+      ["報稱回報", d.reported_yield_pct !== undefined ? `${d.reported_yield_pct}%${d.reported_yield_note ? `（${d.reported_yield_note}）` : ""}` : null],
+      ["保證收入", d.guaranteed_income_hkd_m_pa ? H(`每年HK$${esc(d.guaranteed_income_hkd_m_pa)}百萬 × ${esc(d.guaranteed_years || "?")}年；相當於代價 ${metric(d, "guaranteed_yield_pct", 2, "", "%") || "—"}`) : null],
+      ["年收入（百萬）", d.annual_revenue_hkd_m],
+      ["月租收入（百萬）", d.monthly_rent_income_hkd_m],
+      ["呎價計算範圍（HK$）", Array.isArray(d.price_psf_hkd_calc_range) ? d.price_psf_hkd_calc_range.map(n0).join("–") : null],
+      ["每床月租", d.rent_per_bed_min_hkd ? `HK$${n0(d.rent_per_bed_min_hkd)}${d.rent_per_bed_max_hkd && d.rent_per_bed_max_hkd !== d.rent_per_bed_min_hkd ? "–" + n0(d.rent_per_bed_max_hkd) : ""}` : null],
+      ["毛收益率", H(metric(d, "gross_yield_pct", 2, "", "%"))],
+      ["營運備註", d.opening_note],
+      ["其他備註", d.note_zh],
+    ];
+    const ok = ([, v]) => v !== null && v !== undefined && v !== "" && !(typeof v === "object" && (v.html === null || v.html === ""));
+    const fact = ([k, v, cls]) => `<div class="fact${cls ? " " + cls : ""}"><dt>${k}</dt><dd>${typeof v === "object" ? v.html : esc(v)}</dd></div>`;
+    const movedHtml = moved.filter(ok).map(fact).join("");
+    const mobHtml = mob.filter(ok).map(fact).join("");
+    const factHtml = facts.filter(ok).map(fact).join("");
+
+    const links = [
+      link(d.source_url, `主來源：${esc(d.source)}`),
+      ...others.map((u, i) => link(u, `來源${i + 2}`)),
+      d.project_url ? link(d.project_url, "項目網頁") : "",
+    ].filter(Boolean).join(" · ");
+
+    const rts = d.room_types || [];
+    const rtHtml = rts.length
+      ? `<div class="rt-wrap"><table class="rt"><thead><tr><th>房型</th><th>面積</th><th>月租</th><th>備註</th><th>資料日期</th><th>來源</th></tr></thead><tbody>${rts
+          .map((r) => `<tr><td>${esc(r.name)}</td><td>${sizeTxt(r)}</td><td>${rentTxt(r)}</td><td>${esc(r.rent_note || "")}</td><td>${esc(r.as_of || "")}</td><td>${r.source_url ? link(r.source_url, "連結") : "—"}</td></tr>`)
+          .join("")}</tbody></table></div>`
+      : `<p class="muted small">房型／租金：未披露</p>`;
+
+    return `<dl class="facts m-only">${mobHtml}</dl><dl class="facts moved">${movedHtml}</dl><dl class="facts">${factHtml}</dl><p class="d-links">${links}</p><h4>房型及租金</h4>${rtHtml}`;
+  }
+
+  function dealBody(d, idx) {
+    const media = "";
+    const rid = `dd-${idx}`;
+    const num = (v) => (v === null || v === undefined ? "" : v);
+    const others = otherSources(d);
+    const e = estimate(d);
+    const km = keyMetric(d);
+    return `<tbody class="deal" id="deal-${esc(d.id || idx)}" data-status="${esc(statusOf(d))}" data-date="${esc(dealKey(d))}" data-price="${d.price_hkd_m ?? ""}" data-area="${num(mid(d, "gfa_sqft"))}" data-rooms="${num(mid(d, "rooms"))}" data-psf="${num(mid(d, "price_psf_hkd"))}" data-room="${num(mid(d, "price_per_room_hkd_m"))}" data-bed="${num(mid(d, "all_in_per_bed_hkd_m"))}" data-beds="${num(mid(d, "beds_after"))}" data-unreno="${num(mid(d, "price_per_bed_hkd_m"))}" data-est="${e ? e.mid : ""}" data-idx="${idx}">
+      <tr class="main">
+        <td class="c-dt">${dateLabel(d)}</td>
+        <td class="c-first">
+          <div class="c-top"><span class="c-date">${dateLabel(d)}</span></div>
+          <div class="a-name">${d.district ? `<span class="dist">${esc(d.district)}</span>` : ""}${esc(d.asset_zh || d.asset)}</div>
+          ${useTag(d)}
+          ${km ? `<div class="m-key">${km}</div>` : ""}
+        </td>
+        <td class="c-parties">${esc(d.buyer)}</td>
+        <td class="c-price num">${esc(shortPrice(d.price_label))}${media}</td>
+        <td class="c-rooms num">${roomsCell(d)}</td>
+        <td class="c-beds num">${bedsCell(d)}</td>
+        <td class="c-m c-psf num">${psfCell(d)}</td>
+        <td class="c-m c-room num">${roomCell(d)}</td>
+        <td class="c-m c-unreno num">${unrenoCell(d)}</td>
+        <td class="c-src"><span class="src-links">${link(d.source_url, esc(d.source))}${others.length ? ` <span class="src2">· ${link(others[0], "來源2", "")}${others.length > 1 ? `＋${others.length - 1}` : ""}</span>` : ""}</span><button type="button" class="more-link" aria-expanded="false" aria-controls="${rid}">詳情</button></td>
+      </tr>
+      <tr class="detail" id="${rid}" hidden><td colspan="10">${details(d)}</td></tr>
+    </tbody>`;
+  }
+
+  /* ---------- 統計：中位數＋範圍 ---------- */
+  const median = (a) => {
+    const s = [...a].sort((x, y) => x - y), k = s.length >> 1;
+    return s.length % 2 ? s[k] : (s[k - 1] + s[k]) / 2;
+  };
+  function statLine(label, vals, f, extraCls) {
+    if (!vals.length) return `<li class="${extraCls || ""}"><span class="s-l">${label}</span> <span class="muted">—（n=0）</span></li>`;
+    const few = vals.length < 5 ? ` <em class="few">樣本少，勿當估值</em>` : "";
+    return `<li class="${extraCls || ""}"><span class="s-l">${label}</span> 中位數 <b>${f(median(vals))}</b> <span class="s-r">（${f(Math.min(...vals))}–${f(Math.max(...vals))}，n=${vals.length}）</span>${few}</li>`;
+  }
+  // Default: all 已公布. Toggle adds 媒體報導.
+  const firmDeal = (d) => d.deal_status === "announced";
+  function renderSummary(shown, total, withMedia) {
+    const pool = shown.filter((d) => (withMedia ? d.deal_status === "announced" || d.deal_status === "media" : firmDeal(d)));
+    const vals = (arr, key) => arr.map((d) => mid(d, key)).filter((v) => v !== null);
+    const $psf = (v) => "$" + fmtNum(v, 0), $w = (v) => "$" + wan(v) + "萬";
+    const psfG = vals(pool.filter((d) => d.psf_basis === "GFA"), "price_psf_hkd");
+    const psfS = vals(pool.filter((d) => d.psf_basis === "saleable"), "price_psf_hkd");
+    const room = vals(pool, "price_per_room_hkd_m");
+    const bed = vals(pool, "all_in_per_bed_hkd_m");
+    const unreno = vals(pool, "price_per_bed_hkd_m");
+    const est = pool.map(estimate).filter(Boolean).map((e) => e.mid);
+    const lines = [
+      statLine("呎價（建築面積）", psfG, $psf),
+      psfS.length ? statLine("呎價（實用面積）", psfS, $psf) : "",
+      statLine("每房價", room, $w),
+    ].join("");
+    const side = [
+      statLine("每床價（未含翻新）", unreno, $w, "side"),
+    ].join("");
+    const estBlock = "";
+    const hint = !withMedia && shown.length && !pool.length ? `；篩選結果只有媒體報導，勾選右邊可計入` : "";
+    $("#sum-n").innerHTML = `篩選後 n=<b>${shown.length}</b>／${total} 宗 · 統計計入 <b>${pool.length}</b> 宗（${withMedia ? "已公布＋媒體報導" : "只計已公布"}${hint}）`;
+    $("#sum-main").innerHTML = lines;
+    $("#sum-side").innerHTML = side;
+    let estHost = document.getElementById("sum-est");
+    if (!estHost) {
+      estHost = document.createElement("ul");
+      estHost.id = "sum-est";
+      estHost.className = "sum-est";
+      $("#sum-side").insertAdjacentElement("afterend", estHost);
+    }
+    estHost.innerHTML = estBlock;
+  }
+
+  function renderDeals(data) {
+    const all = data.deals || [];
+    const table = $("table.deals");
+    table.querySelectorAll("tbody").forEach((t) => t.remove());
+    table.insertAdjacentHTML("beforeend", all.map(dealBody).join(""));
+
+    table.addEventListener("click", (e) => {
+      const b = e.target.closest(".more-link");
+      if (!b) return;
+      const row = document.getElementById(b.getAttribute("aria-controls"));
+      row.hidden = !row.hidden;
+      b.setAttribute("aria-expanded", String(!row.hidden));
+      b.textContent = row.hidden ? "詳情" : "收起";
+      b.closest("tbody").classList.toggle("open", !row.hidden);
+    });
+
+    // sorting (month-only dates sort as day 00, i.e. just after full dates of the same month when descending)
+    const state = { key: "date", dir: -1 };
+    function sortBy(key, dir) {
+      const bodies = [...table.querySelectorAll("tbody.deal")];
+      bodies.sort((a, b) => {
+        let va = a.dataset[key], vb = b.dataset[key];
+        if (key !== "date") {
+          va = va === "" ? null : Number(va);
+          vb = vb === "" ? null : Number(vb);
+          if (va === null && vb === null) return a.dataset.idx - b.dataset.idx;
+          if (va === null) return 1;
+          if (vb === null) return -1;
+          return (va - vb) * dir || a.dataset.idx - b.dataset.idx;
+        }
+        return (va < vb ? -1 : va > vb ? 1 : 0) * dir || a.dataset.idx - b.dataset.idx;
+      });
+      bodies.forEach((b) => table.appendChild(b));
+      table.querySelectorAll("th.sortable").forEach((th) =>
+        th.setAttribute("aria-sort", th.dataset.sort === key ? (dir < 0 ? "descending" : "ascending") : "none")
+      );
+      const sel = $("#f-sort");
+      if (sel) sel.value = `${key}:${dir}`;
+    }
+    const doSort = (key, dir) => { state.key = key; state.dir = dir; sortBy(key, dir); };
+    table.querySelectorAll("th.sortable button").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        const key = btn.parentElement.dataset.sort;
+        doSort(key, state.key === key ? -state.dir : -1);
+      })
+    );
+    $("#f-sort").addEventListener("change", (e) => {
+      const [k, dir] = e.target.value.split(":");
+      doSort(k, Number(dir));
+    });
+    sortBy("date", -1);
+
+    // ---- filters ----
+    const opts = (vals) => [...new Set(vals.filter(Boolean))];
+    const fill = (sel, values, counts) => {
+      sel.insertAdjacentHTML("beforeend", values.map((v) => `<option value="${esc(v)}">${esc(v)}${counts ? `（${counts[v]}）` : ""}</option>`).join(""));
+    };
+    const cnt = (arr) => arr.reduce((o, v) => ((o[v] = (o[v] || 0) + 1), o), {});
+    const regC = cnt(all.map(regionOf));
+    fill($("#f-region"), opts(all.map(regionOf)).sort((a, b) => regC[b] - regC[a] || a.localeCompare(b, "zh-HK")), regC);
+    fill($("#f-year"), opts(all.map(yearOf)).sort().reverse(), cnt(all.map(yearOf)));
+    const stC = cnt(all.map(statusOf));
+    $("#f-status").insertAdjacentHTML("beforeend", STATUS_ORDER.map((k) => `<option value="${k}">${STATUS[k].t}（${stC[k] || 0}）</option>`).join(""));
+    const useC = cnt(all.flatMap((d) => useParts(d.original_use)));
+    fill($("#f-use"), Object.keys(useC).sort((a, b) => useC[b] - useC[a] || a.localeCompare(b, "zh-HK")), useC);
+    $("#f-buyers").innerHTML = opts(all.map((d) => d.buyer)).map((b) => `<option value="${esc(b)}"></option>`).join("");
+
+    const norm = (v) => String(v || "").toLowerCase().replace(/\s+/g, "");
+    const F = () => ({
+      q: norm($("#f-q").value), region: $("#f-region").value, year: $("#f-year").value,
+      buyer: norm($("#f-buyer").value), status: $("#f-status").value, use: $("#f-use").value,
+      bed: $("#f-bed").value, media: $("#f-media").checked,
+    });
+    const hasBed = (d) => has(d.all_in_per_bed_hkd_m) || has(d.price_per_bed_hkd_m);
+    function apply() {
+      const f = F();
+      const shown = [];
+      table.querySelectorAll("tbody.deal").forEach((tb) => {
+        const d = all[Number(tb.dataset.idx)];
+        const hay = norm([d.asset_zh, d.asset, d.location, d.district, d.buyer, d.seller, d.original_use].join(" "));
+        const ok =
+          (!f.q || hay.includes(f.q)) &&
+          (!f.region || regionOf(d) === f.region) &&
+          (!f.year || yearOf(d) === f.year) &&
+          (!f.buyer || norm(d.buyer).includes(f.buyer)) &&
+          (!f.status || statusOf(d) === f.status) &&
+          (!f.use || useParts(d.original_use).includes(f.use)) &&
+          (!f.bed || (f.bed === "yes" ? hasBed(d) : !hasBed(d)));
+        tb.hidden = !ok;
+        if (ok) shown.push(d);
+      });
+      const active = [f.q, f.region, f.year, f.buyer, f.status, f.use, f.bed].filter(Boolean).length;
+      $("#f-active").textContent = active ? `（${active} 項）` : "";
+      $("#f-empty").hidden = shown.length > 0;
+      renderSummary(shown, all.length, f.media);
+    }
+    $("#filters").addEventListener("input", apply);
+    $("#filters").addEventListener("change", apply);
+    $("#f-media").addEventListener("change", apply);
+    $("#f-reset").addEventListener("click", () => {
+      ["#f-q", "#f-buyer"].forEach((s) => ($(s).value = ""));
+      ["#f-region", "#f-year", "#f-status", "#f-use", "#f-bed"].forEach((s) => ($(s).value = ""));
+      apply();
+    });
+    // Compact (closed) filter panel on phones, open on desktop.
+    if (window.matchMedia("(max-width: 720px)").matches) $("#filters").open = false;
+    apply();
+  }
+
+  function renderGaps(data) {
+    const gaps = data.gaps || [];
+    if (!gaps.length) { $("#gaps").hidden = true; return; }
+    $("#gaps").hidden = false;
+    $("#gaps-n").textContent = gaps.length;
+    $("#gaps-list").innerHTML = gaps.map((g) => `<li>${esc(g)}</li>`).join("");
+  }
+
+  try {
+    const [deals, news, watch, scen] = await Promise.all([
+      loadJSON("data/deals.json"),
+      loadJSON("data/news.json"),
+      loadJSON("data/watch.json"),
+      loadJSON("data/capex_scenarios.json").catch(() => null), // estimate column is optional
+    ]);
+    SCEN = scen;
+    $("#est-note").hidden = true;
+    DEAL_BY_ID = Object.fromEntries((deals.deals || []).filter((d) => d.id).map((d) => [d.id, d]));
+    renderWatch(watch);
+    const ref = news.updated || [deals.updated, news.updated, watch.updated].filter(Boolean).sort().pop();
+    const shownNews = renderNews(news, ref);
+    renderDeals(deals);
+    renderGaps(watch);
+
+    const list = deals.deals || [];
+    const byStatus = STATUS_ORDER.map((k) => [k, list.filter((d) => statusOf(d) === k).length]).filter(([, c]) => c);
+    $("#counts").textContent = `${list.length} 宗成交（${byStatus.map(([k, c]) => `${STATUS[k].t} ${c}`).join(" · ")}） · ${shownNews} 則近兩星期消息`;
+    const latest = [deals.updated, news.updated, watch.updated].filter(Boolean).sort().pop();
+    const t = $("#last-updated");
+    t.textContent = latest ? fmtTs(latest) : "—";
+    if (latest) t.setAttribute("datetime", latest);
+    document.documentElement.dataset.ready = "1";
+  } catch (err) {
+    console.error(err);
+    document.documentElement.dataset.ready = "error";
+    $("#watch-list").innerHTML = `<li class="muted">載入失敗：${esc(err.message)}。請用本地伺服器開啟（見 README）。</li>`;
+  }
+})();

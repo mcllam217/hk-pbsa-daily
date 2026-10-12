@@ -1,6 +1,6 @@
 {
   "as_of": "2026-10-06",
-  "basis": "Arcadis QCCR Q1 2026 學生宿舍單價 × 改裝係數推算，估算非成交數",
+  "basis": "Arcadis QCCR Q1 2026 學生宿舍單價 × 改裝系數推算，估算非成交數",
   "excludes": "不含補地價、融資、OS&E、開業前費用",
   "unit": "HK$ 每床（低／中／高）",
   "scenarios": [
