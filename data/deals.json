@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-06T15:20:00+08:00",
+  "updated": "2026-10-12T17:40:00+08:00",
   "deals": [
     {
       "id": "deal-202609-yanwoo",
@@ -46,6 +46,10 @@
         "price_psf_hkd": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "not_open",
+        "note": "剛收購住宅，未見改建完成或招租。"
       }
     },
     {
@@ -87,6 +91,10 @@
         "price_psf_hkd": "source",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "not_open",
+        "note": "剛收購酒店，未見學生公寓招租。"
       }
     },
     {
@@ -134,7 +142,11 @@
         "rooms": "source",
         "gfa_sqft": "source"
       },
-      "date_note": "律師行公布日，與本頁消息同日；成交月份仍作2026-09"
+      "date_note": "律師行公布日，與本頁消息同日；成交月份仍作2026-09",
+      "rent_roll": {
+        "status": "not_open",
+        "note": "剛公布收購，未見改建後招租。"
+      }
     },
     {
       "id": "deal-202609-pemberton",
@@ -174,6 +186,10 @@
       "metric_basis": {
         "price_psf_hkd": "calc",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "not_open",
+        "note": "剛收購寫字樓，未見改建後招租。"
       }
     },
     {
@@ -227,7 +243,16 @@
         "https://hkcd.com/content/2021-06/01/content_1271833.html"
       ],
       "project_url": null,
-      "room_types": [],
+      "room_types": [
+        {
+          "name": "雙人房（亦有一人房，未列每款間數）",
+          "rent_hkd_month": 6800,
+          "rent_basis": "未註明每房或每床",
+          "rent_note": "招租價由6,800起，已包水電同網絡。不可直接當每床收入。",
+          "source_url": "https://www.am730.com.hk/article/571337",
+          "as_of": "2025-06-18"
+        }
+      ],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
         "price_psf_hkd": "source",
@@ -236,6 +261,15 @@
         "gross_yield_pct": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "operating",
+        "note": "近200個房間，本表床數205，所以大部分應是單人。雙人房6,800起未註明是每房還是每床，而且是2025年6月招租價。租金據報已包水電同網絡。",
+        "rooms": 200,
+        "beds": 205,
+        "occupancy_pct": 100,
+        "as_of": "2025-06-18",
+        "source_url": "https://www.am730.com.hk/article/571337"
       }
     },
     {
@@ -288,6 +322,10 @@
         "guaranteed_yield_pct": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "not_open",
+        "note": "未見改建完成或學生宿位招租。"
       }
     },
     {
@@ -327,12 +365,30 @@
       "source_url": "https://www.bonard.com/insights/the-quay-student-accommodation-sells-for-hkd-144-million-in-hong-kong",
       "other_sources": [],
       "project_url": null,
-      "room_types": [],
+      "room_types": [
+        {
+          "name": "單人房（標準層，第三方描述）",
+          "size_label": "約133–153平方呎（第三方，未註明實用或建築）",
+          "beds_per_room": 1,
+          "rent_label": "未有官網現價；第三方由約11,800起",
+          "rent_basis": "每房",
+          "rent_note": "官網單位表顯示售罄。11,800不是官網標價，DCF不要當已實現租金。",
+          "source_url": "https://tc.awehome.com/cn/hongkong/kw-weeklyrent-1089219",
+          "as_of": "2025-06-27"
+        }
+      ],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
         "price_psf_hkd": "source",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "operating",
+        "note": "營運商放盤頁顯示何文田 The Quay 售罄，未列現時叫價。第三方寫標準層約133至153平方呎單人房，月租由約11,800起，未核對到官網房型表。",
+        "occupancy_pct": 100,
+        "as_of": "2026-10-12",
+        "source_url": "https://herein.com.hk/rent/?typ=1"
       }
     },
     {
@@ -374,6 +430,10 @@
         "price_psf_hkd": "calc",
         "price_per_bed_hkd_m": "calc",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "not_open",
+        "note": "仍是改建目標，未見按房型招租。"
       }
     },
     {
@@ -413,6 +473,10 @@
         "price_psf_hkd": "source",
         "gross_yield_pct": "calc",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "not_open",
+        "note": "未見改建後公開出租。"
       }
     },
     {
@@ -454,6 +518,10 @@
         "price_psf_hkd": "source",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "not_open",
+        "note": "未見改建後公開出租。"
       }
     },
     {
@@ -509,7 +577,34 @@
         "https://house.stockstar.com/CP2026033100029882.shtml"
       ],
       "project_url": "https://campusonecommunities.com/hk/",
-      "room_types": [],
+      "room_types": [
+        {
+          "name": "三人房",
+          "beds_per_room": 3,
+          "rent_hkd_month": 6800,
+          "rent_basis": "每床起價",
+          "rent_note": "包水電、WiFi及設施。2026年6月1日招租。",
+          "source_url": "https://hkcd.com/content_app/2026-06/01/content_8757747.html",
+          "as_of": "2026-06-01"
+        },
+        {
+          "name": "四人房",
+          "beds_per_room": 4,
+          "rent_hkd_month": 6450,
+          "rent_basis": "每床起價",
+          "rent_note": "包水電、WiFi及設施。2026年6月1日招租。",
+          "source_url": "https://hkcd.com/content_app/2026-06/01/content_8757747.html",
+          "as_of": "2026-06-01"
+        },
+        {
+          "name": "三人房／四人房（較近的綜述）",
+          "rent_label": "每床約6,100–6,400起",
+          "rent_basis": "每床",
+          "rent_note": "觀點網綜述，不是逐間租約。第1期約700床，出租率逾90%。",
+          "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
+          "as_of": "2026-10-07"
+        }
+      ],
       "metric_basis": {
         "price_per_room_hkd_m": "source",
         "price_psf_hkd": "source",
@@ -520,7 +615,15 @@
         "rooms": "source",
         "gfa_sqft": "source"
       },
-      "ref_label": "富豪東方／CampusOne"
+      "ref_label": "富豪東方／CampusOne",
+      "rent_roll": {
+        "status": "leasing",
+        "note": "第1期約700床，2026年10月7日報道出租率已逾90%。全項目其後約1,500床以上。主打三人房同四人房。6月招租價高過10月綜述，DCF應列明用哪一個日期。",
+        "beds": 700,
+        "occupancy_pct": 90,
+        "as_of": "2026-10-07",
+        "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
+      }
     },
     {
       "id": "deal-202603-cozi",
@@ -594,6 +697,13 @@
         "beds_per_room": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "leasing",
+        "note": "約900床，單人套房同雙人套房共6款，163–260平方呎。未公布每款幾多間。單人按房計，雙人按床計。",
+        "beds": 900,
+        "as_of": "2026-05-11",
+        "source_url": "https://www.am730.com.hk/article/1029934"
       }
     },
     {
@@ -633,6 +743,10 @@
         "price_psf_hkd": "source",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "not_open",
+        "note": "未見改建後公開出租。"
       }
     },
     {
@@ -693,6 +807,14 @@
         "months_deal_to_open": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "operating",
+        "note": "已營運。官網有房型名稱，未列面積同租金，所以未有可入DCF的單價。",
+        "beds": 73,
+        "occupancy_pct": 100,
+        "as_of": "2026-10-06",
+        "source_url": "https://www.cmplusu.com.hk/"
       }
     },
     {
@@ -736,8 +858,6 @@
       "opening_status": "target",
       "months_deal_to_open": 13,
       "completion_year": 1998,
-      "rent_per_bed_min_hkd": 8000,
-      "rent_per_bed_max_hkd": 8000,
       "metrics": "94間客房（香港商報）／96間（Mingtiandi、JSM）；總樓面36,660平方呎（JSM 律師行）；擬改170–200床；改建投資HK$6,000萬（大公報）至HK$6,500萬（Mingtiandi）；較年初叫價4億低約16%；預計每床月租約HK$8,000起；報道指即「一步居38」：香港01（2026-06-01）稱一步居38前身為YWCA、地址般咸道38C、125個單位、155床（待物業名完全核對）；中原投資公布一步居38提供155床、西半山、步行約10分鐘到港大、已全數租出（信報 2026-08-22、am730 2026-08-23）；房／床並列：94–96房（收購時）／125個單位（香港01）／155床（營運）／170–200床（收購時計劃）；2026年6月公布之月租屬招租價（單人房獨立衛生間16,245元、同用衛生間13,585元，香港01 2026-06-01，單一來源），非8月成交租金",
       "type": "服務式住宅改學生公寓",
       "status": "confirmed",
@@ -754,12 +874,31 @@
       "project_url": "https://campusonecommunities.com/hk/",
       "room_types": [
         {
-          "name": "床位（房型未公布）",
-          "rent_hkd_month": 8000,
+          "name": "單人房（獨立洗手間）",
+          "beds_per_room": 1,
+          "rent_hkd_month": 16245,
+          "rent_basis": "每床起價",
+          "rent_note": "包水電、WiFi及設施使用費。同篇另寫單人床位約13,500起，口徑衝突，正式報價以16,245這行較具體。",
+          "source_url": "https://hkcd.com/content_app/2026-06/01/content_8757747.html",
+          "as_of": "2026-06-01"
+        },
+        {
+          "name": "單人房（在租綜述）",
+          "beds_per_room": 1,
+          "rent_label": "約17,000–18,000／房",
+          "rent_basis": "每房",
+          "rent_note": "觀點網。另有單宗120呎全包16,720（尺租約139）的市場報道，是個別成交不是房型表。",
+          "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
+          "as_of": "2026-10-07"
+        },
+        {
+          "name": "雙人房",
+          "beds_per_room": 2,
+          "rent_label": "每床約11,300–14,000",
           "rent_basis": "每床",
-          "rent_note": "收購時預計月租約HK$8,000起（計劃價，非現行租金）",
-          "source_url": "https://www.mingtiandi.com/real-estate/finance/centaline-buys-hong-kongs-bonham-residence-for-student-housing/",
-          "as_of": "2026-10-06"
+          "rent_note": "觀點網綜述，未分豪華或露台。未公布雙人房幾多間。",
+          "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
+          "as_of": "2026-10-07"
         }
       ],
       "metric_basis": {
@@ -772,7 +911,16 @@
         "rooms": "source",
         "gfa_sqft": "source"
       },
-      "ref_label": "一步居38（般咸軒）"
+      "ref_label": "一步居38（般咸軒）",
+      "rent_roll": {
+        "status": "operating",
+        "note": "125間、155床，單人房同雙人房。新學年前已滿租。收購時「約8,000起」是計劃價，不要再用。6月同10月的叫價範圍唔一致，DCF要註明用哪條。",
+        "rooms": 125,
+        "beds": 155,
+        "occupancy_pct": 100,
+        "as_of": "2026-10-07",
+        "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
+      }
     },
     {
       "id": "deal-202508-kamlam",
@@ -813,6 +961,10 @@
         "price_psf_hkd": "source",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "not_open",
+        "note": "未見改建後公開出租。"
       }
     },
     {
@@ -858,55 +1010,87 @@
       "project_url": "https://sunnyhouse.hk/en/home/",
       "room_types": [
         {
-          "name": "Single Room S1",
+          "name": "單人房 S1",
+          "beds_per_room": 1,
           "size_sqft": 134,
           "size_sqft_max": 149,
-          "size_basis": "實用",
-          "rent_note": "租金未披露",
-          "source_url": "https://sunnyhouse.hk/en/shmk/room-types/",
-          "as_of": "2026-10-06"
+          "size_basis": "官網^，未定義實用或建築；高架床加沙發床",
+          "rent_note": "租金官網未列",
+          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
+          "as_of": "2026-10-12"
         },
         {
-          "name": "Single Room S2",
+          "name": "單人房 S2",
+          "beds_per_room": 1,
           "size_sqft": 155,
-          "size_basis": "實用",
-          "rent_note": "由155呎起；租金未披露",
-          "source_url": "https://sunnyhouse.hk/en/shmk/room-types/",
-          "as_of": "2026-10-06"
+          "size_basis": "官網^，由155呎起；高架床",
+          "rent_note": "租金官網未列",
+          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
+          "as_of": "2026-10-12"
         },
         {
-          "name": "Single Room S3",
+          "name": "單人房 S3",
+          "beds_per_room": 1,
           "size_sqft": 124,
           "size_sqft_max": 156,
-          "size_basis": "實用",
-          "rent_note": "租金未披露",
-          "source_url": "https://sunnyhouse.hk/en/shmk/room-types/",
-          "as_of": "2026-10-06"
+          "size_basis": "官網^；平床",
+          "rent_note": "租金官網未列",
+          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
+          "as_of": "2026-10-12"
         },
         {
-          "name": "Single Room S4",
+          "name": "單人房 S4",
+          "beds_per_room": 1,
           "size_sqft": 166,
-          "size_basis": "實用",
-          "rent_note": "租金未披露",
-          "source_url": "https://sunnyhouse.hk/en/shmk/room-types/",
-          "as_of": "2026-10-06"
+          "size_basis": "官網^；子母床",
+          "rent_note": "租金官網未列",
+          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
+          "as_of": "2026-10-12"
         },
         {
-          "name": "Single Room S5",
+          "name": "單人房 S5",
+          "beds_per_room": 1,
           "size_sqft": 185,
-          "size_basis": "實用",
-          "rent_note": "租金未披露",
-          "source_url": "https://sunnyhouse.hk/en/shmk/room-types/",
-          "as_of": "2026-10-06"
+          "size_basis": "官網^；平床加沙發床",
+          "rent_note": "租金官網未列",
+          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
+          "as_of": "2026-10-12"
         },
         {
-          "name": "Twin Room D1/D2/D3",
+          "name": "雙人房 D1",
+          "beds_per_room": 2,
           "size_sqft": 186,
-          "size_sqft_max": 230,
-          "size_basis": "實用",
-          "rent_note": "租金未披露",
-          "source_url": "https://sunnyhouse.hk/en/shmk/room-types/",
-          "as_of": "2026-10-06"
+          "size_basis": "官網^；雙層床一張",
+          "rent_note": "租金官網未列",
+          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
+          "as_of": "2026-10-12"
+        },
+        {
+          "name": "雙人房 D2",
+          "beds_per_room": 2,
+          "size_sqft": 198,
+          "size_basis": "官網^；雙層床一張",
+          "rent_note": "租金官網未列",
+          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
+          "as_of": "2026-10-12"
+        },
+        {
+          "name": "雙人房 D3",
+          "beds_per_room": 2,
+          "size_sqft": 230,
+          "size_basis": "官網^；雙層床一張",
+          "rent_note": "租金官網未列",
+          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
+          "as_of": "2026-10-12"
+        },
+        {
+          "name": "單人房叫價（媒體，非官網）",
+          "beds_per_room": 1,
+          "rent_hkd_month": 14500,
+          "rent_basis": "每房起價",
+          "rent_note": "觀點網：旺角主打單人房，約14,500起。未分S1至S5，亦未說是否包水電。",
+          "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
+          "as_of": "2026-10-07"
         }
       ],
       "metric_basis": {
@@ -916,6 +1100,13 @@
         "beds_per_room": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "operating",
+        "note": "官網FAQ：199個單位，只有單人同雙人，面積約134–230平方呎。單位數不等於床數。單人房叫價見媒體，官網仍未標租金。啟德加旺角合計出租率據報97%，不是旺角單獨數字。",
+        "rooms": 199,
+        "as_of": "2026-10-07",
+        "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
       }
     },
     {
@@ -964,6 +1155,10 @@
         "beds_per_room": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "not_open",
+        "note": "未見按房型公開租金。"
       }
     },
     {
@@ -1061,6 +1256,14 @@
           "rent_note": "中原地產學生居舍刊登：每位月租起價",
           "source_url": "https://hk.centanet.com/student-accommodation/room_191172",
           "as_of": "2026-10-06"
+        },
+        {
+          "name": "在租水平（媒體綜述）",
+          "rent_label": "單人房約18,000–20,000；雙人床約9,100；三人床約6,300起",
+          "rent_basis": "單人按房，多人按床",
+          "rent_note": "不是逐張租約，亦不是平均租金。新學年前已滿租。",
+          "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
+          "as_of": "2026-10-07"
         }
       ],
       "metric_basis": {
@@ -1073,7 +1276,16 @@
         "rooms": "source",
         "gfa_sqft": "source"
       },
-      "ref_label": "一步居117"
+      "ref_label": "一步居117",
+      "rent_roll": {
+        "status": "operating",
+        "note": "67間房、121床。二人房約佔八成，但官網未列每款幾多間，所以未有完整租務表，只能用起價同意最近的綜述做區間。",
+        "rooms": 67,
+        "beds": 121,
+        "occupancy_pct": 100,
+        "as_of": "2026-10-07",
+        "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
+      }
     },
     {
       "id": "deal-202406-ease-lck",
@@ -1114,6 +1326,10 @@
         "price_psf_hkd": "source",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "not_open",
+        "note": "未見按房型公開租金。"
       }
     },
     {
@@ -1164,12 +1380,44 @@
       "project_url": "https://www.hkmu.edu.hk/mu88/",
       "room_types": [
         {
-          "name": "單人房（2024/25，改裝前）",
-          "rent_hkd_month": 112000,
-          "rent_basis": "每人每年",
-          "rent_note": "年費HK$112,000，包水電及HK$8,000按金",
-          "source_url": "https://www.mingtiandi.com/real-estate/finance/university-buys-hong-kong-hotel-for-128m-as-mainland-enrollment-surges/",
-          "as_of": "2024-07"
+          "name": "單人房",
+          "beds_per_room": 1,
+          "size_label": "實用約9–11平方米",
+          "rent_label": "兩學期126,000；暑假25,300；全年151,300",
+          "rent_basis": "每床宿費",
+          "rent_note": "秋季+春季為2026-08-21至2027-05-20。非牟利，不是私人項目可收租金。",
+          "source_url": "https://www.hkmu.edu.hk/sao/mu88/facilities-and-living/student-rooms/",
+          "as_of": "2026-08-25"
+        },
+        {
+          "name": "雙人房（A座）",
+          "beds_per_room": 2,
+          "size_label": "實用約14–16平方米",
+          "rent_label": "兩學期77,000；暑假14,600；全年91,600",
+          "rent_basis": "每床宿費",
+          "rent_note": "官網未寫這筆係每床定每房。對照香港01「二人房月租7,700」，較似每位。",
+          "source_url": "https://www.hkmu.edu.hk/sao/mu88/facilities-and-living/student-rooms/",
+          "as_of": "2026-08-25"
+        },
+        {
+          "name": "雙人房（B座）",
+          "beds_per_room": 2,
+          "size_label": "實用約10–12平方米",
+          "rent_label": "兩學期72,000；暑假13,700；全年85,700",
+          "rent_basis": "每床宿費",
+          "rent_note": "香港01對應月租約7,200。",
+          "source_url": "https://www.hkmu.edu.hk/sao/mu88/facilities-and-living/student-rooms/",
+          "as_of": "2026-08-25"
+        },
+        {
+          "name": "三人房",
+          "beds_per_room": 3,
+          "size_label": "實用約14–16平方米",
+          "rent_label": "兩學期67,000；暑假12,500；全年79,500",
+          "rent_basis": "每床宿費",
+          "rent_note": "香港01對應月租約6,700。未公布每款幾多間。",
+          "source_url": "https://www.hkmu.edu.hk/sao/mu88/facilities-and-living/student-rooms/",
+          "as_of": "2026-08-25"
         }
       ],
       "metric_basis": {
@@ -1180,6 +1428,15 @@
         "months_deal_to_open": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "operating",
+        "note": "大學非牟利宿舍。文匯報：255間房、約430床，以雙人房為主；明報引政府網站則寫448個宿位，床數未統一。約八成已出租。宿費是學期價，不要除一個未核實的月數當成市場月租。香港01曾把單人房寫成月租12,600。",
+        "rooms": 255,
+        "beds": 430,
+        "occupancy_pct": 80,
+        "as_of": "2026-08-20",
+        "source_url": "https://www.wenweipo.com/a/202608/20/AP6a8685ace4b0c1e500258a75.html"
       }
     },
     {
@@ -1266,6 +1523,15 @@
           "rent_note": "由480呎起；租金未披露",
           "source_url": "https://sunnyhouse.hk/en/shkt/shkt-rooms/",
           "as_of": "2026-10-06"
+        },
+        {
+          "name": "雙人房叫價（媒體，非官網）",
+          "beds_per_room": 2,
+          "rent_hkd_month": 8500,
+          "rent_basis": "未註明每房或每床",
+          "rent_note": "觀點網寫「月租約8,500起」，未說明是每床。單人房當時已滿，沒有單人叫價。",
+          "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
+          "as_of": "2026-10-07"
         }
       ],
       "metric_basis": {
@@ -1276,6 +1542,14 @@
         "beds_per_room": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "operating",
+        "note": "官網FAQ：720個單位，單人至四人房，面積約230–480平方呎。單位數不等於床數（成交表床數1,400–1,450）。2026年8月10日新聞稿：啟德單人房已租滿。10月7日：只剩小部分雙人房，約8,500起。啟德加旺角合計出租率97%。",
+        "rooms": 720,
+        "occupancy_pct": 97,
+        "as_of": "2026-10-07",
+        "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
       }
     },
     {
@@ -1318,6 +1592,11 @@
         "price_psf_hkd": "source",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "operating",
+        "note": "Weave 已營運。今次未找到西營盤 Grand City 按房型的公開叫價，所以未入租金。",
+        "as_of": "2026-10-12"
       }
     },
     {
@@ -1354,13 +1633,42 @@
         "https://www.pgim.com/content/dam/pgim/us/en/pgim-real-estate/active/documents/portfolios/PGIM-Real-Estate-expands-rental-housing-portfolio-in-Asia-Pacific.pdf"
       ],
       "project_url": "https://www.weave-living.com/",
-      "room_types": [],
+      "room_types": [
+        {
+          "name": "Studio Single",
+          "beds_per_room": 1,
+          "size_sqft": 150,
+          "size_basis": "業主盤實用",
+          "rent_hkd_month": 15500,
+          "rent_basis": "每房",
+          "rent_note": "一人入住。包水電、管理費、WiFi、每週清潔。12個月或以上。官網同日附近亦見由15,500起（原價18,000）。",
+          "source_url": "https://www.28hse.com/en/rent/residential/property-2677669",
+          "as_of": "2026-09-01"
+        },
+        {
+          "name": "Studio Double",
+          "beds_per_room": 2,
+          "size_sqft": 160,
+          "size_basis": "官網約160平方呎／15平方米",
+          "rent_hkd_month": 16920,
+          "rent_basis": "每房（兩人合共）",
+          "rent_note": "不要拆成每床除非租約寫明分租。業主盤寫16,920起、二人入住。",
+          "source_url": "https://www.weave-living.com/tc/hong-kong/weave-studios-kowloon-west/kowloon-west-studio-double",
+          "as_of": "2026-10-12"
+        }
+      ],
       "metric_basis": {
         "price_per_room_hkd_m": "source",
         "price_psf_hkd": "calc",
         "months_deal_to_open": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "operating",
+        "note": "共居叫價，不是學年學生宿位。全房月租，雙人房是兩人共住一間的總租金，不要再乘二，亦不要當成每床。業主盤2026年9月1日。",
+        "as_of": "2026-09-01",
+        "source_url": "https://www.28hse.com/en/rent/residential/property-2677669"
       }
     },
     {
@@ -1404,6 +1712,10 @@
         "price_psf_hkd": "source",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "not_open",
+        "note": "其後作共居，今次未找到按房型公開租金。"
       }
     },
     {
@@ -1454,38 +1766,91 @@
       "project_url": null,
       "room_types": [
         {
-          "name": "單人／雙人房（2023年）",
-          "rent_hkd_month": 7000,
-          "rent_hkd_month_max": 12500,
-          "rent_basis": "每月（房型未分）",
-          "rent_note": "Knight Frank：2023年月租範圍",
-          "source_url": "https://content.knightfrank.com/research/2947/documents/en/investing-in-student-living-opportunities-in-hotel-conversions-11781.pdf",
-          "as_of": "2024-12"
+          "name": "標準雙人房 D5",
+          "size_label": "約15.4平方米／166平方呎",
+          "rent_hkd_month": 9800,
+          "rent_basis": "官網標價，未註明每床或每房",
+          "rent_note": "港幣9,800起。",
+          "source_url": "https://ydotx.com/zh/locations/y83/",
+          "as_of": "2026-10-12"
         },
         {
-          "name": "單人／雙人房（2024年）",
+          "name": "標準雙人房 D1",
+          "size_label": "約15.7平方米／169平方呎",
+          "rent_hkd_month": 10000,
+          "rent_basis": "官網標價，未註明每床或每房",
+          "rent_note": "港幣10,000起。",
+          "source_url": "https://ydotx.com/zh/locations/y83/",
+          "as_of": "2026-10-12"
+        },
+        {
+          "name": "標準雙人房 D4",
+          "size_label": "約18.4平方米／198平方呎",
+          "rent_hkd_month": 10000,
+          "rent_basis": "官網標價，未註明每床或每房",
+          "source_url": "https://ydotx.com/zh/locations/y83/",
+          "as_of": "2026-10-12"
+        },
+        {
+          "name": "標準雙人房 D6",
+          "size_label": "約16.3平方米／176平方呎",
+          "rent_hkd_month": 10000,
+          "rent_basis": "官網標價，未註明每床或每房",
+          "source_url": "https://ydotx.com/zh/locations/y83/",
+          "as_of": "2026-10-12"
+        },
+        {
+          "name": "標準雙人房 D2",
+          "size_label": "約15.2平方米／163平方呎",
+          "rent_hkd_month": 10200,
+          "rent_basis": "官網標價，未註明每床或每房",
+          "source_url": "https://ydotx.com/zh/locations/y83/",
+          "as_of": "2026-10-12"
+        },
+        {
+          "name": "標準雙人房 D3",
+          "size_label": "約15.6平方米／167平方呎",
+          "rent_hkd_month": 10200,
+          "rent_basis": "官網標價，未註明每床或每房",
+          "source_url": "https://ydotx.com/zh/locations/y83/",
+          "as_of": "2026-10-12"
+        },
+        {
+          "name": "標準單人房 S1",
+          "beds_per_room": 1,
+          "size_label": "約13.6平方米／146平方呎",
+          "rent_hkd_month": 15000,
+          "rent_basis": "官網標價，較似每房",
+          "rent_note": "港幣15,000起。",
+          "source_url": "https://ydotx.com/zh/locations/y83/",
+          "as_of": "2026-10-12"
+        },
+        {
+          "name": "豪華單人房 S2",
+          "beds_per_room": 1,
+          "size_label": "約14.4平方米／155平方呎",
+          "rent_hkd_month": 16200,
+          "rent_basis": "官網標價，較似每房",
+          "rent_note": "港幣16,200起。",
+          "source_url": "https://ydotx.com/zh/locations/y83/",
+          "as_of": "2026-10-12"
+        },
+        {
+          "name": "香港01口徑",
+          "rent_label": "單人房約13,200；雙人床約8,100",
+          "rent_basis": "單人按房，雙人按床",
+          "rent_note": "同官網標價範圍不同，兩條都保留，不要取平均。",
+          "source_url": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D",
+          "as_of": "2026-06"
+        },
+        {
+          "name": "Knight Frank 2024年範圍",
           "rent_hkd_month": 8300,
           "rent_hkd_month_max": 14800,
-          "rent_basis": "每月（房型未分）",
-          "rent_note": "Knight Frank：2024年月租範圍",
+          "rent_basis": "每月，房型未分",
+          "rent_note": "歷史研究範圍，不是現時房型表。",
           "source_url": "https://content.knightfrank.com/research/2947/documents/en/investing-in-student-living-opportunities-in-hotel-conversions-11781.pdf",
           "as_of": "2024-12"
-        },
-        {
-          "name": "單人房",
-          "rent_hkd_month": 13200,
-          "rent_basis": "每房（單人）",
-          "rent_note": "香港01：月租起價",
-          "source_url": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D",
-          "as_of": "2026-06"
-        },
-        {
-          "name": "雙人房",
-          "rent_hkd_month": 8100,
-          "rent_basis": "每床",
-          "rent_note": "香港01：以每張床位計約",
-          "source_url": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D",
-          "as_of": "2026-06"
         }
       ],
       "metric_basis": {
@@ -1495,6 +1860,14 @@
         "beds_per_room": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "operating",
+        "note": "官網可住約600人，未列每款幾多間。官網標價未寫明每床定每房；2026年6月香港01寫單人房約13,200、雙人床約8,100，同官網「10,000+／15,000+」對唔齊。DCF先當叫價區間，不要取中間數。",
+        "beds": 600,
+        "occupancy_pct": 100,
+        "as_of": "2026-10-12",
+        "source_url": "https://ydotx.com/zh/locations/y83/"
       }
     },
     {
@@ -1567,6 +1940,12 @@
         "price_psf_hkd": "source",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "operating",
+        "note": "共居，租金按每30晚計，不是學年宿位。要同學生宿舍比較，先確認租期同是否包水電。",
+        "as_of": "2026-10-06",
+        "source_url": "https://www.dash.co/en/hong-kong/dash-living-on-prat"
       }
     },
     {
@@ -1604,13 +1983,41 @@
         "https://en.prnasia.com/releases/apac/weave-living-grows-hong-kong-island-footprint-with-new-central-western-district-property-360968.shtml"
       ],
       "project_url": "https://www.weave-living.com/",
-      "room_types": [],
+      "room_types": [
+        {
+          "name": "Studio Single",
+          "beds_per_room": 1,
+          "size_sqft": 118,
+          "size_basis": "業主盤其中一間的實用面積，不是全項目",
+          "rent_hkd_month": 15200,
+          "rent_basis": "每房起價",
+          "rent_note": "一人入住。包水電、管理費、WiFi、每週清潔。三個月租期的放盤條件，短過學年。",
+          "source_url": "https://www.28hse.com/rent/residential/property-2092829",
+          "as_of": "2026-09-28"
+        },
+        {
+          "name": "Studio Double",
+          "beds_per_room": 2,
+          "rent_hkd_month": 16340,
+          "rent_basis": "每房起價（兩人合共）",
+          "rent_note": "二人入住的全房租金，不要再乘二。",
+          "source_url": "https://www.28hse.com/rent/residential/property-2092829",
+          "as_of": "2026-09-28"
+        }
+      ],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
         "price_psf_hkd": "calc",
         "months_deal_to_open": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
+      },
+      "rent_roll": {
+        "status": "operating",
+        "note": "共居叫價。官網相關卡片寫99個單位、約118–243平方呎。業主盤單人房由15,200（例：118呎），雙人房由16,340，是全房月租。",
+        "rooms": 99,
+        "as_of": "2026-09-28",
+        "source_url": "https://www.28hse.com/rent/residential/property-2092829"
       }
     }
   ]

@@ -173,12 +173,32 @@
   }
 
   function sizeTxt(r) {
+    if (r.size_label) return esc(r.size_label);
     if (r.size_sqft === undefined) return "未披露";
     return `${range(r.size_sqft, r.size_sqft_max)} 平方呎${r.size_basis ? `（${esc(r.size_basis)}）` : ""}`;
   }
   function rentTxt(r) {
+    if (r.rent_label) return esc(r.rent_label);
     if (r.rent_hkd_month === undefined) return "未披露";
     return `HK$${range(r.rent_hkd_month, r.rent_hkd_month_max, n0)}${r.rent_basis ? `（${esc(r.rent_basis)}）` : ""}`;
+  }
+  function countTxt(r) {
+    const bits = [];
+    if (has(r.rooms)) bits.push(`${esc(r.rooms)} 間`);
+    if (has(r.beds)) bits.push(`${esc(r.beds)} 床`);
+    if (has(r.beds_per_room)) bits.push(`每間 ${esc(r.beds_per_room)} 床`);
+    return bits.join(" · ") || "未披露";
+  }
+  const RENT_ST = { operating: "已營運", leasing: "招租中", not_open: "未營運" };
+  function rentRollHtml(d) {
+    const r = d.rent_roll;
+    if (!r) return `<p class="rent-roll muted">出租：未有公開的改建後租金，未入 DCF。</p>`;
+    const bits = [`<b>${esc(RENT_ST[r.status] || r.status || "未分類")}</b>`];
+    if (has(r.rooms) || has(r.beds)) bits.push([has(r.rooms) ? `${esc(r.rooms)} 間` : "", has(r.beds) ? `${esc(r.beds)} 床` : ""].filter(Boolean).join("／"));
+    if (has(r.occupancy_pct)) bits.push(`出租率 ${esc(r.occupancy_pct)}%`);
+    if (r.as_of) bits.push(esc(r.as_of));
+    const src = r.source_url ? ` ${link(r.source_url, "出租來源")}` : "";
+    return `<p class="rent-roll">${bits.join(" · ")}${src}</p>${r.note ? `<p class="rent-roll muted">${esc(r.note)}</p>` : ""}<p class="rent-roll muted">DCF：多人房用每床月租 × 床數；單人房用每房月租 × 間數。起價不是平均租金。未營運的叫價不要當成已實現收入。</p>`;
   }
 
   function openingTxt(d) {
@@ -385,12 +405,12 @@
 
     const rts = d.room_types || [];
     const rtHtml = rts.length
-      ? `<div class="rt-wrap"><table class="rt"><thead><tr><th>房型</th><th>面積</th><th>月租</th><th>備註</th><th>資料日期</th><th>來源</th></tr></thead><tbody>${rts
-          .map((r) => `<tr><td>${esc(r.name)}</td><td>${sizeTxt(r)}</td><td>${rentTxt(r)}</td><td>${esc(r.rent_note || "")}</td><td>${esc(r.as_of || "")}</td><td>${r.source_url ? link(r.source_url, "連結") : "—"}</td></tr>`)
+      ? `<div class="rt-wrap"><table class="rt"><thead><tr><th>房型</th><th>間／床</th><th>面積</th><th>月租</th><th>備註</th><th>資料日期</th><th>來源</th></tr></thead><tbody>${rts
+          .map((r) => `<tr><td>${esc(r.name)}</td><td>${countTxt(r)}</td><td>${sizeTxt(r)}</td><td>${rentTxt(r)}</td><td>${esc(r.rent_note || "")}</td><td>${esc(r.as_of || "")}</td><td>${r.source_url ? link(r.source_url, "連結") : "—"}</td></tr>`)
           .join("")}</tbody></table></div>`
-      : `<p class="muted small">房型／租金：未披露</p>`;
+      : `<p class="muted small">未有按房型公開的面積或租金。</p>`;
 
-    return `<dl class="facts m-only">${mobHtml}</dl><dl class="facts moved">${movedHtml}</dl><dl class="facts">${factHtml}</dl><p class="d-links">${links}</p><h4>房型及租金</h4>${rtHtml}`;
+    return `<dl class="facts m-only">${mobHtml}</dl><dl class="facts moved">${movedHtml}</dl><dl class="facts">${factHtml}</dl><p class="d-links">${links}</p><h4>改建後出租（做 DCF）</h4>${rentRollHtml(d)}${rtHtml}`;
   }
 
   function dealBody(d, idx) {

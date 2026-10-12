@@ -377,3 +377,5 @@ table.model .s-r { display: block; color: var(--muted); font-size: 0.72rem; font
 table.model b { font-variant-numeric: tabular-nums; }
 tr.model-names td { color: var(--muted); font-size: 0.75rem; padding-top: 0; border-top: 0; }
 @media (max-width: 800px) { .buckets { grid-template-columns: 1fr; } }
+
+.rent-roll { margin: 6px 0; font-size: 0.82rem; }
