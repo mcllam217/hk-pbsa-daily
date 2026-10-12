@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="香港學生公寓／PBSA 每日摘要：最新消息同近5年成交" />
+  <meta name="description" content="香港學生公寓／PBSA：每日放盤同供應、用真實成交做收購估算" />
   <meta name="theme-color" content="#ffffff" />
   <title>香港學生公寓／PBSA 日報</title>
   <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=27" />
+  <link rel="stylesheet" href="css/style.css?v=28" />
 </head>
 <body>
   <header class="site-header">
@@ -27,8 +27,30 @@
     <p class="counts" id="counts" aria-live="polite">&nbsp;</p>
 
     <section id="news" aria-labelledby="h-news">
-      <h2 id="h-news">最新消息</h2>
-      <ul class="news-list" id="news-list"><li class="muted">載入中…</li></ul>
+      <h2 id="h-news">今日要睇</h2>
+      <p class="method">近兩星期。放盤未成交，唔會入下面嘅可比。評論欄同未核對原文嘅轉址唔列出。</p>
+      <div class="buckets" id="buckets"><p class="muted">載入中…</p></div>
+      <details class="fold" id="news-rest">
+        <summary>口徑同其他<span class="n" id="news-rest-n"></span></summary>
+        <ul class="news-list" id="news-rest-list"></ul>
+      </details>
+    </section>
+
+    <section id="model" aria-labelledby="h-model">
+      <h2 id="h-model">估算</h2>
+      <p class="method">用近5年成交做假設，酒店、商廈、住宅分開計。全套每床＝每床收購價中位數＋改建費情景中位，係估算，未計印花、代理、融資、開業前費用同營運成本。樣本少過5宗會標明，唔好當估值。</p>
+      <div class="f-grid model-filters">
+        <label>原用途<select id="m-use">
+          <option value="">全部（分開列）</option>
+          <option value="酒店">酒店</option>
+          <option value="商廈">商廈／寫字樓</option>
+          <option value="住宅">住宅</option>
+          <option value="其他">其他</option>
+        </select></label>
+        <label>區域<select id="m-region"><option value="">全港</option></select></label>
+        <label class="toggle"><input type="checkbox" id="m-media" /> 計入媒體報導</label>
+      </div>
+      <div id="model-out"><p class="muted">載入中…</p></div>
     </section>
 
     <section id="deals" aria-labelledby="h-deals">
@@ -98,6 +120,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=27"></script>
+  <script src="js/app.js?v=28"></script>
 </body>
 </html>

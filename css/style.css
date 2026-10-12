@@ -357,3 +357,23 @@ dl.facts.moved:empty { display: none; }
 .c-statusline { margin-top: 3px; }
 .c-statusline .pend { margin-left: 4px; }
 table.deals.no-beds :is(th.c-beds, td.c-beds, th[data-sort="unreno"], td.c-unreno) { display: none; }
+
+.buckets { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.bucket { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; background: #fbfcfd; min-width: 0; }
+.bucket h3 { margin: 0; font-size: 0.95rem; font-weight: 700; }
+.bn { color: var(--muted); font-weight: 500; font-size: 0.8rem; }
+.bucket-hint { margin: 2px 0 8px; color: var(--muted); font-size: 0.78rem; }
+.bucket-empty { margin: 0; color: var(--muted); font-size: 0.85rem; }
+.bucket .news-list li:last-child { padding-bottom: 0; }
+#news-rest { margin-top: 12px; }
+.model-filters { margin: 12px 0; }
+.model-filters .toggle { flex-direction: row; align-self: end; padding-bottom: 8px; }
+#model-out .table-wrap { overflow-x: auto; }
+table.model { width: 100%; min-width: 920px; border-collapse: collapse; font-size: 0.82rem; }
+table.model th, table.model td { border-top: 1px solid var(--line); padding: 8px 8px; vertical-align: top; text-align: left; }
+table.model thead th { border-top: 0; font-size: 0.75rem; color: var(--muted); font-weight: 500; }
+table.model thead th small, table.model tbody th .s-r { display: block; font-weight: 400; color: var(--muted); }
+table.model .s-r { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 400; }
+table.model b { font-variant-numeric: tabular-nums; }
+tr.model-names td { color: var(--muted); font-size: 0.75rem; padding-top: 0; border-top: 0; }
+@media (max-width: 800px) { .buckets { grid-template-columns: 1fr; } }

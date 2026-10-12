@@ -82,44 +82,66 @@
     if (n.auto && /news\.google\.com|google\.com\/rss/.test(String(n.url || ""))) return false;
     return true;
   }
-  function newsKind(n) {
+  const BUCKETS = [
+    ["放盤", "可以睇，但未成交。叫價唔好當可比。"],
+    ["新成交", "先用嚟改收購價假設。"],
+    ["新供應", "新城規或城中學舍。影響之後嘅租金，唔係今日買入價。"],
+    ["政策", "收生或規則有變，先至改需求假設。"],
+  ];
+  function newsBucket(n) {
     const t = String(n.title || "") + String(n.summary || "");
-    const bought = /購|斥資|收購|易手|合營/.test(t);
-    if (/放售|意向價|叫價|尋退場/.test(t) && !bought) return "放售";
-    if (/待完成|未見成交/.test(t)) return "待完成";
-    if (/短缺|缺口|回報|出租率|未見飽和|入住率/.test(t) && !bought) return "口徑";
-    return "";
+    if (/收生上限|非本地生|宿舍守則|規例修訂|政策/.test(t)) return "政策";
+    if (/放售|意向價|叫價|尋退場|放盤/.test(t) && !/億購|完成收購/.test(t)) return "放盤";
+    if (/城中學舍|申請改|城規會|擬提供\d|批出改|宿舍用地/.test(t)) return "新供應";
+    if (/購|斥資|收購|易手|合營/.test(t)) return "新成交";
+    if (/出租率|入住率|回報|短缺|缺口|未見飽和|租金/.test(t)) return "口徑";
+    return "其他";
   }
-
+  function newsItemHtml(n) {
+    const refs = dealRefs(n.deal_ids);
+    const listed = n.date || n.date_label || "";
+    const srcDate = n.source_date || "";
+    const same = !srcDate || srcDate === listed;
+    const monthOnly = n.date_precision === "month" || /^\d{4}-\d{2}$/.test(listed);
+    const dateBits = [
+      `<span class="n-date" title="入表日期">入表 ${esc(listed)}</span>`,
+      same || monthOnly ? "" : `<span class="n-orig" title="原文／公告日期">原文 ${esc(n.source_date_label || srcDate)}</span>`,
+      n.earlier_date_label ? `<span class="n-orig" title="較早或另一來源日期">另見 ${esc(n.earlier_date_label)}</span>` : "",
+    ].filter(Boolean).join("");
+    return `<li>
+      <span class="n-dates">${dateBits}</span>
+      <div class="n-body">
+        ${link(n.url, esc(n.title), "n-title")}
+        <span class="n-src">${esc(n.source)}${n.url2 ? ` · ${link(n.url2, esc(n.url2_label || "來源2"))}` : ""}</span>
+        ${n.summary ? `<details class="n-sum"><summary>摘要</summary><p>${esc(n.summary)}</p></details>` : ""}
+        ${refs ? `<div class="refs">${refs}</div>` : ""}
+      </div>
+    </li>`;
+  }
   function renderNews(data, refIso) {
     const cutoff = newsCutoff(refIso);
     const items = (data.items || []).filter((n) => visibleNews(n) && inWindow(n.date, cutoff));
-    $("#news-list").innerHTML =
-      items
-        .map((n) => {
-          const refs = dealRefs(n.deal_ids);
-          const listed = n.date || n.date_label || "";
-        const srcDate = n.source_date || "";
-        const same = !srcDate || srcDate === listed;
-        const monthOnly = n.date_precision === "month" || /^\d{4}-\d{2}$/.test(listed);
-        const dateBits = [
-          `<span class="n-date" title="入表日期">${monthOnly ? "入表 " : "入表 "}${esc(listed)}</span>`,
-          same ? "" : `<span class="n-orig" title="原文／公告日期">原文 ${esc(n.source_date_label || srcDate)}</span>`,
-          n.earlier_date_label ? `<span class="n-orig" title="較早或另一來源日期">另見 ${esc(n.earlier_date_label)}</span>` : "",
-        ].filter(Boolean).join("");
-        return `<li>
-        <span class="n-dates">${dateBits}</span>
-        <div class="n-body">
-          ${newsKind(n) ? `<span class="ntag">${esc(newsKind(n))}</span>` : ""}
-          ${link(n.url, esc(n.title), "n-title")}
-          <span class="n-src">${esc(n.source)}${n.url2 ? ` · ${link(n.url2, esc(n.url2_label || "來源2"))}` : ""}</span>
-          ${n.summary ? `<details class="n-sum"><summary>摘要</summary><p>${esc(n.summary)}</p></details>` : ""}
-          ${refs ? `<div class="refs">${refs}</div>` : ""}
-        </div>
-      </li>`;
-        })
-        .join("") || `<li class="muted">近兩星期暫無消息</li>`;
-    return items.length;
+    const groups = {};
+    items.forEach((n) => {
+      const b = newsBucket(n);
+      (groups[b] || (groups[b] = [])).push(n);
+    });
+    $("#buckets").innerHTML = BUCKETS.map(([name, hint]) => {
+      const list = groups[name] || [];
+      const body = list.length
+        ? `<ul class="news-list">${list.map(newsItemHtml).join("")}</ul>`
+        : `<p class="bucket-empty">近兩星期未有</p>`;
+      return `<article class="bucket"><h3>${esc(name)} <span class="bn">${list.length}</span></h3><p class="bucket-hint">${esc(hint)}</p>${body}</article>`;
+    }).join("");
+    const rest = [...(groups["口徑"] || []), ...(groups["其他"] || [])];
+    const restEl = $("#news-rest");
+    if (!rest.length) restEl.hidden = true;
+    else {
+      restEl.hidden = false;
+      $("#news-rest-n").textContent = String(rest.length);
+      $("#news-rest-list").innerHTML = rest.map(newsItemHtml).join("");
+    }
+    return BUCKETS.reduce((n, [name]) => n + (groups[name] || []).length, 0);
   }
 
   /* ---------- 近5年成交 ---------- */
@@ -446,6 +468,95 @@
     estHost.innerHTML = estBlock;
   }
 
+
+  const USE_CLASS = [
+    ["酒店", "酒店"],
+    ["商廈", "商廈／寫字樓"],
+    ["住宅", "住宅"],
+    ["其他", "其他"],
+  ];
+  function classOf(d) {
+    const u = String(d.original_use || "");
+    if (u === "酒店") return "酒店";
+    if (u === "住宅") return "住宅";
+    if (u === "寫字樓" || u === "商廈") return "商廈";
+    return "其他";
+  }
+  function capexForClass(cls) {
+    if (!SCEN || !Array.isArray(SCEN.scenarios)) return null;
+    const code = { 酒店: "S1", 商廈: "S2", 住宅: "S3" }[cls];
+    return code ? SCEN.scenarios.find((s) => s.code === code) || null : null;
+  }
+  function bedsPerK(d) {
+    const beds = mid(d, "beds_after");
+    const gfa = mid(d, "gfa_sqft");
+    if (!beds || !gfa) return null;
+    return beds / (gfa / 1000);
+  }
+  function rentObs(d) {
+    if (!has(d.rent_per_bed_min_hkd)) return null;
+    const lo = Number(d.rent_per_bed_min_hkd);
+    return has(d.rent_per_bed_max_hkd) ? (lo + Number(d.rent_per_bed_max_hkd)) / 2 : lo;
+  }
+  function statCell(vals, fmt) {
+    if (!vals.length) return `<span class="muted">未有</span>`;
+    const few = vals.length < 5 ? ` <em class="few">樣本少</em>` : "";
+    const med = fmt(median(vals));
+    const lo = fmt(Math.min(...vals));
+    const hi = fmt(Math.max(...vals));
+    const range = lo === hi ? "" : `${lo}–${hi} · `;
+    return `<b>${med}</b><span class="s-r">${range}n=${vals.length}</span>${few}`;
+  }
+  let MODEL_DEALS = [];
+  function renderModel() {
+    const use = $("#m-use").value;
+    const region = $("#m-region").value;
+    const withMedia = $("#m-media").checked;
+    let pool = MODEL_DEALS.filter((d) =>
+      withMedia ? d.deal_status === "announced" || d.deal_status === "media" : d.deal_status === "announced"
+    );
+    if (region) pool = pool.filter((d) => regionOf(d) === region);
+    const classes = use ? USE_CLASS.filter((c) => c[0] === use) : USE_CLASS;
+    const wanH = (v) => "$" + fmtNum(Math.round(v / 10000), 0) + "萬";
+    const money = (v) => "$" + fmtNum(Math.round(v), 0);
+    const body = classes.map(([cls, label]) => {
+      const rowsD = pool.filter((d) => classOf(d) === cls);
+      if (!rowsD.length) return "";
+      const psf = rowsD.map((d) => (d.psf_basis === "GFA" ? mid(d, "price_psf_hkd") : null)).filter((v) => v !== null);
+      const room = rowsD.map((d) => mid(d, "price_per_room_hkd_m")).filter((v) => v !== null).map((v) => v * 1e6);
+      const bpk = rowsD.map(bedsPerK).filter((v) => v !== null);
+      const pbed = rowsD.map((d) => mid(d, "price_per_bed_hkd_m")).filter((v) => v !== null).map((v) => v * 1e6);
+      const rent = rowsD.map(rentObs).filter((v) => v !== null);
+      const months = rowsD.map((d) => (has(d.months_deal_to_open) ? Number(d.months_deal_to_open) : null)).filter((v) => v !== null && !isNaN(v));
+      const cap = capexForClass(cls);
+      const capexHtml = cap
+        ? `<span class="est">$${fmtNum(Math.round(cap.per_bed_hkd[1] / 10000), 0)}萬</span><span class="s-r">情景 ${fmtNum(Math.round(cap.per_bed_hkd[0] / 10000), 0)}–${fmtNum(Math.round(cap.per_bed_hkd[2] / 10000), 0)}萬 · 非成交</span>`
+        : `<span class="muted">冇對應情景</span>`;
+      const allIn = pbed.length && cap
+        ? `<b class="est">${wanH(median(pbed) + cap.per_bed_hkd[1])}</b><span class="s-r">收購中位＋改建中位</span>`
+        : `<span class="muted">未有</span>`;
+      const names = rowsD.map((d) => `<a href="#deal-${esc(d.id)}">${esc(shortAsset(d))}</a>`).join("、");
+      return `<tr>
+        <th scope="row">${esc(label)}<span class="s-r">${rowsD.length} 宗</span></th>
+        <td>${statCell(psf, money)}</td>
+        <td>${statCell(room, wanH)}</td>
+        <td>${statCell(bpk, (v) => fmtNum(v, 1))}</td>
+        <td>${statCell(pbed, wanH)}</td>
+        <td>${capexHtml}</td>
+        <td>${allIn}</td>
+        <td>${statCell(rent, (v) => "$" + fmtNum(Math.round(v), 0))}</td>
+        <td>${statCell(months, (v) => fmtNum(v, 0) + "個月")}</td>
+      </tr><tr class="model-names"><td colspan="9">樣本：${names}</td></tr>`;
+    }).join("");
+    $("#model-out").innerHTML = body
+      ? `<div class="table-wrap"><table class="model"><thead><tr>
+          <th>原用途</th><th>收購呎價<small>建築面積</small></th><th>每房價</th><th>每千呎床數</th>
+          <th>每床收購價</th><th>改建費<small>情景中位</small></th><th>全套每床<small>估算</small></th>
+          <th>每床月租</th><th>成交至開業</th>
+        </tr></thead><tbody>${body}</tbody></table></div>`
+      : `<p class="muted">呢個範圍未有${withMedia ? "" : "已公布"}成交。</p>`;
+  }
+
   function renderDeals(data) {
     const all = data.deals || [];
     const table = $("table.deals");
@@ -578,6 +689,12 @@
     renderDeals(deals);
     renderGaps(watch);
     const list = deals.deals || [];
+    MODEL_DEALS = list;
+    const regC = {};
+    list.forEach((d) => { const r = regionOf(d); if (r) regC[r] = (regC[r] || 0) + 1; });
+    $("#m-region").insertAdjacentHTML("beforeend", Object.keys(regC).sort((a, b) => regC[b] - regC[a] || a.localeCompare(b, "zh-HK")).map((r) => `<option value="${esc(r)}">${esc(r)}（${regC[r]}）</option>`).join(""));
+    renderModel();
+    ["#m-use", "#m-region", "#m-media"].forEach((s) => $(s).addEventListener("change", renderModel));
     if (!list.some((d) => has(d.beds_after) || has(d.price_per_bed_hkd_m) || has(d.all_in_per_bed_hkd_m))) {
       document.querySelector("table.deals").classList.add("no-beds");
       const bedFilter = $("#f-bed").closest("label");
@@ -585,7 +702,7 @@
     }
 
     const byStatus = STATUS_ORDER.map((k) => [k, list.filter((d) => statusOf(d) === k).length]).filter(([, c]) => c);
-    $("#counts").textContent = `${list.length} 宗成交（${byStatus.map(([k, c]) => `${STATUS[k].t} ${c}`).join(" · ")}） · ${shownNews} 則近兩星期消息`;
+    $("#counts").textContent = `${list.length} 宗成交（${byStatus.map(([k, c]) => `${STATUS[k].t} ${c}`).join(" · ")}） · 近兩星期 ${shownNews} 則要睇`;
     const stamp = (id, iso) => {
       const el = $(id);
       el.textContent = iso ? fmtTs(iso) : "—";
@@ -597,6 +714,6 @@
   } catch (err) {
     console.error(err);
     document.documentElement.dataset.ready = "error";
-    $("#news-list").innerHTML = `<li class="muted">載入失敗：${esc(err.message)}</li>`;
+    $("#buckets").innerHTML = `<p class="muted">載入失敗：${esc(err.message)}</p>`;
   }
 })();
