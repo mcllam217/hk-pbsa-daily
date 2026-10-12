@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-12T17:40:00+08:00",
+  "updated": "2026-10-12T17:50:00+08:00",
   "deals": [
     {
       "id": "deal-202609-yanwoo",
@@ -50,7 +50,8 @@
       "rent_roll": {
         "status": "not_open",
         "note": "剛收購住宅，未見改建完成或招租。"
-      }
+      },
+      "former_name": "仁和大廈"
     },
     {
       "id": "deal-202609-cr-ease",
@@ -95,7 +96,8 @@
       "rent_roll": {
         "status": "not_open",
         "note": "剛收購酒店，未見學生公寓招租。"
-      }
+      },
+      "former_name": "旭逸酒店·荃灣及旭逸雅捷酒店（葵涌）"
     },
     {
       "id": "deal-202609-ibis",
@@ -146,7 +148,8 @@
       "rent_roll": {
         "status": "not_open",
         "note": "剛公布收購，未見改建後招租。"
-      }
+      },
+      "former_name": "宜必思香港中上環酒店"
     },
     {
       "id": "deal-202609-pemberton",
@@ -190,7 +193,8 @@
       "rent_roll": {
         "status": "not_open",
         "note": "剛收購寫字樓，未見改建後招租。"
-      }
+      },
+      "former_name": "柏廷坊"
     },
     {
       "id": "deal-202608-quad",
@@ -242,7 +246,7 @@
         "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/632268/",
         "https://hkcd.com/content/2021-06/01/content_1271833.html"
       ],
-      "project_url": null,
+      "project_url": "https://www.cmplusu.com.hk/",
       "room_types": [
         {
           "name": "雙人房（亦有一人房，未列每款間數）",
@@ -270,7 +274,8 @@
         "occupancy_pct": 100,
         "as_of": "2025-06-18",
         "source_url": "https://www.am730.com.hk/article/571337"
-      }
+      },
+      "name_after": "The Quad（CM+U 紅磡）"
     },
     {
       "id": "deal-202607-silka",
@@ -326,7 +331,8 @@
       "rent_roll": {
         "status": "not_open",
         "note": "未見改建完成或學生宿位招租。"
-      }
+      },
+      "former_name": "九龍海景絲麗酒店"
     },
     {
       "id": "deal-202607-quay",
@@ -364,7 +370,7 @@
       "source": "BONARD / Savills",
       "source_url": "https://www.bonard.com/insights/the-quay-student-accommodation-sells-for-hkd-144-million-in-hong-kong",
       "other_sources": [],
-      "project_url": null,
+      "project_url": "https://herein.com.hk/",
       "room_types": [
         {
           "name": "單人房（標準層，第三方描述）",
@@ -389,7 +395,8 @@
         "occupancy_pct": 100,
         "as_of": "2026-10-12",
         "source_url": "https://herein.com.hk/rent/?typ=1"
-      }
+      },
+      "name_after": "HEREIN The Quay（這裡）"
     },
     {
       "id": "deal-202606-bedford",
@@ -434,7 +441,8 @@
       "rent_roll": {
         "status": "not_open",
         "note": "仍是改建目標，未見按房型招租。"
-      }
+      },
+      "former_name": "ONE BEDFORD PLACE"
     },
     {
       "id": "deal-202606-crystal",
@@ -477,7 +485,8 @@
       "rent_roll": {
         "status": "not_open",
         "note": "未見改建後公開出租。"
-      }
+      },
+      "former_name": "Smart A 薈學坊"
     },
     {
       "id": "deal-202606-crystal-chunwui",
@@ -522,7 +531,8 @@
       "rent_roll": {
         "status": "not_open",
         "note": "未見改建後公開出租。"
-      }
+      },
+      "former_name": "晉匯"
     },
     {
       "id": "deal-202603-regal",
@@ -576,7 +586,7 @@
         "https://epaper.tkww.hk/a/202603/24/AP69c1a1b1e4b04773b06a49bc.html",
         "https://house.stockstar.com/CP2026033100029882.shtml"
       ],
-      "project_url": "https://campusonecommunities.com/hk/",
+      "project_url": "https://campusonecommunities.com/one-hub/",
       "room_types": [
         {
           "name": "三人房",
@@ -623,7 +633,9 @@
         "occupancy_pct": 90,
         "as_of": "2026-10-07",
         "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
-      }
+      },
+      "name_after": "一匯居·啟德（ONE HUB）",
+      "former_name": "富豪東方酒店"
     },
     {
       "id": "deal-202603-cozi",
@@ -704,7 +716,9 @@
         "beds": 900,
         "as_of": "2026-05-11",
         "source_url": "https://www.am730.com.hk/article/1029934"
-      }
+      },
+      "name_after": "博譽 Brim Youth",
+      "former_name": "悅品酒店·荃灣"
     },
     {
       "id": "deal-202602-60west",
@@ -747,7 +761,8 @@
       "rent_roll": {
         "status": "not_open",
         "note": "未見改建後公開出租。"
-      }
+      },
+      "former_name": "西城六十"
     },
     {
       "id": "deal-202512-austin",
@@ -815,7 +830,9 @@
         "occupancy_pct": 100,
         "as_of": "2026-10-06",
         "source_url": "https://www.cmplusu.com.hk/"
-      }
+      },
+      "name_after": "CM+U 尖沙咀",
+      "former_name": "柯士甸路酒店"
     },
     {
       "id": "deal-2025-bonham",
@@ -871,7 +888,7 @@
         "https://www.hkej.com/dailynews/property/article/4490792/",
         "https://www.am730.com.hk/article/1049014"
       ],
-      "project_url": "https://campusonecommunities.com/hk/",
+      "project_url": "https://campusonecommunities.com/hk/one-pace-38/",
       "room_types": [
         {
           "name": "單人房（獨立洗手間）",
@@ -920,7 +937,9 @@
         "occupancy_pct": 100,
         "as_of": "2026-10-07",
         "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
-      }
+      },
+      "name_after": "一步居·38（ONE PACE 38）",
+      "former_name": "般咸軒"
     },
     {
       "id": "deal-202508-kamlam",
@@ -965,7 +984,8 @@
       "rent_roll": {
         "status": "not_open",
         "note": "未見改建後公開出租。"
-      }
+      },
+      "former_name": "甘霖大廈"
     },
     {
       "id": "deal-202507-ease-mk",
@@ -1007,7 +1027,7 @@
         "https://sunnyhouse.hk/en/home/",
         "https://www.36kr.com/p/3631520108475144"
       ],
-      "project_url": "https://sunnyhouse.hk/en/home/",
+      "project_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
       "room_types": [
         {
           "name": "單人房 S1",
@@ -1107,7 +1127,9 @@
         "rooms": 199,
         "as_of": "2026-10-07",
         "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
-      }
+      },
+      "name_after": "日新舍旺角",
+      "former_name": "旭逸酒店·旺角"
     },
     {
       "id": "deal-202408-y36",
@@ -1146,8 +1168,29 @@
       "other_sources": [
         "https://hk.on.cc/hk/bkn/cnt/finance/20240717/bkn-20240717182550899-0717_00842_001.html"
       ],
-      "project_url": null,
-      "room_types": [],
+      "project_url": "https://ydotx.com/zh/locations/y36/",
+      "room_types": [
+        {
+          "name": "單人間",
+          "beds_per_room": 1,
+          "size_label": "約14.9平方米／160平方呎",
+          "rent_hkd_month": 16000,
+          "rent_basis": "官網標價，未註明每床或每房",
+          "rent_note": "港幣16,000元起。簡體頁曾寫15,500起，以繁體官網為準。",
+          "source_url": "https://ydotx.com/zh/locations/y36/",
+          "as_of": "2026-10-12"
+        },
+        {
+          "name": "雙人間",
+          "beds_per_room": 2,
+          "size_label": "約13.5平方米／145平方呎",
+          "rent_hkd_month": 9000,
+          "rent_basis": "官網標價，未註明每床或每房",
+          "rent_note": "港幣9,000元起。",
+          "source_url": "https://ydotx.com/zh/locations/y36/",
+          "as_of": "2026-10-12"
+        }
+      ],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
         "price_psf_hkd": "source",
@@ -1157,9 +1200,15 @@
         "gfa_sqft": "source"
       },
       "rent_roll": {
-        "status": "not_open",
-        "note": "未見按房型公開租金。"
-      }
+        "status": "operating",
+        "rooms": 61,
+        "beds": 82,
+        "as_of": "2026-10-12",
+        "source_url": "https://ydotx.com/zh/locations/y36/",
+        "note": "官網寫約82個床位，單人同雙人。2024年8月報道為61個房間。標價未註明每床定每房。"
+      },
+      "name_after": "Y36",
+      "former_name": "Incredible Residences"
     },
     {
       "id": "deal-202408-park",
@@ -1285,7 +1334,9 @@
         "occupancy_pct": 100,
         "as_of": "2026-10-07",
         "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
-      }
+      },
+      "name_after": "一步居117（ONE PACE 117）",
+      "former_name": "珀薈酒店"
     },
     {
       "id": "deal-202406-ease-lck",
@@ -1330,7 +1381,8 @@
       "rent_roll": {
         "status": "not_open",
         "note": "未見按房型公開租金。"
-      }
+      },
+      "former_name": "旭逸雅捷酒店（長沙灣）"
     },
     {
       "id": "deal-202406-mu88",
@@ -1437,7 +1489,9 @@
         "occupancy_pct": 80,
         "as_of": "2026-08-20",
         "source_url": "https://www.wenweipo.com/a/202608/20/AP6a8685ace4b0c1e500258a75.html"
-      }
+      },
+      "name_after": "都會大學 MU88",
+      "former_name": "城木酒店"
     },
     {
       "id": "deal-202212-pentahotel",
@@ -1488,7 +1542,7 @@
         "https://www.36kr.com/p/3631520108475144",
         "https://sunnyhouse.hk/en/press/hkej/"
       ],
-      "project_url": "https://sunnyhouse.hk/en/home/",
+      "project_url": "https://sunnyhouse.hk/shkt/shkt-rooms/",
       "room_types": [
         {
           "name": "Single Room S1",
@@ -1550,7 +1604,9 @@
         "occupancy_pct": 97,
         "as_of": "2026-10-07",
         "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
-      }
+      },
+      "name_after": "日新舍啟德",
+      "former_name": "貝爾特酒店"
     },
     {
       "id": "deal-2022-grand-city",
@@ -1585,7 +1641,7 @@
       "other_sources": [
         "https://www.mingtiandi.com/real-estate/finance/weave-rejigs-in-hong-kong-with-student-housing-and-kai-tak-sale/"
       ],
-      "project_url": "https://www.weave-living.com/",
+      "project_url": "https://www.weave-living.com/hong-kong/weave-studios-sai-ying-pun",
       "room_types": [],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
@@ -1597,7 +1653,9 @@
         "status": "operating",
         "note": "Weave 已營運。今次未找到西營盤 Grand City 按房型的公開叫價，所以未入租金。",
         "as_of": "2026-10-12"
-      }
+      },
+      "name_after": "Weave Campus – 西營盤",
+      "former_name": "Grand City Hotel"
     },
     {
       "id": "deal-202204-rosedale",
@@ -1632,7 +1690,7 @@
       "other_sources": [
         "https://www.pgim.com/content/dam/pgim/us/en/pgim-real-estate/active/documents/portfolios/PGIM-Real-Estate-expands-rental-housing-portfolio-in-Asia-Pacific.pdf"
       ],
-      "project_url": "https://www.weave-living.com/",
+      "project_url": "https://www.weave-living.com/hong-kong/weave-studios-kowloon-west",
       "room_types": [
         {
           "name": "Studio Single",
@@ -1669,7 +1727,9 @@
         "note": "共居叫價，不是學年學生宿位。全房月租，雙人房是兩人共住一間的總租金，不要再乘二，亦不要當成每床。業主盤2026年9月1日。",
         "as_of": "2026-09-01",
         "source_url": "https://www.28hse.com/en/rent/residential/property-2677669"
-      }
+      },
+      "name_after": "Weave Studios – Kowloon West",
+      "former_name": "珀麗酒店"
     },
     {
       "id": "deal-202201-travelodge",
@@ -1705,7 +1765,7 @@
         "https://www.pgim.com/content/dam/pgim/us/en/pgim-real-estate/active/documents/portfolios/PGIM-Real-Estate-expands-rental-housing-portfolio-in-Asia-Pacific.pdf",
         "https://www.straitstimes.com/business/investors-scour-hong-kong-hotels-for-student-dorms-rentals"
       ],
-      "project_url": null,
+      "project_url": "https://www.dash.co/en/hong-kong/dash-living-on-hollywood",
       "room_types": [],
       "metric_basis": {
         "price_per_room_hkd_m": "source",
@@ -1716,7 +1776,9 @@
       "rent_roll": {
         "status": "not_open",
         "note": "其後作共居，今次未找到按房型公開租金。"
-      }
+      },
+      "name_after": "Dash Living on Hollywood",
+      "former_name": "Travelodge（荷李活道263號）"
     },
     {
       "id": "deal-202112-hotel-sav",
@@ -1763,7 +1825,7 @@
         "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D",
         "https://www.straitstimes.com/business/investors-scour-hong-kong-hotels-for-student-dorms-rentals"
       ],
-      "project_url": null,
+      "project_url": "https://ydotx.com/zh/locations/y83/",
       "room_types": [
         {
           "name": "標準雙人房 D5",
@@ -1868,7 +1930,9 @@
         "occupancy_pct": 100,
         "as_of": "2026-10-12",
         "source_url": "https://ydotx.com/zh/locations/y83/"
-      }
+      },
+      "name_after": "Y83",
+      "former_name": "逸．酒店"
     },
     {
       "id": "deal-202111-butterfly-prat",
@@ -1946,7 +2010,9 @@
         "note": "共居，租金按每30晚計，不是學年宿位。要同學生宿舍比較，先確認租期同是否包水電。",
         "as_of": "2026-10-06",
         "source_url": "https://www.dash.co/en/hong-kong/dash-living-on-prat"
-      }
+      },
+      "name_after": "Dash Living on Prat",
+      "former_name": "Butterfly on Prat"
     },
     {
       "id": "deal-2021-weave-tk",
@@ -1982,7 +2048,7 @@
         "https://www.mingtiandi.com/real-estate/finance/pgim-buys-hong-kong-travelodge-hotel-for-co-living-project/",
         "https://en.prnasia.com/releases/apac/weave-living-grows-hong-kong-island-footprint-with-new-central-western-district-property-360968.shtml"
       ],
-      "project_url": "https://www.weave-living.com/",
+      "project_url": "https://www.weave-living.com/en/hong-kong/weave-studios-kai-tak",
       "room_types": [
         {
           "name": "Studio Single",
@@ -2018,7 +2084,9 @@
         "rooms": 99,
         "as_of": "2026-09-28",
         "source_url": "https://www.28hse.com/rent/residential/property-2092829"
-      }
+      },
+      "name_after": "Weave Studios – Kai Tak",
+      "former_name": "譚公道103號酒店物業"
     }
   ]
 }

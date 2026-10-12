@@ -46,7 +46,7 @@
   // Badge(s) for news / watch items that refer to a deal in the table, so labels can't drift apart.
   const shortAsset = (d) => {
     if (d.ref_label) return d.ref_label;
-    const z = String(d.asset_zh || d.asset || "成交");
+    const z = String(d.name_after || d.asset_zh || d.asset || "成交");
     const tail = z.split("→").pop().split("（")[0].trim();
     return tail.length > 18 ? tail.slice(0, 18) + "…" : tail;
   };
@@ -363,6 +363,8 @@
       ["狀態", stHtml ? H(stHtml) : null],
       ["代價（原文）", d.price_label],
       ["成交日期", d.deal_date],
+      ["改建後名稱", d.name_after || "未公布"],
+      ["原物業", d.former_name || null],
       ["英文名稱", d.asset_zh && d.asset !== d.asset_zh ? d.asset : null],
       ["原用途", d.original_use ? H(esc(d.original_use) + (d.original_use_note ? `（${esc(d.original_use_note)}）` : "") + (d.original_use_source_url ? " " + link(d.original_use_source_url, "來源") : "")) : null, "d-only"],
       ["位置", d.location],
@@ -425,7 +427,10 @@
         <td class="c-dt">${dateLabel(d)}</td>
         <td class="c-first">
           <div class="c-top"><span class="c-date">${dateLabel(d)}</span></div>
-          <div class="a-name">${d.district ? `<span class="dist">${esc(d.district)}</span>` : ""}${esc(d.asset_zh || d.asset)}</div>
+          <div class="a-name">${d.district ? `<span class="dist">${esc(d.district)}</span>` : ""}${esc(d.name_after || d.asset_zh || d.asset)}</div>
+          ${d.name_after && d.former_name ? `<div class="a-former">原：${esc(d.former_name)}</div>` : ""}
+          ${d.name_after ? "" : `<div class="a-former">改建後名稱未公布${d.former_name ? ` · 原：${esc(d.former_name)}` : ""}</div>`}
+          ${d.project_url ? `<div class="a-site">${link(d.project_url, "官網")}</div>` : ""}
           <div class="c-statusline">${badge(d)}</div>
           ${useTag(d)}
           ${km ? `<div class="m-key">${km}</div>` : ""}
@@ -656,7 +661,7 @@
       const shown = [];
       table.querySelectorAll("tbody.deal").forEach((tb) => {
         const d = all[Number(tb.dataset.idx)];
-        const hay = norm([d.asset_zh, d.asset, d.location, d.district, d.buyer, d.seller, d.original_use].join(" "));
+        const hay = norm([d.name_after, d.former_name, d.asset_zh, d.asset, d.location, d.district, d.buyer, d.seller, d.original_use].join(" "));
         const ok =
           (!f.q || hay.includes(f.q)) &&
           (!f.region || regionOf(d) === f.region) &&
