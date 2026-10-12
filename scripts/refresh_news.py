@@ -14,7 +14,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 NEWS = ROOT / "data" / "news.json"
-WATCH = ROOT / "data" / "watch.json"
 HKT = timezone(timedelta(hours=8))
 KEYWORDS = ("學生宿舍", "學生公寓", "學生住宿", "PBSA", "城中學舍", "學舍", "宿位")
 QUERY = "香港 (學生宿舍 OR 學生公寓 OR 學生住宿 OR PBSA OR 城中學舍)"
@@ -76,6 +75,8 @@ def fetch_items() -> list[dict]:
         blob = title + (node.findtext("description") or "")
         if not any(k.lower() in blob.lower() for k in KEYWORDS):
             continue
+        if any(x in title for x in ("汪敦敬", "樓·言板", "樓・言板", "校長Talk", "評論")):
+            continue
         try:
             published = parsedate_to_datetime(node.findtext("pubDate") or "").astimezone(HKT)
         except (TypeError, ValueError, IndexError):
@@ -125,16 +126,6 @@ def main() -> int:
     news["items"] = added + items
     news["updated"] = now
     save(NEWS, news)
-    watch = load(WATCH)
-    digest = "；".join(a["title"] for a in added[:5])
-    auto = {
-        "priority": "medium",
-        "text": f"【自動】新公開標題——{digest}。只作線索，成交表金額仍要人手核實。",
-    }
-    rest = [w for w in watch.get("items") or [] if not str(w.get("text", "")).startswith("【自動】")]
-    watch["items"] = [auto] + rest
-    watch["updated"] = now
-    save(WATCH, watch)
     print(f"added {len(added)}")
     return 0
 

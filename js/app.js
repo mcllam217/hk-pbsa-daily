@@ -57,56 +57,6 @@
       .map((d) => `<a class="deal-ref" href="#deal-${esc(d.id)}" title="${esc(d.asset_zh || d.asset)}：見近5年成交">${esc(shortAsset(d))} ${badge(d)}</a>`)
       .join(" ");
 
-  /* ---------- 今日要留意 ---------- */
-  const PRI = { high: { t: "高", r: 0 }, medium: { t: "中", r: 1 }, low: { t: "低", r: 2 } };
-
-  function watchItem(item) {
-    const text = String(item.text || "");
-    const cut = text.indexOf("——");
-    const title = cut > 0 ? text.slice(0, cut) : text;
-    const rest = cut > 0 ? text.slice(cut + 2) : "";
-    const p = PRI[item.priority] || { t: item.priority || "", r: 9 };
-    const refs = dealRefs(item.deal_ids);
-    return `<li>
-      <span class="pri ${esc(item.priority)}" title="優先次序：${esc(p.t)}">${esc(p.t)}</span>
-      <div class="w-body">
-        <button type="button" class="w-title" aria-expanded="false">${esc(title)}</button>
-        ${rest ? `<p class="w-rest">${esc(rest)}</p>` : ""}
-        ${refs ? `<div class="refs">${refs}</div>` : ""}
-      </div>
-    </li>`;
-  }
-
-  function renderWatch(data) {
-    const items = (data.items || [])
-      .map((x, i) => ({ x, i }))
-      .sort((a, b) => ((PRI[a.x.priority] || { r: 9 }).r - (PRI[b.x.priority] || { r: 9 }).r) || a.i - b.i)
-      .map((o) => o.x);
-    const top = items.slice(0, 3);
-    const more = items.slice(3);
-    $("#watch-list").innerHTML = top.map(watchItem).join("") || `<li class="muted">今日未有項目</li>`;
-    const moreEl = $("#watch-more");
-    const btn = $("#watch-toggle");
-    if (more.length) {
-      moreEl.innerHTML = more.map(watchItem).join("");
-      btn.hidden = false;
-      const label = () => (moreEl.hidden ? `顯示更多（${more.length}）` : "收起");
-      btn.textContent = label();
-      btn.addEventListener("click", () => {
-        moreEl.hidden = !moreEl.hidden;
-        btn.setAttribute("aria-expanded", String(!moreEl.hidden));
-        btn.textContent = label();
-      });
-    }
-    document.querySelectorAll(".w-title").forEach((b) =>
-      b.addEventListener("click", () => {
-        const li = b.closest("li");
-        const open = li.classList.toggle("open");
-        b.setAttribute("aria-expanded", String(open));
-      })
-    );
-  }
-
   /* ---------- 最新消息 ---------- */
   // Window = items dated within the last 14 days of the reference (data "updated") date.
   // Month-only dates are excluded: cannot tell if they fall inside two weeks.
@@ -125,9 +75,25 @@
     return `${m[1]}-${m[2]}-${m[3]}` >= cutoff;
   }
 
+  const OPINION = /汪敦敬|樓·言板|樓・言板|校長Talk|評論專欄/;
+  function visibleNews(n) {
+    const title = String(n.title || "");
+    if (OPINION.test(title)) return false;
+    if (n.auto && /news\.google\.com|google\.com\/rss/.test(String(n.url || ""))) return false;
+    return true;
+  }
+  function newsKind(n) {
+    const t = String(n.title || "") + String(n.summary || "");
+    const bought = /購|斥資|收購|易手|合營/.test(t);
+    if (/放售|意向價|叫價|尋退場/.test(t) && !bought) return "放售";
+    if (/待完成|未見成交/.test(t)) return "待完成";
+    if (/短缺|缺口|回報|出租率|未見飽和|入住率/.test(t) && !bought) return "口徑";
+    return "";
+  }
+
   function renderNews(data, refIso) {
     const cutoff = newsCutoff(refIso);
-    const items = (data.items || []).filter((n) => inWindow(n.date, cutoff));
+    const items = (data.items || []).filter((n) => visibleNews(n) && inWindow(n.date, cutoff));
     $("#news-list").innerHTML =
       items
         .map((n) => {
@@ -144,6 +110,7 @@
         return `<li>
         <span class="n-dates">${dateBits}</span>
         <div class="n-body">
+          ${newsKind(n) ? `<span class="ntag">${esc(newsKind(n))}</span>` : ""}
           ${link(n.url, esc(n.title), "n-title")}
           <span class="n-src">${esc(n.source)}${n.url2 ? ` · ${link(n.url2, esc(n.url2_label || "來源2"))}` : ""}</span>
           ${n.summary ? `<details class="n-sum"><summary>摘要</summary><p>${esc(n.summary)}</p></details>` : ""}
@@ -417,6 +384,7 @@
         <td class="c-first">
           <div class="c-top"><span class="c-date">${dateLabel(d)}</span></div>
           <div class="a-name">${d.district ? `<span class="dist">${esc(d.district)}</span>` : ""}${esc(d.asset_zh || d.asset)}</div>
+          <div class="c-statusline">${badge(d)}</div>
           ${useTag(d)}
           ${km ? `<div class="m-key">${km}</div>` : ""}
         </td>
@@ -605,23 +573,30 @@
     SCEN = scen;
     $("#est-note").hidden = true;
     DEAL_BY_ID = Object.fromEntries((deals.deals || []).filter((d) => d.id).map((d) => [d.id, d]));
-    renderWatch(watch);
-    const ref = news.updated || [deals.updated, news.updated, watch.updated].filter(Boolean).sort().pop();
+    const ref = news.updated;
     const shownNews = renderNews(news, ref);
     renderDeals(deals);
     renderGaps(watch);
-
     const list = deals.deals || [];
+    if (!list.some((d) => has(d.beds_after) || has(d.price_per_bed_hkd_m) || has(d.all_in_per_bed_hkd_m))) {
+      document.querySelector("table.deals").classList.add("no-beds");
+      const bedFilter = $("#f-bed").closest("label");
+      if (bedFilter) bedFilter.hidden = true;
+    }
+
     const byStatus = STATUS_ORDER.map((k) => [k, list.filter((d) => statusOf(d) === k).length]).filter(([, c]) => c);
     $("#counts").textContent = `${list.length} 宗成交（${byStatus.map(([k, c]) => `${STATUS[k].t} ${c}`).join(" · ")}） · ${shownNews} 則近兩星期消息`;
-    const latest = [deals.updated, news.updated, watch.updated].filter(Boolean).sort().pop();
-    const t = $("#last-updated");
-    t.textContent = latest ? fmtTs(latest) : "—";
-    if (latest) t.setAttribute("datetime", latest);
+    const stamp = (id, iso) => {
+      const el = $(id);
+      el.textContent = iso ? fmtTs(iso) : "—";
+      if (iso) el.setAttribute("datetime", iso);
+    };
+    stamp("#news-updated", news.updated);
+    stamp("#deals-updated", deals.updated);
     document.documentElement.dataset.ready = "1";
   } catch (err) {
     console.error(err);
     document.documentElement.dataset.ready = "error";
-    $("#watch-list").innerHTML = `<li class="muted">載入失敗：${esc(err.message)}。請用本地伺服器開啟（見 README）。</li>`;
+    $("#news-list").innerHTML = `<li class="muted">載入失敗：${esc(err.message)}</li>`;
   }
 })();

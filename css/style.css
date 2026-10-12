@@ -42,7 +42,8 @@ button { font: inherit; color: inherit; }
   gap: 4px 16px; padding-top: 18px; padding-bottom: 16px;
 }
 .site-header h1 { margin: 0; font-size: 1.25rem; font-weight: 700; letter-spacing: 0.01em; }
-.updated { margin: 0; font-size: 0.875rem; color: var(--muted); }
+.updated { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 0.875rem; color: var(--muted); }
+.updated span { white-space: nowrap; }
 
 .counts { margin: 18px 0 0; font-size: 0.9rem; color: var(--muted); }
 
@@ -348,3 +349,11 @@ dl.facts.moved:empty { display: none; }
 @media (max-width: 960px) { .type-row { display: none; } }
 
 .dist { display: inline-block; margin-right: 6px; padding: 0 6px; border-radius: 4px; background: #eef3f7; color: #3d5a73; font-size: 0.72rem; font-weight: 500; vertical-align: 1px; }
+
+.ntag {
+  display: inline-block; margin-right: 6px; padding: 0 6px; border-radius: 4px;
+  font-size: 0.72rem; font-weight: 500; color: var(--mid); background: var(--mid-bg); vertical-align: 1px;
+}
+.c-statusline { margin-top: 3px; }
+.c-statusline .pend { margin-left: 4px; }
+table.deals.no-beds :is(th.c-beds, td.c-beds, th[data-sort="unreno"], td.c-unreno) { display: none; }

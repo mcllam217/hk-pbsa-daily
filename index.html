@@ -2,39 +2,29 @@
 <html lang="zh-HK">
 <head>
   <meta charset="UTF-8" />
-<!-- This site is hosted on Netlify. Anyone can build and deploy a site
-     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=e464c653-c493-414b-9f29-c8b2e7b32407
-     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
-<!-- This site is hosted on Netlify. Anyone can build and deploy a site
-     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=e464c653-c493-414b-9f29-c8b2e7b32407
-     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="香港學生公寓／PBSA 每日摘要：成交、消息、留意事項" />
+  <meta name="description" content="香港學生公寓／PBSA 每日摘要：最新消息同近5年成交" />
   <meta name="theme-color" content="#ffffff" />
   <title>香港學生公寓／PBSA 日報</title>
   <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=26" />
+  <link rel="stylesheet" href="css/style.css?v=27" />
 </head>
 <body>
   <header class="site-header">
     <div class="wrap header-inner">
       <h1>香港學生公寓／PBSA 日報</h1>
-      <p class="updated">更新：<time id="last-updated">—</time></p>
+      <p class="updated">
+        <span>消息 <time id="news-updated">—</time></span>
+        <span>成交表 <time id="deals-updated">—</time></span>
+      </p>
     </div>
   </header>
 
   <main class="wrap">
     <p class="counts" id="counts" aria-live="polite">&nbsp;</p>
-
-    <section id="watch" aria-labelledby="h-watch">
-      <h2 id="h-watch">今日要留意</h2>
-      <ul class="watch-list" id="watch-list"><li class="muted">載入中…</li></ul>
-      <ul class="watch-list" id="watch-more" hidden></ul>
-      <button type="button" class="more-btn" id="watch-toggle" hidden aria-controls="watch-more" aria-expanded="false"></button>
-    </section>
 
     <section id="news" aria-labelledby="h-news">
       <h2 id="h-news">最新消息</h2>
@@ -108,6 +98,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=26"></script>
+  <script src="js/app.js?v=27"></script>
 </body>
 </html>
