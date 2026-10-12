@@ -25,6 +25,21 @@ FEED = (
 )
 
 
+
+MARKERS = (
+    "KASA", "世邦魏理仕", "聯僑廣場", "宜必思", "仁和大廈", "勝捷",
+    "城中學舍", "7.8萬", "78萬", "一步居", "日新舍",
+)
+
+def _same_story(key: str, seen: set[str]) -> bool:
+    marks = [m for m in MARKERS if m in key]
+    for old in seen:
+        if key[:16] and (key[:16] in old or old[:16] in key):
+            return True
+        if marks and any(m in old for m in marks):
+            return True
+    return False
+
 def norm(text: str) -> str:
     return re.sub(r"\s+", "", text or "")
 
@@ -98,8 +113,7 @@ def main() -> int:
         key = norm(entry["title"])
         if not key or key in seen_titles or entry["url"] in seen_urls:
             continue
-        # drop near-duplicates that only differ by a short suffix
-        if any(key[:24] and (key[:24] in old or old[:24] in key) for old in seen_titles if len(old) > 12):
+        if _same_story(key, seen_titles):
             continue
         added.append(entry)
         seen_titles.add(key)

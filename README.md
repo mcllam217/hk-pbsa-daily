@@ -14,3 +14,12 @@
 - 有新標題先 commit；公開 repo 的 Actions 分鐘數免費，唔受 Netlify credits 限制
 
 成交表仍然人手核實後先改 JSON。
+
+## 第一次要開 Pages（只需一次）
+
+倉庫權限開唔到 Pages 網站本身。請在 GitHub 打開  
+https://github.com/mcllam217/hk-pbsa-daily/settings/pages  
+Build and deployment → Source 選 **GitHub Actions**，儲存。
+
+之後每次 push，同每日 08:15、20:15（香港時間）都會自動更新  
+https://mcllam217.github.io/hk-pbsa-daily/
