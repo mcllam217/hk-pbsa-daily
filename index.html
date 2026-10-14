@@ -45,10 +45,11 @@
     <!-- 1. 每日重點相關新聞 -->
     <section id="news" aria-labelledby="h-news">
       <h2 id="h-news">1. 每日重點相關新聞</h2>
-      <p class="method">近兩星期。放盤未成交，唔會入下面成交表。「新供應」只列政府官方同各大代理行 research study，單一成交唔入呢欄。每則列出來源名稱同日期。評論欄同未核對原文嘅轉址唔列出。</p>
+      <p class="method">近兩星期。主畫面四欄：放盤、新成交、新供應、政策。「其餘消息」摺埋，可略過。放盤未成交唔入成交表；新供應只列政府官方同代理行 research。每則列來源名稱同日期。</p>
       <div class="buckets" id="buckets"><p class="muted">載入中…</p></div>
-      <details class="fold" id="news-rest">
-        <summary>口徑同其他<span class="n" id="news-rest-n"></span></summary>
+      <details class="fold" id="news-rest" hidden>
+        <summary>其餘消息（可略過）<span class="n" id="news-rest-n"></span></summary>
+        <p class="method">口徑數字同套唔入上四欄嘅雜項。唔使逐日跟；有用先打開。</p>
         <ul class="news-list" id="news-rest-list"></ul>
       </details>
     </section>

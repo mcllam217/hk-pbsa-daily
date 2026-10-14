@@ -165,9 +165,11 @@
     }).join("");
     const rest = [...(groups["口徑"] || []), ...(groups["其他"] || [])];
     const restEl = $("#news-rest");
-    if (!rest.length) restEl.hidden = true;
+    if (!restEl) { /* no fold */ }
+    else if (!rest.length) restEl.hidden = true;
     else {
       restEl.hidden = false;
+      restEl.open = false; // 預設摺埋
       $("#news-rest-n").textContent = String(rest.length);
       $("#news-rest-list").innerHTML = rest.map(newsItemHtml).join("");
     }
