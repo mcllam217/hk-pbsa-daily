@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14T17:00:00+08:00",
+  "updated": "2026-10-14T17:05:00+08:00",
   "items": [
     {
       "date": "2026-10-14",
@@ -104,7 +104,8 @@
       "url2": "https://news.rthk.hk/rthk/ch/component/k2/1872900-20261006.htm",
       "url2_label": "香港電台",
       "source_date": "2026-10-06",
-      "source_date_label": "香港01 2026-10-06"
+      "source_date_label": "香港01 2026-10-06",
+      "bucket": "新供應"
     },
     {
       "date": "2026-10-05",

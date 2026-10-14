@@ -88,15 +88,16 @@
     ["放盤", "可以睇，但未成交。叫價唔好當可比。"],
     ["新成交", "先用嚟改收購價假設。"],
     ["新供應", "只列政府官方數據／消息，同各大代理行 research study。單一成交或單一項目申請唔入呢欄。"],
-    ["政策", "收生或規則有變，先至改需求假設。"],
+    ["政策", "規則／制度有變（收生上限、簽證、改裝規例、計劃推出）。代理行 research 唔入呢欄，入「新供應」。"],
   ];
   /** 新供應：只收政府官方 + 代理行研究；單一成交／單一項目申請唔入。 */
   function isAgencyResearchNews(n) {
     const src = String(n.source || "");
     const blob = src + " " + String(n.title || "") + " " + String(n.summary || "") + " " + String(n.report_title || "");
     const firm = /仲量聯行|JLL|CBRE|世邦魏理仕|萊坊|Knight\s*Frank|第一太平戴維斯|Savills|高力國際|Colliers|戴德梁行|Cushman|中原測量師|美聯/;
-    const study = /研究報告|研究稿|新聞稿|Viewpoint|Research|預測|缺口|估計|展望|白皮書|Smart Growth|順勢部署|業界估計|報告指出|報告刊/;
-    return firm.test(src) || (firm.test(blob) && study.test(blob));
+    const study = /研究報告|研究稿|新聞稿|Viewpoint|Research|預測|缺口|估計|展望|白皮書|Smart Growth|順勢部署|業界估計|報告指出|報告刊|未見飽和|回報約/;
+    // 來源或標題寫代理行名 + 研究／預測語氣 → 新供應；唔入政策
+    return firm.test(src) || firm.test(String(n.title || "")) || (firm.test(blob) && study.test(blob));
   }
   function isGovSupplyNews(n) {
     const src = String(n.source || "");
@@ -114,11 +115,12 @@
       return n.bucket;
     }
     const t = String(n.title || "") + String(n.summary || "");
-    if (/收生上限|非本地生|宿舍守則|規例修訂|政策/.test(t) && !isAgencyResearchNews(n)) return "政策";
+    // 1) 代理行 research／政府供應匯總 → 永遠「新供應」（唔入政策）
+    if (isAgencyResearchNews(n) || isGovSupplyNews(n)) return "新供應";
     if (/放售|意向價|叫價|尋退場|放盤/.test(t) && !/億購|完成收購/.test(t)) return "放盤";
-    // 新供應：政府官方匯總／賣地／城中學舍計劃級消息，或代理行 research —— 先於「單一申請／成交」判斷
-    if (isGovSupplyNews(n) || isAgencyResearchNews(n)) return "新供應";
     if (/購|斥資|收購|易手|合營/.test(t)) return "新成交";
+    // 2) 政策：規則／制度轉變（收生上限、簽證、規例、計劃推出）——唔包研究缺口／租金預測
+    if (/收生上限|宿舍守則|規例修訂|簽證|入境|留港|非本地生收生|收生.*上限|計劃推出|拆牆鬆綁/.test(t)) return "政策";
     if (/出租率|入住率|回報|短缺|缺口|未見飽和|租金/.test(t)) return "口徑";
     // 單一項目城規／改裝申請 → 其他（唔入新供應）
     if (/城中學舍|申請改|城規會|擬提供\d|批出改|宿舍用地/.test(t)) return "其他";
