@@ -813,6 +813,55 @@
       <span class="sd-meta">${[asOf, period].filter(Boolean).join(" · ")}${note ? `<br>${note}` : ""}<br>${src}${item.doc_id ? ` · <code>${esc(item.doc_id)}</code>` : ""}</span>
     </li>`;
   }
+
+  function fwStatusTag(st) {
+    if (st === "sourced") return `<span class="sd-tag" title="有來源">有來源</span>`;
+    if (st === "industry") return `<span class="sd-tag sd-tag-ind" title="業界估計">業界估計</span>`;
+    if (st === "assumption") return `<span class="sd-tag" title="框架假設">框架</span>`;
+    return `<span class="sd-tag sd-tag-pend" title="待你定或未披露">待定</span>`;
+  }
+  function fwVal(inp) {
+    if (inp.value === null || inp.value === undefined || inp.value === "") return "未披露";
+    if (typeof inp.value === "number") return fmtNum(inp.value, Number.isInteger(inp.value) ? 0 : 1);
+    return String(inp.value);
+  }
+  function renderDemandFramework(fw) {
+    const box = $("#sd-framework");
+    if (!box) return;
+    if (!fw) { box.hidden = true; return; }
+    box.hidden = false;
+    const steps = fw.steps || [];
+    const nPend = steps.reduce((n, s) => n + (s.inputs || []).filter((i) => i.status === "pending").length, 0);
+    if ($("#sd-fw-n")) $("#sd-fw-n").textContent = nPend ? `${nPend} 項待定` : "框架";
+    if ($("#sd-fw-method")) $("#sd-fw-method").textContent = fw.method || "";
+    if ($("#sd-fw-formula")) $("#sd-fw-formula").textContent = (fw.formula && fw.formula.zh) || "";
+    const stepsEl = $("#sd-fw-steps");
+    if (stepsEl) {
+      stepsEl.innerHTML = steps.map((s) => {
+        const rows = (s.inputs || []).map((inp) => {
+          const src = inp.source_url
+            ? link(inp.source_url, esc(inp.source_name || "來源"))
+            : esc(inp.source_name || "");
+          return `<li class="fw-item">
+            <span class="sd-val">${esc(fwVal(inp))}<span class="sd-unit">${esc(inp.unit || "")}</span>${fwStatusTag(inp.status)}</span>
+            <span class="sd-label">${esc(inp.label || "")}</span>
+            <span class="sd-meta">${[inp.as_of, inp.note].filter(Boolean).map(esc).join(" · ")}${src ? `<br>${src}` : ""}</span>
+          </li>`;
+        }).join("");
+        return `<div class="fw-step"><h4 class="sd-fw-h">${esc(s.title || "")}</h4><ul class="sd-list">${rows}</ul></div>`;
+      }).join("");
+    }
+    const bench = $("#sd-fw-bench");
+    if (bench) {
+      bench.innerHTML = (fw.benchmarks || []).map((b) => {
+        const src = b.source_url ? link(b.source_url, "來源") : "";
+        return `<li class="fw-item"><span class="sd-val">${esc(b.value || "")}</span><span class="sd-label">${esc(b.label || "")}</span><span class="sd-meta">${esc(b.note || "")}${src ? ` · ${src}` : ""}</span></li>`;
+      }).join("") || `<li class="muted">暫無</li>`;
+    }
+    const next = $("#sd-fw-next");
+    if (next) next.innerHTML = (fw.next_decisions || []).map((x) => `<li>${esc(x)}</li>`).join("");
+  }
+
   function renderSupplyDemand(data) {
     if (!data) {
       $("#sd-demand").innerHTML = `<p class="muted">未有供求資料檔。</p>`;
@@ -984,13 +1033,14 @@
   }
 
   try {
-    const [deals, news, watch, scen, sd, comps] = await Promise.all([
+    const [deals, news, watch, scen, sd, comps, fw] = await Promise.all([
       loadJSON("data/deals.json"),
       loadJSON("data/news.json"),
       loadJSON("data/watch.json"),
       loadJSON("data/capex_scenarios.json").catch(() => null),
       loadJSON("data/supply_demand.json").catch(() => null),
       loadJSON("data/comps_ranges.json").catch(() => null),
+      loadJSON("data/demand_framework.json").catch(() => null),
     ]);
     SCEN = scen;
     COMPS = comps;
@@ -999,6 +1049,7 @@
     const ref = news.updated;
     const shownNews = renderNews(news, ref);
     renderSupplyDemand(sd);
+    renderDemandFramework(fw);
     renderDeals(deals);
     renderLeads(deals.leads_to_verify || []);
     renderPending(deals.pending_approval || []);

@@ -1,0 +1,206 @@
+{
+  "updated": "2026-10-14T17:20:00+08:00",
+  "title": "需求推算框架（床位）",
+  "method": "以非本地全日制學生做主幹，可加本地一年級；人數 × 住宿 capturerate − 供應＝缺口。有來源先填數；capture rate、增長率未定標「待你定／未披露」，唔估數。上方「需求」四項係唔同口徑，唔相加。",
+  "formula": {
+    "zh": "床位需求 ≈（非本地全日制 ± 本地一年級）× 住宿比例；缺口 ≈ 床位需求 −（大學宿＋已營運私營 PBSA＋折扣後管道）"
+  },
+  "steps": [
+    {
+      "id": "step1",
+      "title": "1. 需求池（人數）",
+      "inputs": [
+        {
+          "id": "nonlocal_ft",
+          "label": "非本地全日制學生（主幹）",
+          "value": 79300,
+          "unit": "名",
+          "as_of": "2024/25",
+          "status": "sourced",
+          "source_name": "立法會發展事務委員會 CB(1)1068/2025(03)",
+          "source_url": "https://www.legco.gov.hk/yr2025/chinese/panels/dev/papers/dev20250624cb1-1068-3-c.pdf",
+          "note": "報讀人數；四年間倍增至約 79,300。"
+        },
+        {
+          "id": "ft_ug_pg",
+          "label": "全日制本＋研總人數（對照）",
+          "value": 192000,
+          "unit": "名",
+          "as_of": "2024/25",
+          "status": "sourced",
+          "source_name": "立法會發展事務委員會 CB(1)1068/2025(03)",
+          "source_url": "https://www.legco.gov.hk/yr2025/chinese/panels/dev/papers/dev20250624cb1-1068-3-c.pdf",
+          "note": "本地＋非本地；唔等於全部要 PBSA 床。"
+        },
+        {
+          "id": "fyfd",
+          "label": "教資會一年級學額 FYFD（流量上限參考）",
+          "value": 15000,
+          "unit": "個／學年",
+          "as_of": "2025-02",
+          "status": "sourced",
+          "source_name": "立法會參考資料摘要 EDB(HE)CR 7/2041/19",
+          "source_url": "https://www.legco.gov.hk/yr2025/english/brief/edbhecr7204119_20250226-e.pdf",
+          "note": "本地一年級額度參考；唔當全市場需求。"
+        },
+        {
+          "id": "quota_40",
+          "label": "公帑資助非本地修課收生上限",
+          "value": 40,
+          "unit": "%（相對本地學額）",
+          "as_of": "2024/25 起",
+          "status": "sourced",
+          "source_name": "立法會教育事務委員會 CB(3)1369/2025(01)",
+          "source_url": "https://www.legco.gov.hk/yr2025/english/panels/ed/papers/ed20251003cb3-1369-1-e.pdf",
+          "note": "近端增長天花板之一；實際用盡率另計。"
+        },
+        {
+          "id": "local_y1_optional",
+          "label": "本地一年級（可選加項，CBRE 類口徑）",
+          "value": null,
+          "unit": "名",
+          "status": "pending",
+          "note": "待你定是否計入；CBRE 假設「本地一年級＋全部全日制非本地」住宿舍。未披露人數。"
+        }
+      ]
+    },
+    {
+      "id": "step2",
+      "title": "2. 住宿比例（人數 → 床）",
+      "inputs": [
+        {
+          "id": "capture_pbsa",
+          "label": "目標人群住學生宿舍／PBSA 比例",
+          "value": null,
+          "unit": "%",
+          "status": "pending",
+          "note": "待你定（低／中／高）。唔假設 100% 非本地都住 PBSA。"
+        },
+        {
+          "id": "beds_demand_now",
+          "label": "由此計出嚟嘅床位需求（而家）",
+          "value": null,
+          "unit": "床",
+          "status": "pending",
+          "note": "要有 capture rate 先計得；未披露。"
+        }
+      ]
+    },
+    {
+      "id": "step3",
+      "title": "3. 十年投影（人數）",
+      "inputs": [
+        {
+          "id": "horizon",
+          "label": "投影年期",
+          "value": "10 年（至約 2035）",
+          "unit": "",
+          "status": "assumption",
+          "note": "近 3–5 年跟政策上限用盡率；5–10 年先情景化研究生／自資增長。"
+        },
+        {
+          "id": "util_near",
+          "label": "近端：相對 40% 上限嘅用盡率",
+          "value": null,
+          "unit": "%",
+          "status": "pending",
+          "note": "待你定。CBRE 指 2025/26 非本地本科約佔本科 26%，仍低於 40% 上限。"
+        },
+        {
+          "id": "scen_low",
+          "label": "情景低：2035 非本地全日制",
+          "value": null,
+          "unit": "名",
+          "status": "pending",
+          "note": "待定。"
+        },
+        {
+          "id": "scen_mid",
+          "label": "情景中：2035 非本地全日制",
+          "value": null,
+          "unit": "名",
+          "status": "pending",
+          "note": "待定。"
+        },
+        {
+          "id": "scen_high",
+          "label": "情景高：2035 非本地全日制",
+          "value": null,
+          "unit": "名",
+          "status": "pending",
+          "note": "待定。"
+        }
+      ]
+    },
+    {
+      "id": "step4",
+      "title": "4. 供應對沖 → 缺口",
+      "inputs": [
+        {
+          "id": "uni_beds",
+          "label": "大學宿位（對沖）",
+          "value": 42000,
+          "unit": "床（約）",
+          "as_of": "2026-09",
+          "status": "industry",
+          "source_name": "CBRE《Smart Growth》2026-09 Figure 19",
+          "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
+          "note": "業界估計。立法會另有「約 44,000 宿舍單位」——口徑未必等同床。"
+        },
+        {
+          "id": "private_pbsa",
+          "label": "已營運私營 PBSA",
+          "value": 9500,
+          "unit": "床（約）",
+          "as_of": "2026-中",
+          "status": "industry",
+          "source_name": "CBRE《Smart Growth》2026-09",
+          "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
+          "note": "業界估計（正文約 9,500）。"
+        },
+        {
+          "id": "pipeline_haircut",
+          "label": "管道折扣後可計供應",
+          "value": null,
+          "unit": "床",
+          "status": "pending",
+          "note": "城中學舍待批／政府用地唔當 100%；待你定折扣。"
+        },
+        {
+          "id": "gap",
+          "label": "缺口（需求 − 供應）",
+          "value": null,
+          "unit": "床",
+          "status": "pending",
+          "note": "自算結果待 capture rate 同情景齊先填。"
+        }
+      ]
+    }
+  ],
+  "benchmarks": [
+    {
+      "label": "CBRE 學生住宿總需求",
+      "value": "約 14 萬床（2030）／約 17.5 萬床（2035）",
+      "note": "業界估計；假設本地一年級＋全日制非本地住宿舍。單一來源。",
+      "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate"
+    },
+    {
+      "label": "仲量聯行床位缺口",
+      "value": "約 7.63 萬（2025/26）→ 約 14.72 萬（2029/30）",
+      "note": "業界估計；係缺口唔係總需求。單一來源。",
+      "source_url": "https://www.jll.com/zh-hk/newsroom/hk-student-bed-shortage-set-to-approach-150000-by-2030"
+    },
+    {
+      "label": "CBRE 現時／預期缺口",
+      "value": "現時約 4.9 萬；預期約 7.4 萬床",
+      "note": "業界估計；與仲量聯行缺口路徑並列、唔替代。",
+      "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate"
+    }
+  ],
+  "next_decisions": [
+    "是否把本地一年級計入需求池",
+    "capture rate 低／中／高三檔各定幾多 %",
+    "近 3–5 年用盡 40% 上限嘅速度",
+    "管道（城中學舍／賣地）打幾多折先入供應"
+  ]
+}
