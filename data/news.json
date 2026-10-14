@@ -1,6 +1,18 @@
 {
-  "updated": "2026-10-14T16:45:00+08:00",
+  "updated": "2026-10-14T16:50:00+08:00",
   "items": [
+    {
+      "date": "2026-10-14",
+      "date_label": "2026年10月14日",
+      "source_date": "2026-09-07",
+      "source_date_label": "2026年9月7日",
+      "title": "CBRE：專上額外宿位需求料逾7萬床（至2035）；現有私營PBSA約9,500床，城中學舍待批約4,500",
+      "summary": "業界口徑（CBRE《Smart Growth》2026年9月／新聞稿，非政府官方）。專上學生總需求料至2035年增加約15萬人；學術樓面額外需求約1,500–2,300萬平方呎；額外學生住宿需求逾7萬床（新聞稿）／報告正文寫預期缺口約74,000床（圖表標 Expected Gap）。宿位總需求估計約14萬（2030）／約17.5萬床（2035）；假設一年級本地本科及所有全日制非本地生入住。截至2026年中：私營PBSA約9,500床；城中學舍待批管道約4,500床；政府三幅指定宿舍用地若推出約可再加4,500床。現時缺口約4.9萬床（圖表 Current Gap）；大學宿位約4.2萬（圖表）。管道表（Table 4）列COZi Oasis 900、Ease MK 299、Bedford 500、Bauhinia、M1 North Point 等——只作業界管道，唔自動升格成交。唔覆蓋站內施政報告城中學舍41宗／約10,800官方數字；亦唔當成交均價。",
+      "source": "CBRE 新聞稿",
+      "url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
+      "report_title": "Smart Growth: The Education Sector as a New Catalyst for Real Estate Demand",
+      "auto": false
+    },
     {
       "date": "2026-10-14",
       "date_label": "2026年10月14日",

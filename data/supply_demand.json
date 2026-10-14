@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14T16:45:00+08:00",
+  "updated": "2026-10-14T16:50:00+08:00",
   "notes": "只收錄有來源嘅數字；單一可靠來源亦會列出並標「單一來源」。官方／立法會數字見上方三欄；業界估計（顧問報告）另列，標明單一來源同「業界估計，非政府官方」，唔覆蓋官方欄。缺數見 gaps。",
   "demand": [
     {
@@ -190,7 +190,7 @@
   "gaps": [
     "教資會最新按院校／來源地劃分嘅非本地生總人數：本地只得 data.gov.hk 套件元數據同 geojson API 連結，未有已抽出嘅總表數字入庫（見 hk-ugc-ugc-student-statistics）。",
     "全港私營 PBSA 現有床位總存量：未見政府單一官方總數；立法會文件嘅「約 44 000 個宿舍單位」口徑未必等於床位。",
-    "2024/25 以後最新「宿位缺口」官方更新：2018 年 HDF 文件嘅 13 473 係舊推算；仲量聯行《順勢部署…》新聞稿 2026-06-22 預測已入「業界估計」欄（單一來源）；萊坊／中原等其他顧問估計另計，待核對原文後再加。",
+    "2024/25 以後最新「宿位缺口」官方更新：2018 年 HDF 文件嘅 13 473 係舊推算；仲量聯行 2026-06-22 同 CBRE《Smart Growth》2026-09 預測已入「業界估計」欄（各標單一來源）；萊坊／中原等其他顧問估計另計，待核對原文後再加。",
     "自資專上院校非本地生人數（sf2324.txt 有分院校表，但 OCR／版面令總計未可靠抽出）：暫缺匯總。"
   ],
   "industry": [
@@ -243,6 +243,110 @@
       "note": "業界估計，非政府官方。包括已成交擬改裝、城中學舍申請，以及 2026/27 潛在政府賣地項目。唔覆蓋站內施政報告「城中學舍」41 宗／約 10,800 官方數字。",
       "source_name": "仲量聯行《順勢部署：專用學生宿舍成另類資產投資機遇》新聞稿 2026-06-22",
       "source_url": "https://www.jll.com/zh-hk/newsroom/hk-student-bed-shortage-set-to-approach-150000-by-2030",
+      "single_source": true,
+      "category": "industry"
+    },
+    {
+      "id": "cbre-private-pbsa-beds-mid2026",
+      "label": "私營 PBSA 床位存量（CBRE）",
+      "value": 9500,
+      "unit": "床（約）",
+      "as_of": "2026-中",
+      "period": "截至 2026 年中",
+      "note": "業界估計，非政府官方。報告正文「around 9,500 private PBSA beds」。與圖表「3,400 private-sector beds」口徑可能不同，本站採用正文 9,500。",
+      "source_name": "CBRE Research《Smart Growth: The Education Sector as a New Catalyst for Real Estate Demand》2026年9月（新聞稿 2026-09-07）",
+      "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
+      "single_source": true,
+      "category": "industry"
+    },
+    {
+      "id": "cbre-hitc-pipeline-awaiting-4500",
+      "label": "城中學舍待批管道床位（CBRE）",
+      "value": 4500,
+      "unit": "床（約）",
+      "as_of": "2026-09",
+      "period": "報告刊出時",
+      "note": "業界估計，非政府官方。Edu. Bureau Hostels in the City 待批。唔覆蓋施政報告已確認資格 41 宗／約 10,800。",
+      "source_name": "CBRE Research《Smart Growth: The Education Sector as a New Catalyst for Real Estate Demand》2026年9月（新聞稿 2026-09-07）",
+      "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
+      "single_source": true,
+      "category": "industry"
+    },
+    {
+      "id": "cbre-gov-sites-beds-4500",
+      "label": "政府指定學生宿舍用地潛在床位（CBRE）",
+      "value": 4500,
+      "unit": "床（約）",
+      "as_of": "2026-09",
+      "period": "三幅用地若招標",
+      "note": "業界估計，非政府官方。啟德 Area 3B Site 4、東涌東 Area 129、沙田源安圍／源康街交界；EOI Q1 2026、預期招標 2026–27（報告引發展局）。",
+      "source_name": "CBRE Research《Smart Growth: The Education Sector as a New Catalyst for Real Estate Demand》2026年9月（新聞稿 2026-09-07）",
+      "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
+      "single_source": true,
+      "category": "industry"
+    },
+    {
+      "id": "cbre-demand-beds-2030",
+      "label": "學生住宿總需求（CBRE）— 2030",
+      "value": 140000,
+      "unit": "床（約）",
+      "as_of": "2026-09",
+      "period": "2030 年（預測）",
+      "note": "業界估計，非政府官方。假設一年級本地本科及所有全日制非本地生入住。",
+      "source_name": "CBRE Research《Smart Growth: The Education Sector as a New Catalyst for Real Estate Demand》2026年9月（新聞稿 2026-09-07）",
+      "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
+      "single_source": true,
+      "category": "industry"
+    },
+    {
+      "id": "cbre-demand-beds-2035",
+      "label": "學生住宿總需求（CBRE）— 2035",
+      "value": 175000,
+      "unit": "床（約）",
+      "as_of": "2026-09",
+      "period": "2035 年（預測）",
+      "note": "業界估計，非政府官方。同上住宿假設。",
+      "source_name": "CBRE Research《Smart Growth: The Education Sector as a New Catalyst for Real Estate Demand》2026年9月（新聞稿 2026-09-07）",
+      "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
+      "single_source": true,
+      "category": "industry"
+    },
+    {
+      "id": "cbre-gap-current-49000",
+      "label": "宿位缺口（CBRE）— 現時",
+      "value": 49000,
+      "unit": "床（約）",
+      "as_of": "2026-09",
+      "period": "圖表 Current Gap",
+      "note": "業界估計，非政府官方。Figure 19 標 Current Gap ~49,000 beds。",
+      "source_name": "CBRE Research《Smart Growth: The Education Sector as a New Catalyst for Real Estate Demand》2026年9月（新聞稿 2026-09-07）",
+      "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
+      "single_source": true,
+      "category": "industry"
+    },
+    {
+      "id": "cbre-gap-expected-74000",
+      "label": "宿位缺口（CBRE）— 預期",
+      "value": 74000,
+      "unit": "床（約）",
+      "as_of": "2026-09",
+      "period": "報告預測缺口",
+      "note": "業界估計，非政府官方。正文寫 widening gap nearly 74,000 beds in 2030；新聞稿寫 over 70,000 additional beds by 2035；圖表標 Expected Gap ~74,000。與仲量聯行 2029/30 缺口約 147,200 並列、唔替代。",
+      "source_name": "CBRE Research《Smart Growth: The Education Sector as a New Catalyst for Real Estate Demand》2026年9月（新聞稿 2026-09-07）",
+      "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
+      "single_source": true,
+      "category": "industry"
+    },
+    {
+      "id": "cbre-university-beds-42000",
+      "label": "大學宿位存量（CBRE 圖表）",
+      "value": 42000,
+      "unit": "床（約）",
+      "as_of": "2026-09",
+      "period": "Figure 19 Existing supply",
+      "note": "業界估計，非政府官方。圖表「42,000 university beds」；與立法會「約 44,000 宿舍單位」口徑未必相同。",
+      "source_name": "CBRE Research《Smart Growth: The Education Sector as a New Catalyst for Real Estate Demand》2026年9月（新聞稿 2026-09-07）",
+      "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
       "single_source": true,
       "category": "industry"
     }
