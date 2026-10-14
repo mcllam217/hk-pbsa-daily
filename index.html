@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="香港學生公寓／PBSA：每日放盤同供應、用真實成交做收購估算" />
+  <meta name="description" content="香港學生公寓／PBSA 日報：每日新聞、供求分析、市場成交、改建後項目資料" />
   <meta name="theme-color" content="#ffffff" />
+  <link rel="canonical" href="https://mcllam217.github.io/hk-pbsa-daily/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="香港學生公寓／PBSA 日報" />
+  <meta property="og:description" content="每日新聞、供求分析、市場成交、改建後項目資料（財務評估）" />
+  <meta property="og:url" content="https://mcllam217.github.io/hk-pbsa-daily/" />
+  <meta property="og:locale" content="zh_HK" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="香港學生公寓／PBSA 日報" />
+  <meta name="twitter:description" content="每日新聞、供求分析、市場成交、改建後項目資料" />
   <title>香港學生公寓／PBSA 日報</title>
   <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=30" />
+  <link rel="stylesheet" href="css/style.css?v=40" />
 </head>
 <body>
   <header class="site-header">
@@ -18,17 +27,25 @@
       <h1>香港學生公寓／PBSA 日報</h1>
       <p class="updated">
         <span>消息 <time id="news-updated">—</time></span>
+        <span>供求 <time id="sd-updated">—</time></span>
         <span>成交表 <time id="deals-updated">—</time></span>
       </p>
     </div>
+    <nav class="wrap section-nav" aria-label="頁面章節">
+      <a href="#news">1. 每日新聞</a>
+      <a href="#supply-demand">2. 供求分析</a>
+      <a href="#deals">3. 市場成交</a>
+      <a href="#projects">4. 改建後項目</a>
+    </nav>
   </header>
 
   <main class="wrap">
     <p class="counts" id="counts" aria-live="polite">&nbsp;</p>
 
+    <!-- 1. 每日重點相關新聞 -->
     <section id="news" aria-labelledby="h-news">
-      <h2 id="h-news">今日要睇</h2>
-      <p class="method">近兩星期。放盤未成交，唔會入下面嘅可比。評論欄同未核對原文嘅轉址唔列出。</p>
+      <h2 id="h-news">1. 每日重點相關新聞</h2>
+      <p class="method">近兩星期。放盤未成交，唔會入下面成交表。每則列出來源名稱同日期。評論欄同未核對原文嘅轉址唔列出。</p>
       <div class="buckets" id="buckets"><p class="muted">載入中…</p></div>
       <details class="fold" id="news-rest">
         <summary>口徑同其他<span class="n" id="news-rest-n"></span></summary>
@@ -36,25 +53,35 @@
       </details>
     </section>
 
-    <section id="model" aria-labelledby="h-model">
-      <h2 id="h-model">估算</h2>
-      <p class="method">用近5年成交做假設，酒店、商廈、住宅分開計。全套每床＝每床收購價中位數＋改建費情景中位，係估算，未計印花、代理、融資、開業前費用同營運成本。樣本少過5宗會標明，唔好當估值。</p>
-      <div class="f-grid model-filters">
-        <label>原用途<select id="m-use">
-          <option value="">全部（分開列）</option>
-          <option value="酒店">酒店</option>
-          <option value="商廈">商廈／寫字樓</option>
-          <option value="住宅">住宅</option>
-          <option value="其他">其他</option>
-        </select></label>
-        <label>區域<select id="m-region"><option value="">全港</option></select></label>
-        <label class="toggle"><input type="checkbox" id="m-media" /> 計入媒體報導</label>
+    <!-- 2. 供求分析 -->
+    <section id="supply-demand" aria-labelledby="h-sd">
+      <h2 id="h-sd">2. 供求分析</h2>
+      <p class="method">只列有來源嘅數字；單一可靠來源標「單一來源」。冇估計。缺數見文末缺口。</p>
+      <div class="sd-grid">
+        <div class="sd-col">
+          <h3>需求</h3>
+          <div id="sd-demand"><p class="muted">載入中…</p></div>
+        </div>
+        <div class="sd-col">
+          <h3>供應／存量</h3>
+          <div id="sd-supply"><p class="muted">載入中…</p></div>
+        </div>
+        <div class="sd-col">
+          <h3>管道／政策</h3>
+          <div id="sd-pipeline"><p class="muted">載入中…</p></div>
+        </div>
       </div>
-      <div id="model-out"><p class="muted">載入中…</p></div>
+      <details class="fold" id="sd-gaps">
+        <summary>供求資料缺口<span class="n" id="sd-gaps-n"></span></summary>
+        <ul id="sd-gaps-list"></ul>
+      </details>
     </section>
 
+    <!-- 3. 市場成交表 -->
     <section id="deals" aria-labelledby="h-deals">
-      <h2 id="h-deals">近5年成交</h2>
+      <h2 id="h-deals">3. 市場成交表</h2>
+      <p class="method">只列銷售成交。租約／宿費見新聞或第 4 節。未確認買家見「待核實線索」。缺欄顯示「未披露」，唔會估數。</p>
+
       <details class="filters" id="filters" open>
         <summary>篩選<span id="f-active"></span></summary>
         <div class="f-grid">
@@ -68,9 +95,10 @@
           <label class="m-sort">排序<select id="f-sort">
             <option value="date:-1">日期（新→舊）</option><option value="date:1">日期（舊→新）</option>
             <option value="price:-1">金額（高→低）</option><option value="price:1">金額（低→高）</option>
-            <option value="rooms:-1">房間／單位（多→少）</option><option value="rooms:1">房間／單位（少→多）</option>
+            <option value="rooms:-1">房間（多→少）</option><option value="rooms:1">房間（少→多）</option>
             <option value="unreno:-1">每床價未含翻新（高→低）</option><option value="beds:-1">床數（多→少）</option>
             <option value="room:-1">每房價（高→低）</option><option value="room:1">每房價（低→高）</option>
+            <option value="psf:-1">呎價（高→低）</option><option value="psf:1">呎價（低→高）</option>
           </select></label>
           <button type="button" class="f-reset" id="f-reset">重設</button>
         </div>
@@ -81,45 +109,96 @@
           <label class="toggle"><input type="checkbox" id="f-media" /> 計入媒體報導</label></p>
         <ul class="sum-main" id="sum-main"></ul>
         <ul class="sum-side" id="sum-side"></ul>
-        <p class="method">口徑：呎價一律用建築面積（GFA），本表沒有實用面積。每房價＝代價÷原有房間／單位。每床價（未含翻新）＝收購價÷改建後床數。床數有官網用官網，否則用報紙。房間、單位同床位唔可以互相代替。數字跟公開來源，未有統一第三方審計。範圍取中間值；未扣交易成本同改建成本；唔係估值。</p>
+        <p class="method">口徑：呎價一律建築面積（GFA）。每房價＝代價÷原有房間／單位。每床價（未含翻新）＝收購價÷改建後床數。缺數顯示未披露。數字跟公開來源。</p>
       </div>
 
       <div class="table-wrap">
         <table class="deals" aria-labelledby="h-deals">
           <thead>
             <tr>
-              <th scope="col" class="sortable c-dt" data-sort="date" aria-sort="descending"><button type="button" title="按日期排序（一律以 YYYY-MM 顯示）">日期</button></th>
-              <th scope="col" class="c-first">物業</th>
+              <th scope="col" class="sortable c-dt" data-sort="date" aria-sort="descending"><button type="button">成交日期</button></th>
+              <th scope="col" class="c-former">原酒店／項目</th>
+              <th scope="col" class="c-after">改建後名稱</th>
+              <th scope="col" class="c-dist">地區</th>
               <th scope="col" class="c-parties">買方</th>
-              <th scope="col" class="sortable num c-price" data-sort="price" aria-sort="none"><button type="button">金額（HK$）</button></th>
-              <th scope="col" class="sortable num c-rooms" data-sort="rooms" aria-sort="none"><button type="button" title="原有房間／單位數，用來睇項目大細；不是改建後床位">房間／單位</button></th>
-              <th scope="col" class="sortable num c-beds" data-sort="beds" aria-sort="none"><button type="button" title="改建後床數。有官網用官網，否則用報紙；沒有來源就留空">床數</button></th>
-              <th scope="col" class="sortable num c-m" data-sort="psf" aria-sort="none"><button type="button" title="每平方呎價，一律建築面積（GFA）；本表沒有實用面積">呎價</button></th>
-              <th scope="col" class="sortable num c-m" data-sort="room" aria-sort="none"><button type="button" title="代價 ÷ 原有房間／單位數，不是床位">每房價</button></th>
-              <th scope="col" class="sortable num c-m c-bedh" data-sort="unreno" aria-sort="none"><button type="button" title="收購價 ÷ 改建後床位，未加翻新費">每床價<small>（未含翻新）</small></button></th>
+              <th scope="col" class="c-seller">賣方</th>
+              <th scope="col" class="c-use">原用途</th>
+              <th scope="col" class="sortable num c-gfa" data-sort="area" aria-sort="none"><button type="button">建築面積（呎）</button></th>
+              <th scope="col" class="sortable num c-price" data-sort="price" aria-sort="none"><button type="button">收購價</button></th>
+              <th scope="col" class="sortable num c-rooms" data-sort="rooms" aria-sort="none"><button type="button">原房間數</button></th>
+              <th scope="col" class="sortable num c-m" data-sort="room" aria-sort="none"><button type="button">每房價值</button></th>
+              <th scope="col" class="sortable num c-m" data-sort="psf" aria-sort="none"><button type="button">收購呎價</button></th>
+              <th scope="col" class="sortable num c-beds" data-sort="beds" aria-sort="none"><button type="button">改建後床位</button></th>
+              <th scope="col" class="sortable num c-m c-bedh" data-sort="unreno" aria-sort="none"><button type="button">每床收購價<small>（未含翻新）</small></button></th>
               <th scope="col" class="c-src">來源</th>
             </tr>
           </thead>
-          <tbody><tr><td colspan="10" class="muted">載入中…</td></tr></tbody>
+          <tbody><tr><td colspan="15" class="muted">載入中…</td></tr></tbody>
         </table>
         <p class="muted small" id="f-empty" hidden>冇符合篩選條件嘅成交。</p>
       </div>
       <p class="foot-note" id="est-note"></p>
 
+      <details class="fold" id="leads-fold" hidden>
+        <summary>待核實線索（未入成交表）<span class="n" id="leads-n"></span></summary>
+        <p class="method">買家未確認、叫價／放售、或用途未確認——唔入上表。</p>
+        <ul class="leads-list" id="leads-list"></ul>
+      </details>
+    </section>
+
+    <!-- 4. 改建後項目資料（財務評估） -->
+    <section id="projects" aria-labelledby="h-projects">
+      <h2 id="h-projects">4. 改建後項目資料（財務評估）</h2>
+      <p class="method">只列有來源嘅租金／床數／房型。叫價唔當已實現收入。詳情亦可喺第 3 節每行「詳情」展開。</p>
+
+      <details class="filters" id="model-box" open>
+        <summary>按原用途估算（成交樣本）</summary>
+        <p class="method">用近5年成交做假設，酒店、商廈、住宅分開計。全套每床＝每床收購價中位數＋改建費情景中位，係估算，未計印花、代理、融資、開業前費用同營運成本。樣本少過5宗會標明。</p>
+        <div class="f-grid model-filters">
+          <label>原用途<select id="m-use">
+            <option value="">全部（分開列）</option>
+            <option value="酒店">酒店</option>
+            <option value="商廈">商廈／寫字樓</option>
+            <option value="住宅">住宅</option>
+            <option value="其他">其他</option>
+          </select></label>
+          <label>區域<select id="m-region"><option value="">全港</option></select></label>
+          <label class="toggle"><input type="checkbox" id="m-media" /> 計入媒體報導</label>
+        </div>
+        <div id="model-out"><p class="muted">載入中…</p></div>
+      </details>
+
+      <div class="table-wrap" style="margin-top:14px">
+        <table class="projects" aria-labelledby="h-projects">
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>地區</th>
+              <th class="num">床位</th>
+              <th>營運狀態</th>
+              <th>租金／房型摘要</th>
+              <th>資料日期</th>
+              <th>來源</th>
+            </tr>
+          </thead>
+          <tbody id="projects-body"><tr><td colspan="7" class="muted">載入中…</td></tr></tbody>
+        </table>
+      </div>
     </section>
 
     <details class="fold" id="gaps">
-      <summary>資料缺口／建議跟進<span class="n" id="gaps-n"></span></summary>
+      <summary>其他資料缺口／建議跟進<span class="n" id="gaps-n"></span></summary>
       <ul id="gaps-list"></ul>
     </details>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>資料來自媒體及港交所公告；作決定前請自行核實。</p>
+      <p>資料來自媒體、港交所公告及立法會／政府文件；作決定前請自行核實。</p>
+      <p class="muted small">發布：<a href="https://mcllam217.github.io/hk-pbsa-daily/">GitHub Pages</a> · 倉庫 <a href="https://github.com/mcllam217/hk-pbsa-daily">mcllam217/hk-pbsa-daily</a></p>
     </div>
   </footer>
 
-  <script src="js/app.js?v=30"></script>
+  <script src="js/app.js?v=40"></script>
 </body>
 </html>

@@ -382,3 +382,87 @@ tr.model-names td { color: var(--muted); font-size: 0.75rem; padding-top: 0; bor
 
 .a-former { display: block; margin-top: 2px; color: var(--muted); font-size: 0.78rem; font-weight: 400; }
 .a-site { margin-top: 2px; font-size: 0.78rem; }
+
+/* ===== v40: 四段結構 + 擴表 ===== */
+.section-nav {
+  display: flex; flex-wrap: wrap; gap: 6px 14px;
+  padding: 0 0 14px; font-size: 0.85rem;
+  border-bottom: 1px solid var(--line);
+}
+.section-nav a {
+  color: var(--muted); font-weight: 500;
+  padding: 2px 0; border-bottom: 2px solid transparent;
+}
+.section-nav a:hover { color: var(--accent); text-decoration: none; border-bottom-color: var(--accent-soft); }
+
+.sd-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 10px;
+}
+.sd-col h3 { margin: 0 0 8px; font-size: 0.92rem; font-weight: 700; }
+.sd-list { list-style: none; margin: 0; padding: 0; }
+.sd-list li {
+  padding: 10px 0; border-top: 1px solid var(--line); font-size: 0.88rem;
+}
+.sd-list li:first-child { border-top: 0; padding-top: 0; }
+.sd-val { font-size: 1.15rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); }
+.sd-unit { font-size: 0.78rem; font-weight: 400; color: var(--muted); margin-left: 4px; }
+.sd-label { display: block; margin-top: 2px; font-weight: 500; }
+.sd-meta { display: block; margin-top: 3px; font-size: 0.75rem; color: var(--muted); line-height: 1.45; }
+.sd-tag {
+  display: inline-block; margin-left: 6px; padding: 0 5px; border-radius: 4px;
+  font-size: 0.68rem; font-weight: 500; color: var(--mid); background: var(--mid-bg); vertical-align: 1px;
+}
+.leads-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.leads-list li {
+  padding: 10px 0; border-top: 1px solid var(--line); font-size: 0.88rem;
+}
+.leads-list li:first-child { border-top: 0; }
+.lead-asset { font-weight: 500; }
+.lead-note { display: block; margin-top: 3px; color: var(--muted); font-size: 0.82rem; }
+.lead-src { display: block; margin-top: 3px; font-size: 0.78rem; color: var(--muted); }
+
+.c-former, .c-after { min-width: 8em; max-width: 12em; font-size: 0.82rem; }
+.c-after { font-weight: 500; }
+.c-dist { white-space: nowrap; font-size: 0.8rem; color: var(--muted); }
+.c-seller { min-width: 7em; max-width: 11em; font-size: 0.78rem; color: var(--muted); }
+.c-use { white-space: nowrap; font-size: 0.78rem; }
+.c-gfa { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.undisclosed { color: var(--muted); font-size: 0.78rem; }
+
+table.projects { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 720px; }
+table.projects th, table.projects td {
+  text-align: left; vertical-align: top; padding: 10px 8px; border-top: 1px solid var(--line);
+}
+table.projects thead th {
+  border-top: 0; font-size: 0.75rem; font-weight: 500; color: var(--muted); padding-top: 4px;
+}
+table.projects .num { text-align: right; font-variant-numeric: tabular-nums; }
+.proj-rent { font-size: 0.8rem; color: var(--muted); max-width: 28em; }
+.proj-name { font-weight: 500; }
+.proj-former { display: block; font-size: 0.75rem; color: var(--muted); font-weight: 400; }
+
+@media (max-width: 960px) {
+  .sd-grid { grid-template-columns: 1fr; }
+  .section-nav { font-size: 0.8rem; gap: 4px 10px; }
+  tbody.deal > tr.main > td.c-former,
+  tbody.deal > tr.main > td.c-dist,
+  tbody.deal > tr.main > td.c-seller,
+  tbody.deal > tr.main > td.c-use,
+  tbody.deal > tr.main > td.c-gfa,
+  tbody.deal > tr.main > td.c-parties { display: none; }
+  .c-after { order: 1; flex: 1 1 0; min-width: 0; max-width: none; font-size: 0.95rem; }
+  .c-price { order: 2; }
+  .c-rooms, .c-beds { order: 2; }
+  .c-src { order: 3; }
+}
+
+@media (max-width: 960px) {
+  tbody.deal > tr.main > td.c-after .c-top { display: flex; }
+  tbody.deal > tr.main > td.c-former .m-key { display: none; }
+  tbody.deal > tr.main > td.c-after .m-key { display: block; }
+}
+/* Avoid duplicate status badge: desktop uses 原項目欄；手機用改建後欄 */
+.c-after > .c-statusline { display: none; }
+@media (max-width: 960px) {
+  .c-after > .c-statusline { display: block; margin-top: 3px; }
+}

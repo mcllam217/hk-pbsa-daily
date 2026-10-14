@@ -8,6 +8,8 @@
       ? `<a${cls ? ` class="${cls}"` : ""} href="${esc(url)}" target="_blank" rel="noopener noreferrer">${text}</a>`
       : text;
   const DASH = `<span class="muted">—</span>`;
+  const UND = `<span class="undisclosed">未披露</span>`;
+  const showOrUnd = (html) => (html === null || html === undefined || html === "" || html === DASH ? UND : html);
 
   async function loadJSON(path) {
     const res = await fetch(path, { cache: "no-cache" });
@@ -422,29 +424,34 @@
     const others = otherSources(d);
     const e = estimate(d);
     const km = keyMetric(d);
+    const former = d.former_name || d.asset || d.asset_zh || "";
+    const after = d.name_after || "";
+    const afterCell = `<div class="c-top"><span class="c-date">${dateLabel(d)}</span></div>` + (after
+      ? `<div class="a-name">${esc(after)}</div>${former ? `<div class="a-former">原：${esc(former)}</div>` : ""}${d.project_url ? `<div class="a-site">${link(d.project_url, "官網")}</div>` : ""}`
+      : `<span class="undisclosed">未披露</span>${former ? `<div class="a-former">原：${esc(former)}</div>` : ""}`);
+    const formerCell = former ? esc(former) : UND;
+    const distCell = d.district ? esc(d.district) : (d.location ? esc(d.location) : UND);
+    const sellerCell = d.seller ? esc(d.seller) : UND;
+    const useCell = d.original_use ? esc(d.original_use) : UND;
     return `<tbody class="deal" id="deal-${esc(d.id || idx)}" data-status="${esc(statusOf(d))}" data-date="${esc(dealKey(d))}" data-price="${d.price_hkd_m ?? ""}" data-area="${num(mid(d, "gfa_sqft"))}" data-rooms="${num(mid(d, "rooms"))}" data-psf="${num(mid(d, "price_psf_hkd"))}" data-room="${num(mid(d, "price_per_room_hkd_m"))}" data-bed="${num(mid(d, "all_in_per_bed_hkd_m"))}" data-beds="${num(mid(d, "beds_after"))}" data-unreno="${num(mid(d, "price_per_bed_hkd_m"))}" data-est="${e ? e.mid : ""}" data-idx="${idx}">
       <tr class="main">
         <td class="c-dt">${dateLabel(d)}</td>
-        <td class="c-first">
-          <div class="c-top"><span class="c-date">${dateLabel(d)}</span></div>
-          <div class="a-name">${d.district ? `<span class="dist">${esc(d.district)}</span>` : ""}${esc(d.name_after || d.asset_zh || d.asset)}</div>
-          ${d.name_after && d.former_name ? `<div class="a-former">原：${esc(d.former_name)}</div>` : ""}
-          ${d.name_after ? "" : `<div class="a-former">改建後名稱未公布${d.former_name ? ` · 原：${esc(d.former_name)}` : ""}</div>`}
-          ${d.project_url ? `<div class="a-site">${link(d.project_url, "官網")}</div>` : ""}
-          <div class="c-statusline">${badge(d)}</div>
-          ${useTag(d)}
-          ${km ? `<div class="m-key">${km}</div>` : ""}
-        </td>
-        <td class="c-parties">${esc(d.buyer)}</td>
-        <td class="c-price num">${esc(shortPrice(d.price_label))}${media}</td>
-        <td class="c-rooms num">${roomsCell(d)}</td>
-        <td class="c-beds num">${bedsCell(d)}</td>
-        <td class="c-m c-psf num">${psfCell(d)}</td>
-        <td class="c-m c-room num">${roomCell(d)}</td>
-        <td class="c-m c-unreno num">${unrenoCell(d)}</td>
-        <td class="c-src"><span class="src-links">${link(d.source_url, esc(d.source))}${others.length ? ` <span class="src2">· ${link(others[0], "來源2", "")}${others.length > 1 ? `＋${others.length - 1}` : ""}</span>` : ""}</span><button type="button" class="more-link" aria-expanded="false" aria-controls="${rid}">詳情</button></td>
+        <td class="c-former">${formerCell}<div class="c-statusline">${badge(d)}</div></td>
+        <td class="c-after">${afterCell}${km ? `<div class="m-key">${km}</div>` : ""}<div class="c-statusline">${badge(d)}</div></td>
+        <td class="c-dist">${distCell}</td>
+        <td class="c-parties">${d.buyer ? esc(d.buyer) : UND}</td>
+        <td class="c-seller">${sellerCell}</td>
+        <td class="c-use">${useCell}</td>
+        <td class="c-gfa num">${showOrUnd(areaCell(d) === DASH ? null : areaCell(d))}</td>
+        <td class="c-price num">${d.price_label ? esc(shortPrice(d.price_label)) : UND}${media}</td>
+        <td class="c-rooms num">${showOrUnd(roomsCell(d) === DASH ? null : roomsCell(d))}</td>
+        <td class="c-m c-room num">${showOrUnd(roomCell(d) === DASH ? null : roomCell(d))}</td>
+        <td class="c-m c-psf num">${showOrUnd(psfCell(d) === DASH ? null : psfCell(d))}</td>
+        <td class="c-beds num">${showOrUnd(bedsCell(d) === DASH ? null : bedsCell(d))}</td>
+        <td class="c-m c-unreno num">${showOrUnd(unrenoCell(d) === DASH ? null : unrenoCell(d))}</td>
+        <td class="c-src"><span class="src-links">${link(d.source_url, esc(d.source || "來源"))}${others.length ? ` <span class="src2">· ${link(others[0], "來源2", "")}${others.length > 1 ? `＋${others.length - 1}` : ""}</span>` : ""}</span><button type="button" class="more-link" aria-expanded="false" aria-controls="${rid}">詳情</button></td>
       </tr>
-      <tr class="detail" id="${rid}" hidden><td colspan="10">${details(d)}</td></tr>
+      <tr class="detail" id="${rid}" hidden><td colspan="15">${details(d)}</td></tr>
     </tbody>`;
   }
 
@@ -691,6 +698,119 @@
     apply();
   }
 
+  function fmtSdValue(item) {
+    const v = item.value;
+    if (v === null || v === undefined || v === "") return UND;
+    if (typeof v === "number") return Number(v).toLocaleString("en-US");
+    return esc(v);
+  }
+  function sdItemHtml(item) {
+    const tag = item.single_source ? `<span class="sd-tag" title="只有一個獨立來源">單一來源</span>` : "";
+    const src = item.source_url
+      ? link(item.source_url, esc(item.source_name || "來源"))
+      : esc(item.source_name || "來源");
+    const asOf = item.as_of ? `截至 ${esc(item.as_of)}` : "";
+    const period = item.period ? esc(item.period) : "";
+    const note = item.note ? esc(item.note) : "";
+    return `<li>
+      <span class="sd-val">${fmtSdValue(item)}<span class="sd-unit">${esc(item.unit || "")}</span>${tag}</span>
+      <span class="sd-label">${esc(item.label || "")}</span>
+      <span class="sd-meta">${[asOf, period].filter(Boolean).join(" · ")}${note ? `<br>${note}` : ""}<br>${src}${item.doc_id ? ` · <code>${esc(item.doc_id)}</code>` : ""}</span>
+    </li>`;
+  }
+  function renderSupplyDemand(data) {
+    if (!data) {
+      $("#sd-demand").innerHTML = `<p class="muted">未有供求資料檔。</p>`;
+      $("#sd-supply").innerHTML = "";
+      $("#sd-pipeline").innerHTML = "";
+      $("#sd-gaps").hidden = true;
+      return;
+    }
+    const demand = data.demand || [];
+    const supply = data.supply || [];
+    const pipeline = data.pipeline || [];
+    $("#sd-demand").innerHTML = demand.length
+      ? `<ul class="sd-list">${demand.map(sdItemHtml).join("")}</ul>`
+      : `<p class="muted">暫無</p>`;
+    $("#sd-supply").innerHTML = supply.length
+      ? `<ul class="sd-list">${supply.map(sdItemHtml).join("")}</ul>`
+      : `<p class="muted">暫無</p>`;
+    $("#sd-pipeline").innerHTML = pipeline.length
+      ? `<ul class="sd-list">${pipeline.map(sdItemHtml).join("")}</ul>`
+      : `<p class="muted">暫無</p>`;
+    const gaps = data.gaps || [];
+    if (!gaps.length) $("#sd-gaps").hidden = true;
+    else {
+      $("#sd-gaps").hidden = false;
+      $("#sd-gaps-n").textContent = String(gaps.length);
+      $("#sd-gaps-list").innerHTML = gaps.map((g) => `<li>${esc(g)}</li>`).join("");
+    }
+  }
+
+  function projectRentSummary(d) {
+    const bits = [];
+    const rr = d.rent_roll;
+    if (rr) {
+      if (rr.status) bits.push(RENT_ST[rr.status] || rr.status);
+      if (has(rr.occupancy_pct)) bits.push(`出租率 ${rr.occupancy_pct}%`);
+      if (rr.note) bits.push(rr.note);
+    }
+    const rts = d.room_types || [];
+    if (rts.length) {
+      const sample = rts.slice(0, 3).map((r) => {
+        const rent = r.rent_label || (has(r.rent_hkd_month) ? `HK$${n0(r.rent_hkd_month)}` : "");
+        return `${r.name || "房型"}${rent ? ` ${rent}` : ""}`;
+      });
+      bits.push(sample.join("；") + (rts.length > 3 ? ` 等 ${rts.length} 種房型` : ""));
+    }
+    return bits.length ? esc(bits.join(" · ")) : `<span class="undisclosed">未披露</span>`;
+  }
+  function renderProjects(deals) {
+    const rows = (deals || []).filter((d) => d.rent_roll || (d.room_types && d.room_types.length) || has(d.beds_after) || d.project_url);
+    if (!rows.length) {
+      $("#projects-body").innerHTML = `<tr><td colspan="7" class="muted">未有改建後公開租金／床位資料。</td></tr>`;
+      return;
+    }
+    $("#projects-body").innerHTML = rows.map((d) => {
+      const name = d.name_after || d.asset_zh || d.asset || "—";
+      const former = d.former_name && d.name_after ? `<span class="proj-former">原：${esc(d.former_name)}</span>` : "";
+      const beds = has(d.beds_after)
+        ? rangeTxt(d, "beds_after", (v) => fmtNum(v, 0))
+        : (d.rent_roll && has(d.rent_roll.beds) ? fmtNum(d.rent_roll.beds, 0) : UND);
+      const stRaw = d.rent_roll ? (RENT_ST[d.rent_roll.status] || d.rent_roll.status || "") : "";
+      const stCell = stRaw ? esc(stRaw) : UND;
+      const asOf = (d.rent_roll && d.rent_roll.as_of) || (d.room_types && d.room_types[0] && d.room_types[0].as_of) || "—";
+      const srcUrl = (d.rent_roll && d.rent_roll.source_url) || d.project_url || d.source_url;
+      const srcLabel = d.project_url && srcUrl === d.project_url ? "項目網頁" : (d.source || "來源");
+      return `<tr>
+        <td><span class="proj-name">${link(`#deal-${esc(d.id)}`, esc(name))}</span>${former}</td>
+        <td>${d.district ? esc(d.district) : UND}</td>
+        <td class="num">${beds}</td>
+        <td>${stCell}</td>
+        <td class="proj-rent">${projectRentSummary(d)}</td>
+        <td>${esc(asOf)}</td>
+        <td>${srcUrl ? link(srcUrl, esc(srcLabel)) : UND}</td>
+      </tr>`;
+    }).join("");
+  }
+
+  function renderLeads(list) {
+    const fold = $("#leads-fold");
+    if (!list || !list.length) { fold.hidden = true; return; }
+    fold.hidden = false;
+    $("#leads-n").textContent = String(list.length);
+    $("#leads-list").innerHTML = list.map((L) => {
+      const src = L.source_url ? link(L.source_url, esc(L.source || "來源")) : esc(L.source || "");
+      const src2 = L.source_url2 ? ` · ${link(L.source_url2, "來源2")}` : "";
+      const date = L.source_date ? esc(L.source_date) : "";
+      return `<li>
+        <span class="lead-asset">${esc(L.asset || L.asset_zh || "線索")}</span>
+        ${L.note ? `<span class="lead-note">${esc(L.note)}</span>` : ""}
+        <span class="lead-src">${date}${date && src ? " · " : ""}${src}${src2}</span>
+      </li>`;
+    }).join("");
+  }
+
   function renderGaps(data) {
     const gaps = data.gaps || [];
     if (!gaps.length) { $("#gaps").hidden = true; return; }
@@ -700,40 +820,50 @@
   }
 
   try {
-    const [deals, news, watch, scen] = await Promise.all([
+    const [deals, news, watch, scen, sd] = await Promise.all([
       loadJSON("data/deals.json"),
       loadJSON("data/news.json"),
       loadJSON("data/watch.json"),
-      loadJSON("data/capex_scenarios.json").catch(() => null), // estimate column is optional
+      loadJSON("data/capex_scenarios.json").catch(() => null),
+      loadJSON("data/supply_demand.json").catch(() => null),
     ]);
     SCEN = scen;
-    $("#est-note").hidden = true;
+    if ($("#est-note")) $("#est-note").hidden = true;
     DEAL_BY_ID = Object.fromEntries((deals.deals || []).filter((d) => d.id).map((d) => [d.id, d]));
     const ref = news.updated;
     const shownNews = renderNews(news, ref);
+    renderSupplyDemand(sd);
     renderDeals(deals);
+    renderLeads(deals.leads_to_verify || []);
+    renderProjects(deals.deals || []);
     renderGaps(watch);
     const list = deals.deals || [];
     MODEL_DEALS = list;
     const regC = {};
     list.forEach((d) => { const r = regionOf(d); if (r) regC[r] = (regC[r] || 0) + 1; });
-    $("#m-region").insertAdjacentHTML("beforeend", Object.keys(regC).sort((a, b) => regC[b] - regC[a] || a.localeCompare(b, "zh-HK")).map((r) => `<option value="${esc(r)}">${esc(r)}（${regC[r]}）</option>`).join(""));
-    renderModel();
-    ["#m-use", "#m-region", "#m-media"].forEach((s) => $(s).addEventListener("change", renderModel));
+    const mRegion = $("#m-region");
+    if (mRegion) {
+      mRegion.insertAdjacentHTML("beforeend", Object.keys(regC).sort((a, b) => regC[b] - regC[a] || a.localeCompare(b, "zh-HK")).map((r) => `<option value="${esc(r)}">${esc(r)}（${regC[r]}）</option>`).join(""));
+      renderModel();
+      ["#m-use", "#m-region", "#m-media"].forEach((s) => $(s).addEventListener("change", renderModel));
+    }
     if (!list.some((d) => has(d.beds_after) || has(d.price_per_bed_hkd_m) || has(d.all_in_per_bed_hkd_m))) {
       document.querySelector("table.deals").classList.add("no-beds");
-      const bedFilter = $("#f-bed").closest("label");
+      const bedFilter = $("#f-bed") && $("#f-bed").closest("label");
       if (bedFilter) bedFilter.hidden = true;
     }
 
     const byStatus = STATUS_ORDER.map((k) => [k, list.filter((d) => statusOf(d) === k).length]).filter(([, c]) => c);
-    $("#counts").textContent = `${list.length} 宗成交（${byStatus.map(([k, c]) => `${STATUS[k].t} ${c}`).join(" · ")}） · 近兩星期 ${shownNews} 則要睇`;
+    const leadsN = (deals.leads_to_verify || []).length;
+    $("#counts").textContent = `${list.length} 宗成交（${byStatus.map(([k, c]) => `${STATUS[k].t} ${c}`).join(" · ")}） · 近兩星期 ${shownNews} 則新聞` + (leadsN ? ` · ${leadsN} 條待核實` : "");
     const stamp = (id, iso) => {
       const el = $(id);
+      if (!el) return;
       el.textContent = iso ? fmtTs(iso) : "—";
       if (iso) el.setAttribute("datetime", iso);
     };
     stamp("#news-updated", news.updated);
+    stamp("#sd-updated", sd && sd.updated);
     stamp("#deals-updated", deals.updated);
     document.documentElement.dataset.ready = "1";
   } catch (err) {
