@@ -492,3 +492,37 @@ table.projects .num { text-align: right; font-variant-numeric: tabular-nums; }
   font-size: 0.72rem; font-weight: 700; background: #eef2f6; color: #4a5565;
 }
 
+
+
+/* comps ranges block */
+.comps-ranges {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--border, #e2e4e8);
+  border-radius: 8px;
+  background: #fafbfc;
+}
+.comps-ranges h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.comps-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+}
+.comps-controls select { margin-left: 6px; }
+table.comps { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+table.comps th, table.comps td {
+  border-bottom: 1px solid var(--border, #e2e4e8);
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+table.comps th.num, table.comps td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.comps tbody tr:last-child td { border-bottom: none; }
+table.comps .c-empty { color: var(--muted, #6b7280); }
