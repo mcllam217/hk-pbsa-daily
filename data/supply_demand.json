@@ -1,0 +1,196 @@
+{
+  "updated": "2026-10-14T14:40:00+08:00",
+  "notes": "只收錄有來源嘅數字；單一可靠來源亦會列出並標「單一來源」。冇估計、冇推算。缺數見 gaps。",
+  "demand": [
+    {
+      "id": "fyfd-15000",
+      "label": "教資會資助大學每年學士一年級學額（FYFD）",
+      "value": 15000,
+      "unit": "個（全日制等值／學年）",
+      "as_of": "2025-02",
+      "period": "2025/26–2027/28 三年期",
+      "note": "政府維持每年 15 000 個全日制等值學士一年級學額。",
+      "source_name": "立法會參考資料摘要 EDB(HE)CR 7/2041/19（教資會資助大學 2025–28 三年期經常撥款）",
+      "source_url": "https://www.legco.gov.hk/yr2025/english/brief/edbhecr7204119_20250218-e.pdf",
+      "doc_id": "EDB(HE)CR7204119-e",
+      "single_source": true
+    },
+    {
+      "id": "nonlocal-quota-40",
+      "label": "公帑資助專上院校非本地生收生上限（修課課程）",
+      "value": 40,
+      "unit": "%（相對本地學額）",
+      "as_of": "2024/25",
+      "period": "由 2024/25 學年起",
+      "note": "由相當於本地學額 20% 上調至 40%。",
+      "source_name": "立法會教育事務委員會 CB(3)1369/2025(01)（2025 施政報告教育局政策措施）",
+      "source_url": "https://www.legco.gov.hk/yr2025/english/panels/ed/papers/ed20251003cb3-1369-1-e.pdf",
+      "doc_id": "ed20251003cb3-1369-1-e",
+      "single_source": true
+    },
+    {
+      "id": "ft-ug-pg-192000",
+      "label": "全日制本地及非本地本科生及研究生人數",
+      "value": 192000,
+      "unit": "名",
+      "as_of": "2024/25",
+      "period": "2024/25 學年",
+      "note": "立法會發展事務委員會文件按最新數據估計。",
+      "source_name": "立法會發展事務委員會 CB(1)1068/2025(03)（促進市場增加學生宿舍供應）",
+      "source_url": "https://www.legco.gov.hk/yr2025/chinese/panels/dev/papers/dev20250624cb1-1068-3-c.pdf",
+      "doc_id": "dev20250624cb1-1068-3-c",
+      "single_source": true
+    },
+    {
+      "id": "nonlocal-ft-79300",
+      "label": "非本地全日制學生報讀人數",
+      "value": 79300,
+      "unit": "名",
+      "as_of": "2024/25",
+      "period": "2024/25 學年",
+      "note": "文件指四年間倍增至約 79 300 名。",
+      "source_name": "立法會發展事務委員會 CB(1)1068/2025(03)",
+      "source_url": "https://www.legco.gov.hk/yr2025/chinese/panels/dev/papers/dev20250624cb1-1068-3-c.pdf",
+      "doc_id": "dev20250624cb1-1068-3-c",
+      "single_source": true
+    }
+  ],
+  "supply": [
+    {
+      "id": "hostel-units-44000",
+      "label": "專上學生宿舍單位總數（估計）",
+      "value": 44000,
+      "unit": "個",
+      "as_of": "2024/25",
+      "period": "2024/25 學年",
+      "note": "文件寫「約 44 000 個」；口徑為宿舍單位，未必等同床位。",
+      "source_name": "立法會發展事務委員會 CB(1)1068/2025(03)",
+      "source_url": "https://www.legco.gov.hk/yr2025/chinese/panels/dev/papers/dev20250624cb1-1068-3-c.pdf",
+      "doc_id": "dev20250624cb1-1068-3-c",
+      "single_source": true
+    },
+    {
+      "id": "hdf-completed-public",
+      "label": "宿舍發展基金（HDF）已竣工項目 — 公帑資助宿位",
+      "value": 7647,
+      "unit": "個宿位",
+      "as_of": "2025-10",
+      "period": "截至教育局 2025 年 10 月文件",
+      "note": "八個已竣工項目合計。",
+      "source_name": "立法會教育事務委員會 CB(3)1369/2025(01)",
+      "source_url": "https://www.legco.gov.hk/yr2025/english/panels/ed/papers/ed20251003cb3-1369-1-e.pdf",
+      "doc_id": "ed20251003cb3-1369-1-e",
+      "single_source": true
+    },
+    {
+      "id": "hdf-completed-private",
+      "label": "宿舍發展基金（HDF）已竣工項目 — 私營宿位",
+      "value": 136,
+      "unit": "個宿位",
+      "as_of": "2025-10",
+      "period": "截至教育局 2025 年 10 月文件",
+      "note": "八個已竣工項目合計。",
+      "source_name": "立法會教育事務委員會 CB(3)1369/2025(01)",
+      "source_url": "https://www.legco.gov.hk/yr2025/english/panels/ed/papers/ed20251003cb3-1369-1-e.pdf",
+      "doc_id": "ed20251003cb3-1369-1-e",
+      "single_source": true
+    },
+    {
+      "id": "hdf-under-construction",
+      "label": "宿舍發展基金（HDF）在建項目宿位",
+      "value": 6532,
+      "unit": "個宿位",
+      "as_of": "2025-10",
+      "period": "截至教育局 2025 年 10 月文件",
+      "note": "餘下七個在建項目；其中公帑資助 5 840、私營 692。",
+      "source_name": "立法會教育事務委員會 CB(3)1369/2025(01)",
+      "source_url": "https://www.legco.gov.hk/yr2025/english/panels/ed/papers/ed20251003cb3-1369-1-e.pdf",
+      "doc_id": "ed20251003cb3-1369-1-e",
+      "single_source": true
+    },
+    {
+      "id": "hitc-applications-41",
+      "label": "城中學舍計劃已確認資格申請宗數",
+      "value": 41,
+      "unit": "宗",
+      "as_of": "2026-施政報告",
+      "period": "計劃自 2025 年 7 月推出至 2026 年施政報告",
+      "note": "《行政長官 2026 年施政報告》第 148 段。",
+      "source_name": "《行政長官 2026 年施政報告》",
+      "source_url": "https://www.policyaddress.gov.hk/2026/chi/p145.html",
+      "doc_id": "pa2026_5",
+      "single_source": true
+    },
+    {
+      "id": "hitc-beds-10800",
+      "label": "城中學舍計劃已確認資格申請擬提供宿位",
+      "value": 10800,
+      "unit": "個宿位（約）",
+      "as_of": "2026-施政報告",
+      "period": "計劃自 2025 年 7 月推出至 2026 年施政報告",
+      "note": "原文「約 10 800 個宿位」；屬申請擬提供，非已入伙。",
+      "source_name": "《行政長官 2026 年施政報告》",
+      "source_url": "https://www.policyaddress.gov.hk/2026/chi/p145.html",
+      "doc_id": "pa2026_5",
+      "single_source": true
+    },
+    {
+      "id": "hdf-fund-2018",
+      "label": "宿舍發展基金一筆過撥款（2018）",
+      "value": 10303.7,
+      "unit": "百萬港元（付款當日價格）",
+      "as_of": "2018-06",
+      "period": "財務委員會 FCR(2018-19)35",
+      "note": "六所教資會資助大學宿位短缺項目；歷史撥款數字，非現時市值。",
+      "source_name": "財務委員會 FCR(2018-19)35（Hostel Development Fund）",
+      "source_url": "https://www.legco.gov.hk/yr17-18/english/fc/fc/papers/f18-35e.pdf",
+      "doc_id": "f18-35e",
+      "single_source": true
+    },
+    {
+      "id": "hdf-shortfall-2018",
+      "label": "教資會界別預計宿位短缺（按當年政策假設）",
+      "value": 13473,
+      "unit": "個宿位",
+      "as_of": "2018/19",
+      "period": "推算至 2018/19 學年",
+      "note": "假設學士及修課研究生非本地生額度用盡 20%。屬 2018 年文件推算，非 2024/25 最新缺口。",
+      "source_name": "財務委員會 FCR(2018-19)35",
+      "source_url": "https://www.legco.gov.hk/yr17-18/english/fc/fc/papers/f18-35e.pdf",
+      "doc_id": "f18-35e",
+      "single_source": true
+    }
+  ],
+  "pipeline": [
+    {
+      "id": "hitc-scheme-launch",
+      "label": "城中學舍計劃推出",
+      "value": "2025-07",
+      "unit": "月份",
+      "as_of": "2025-07",
+      "note": "發展局聯同教育局推出，便利酒店／商廈改裝或重建為學生宿舍。",
+      "source_name": "立法會教育事務委員會 CB(3)1369/2025(01)；《行政長官 2026 年施政報告》",
+      "source_url": "https://www.legco.gov.hk/yr2025/english/panels/ed/papers/ed20251003cb3-1369-1-e.pdf",
+      "doc_id": "ed20251003cb3-1369-1-e",
+      "single_source": false
+    },
+    {
+      "id": "hitc-land-sale",
+      "label": "首幅學生宿舍用地推售（計劃）",
+      "value": "本財政年度內",
+      "unit": "政府時間表",
+      "as_of": "2026-施政報告",
+      "note": "由市場競投興建新宿舍；具體地點／面積未於該段列明。",
+      "source_name": "《行政長官 2026 年施政報告》第 148 段",
+      "source_url": "https://www.policyaddress.gov.hk/2026/chi/p145.html",
+      "doc_id": "pa2026_5",
+      "single_source": true
+    }
+  ],
+  "gaps": [
+    "教資會最新按院校／來源地劃分嘅非本地生總人數：本地只得 data.gov.hk 套件元數據同 geojson API 連結，未有已抽出嘅總表數字入庫（見 hk-ugc-ugc-student-statistics）。",
+    "全港私營 PBSA 現有床位總存量：未見政府單一官方總數；立法會文件嘅「約 44 000 個宿舍單位」口徑未必等於床位。",
+    "2024/25 以後最新「宿位缺口」官方更新：2018 年 HDF 文件嘅 13 473 係舊推算；顧問報告（萊坊／中原）有估計但屬業界口徑，未納入本表待核對原文後再加。",
+    "自資專上院校非本地生人數（sf2324.txt 有分院校表，但 OCR／版面令總計未可靠抽出）：暫缺匯總。"
+  ]
+}
