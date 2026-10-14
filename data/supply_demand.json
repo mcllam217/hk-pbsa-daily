@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-14T14:40:00+08:00",
-  "notes": "只收錄有來源嘅數字；單一可靠來源亦會列出並標「單一來源」。冇估計、冇推算。缺數見 gaps。",
+  "updated": "2026-10-14T16:45:00+08:00",
+  "notes": "只收錄有來源嘅數字；單一可靠來源亦會列出並標「單一來源」。官方／立法會數字見上方三欄；業界估計（顧問報告）另列，標明單一來源同「業界估計，非政府官方」，唔覆蓋官方欄。缺數見 gaps。",
   "demand": [
     {
       "id": "fyfd-15000",
@@ -190,7 +190,61 @@
   "gaps": [
     "教資會最新按院校／來源地劃分嘅非本地生總人數：本地只得 data.gov.hk 套件元數據同 geojson API 連結，未有已抽出嘅總表數字入庫（見 hk-ugc-ugc-student-statistics）。",
     "全港私營 PBSA 現有床位總存量：未見政府單一官方總數；立法會文件嘅「約 44 000 個宿舍單位」口徑未必等於床位。",
-    "2024/25 以後最新「宿位缺口」官方更新：2018 年 HDF 文件嘅 13 473 係舊推算；顧問報告（萊坊／中原）有估計但屬業界口徑，未納入本表待核對原文後再加。",
+    "2024/25 以後最新「宿位缺口」官方更新：2018 年 HDF 文件嘅 13 473 係舊推算；仲量聯行《順勢部署…》新聞稿 2026-06-22 預測已入「業界估計」欄（單一來源）；萊坊／中原等其他顧問估計另計，待核對原文後再加。",
     "自資專上院校非本地生人數（sf2324.txt 有分院校表，但 OCR／版面令總計未可靠抽出）：暫缺匯總。"
+  ],
+  "industry": [
+    {
+      "id": "jll-shortfall-2025-26",
+      "label": "學生床位缺口（仲量聯行預測）— 2025/26",
+      "value": 76300,
+      "unit": "床",
+      "as_of": "2026-06",
+      "period": "2025/26 學年（預測）",
+      "note": "業界估計，非政府官方。仲量聯行按可預見供應預測。",
+      "source_name": "仲量聯行《順勢部署：專用學生宿舍成另類資產投資機遇》新聞稿 2026-06-22",
+      "source_url": "https://www.jll.com/zh-hk/newsroom/hk-student-bed-shortage-set-to-approach-150000-by-2030",
+      "single_source": true,
+      "category": "industry"
+    },
+    {
+      "id": "jll-shortfall-2029-30",
+      "label": "學生床位缺口（仲量聯行預測）— 2029/30",
+      "value": 147200,
+      "unit": "床",
+      "as_of": "2026-06",
+      "period": "2029/30 學年（預測）",
+      "note": "業界估計，非政府官方。相對 2025/26 缺口擴大逾 7 萬床（報告口徑）。",
+      "source_name": "仲量聯行《順勢部署：專用學生宿舍成另類資產投資機遇》新聞稿 2026-06-22",
+      "source_url": "https://www.jll.com/zh-hk/newsroom/hk-student-bed-shortage-set-to-approach-150000-by-2030",
+      "single_source": true,
+      "category": "industry"
+    },
+    {
+      "id": "jll-major-pbsa-beds-apr2026",
+      "label": "主要 PBSA 可租床位（仲量聯行）",
+      "value": 6900,
+      "unit": "床（約）",
+      "as_of": "2026-04",
+      "period": "截至 2026-04 底",
+      "note": "業界估計，非政府官方。主要項目；唔等同全港私營 PBSA 總存量。",
+      "source_name": "仲量聯行《順勢部署：專用學生宿舍成另類資產投資機遇》新聞稿 2026-06-22",
+      "source_url": "https://www.jll.com/zh-hk/newsroom/hk-student-bed-shortage-set-to-approach-150000-by-2030",
+      "single_source": true,
+      "category": "industry"
+    },
+    {
+      "id": "jll-pipeline-apr2026",
+      "label": "PBSA 潛在供應床位（仲量聯行）",
+      "value": 16300,
+      "unit": "床（約）",
+      "as_of": "2026-04",
+      "period": "截至 2026-04 底",
+      "note": "業界估計，非政府官方。包括已成交擬改裝、城中學舍申請，以及 2026/27 潛在政府賣地項目。唔覆蓋站內施政報告「城中學舍」41 宗／約 10,800 官方數字。",
+      "source_name": "仲量聯行《順勢部署：專用學生宿舍成另類資產投資機遇》新聞稿 2026-06-22",
+      "source_url": "https://www.jll.com/zh-hk/newsroom/hk-student-bed-shortage-set-to-approach-150000-by-2030",
+      "single_source": true,
+      "category": "industry"
+    }
   ]
 }

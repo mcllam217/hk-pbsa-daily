@@ -766,7 +766,11 @@
     return esc(v);
   }
   function sdItemHtml(item) {
-    const tag = item.single_source ? `<span class="sd-tag" title="只有一個獨立來源">單一來源</span>` : "";
+    const tag = [
+      item.single_source ? `<span class="sd-tag" title="只有一個獨立來源">單一來源</span>` : "",
+      (item.category === "industry" || /業界估計/.test(String(item.note || "")))
+        ? `<span class="sd-tag sd-tag-ind" title="顧問／業界估計，非政府官方">業界估計</span>` : "",
+    ].filter(Boolean).join("");
     const src = item.source_url
       ? link(item.source_url, esc(item.source_name || "來源"))
       : esc(item.source_name || "來源");
@@ -790,6 +794,7 @@
     const demand = data.demand || [];
     const supply = data.supply || [];
     const pipeline = data.pipeline || [];
+    const industry = data.industry || [];
     $("#sd-demand").innerHTML = demand.length
       ? `<ul class="sd-list">${demand.map(sdItemHtml).join("")}</ul>`
       : `<p class="muted">暫無</p>`;
@@ -799,6 +804,17 @@
     $("#sd-pipeline").innerHTML = pipeline.length
       ? `<ul class="sd-list">${pipeline.map(sdItemHtml).join("")}</ul>`
       : `<p class="muted">暫無</p>`;
+    const indEl = $("#sd-industry");
+    const indWrap = $("#sd-industry-wrap");
+    if (indEl) {
+      if (!industry.length) {
+        if (indWrap) indWrap.hidden = true;
+        indEl.innerHTML = "";
+      } else {
+        if (indWrap) indWrap.hidden = false;
+        indEl.innerHTML = `<ul class="sd-list sd-industry-list">${industry.map(sdItemHtml).join("")}</ul>`;
+      }
+    }
     const gaps = data.gaps || [];
     if (!gaps.length) $("#sd-gaps").hidden = true;
     else {
