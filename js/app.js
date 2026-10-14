@@ -197,7 +197,13 @@
     if (!r) return `<p class="rent-roll muted">出租：未有公開的改建後租金，未入 DCF。</p>`;
     const bits = [`<b>${esc(RENT_ST[r.status] || r.status || "未分類")}</b>`];
     if (has(r.rooms) || has(r.beds)) bits.push([has(r.rooms) ? `${esc(r.rooms)} 間` : "", has(r.beds) ? `${esc(r.beds)} 床` : ""].filter(Boolean).join("／"));
-    if (has(r.occupancy_pct)) bits.push(`出租率 ${esc(r.occupancy_pct)}%`);
+    if (has(r.occupancy_pct)) {
+      const scope = r.occupancy_scope ? esc(r.occupancy_scope) : "";
+      const onote = r.occupancy_note ? esc(r.occupancy_note) : "";
+      bits.push(scope
+        ? `出租率 ${esc(r.occupancy_pct)}%（${scope}${onote ? "；" + onote : ""}）`
+        : `出租率 ${esc(r.occupancy_pct)}%${onote ? `（${onote}）` : ""}`);
+    }
     if (r.as_of) bits.push(esc(r.as_of));
     const src = r.source_url ? ` ${link(r.source_url, "出租來源")}` : "";
     return `<p class="rent-roll">${bits.join(" · ")}${src}</p>${r.note ? `<p class="rent-roll muted">${esc(r.note)}</p>` : ""}<p class="rent-roll muted">DCF：多人房用每床月租 × 床數；單人房用每房月租 × 間數。起價不是平均租金。未營運的叫價不要當成已實現收入。</p>`;
@@ -363,7 +369,8 @@
     ];
     const facts = [
       ["狀態", stHtml ? H(stHtml) : null],
-      ["代價（原文）", d.price_label],
+      ["代價（原文）", d.price_label ? (d.status === "media_price" ? { html: esc(d.price_label) + " " + priceStatusTag(d) } : d.price_label) : null],
+      ["價錢備註", d.price_note || null],
       ["成交日期", d.deal_date],
       ["改建後名稱", d.name_after || "未公布"],
       ["原物業", d.former_name || null],
@@ -417,8 +424,14 @@
     return `<dl class="facts m-only">${mobHtml}</dl><dl class="facts moved">${movedHtml}</dl><dl class="facts">${factHtml}</dl><p class="d-links">${links}</p><h4>改建後出租（做 DCF）</h4>${rentRollHtml(d)}${rtHtml}`;
   }
 
+  function priceStatusTag(d) {
+    if (d.status === "media_price") {
+      return `<span class="mtag media-price" title="媒體報道價錢；非官方確認成交價">媒體價／非確認價</span>`;
+    }
+    return "";
+  }
   function dealBody(d, idx) {
-    const media = "";
+    const media = priceStatusTag(d);
     const rid = `dd-${idx}`;
     const num = (v) => (v === null || v === undefined ? "" : v);
     const others = otherSources(d);
@@ -752,7 +765,10 @@
     const rr = d.rent_roll;
     if (rr) {
       if (rr.status) bits.push(RENT_ST[rr.status] || rr.status);
-      if (has(rr.occupancy_pct)) bits.push(`出租率 ${rr.occupancy_pct}%`);
+      if (has(rr.occupancy_pct)) {
+        const scope = rr.occupancy_scope || "";
+        bits.push(scope ? `出租率 ${rr.occupancy_pct}%（${scope}）` : `出租率 ${rr.occupancy_pct}%`);
+      }
       if (rr.note) bits.push(rr.note);
     }
     const rts = d.room_types || [];
@@ -794,20 +810,37 @@
     }).join("");
   }
 
+  function leadBucket(L) {
+    const t = String(L.note || "") + String(L.asset || "");
+    if (/放售|叫價|招標|估值／招標|待售|指示價|意向價/.test(t)) return "放售／叫價";
+    if (/用途未確認|買家未獲官方確認|買家用途未確認|非學生宿舍|成交是否完成待核實|細節待查/.test(t)) return "用途未確認／待核實";
+    return "其他待核實";
+  }
+  function leadItemHtml(L) {
+    const src = L.source_url ? link(L.source_url, esc(L.source || "來源")) : esc(L.source || "");
+    const src2 = L.source_url2 ? ` · ${link(L.source_url2, "來源2")}` : "";
+    const date = L.source_date ? esc(L.source_date) : "";
+    const tag = leadBucket(L);
+    return `<li data-lead-bucket="${esc(tag)}">
+      <span class="lead-tag">${esc(tag)}</span>
+      <span class="lead-asset">${esc(L.asset || L.asset_zh || "線索")}</span>
+      ${L.note ? `<span class="lead-note">${esc(L.note)}</span>` : ""}
+      <span class="lead-src">${date}${date && src ? " · " : ""}${src}${src2}</span>
+    </li>`;
+  }
   function renderLeads(list) {
     const fold = $("#leads-fold");
     if (!list || !list.length) { fold.hidden = true; return; }
     fold.hidden = false;
     $("#leads-n").textContent = String(list.length);
-    $("#leads-list").innerHTML = list.map((L) => {
-      const src = L.source_url ? link(L.source_url, esc(L.source || "來源")) : esc(L.source || "");
-      const src2 = L.source_url2 ? ` · ${link(L.source_url2, "來源2")}` : "";
-      const date = L.source_date ? esc(L.source_date) : "";
-      return `<li>
-        <span class="lead-asset">${esc(L.asset || L.asset_zh || "線索")}</span>
-        ${L.note ? `<span class="lead-note">${esc(L.note)}</span>` : ""}
-        <span class="lead-src">${date}${date && src ? " · " : ""}${src}${src2}</span>
-      </li>`;
+    const order = ["放售／叫價", "用途未確認／待核實", "其他待核實"];
+    const groups = {};
+    list.forEach((L) => {
+      const b = leadBucket(L);
+      (groups[b] || (groups[b] = [])).push(L);
+    });
+    $("#leads-list").innerHTML = order.filter((b) => groups[b] && groups[b].length).map((b) => {
+      return `<li class="lead-group"><strong class="lead-group-h">${esc(b)}（${groups[b].length}）</strong><ul class="leads-sub">${groups[b].map(leadItemHtml).join("")}</ul></li>`;
     }).join("");
   }
 

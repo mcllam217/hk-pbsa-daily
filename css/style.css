@@ -466,3 +466,29 @@ table.projects .num { text-align: right; font-variant-numeric: tabular-nums; }
 @media (max-width: 960px) {
   .c-after > .c-statusline { display: block; margin-top: 3px; }
 }
+
+/* media_price: never look like confirmed deal price */
+.mtag.media-price {
+  color: #8a4500;
+  background: #fde9c8;
+  border: 1px solid #f0c27a;
+  margin-left: 4px;
+  font-weight: 700;
+}
+.c-price .mtag.media-price { display: inline-block; margin-top: 2px; }
+
+/* leads: group tags */
+.lead-group { border-top: 1px solid var(--line); padding: 10px 0 4px; list-style: none; }
+.lead-group:first-child { border-top: 0; }
+.lead-group-h { display: block; font-size: 0.88rem; margin-bottom: 4px; color: var(--text); }
+.leads-sub { list-style: none; margin: 0; padding: 0; }
+.leads-sub li {
+  padding: 8px 0;
+  border-top: 1px dashed var(--line);
+}
+.leads-sub li:first-child { border-top: 0; }
+.lead-tag {
+  display: inline-block; margin-right: 6px; padding: 0 6px; border-radius: 999px;
+  font-size: 0.72rem; font-weight: 700; background: #eef2f6; color: #4a5565;
+}
+

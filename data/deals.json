@@ -59,8 +59,8 @@
       "deal_date": "2026-09",
       "asset": "Hotel Ease Tsuen Wan + Hotel Ease Access (Kwai Chung)",
       "asset_zh": "旭逸酒店·荃灣 + 旭逸雅捷酒店（葵涌）",
-      "location": "葵涌",
-      "district": "葵青",
+      "location": "荃灣＋葵涌",
+      "district": "荃灣＋葵涌",
       "buyer": "華潤隆地（CR Longdation）",
       "seller": "已故「舖王」鄧成波家族（前持有人）",
       "original_use": "酒店",
@@ -176,7 +176,7 @@
       "opening_status": null,
       "completion_year": 1990,
       "lease_note": "999年地契",
-      "metrics": "24層商廈；GFA約58,000平方呎；銀主招標；Colliers 未披露價；擬改高質素住宿（市場消息：學生宿舍）；Octa 2016年以HK$10億購入",
+      "metrics": "24層商廈；GFA約58,000平方呎；銀主招標；Colliers 未披露價；擬改高質素住宿（市場消息：學生宿舍）；Octa 2016年以HK$10億購入；價錢：HomeDash 報 HK$3.785億；Mingtiandi 引市場中標區間 HK$4.3–4.4億；Colliers 拒披露",
       "type": "寫字樓改學生公寓",
       "status": "media_price",
       "source": "Mingtiandi / HomeDash",
@@ -194,7 +194,8 @@
         "status": "not_open",
         "note": "剛收購寫字樓，未見改建後招租。"
       },
-      "former_name": "柏廷坊"
+      "former_name": "柏廷坊",
+      "price_note": "HomeDash 報 HK$3.785億；Mingtiandi 引市場指中標區間 HK$4.3–4.4億；Colliers 拒披露"
     },
     {
       "id": "deal-202608-quad",
@@ -299,7 +300,7 @@
       "gfa_sqft": 65284,
       "gfa_sqft_max": 67826,
       "price_per_room_hkd_m": 2.8,
-      "price_psf_hkd": 11058,
+      "price_psf_hkd": 11488,
       "price_psf_hkd_max": 11488,
       "psf_basis": "GFA",
       "opening_date": null,
@@ -309,7 +310,7 @@
       "guaranteed_income_hkd_m_pa": 45,
       "guaranteed_years": 3,
       "guaranteed_yield_pct": 6.0,
-      "metrics": "268間客房（信報稱原有206間）；總樓面約65,284（信報）至67,826平方呎（老虎證券轉述資料）；1993年落成；酒店改學生公寓；賣方附屬公司完成後續管理3年，每年保證收入HK$4,500萬；賣方預計入賬收益約HK$4.23億",
+      "metrics": "268間客房（信報稱原有206間）；總樓面約65,284（信報）至67,826平方呎（老虎證券轉述資料）；1993年落成；酒店改學生公寓；賣方附屬公司完成後續管理3年，每年保證收入HK$4,500萬；賣方預計入賬收益約HK$4.23億；呎價按 7.5億÷GFA 65,284 ≈ HK$11,488（原欄 11,058 已按公式修正）",
       "type": "酒店改學生公寓",
       "status": "confirmed",
       "source": "BONARD / Knight Frank",
@@ -415,34 +416,29 @@
       "status_basis": "偉合控股新交所公告（未披露價，價格屬媒體報道）",
       "price_hkd_m": 750,
       "price_label": "約HK$7.5億（媒體：略低於7.5億；官方未披露）",
-      "gfa_sqft": 184000,
-      "beds_after": 500,
-      "price_psf_hkd": 4076,
+      "gfa_sqft": null,
+      "beds_after": null,
+      "price_psf_hkd": null,
       "psf_basis": "GFA",
-      "price_per_bed_hkd_m": 1.5,
+      "price_per_bed_hkd_m": null,
       "opening_date": null,
       "opening_status": "target",
       "opening_label": "目標2028年上半年營運",
-      "metrics": "26層甲級商廈；GFA約184,000平方呎；擬改約500床PBSA；目標2028年上半年營運",
+      "metrics": "26層甲級商廈；銀主盤；媒體價約HK$7.5億（略低於）；GFA／擬改床位來源未核實，暫標未披露；目標2028年上半年營運",
       "type": "寫字樓改學生公寓",
       "status": "media_price",
-      "source": "EdgeProp / Mingtiandi",
+      "source": "Mingtiandi（媒體提及）／EdgeProp（主連結失效）",
       "source_url": "https://www.edgeprop.sg/property-news/wee-hur-buys-hong-kong-office-building-one-bedford-place-reposition-student-accommodation",
-      "other_sources": [
-        "https://www.mingtiandi.com/real-estate/finance/shorea-buys-the-pemberton-in-hong-kong-for-student-housing/"
-      ],
+      "other_sources": [],
       "project_url": null,
       "room_types": [],
-      "metric_basis": {
-        "price_psf_hkd": "calc",
-        "price_per_bed_hkd_m": "calc",
-        "gfa_sqft": "source"
-      },
+      "metric_basis": {},
       "rent_roll": {
         "status": "not_open",
         "note": "仍是改建目標，未見按房型招租。"
       },
-      "former_name": "ONE BEDFORD PLACE"
+      "former_name": "ONE BEDFORD PLACE",
+      "note_zh": "EdgeProp 主連結失效；GFA／床位來源未核實改未披露"
     },
     {
       "id": "deal-202606-crystal",
@@ -580,10 +576,10 @@
       "metrics": "1982年落成；494間客房（129–1,130平方呎）；總樓面約22.9萬（大公報）／24.3萬平方呎（富豪系披露）；擬提供1,400–1,500床；總投資逾HK$20億；較2025年底估值約HK$16.47億折讓約7.8%",
       "type": "酒店改學生公寓",
       "status": "confirmed",
-      "source": "富豪REIT／中原投資公告報道",
-      "source_url": "https://finance730.com.hk/2026/03/23/%E5%AF%8C%E8%B1%AA%E6%9D%B1%E6%96%B9%E9%85%92%E5%BA%97-%E4%B8%AD%E5%8E%9F-%E6%94%B6%E8%B3%BC-%E5%AD%B8%E7%94%9F%E5%85%AC%E5%AF%93/",
+      "source": "大公文匯（epaper）",
+      "source_url": "https://epaper.tkww.hk/a/202603/24/AP69c1a1b1e4b04773b06a49bc.html",
       "other_sources": [
-        "https://epaper.tkww.hk/a/202603/24/AP69c1a1b1e4b04773b06a49bc.html",
+        "https://finance730.com.hk/2026/03/23/%E5%AF%8C%E8%B1%AA%E6%9D%B1%E6%96%B9%E9%85%92%E5%BA%97-%E4%B8%AD%E5%8E%9F-%E6%94%B6%E8%B3%BC-%E5%AD%B8%E7%94%9F%E5%85%AC%E5%AF%93/",
         "https://house.stockstar.com/CP2026033100029882.shtml"
       ],
       "project_url": "https://campusonecommunities.com/one-hub/",
@@ -670,12 +666,12 @@
       "metrics": "583間客房；GFA約293,000平方呎；擬約900宿位；Colliers + Knight Frank 代理；2025年12月已有媒體報道約9.5億洽購／盡職審查，2026年3月1日簽署買賣合約",
       "type": "酒店改學生公寓",
       "status": "confirmed",
-      "source": "Colliers 新聞稿",
-      "source_url": "https://www.colliers.com/zh-hk/news/2026-03-hotel-cozi-oasis",
+      "source": "am730",
+      "source_url": "https://www.am730.com.hk/article/1029934",
       "other_sources": [
-        "https://www.am730.com.hk/article/1029934",
         "https://www.thestandard.com.hk/property/article/343728/CR-Longdation-acquires-two-hotels-in-Kwai-Chung-for-student-housing-conversion",
-        "https://www.163.com/dy/article/KGH468NQ05384BVH.html"
+        "https://www.163.com/dy/article/KGH468NQ05384BVH.html",
+        "https://www.colliers.com/zh-hk/news/2026-03-hotel-cozi-oasis"
       ],
       "project_url": "https://brimyouth.com.hk/",
       "room_types": [
@@ -861,7 +857,7 @@
       "beds_after_max": 200,
       "capex_hkd_m": 60,
       "capex_hkd_m_max": 65,
-      "price_per_room_hkd_m": 3.49,
+      "price_per_room_hkd_m": 3.56,
       "price_per_room_hkd_m_max": 3.56,
       "price_psf_hkd": 9138,
       "psf_basis": "GFA",
@@ -1415,7 +1411,7 @@
       "opening_status": "target",
       "opening_note": "收購時公布2024年8月啟用（最多480人）；其後停運改裝，2026/27學年以約430床重開",
       "months_deal_to_open": 2,
-      "metrics": "兩幢16層；255間客房；GFA約66,400平方呎（約HK$15,060/呎、每房HK$390萬）；最初可住480人，改裝後約430床；Savills 代理；2026-08-20開幕、8月21日起入住：紅磡蕪湖街84–102號（大公報 2026-08-21；都大官網）、酒店改建、城中學舍首批完成改裝項目之一、以雙人房為主、逾八成宿位已出租（am730、大公報、文匯報 2026-08-21）；宿位並列：約430（am730、大公報、文匯報 2026-08-21）／434（都大官網）；房數並列：255間（文匯報 2026-08-21）／約200間（am730）／逾200間（大公報）；A、B兩座分別16層及14層（大公報、文匯報）；2026/27秋＋春兩學期宿費：三人房6.7萬、雙人房7.2萬–7.7萬、單人房12.6萬元（都大官網；大公報、am730 2026-08-21）；宿位主要供全日制非本地本科生，其餘預留交換生及訪問學者（am730、大公報）；校長稱租金只用於營運，無計劃以租金收回購入成本（am730、大公報 2026-08-21）；約10億仍屬媒體價（校方未披露）",
+      "metrics": "兩幢16層；255間客房；GFA約66,400平方呎（約HK$15,060/呎、每房HK$390萬）；最初可住480人，改裝後約430床；Savills 代理；2026-08-20開幕、8月21日起入住：紅磡蕪湖街84–102號（大公報 2026-08-21；都大官網）、酒店改建、城中學舍首批完成改裝項目之一、以雙人房為主、逾八成宿位已出租（am730、大公報、文匯報 2026-08-21）；宿位並列：約430（am730、大公報、文匯報 2026-08-21）／434（都大官網）；房數並列：255間（文匯報 2026-08-21）／約200間（am730）／逾200間（大公報）；A、B兩座分別16層及14層（大公報、文匯報）；2026/27秋＋春兩學期宿費：三人房6.7萬、雙人房7.2萬–7.7萬、單人房12.6萬元（都大官網；大公報、am730 2026-08-21）；宿位主要供全日制非本地本科生，其餘預留交換生及訪問學者（am730、大公報）；校長稱租金只用於營運，無計劃以租金收回購入成本（am730、大公報 2026-08-21）；約10億仍屬媒體價（校方未披露）；都大官網 mu88 連結本次核對回 403",
       "type": "大學購酒店作宿舍",
       "status": "media_price",
       "source": "Mingtiandi / 都大",
@@ -1491,7 +1487,8 @@
         "source_url": "https://www.wenweipo.com/a/202608/20/AP6a8685ace4b0c1e500258a75.html"
       },
       "name_after": "都會大學 MU88",
-      "former_name": "城木酒店"
+      "former_name": "城木酒店",
+      "note_zh": "都大項目網頁 hkmu.edu.hk/mu88/ 回 403／無法核實；約10億維持媒體價"
     },
     {
       "id": "deal-202212-pentahotel",
@@ -1603,7 +1600,9 @@
         "rooms": 720,
         "occupancy_pct": 97,
         "as_of": "2026-10-07",
-        "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
+        "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
+        "occupancy_scope": "合計（啟德＋旺角）",
+        "occupancy_note": "啟德加旺角合計口徑，非啟德單項目"
       },
       "name_after": "日新舍啟德",
       "former_name": "貝爾特酒店"
@@ -1803,7 +1802,7 @@
       "beds_after": 600,
       "beds_after_note": "來源稱「近600床」",
       "price_per_room_hkd_m": 4.26,
-      "price_psf_hkd": 13251,
+      "price_psf_hkd": 13513,
       "psf_basis": "GFA",
       "price_per_bed_hkd_m": 2.75,
       "beds_per_room": 1.55,
@@ -1815,7 +1814,7 @@
       "occupancy_note": "Knight Frank：首年約85%、第二年100%",
       "rent_per_bed_min_hkd": 8100,
       "rent_per_bed_max_hkd": 13200,
-      "metrics": "388間客房；GFA 122,108平方呎（HK$13,251/呎，每房HK$426萬）；改為近600床 Y83；1996年落成商廈、2014年改酒店；2022年2月完成交易",
+      "metrics": "388間客房；GFA 122,108平方呎（呎價按公式約 HK$13,513；Mingtiandi 刊 HK$13,251；每房HK$426萬）；改為近600床 Y83；1996年落成商廈、2014年改酒店；2022年2月完成交易",
       "type": "酒店改學生公寓",
       "status": "confirmed",
       "source": "Mingtiandi / 莊士公告 / Knight Frank",
@@ -1917,7 +1916,7 @@
       ],
       "metric_basis": {
         "price_per_room_hkd_m": "source",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
         "price_per_bed_hkd_m": "calc",
         "beds_per_room": "calc",
         "rooms": "source",
@@ -1932,7 +1931,8 @@
         "source_url": "https://ydotx.com/zh/locations/y83/"
       },
       "name_after": "Y83",
-      "former_name": "逸．酒店"
+      "former_name": "逸．酒店",
+      "price_note": "Mingtiandi 刊 HK$13,251/呎，但按 GFA 122,108×價 16.5億公式約 HK$13,513"
     },
     {
       "id": "deal-202111-butterfly-prat",
@@ -1955,7 +1955,7 @@
       "gfa_sqft": 70000,
       "gfa_sqft_max": 71600,
       "price_per_room_hkd_m": 5.85,
-      "price_psf_hkd": 12919,
+      "price_psf_hkd": 13214,
       "price_psf_hkd_calc_range": [
         12919,
         13214
@@ -1964,15 +1964,15 @@
       "opening_date": null,
       "opening_status": "actual",
       "opening_label": "2023年初以 Dash Living on Prat 開業",
-      "metrics": "158間客房；面積約70,000（Hines）／71,600平方呎（Mingtiandi）；約HK$12,919/呎；改共居，主要對象為年輕專業人士",
+      "metrics": "158間客房；面積約70,000（Hines）／71,600平方呎（Mingtiandi）；約HK$13,214/呎（按 GFA 70,000 公式；Mingtiandi 刊區間見 calc_range）；改共居，主要對象為年輕專業人士",
       "type": "酒店改共居（非專屬學生）",
       "status": "media_price",
-      "source": "Mingtiandi / Hines 新聞稿",
-      "source_url": "https://www.hines.com/news/hines-invests-in-hong-kong-co-living",
+      "source": "Mingtiandi（Ibis 文回顧 Butterfly）",
+      "source_url": "https://www.mingtiandi.com/real-estate/finance/capitaland-buys-ibis-hotel-in-hong-kong-from-butterfly-hospitality/",
       "other_sources": [
+        "https://www.hines.com/news/hines-invests-in-hong-kong-co-living",
         "https://www.mingtiandi.com/real-estate/finance/pgim-buys-hong-kong-travelodge-hotel-for-co-living-project/",
         "https://www.mingtiandi.com/real-estate/finance/dash-living-picks-up-hong-kong-hotel-from-gale-well-at-70-off/",
-        "https://www.mingtiandi.com/real-estate/finance/capitaland-buys-ibis-hotel-in-hong-kong-from-butterfly-hospitality/",
         "https://www.dash.co/en/hong-kong/dash-living-on-prat"
       ],
       "project_url": "https://www.dash.co/en/hong-kong/dash-living-on-prat",
@@ -2001,7 +2001,7 @@
       ],
       "metric_basis": {
         "price_per_room_hkd_m": "source",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
       },
