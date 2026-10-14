@@ -85,7 +85,7 @@
     <!-- 3. 市場成交表 -->
     <section id="deals" aria-labelledby="h-deals">
       <h2 id="h-deals">3. 市場成交表</h2>
-      <p class="method">只列銷售成交。租約／宿費見新聞或第 4 節。未確認買家見「待核實線索」。缺欄顯示「未披露」，唔會估數。</p>
+      <p class="method">只列你已 FINAL CHECK 批准嘅銷售成交。新發現先入「待你批核」（未批准）。放售／用途未確認見「待核實線索」。缺欄顯示「未披露」，唔會估數。</p>
 
       <details class="filters" id="filters" open>
         <summary>篩選<span id="f-active"></span></summary>
@@ -171,6 +171,30 @@
         <p class="muted small" id="f-empty" hidden>冇符合篩選條件嘅成交。</p>
       </div>
       <p class="foot-note" id="est-note"></p>
+
+      <div class="pending-box" id="pending-fold">
+        <h3 id="h-pending">待你批核（未入成交表）<span class="n" id="pending-n">0</span></h3>
+        <p class="method pending-banner">新發現成交候補。全部標明<strong>未批准</strong>——須你 <strong>FINAL CHECK</strong> 通過後，先移入上方正式成交表。未批准前唔計 comps、唔當已確認成交。</p>
+        <p class="method">與下方「待核實線索」不同：呢度係「似係成交、等你拍板」；放售／叫價／用途未確認仍放待核實。</p>
+        <div class="scroll">
+          <table class="deals pending-table" aria-label="待批核成交">
+            <thead>
+              <tr>
+                <th>狀態</th>
+                <th>建議入表日期</th>
+                <th>項目</th>
+                <th>地區</th>
+                <th>買方</th>
+                <th>收購價</th>
+                <th>房間／床位</th>
+                <th>來源</th>
+                <th>備註</th>
+              </tr>
+            </thead>
+            <tbody id="pending-tbody"><tr><td colspan="9" class="muted">暫無待批核項目。</td></tr></tbody>
+          </table>
+        </div>
+      </div>
 
       <details class="fold" id="leads-fold" hidden>
         <summary>待核實線索（未入成交表）<span class="n" id="leads-n"></span></summary>

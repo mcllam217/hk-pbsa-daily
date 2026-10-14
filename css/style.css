@@ -539,3 +539,25 @@ table.comps .c-empty { color: var(--muted, #6b7280); }
 .sd-industry .method { margin: 0 0 10px; font-size: 0.82rem; }
 .sd-tag-ind { background: #efe6d4; color: #6a4f12; }
 .sd-industry-list { margin: 0; }
+
+/* 待你批核（未入正式成交表） */
+.pending-box {
+  margin: 1.25rem 0 1rem;
+  padding: 0.9rem 1rem 1rem;
+  border: 2px solid #c47b2b;
+  border-radius: 10px;
+  background: #fff8ef;
+}
+.pending-box h3 { margin: 0 0 8px; font-size: 1rem; font-weight: 700; color: #7a3e00; }
+.pending-banner { color: #5c3200; }
+.pend-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #c47b2b;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.pending-table td.pending-note { max-width: 18rem; font-size: 0.85rem; color: #444; }

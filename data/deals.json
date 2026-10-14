@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14T16:30:00+08:00",
+  "updated": "2026-10-14T16:55:00+08:00",
   "deals": [
     {
       "id": "deal-202609-yanwoo",
@@ -2485,5 +2485,7 @@
       "review_note": "2026-10-14 掃描：服務式住宅為主，PBSA 用途未達升格門檻",
       "reviewed_as_of": "2026-10-14"
     }
-  ]
+  ],
+  "pending_approval": [],
+  "pending_approval_note": "新發現、擬列作正式成交嘅項目先放呢度，標明「未批准」。須 Michael FINAL CHECK 批准後，先移入 deals[]；未批准前唔入正式成交表、唔計 comps。放售／叫價／用途未確認仍用 leads_to_verify。"
 }

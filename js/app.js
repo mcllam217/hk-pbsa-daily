@@ -880,6 +880,43 @@
     if (/用途未確認|買家未獲官方確認|買家用途未確認|非學生宿舍|成交是否完成待核實|細節待查/.test(t)) return "用途未確認／待核實";
     return "其他待核實";
   }
+
+  function pendingRowHtml(P) {
+    const name = P.asset_zh || P.asset || P.id || "—";
+    const price = has(P.price_hkd_m)
+      ? (P.price_label || `約 ${fmtNum(P.price_hkd_m)} 百萬`)
+      : "未披露";
+    const rooms = has(P.rooms) ? String(P.rooms) : "—";
+    const beds = has(P.beds_after) ? String(P.beds_after) : (has(P.beds) ? String(P.beds) : "—");
+    const src = P.source_url ? link(P.source_url, esc(P.source || "來源")) : esc(P.source || "—");
+    const src2 = P.source_url2 ? ` · ${link(P.source_url2, "來源2")}` : "";
+    const note = P.approval_note || P.note || "";
+    return `<tr class="pending-row">
+      <td><span class="pend-badge" title="未獲 FINAL CHECK 批准">未批准</span></td>
+      <td>${esc(P.proposed_date || P.deal_date || P.date || "—")}</td>
+      <td>${esc(name)}${P.former_name ? `<div class="muted small">${esc(P.former_name)}</div>` : ""}</td>
+      <td>${esc(P.district || P.location || "—")}</td>
+      <td>${esc(P.buyer || "未披露")}</td>
+      <td class="num">${esc(price)}</td>
+      <td class="num">${esc(rooms)} 房／${esc(beds)} 床</td>
+      <td class="c-src">${src}${src2}</td>
+      <td class="pending-note">${esc(note)}</td>
+    </tr>`;
+  }
+  function renderPending(list) {
+    const box = $("#pending-fold");
+    const body = $("#pending-tbody");
+    const nEl = $("#pending-n");
+    if (!box || !body) return;
+    const rows = list || [];
+    if (nEl) nEl.textContent = String(rows.length);
+    if (!rows.length) {
+      body.innerHTML = `<tr><td colspan="9" class="muted">暫無待批核項目。新發現成交會先寫喺呢度，等你 FINAL CHECK。</td></tr>`;
+      return;
+    }
+    body.innerHTML = rows.map(pendingRowHtml).join("");
+  }
+
   function leadItemHtml(L) {
     const src = L.source_url ? link(L.source_url, esc(L.source || "來源")) : esc(L.source || "");
     const src2 = L.source_url2 ? ` · ${link(L.source_url2, "來源2")}` : "";
@@ -934,6 +971,7 @@
     renderSupplyDemand(sd);
     renderDeals(deals);
     renderLeads(deals.leads_to_verify || []);
+    renderPending(deals.pending_approval || []);
     renderProjects(deals.deals || []);
     renderCompsRanges(($("#comps-scope") && $("#comps-scope").value) || "primary");
     const compsSel = $("#comps-scope");
@@ -960,7 +998,10 @@
 
     const byStatus = STATUS_ORDER.map((k) => [k, list.filter((d) => statusOf(d) === k).length]).filter(([, c]) => c);
     const leadsN = (deals.leads_to_verify || []).length;
-    $("#counts").textContent = `${list.length} 宗成交（${byStatus.map(([k, c]) => `${STATUS[k].t} ${c}`).join(" · ")}） · 近兩星期 ${shownNews} 則新聞` + (leadsN ? ` · ${leadsN} 條待核實` : "");
+    const pendN = (deals.pending_approval || []).length;
+    $("#counts").textContent = `${list.length} 宗成交（${byStatus.map(([k, c]) => `${STATUS[k].t} ${c}`).join(" · ")}） · 近兩星期 ${shownNews} 則新聞`
+      + (pendN ? ` · ${pendN} 宗待你批核` : "")
+      + (leadsN ? ` · ${leadsN} 條待核實` : "");
     const stamp = (id, iso) => {
       const el = $(id);
       if (!el) return;
