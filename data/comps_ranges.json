@@ -1,0 +1,164 @@
+{
+  "updated": "2026-10-14T16:30:00+08:00",
+  "as_of": "2026-10-14",
+  "methodology": {
+    "zh": "只用不估算嘅已入表數字。預設口徑：deal_status=announced 且 status≠media_price。另附「已公布含媒體價」同「已公布＋媒體報導」作對照。比率標明 calc vs 來源。",
+    "exclude": "leads_to_verify 唔計入；缺數唔估計。"
+  },
+  "primary": {
+    "scope": "announced",
+    "pool_n": 17,
+    "price_per_room_hkd_m": {
+      "min": 1.63,
+      "median": 2.88,
+      "max": 8.67,
+      "n": 17,
+      "unit": "百萬港元／房",
+      "basis": "有來源之 price_per_room_hkd_m"
+    },
+    "price_per_bed_hkd_m": {
+      "min": 1.01,
+      "median": 1.59,
+      "max": 2.82,
+      "n": 10,
+      "unit": "百萬港元／床",
+      "basis": "有來源之 price_per_bed_hkd_m（未含翻新）"
+    },
+    "price_psf_hkd": {
+      "min": 3253.0,
+      "median": 8952.0,
+      "max": 14960.0,
+      "n": 17,
+      "unit": "港元／呎（GFA）",
+      "basis": "psf_basis=GFA"
+    },
+    "beds_per_room": {
+      "min": 1.01,
+      "median": 1.66,
+      "max": 2.83,
+      "n": 10,
+      "unit": "床／房",
+      "basis": "beds_after÷rooms 或來源 beds_per_room"
+    },
+    "rent_per_bed_hkd_month": {
+      "min": 4250.0,
+      "median": 11144.1667,
+      "max": 20800.0,
+      "n": 12,
+      "unit": "港元／床／月（約）",
+      "basis": "room_types 租金觀測均值；唔係成交租金"
+    },
+    "months_deal_to_open": {
+      "min": 6.0,
+      "median": 13.0,
+      "max": 13.0,
+      "n": 5,
+      "unit": "月",
+      "basis": "有來源／calc 之 months_deal_to_open"
+    }
+  },
+  "alt_announced_incl_media_price": {
+    "scope": "announced_incl_media_price",
+    "pool_n": 22,
+    "price_per_room_hkd_m": {
+      "min": 1.63,
+      "median": 3.16,
+      "max": 8.67,
+      "n": 21,
+      "unit": "百萬港元／房",
+      "basis": "有來源之 price_per_room_hkd_m"
+    },
+    "price_per_bed_hkd_m": {
+      "min": 1.01,
+      "median": 1.68,
+      "max": 2.82,
+      "n": 11,
+      "unit": "百萬港元／床",
+      "basis": "有來源之 price_per_bed_hkd_m（未含翻新）"
+    },
+    "price_psf_hkd": {
+      "min": 3253.0,
+      "median": 10552.0,
+      "max": 15060.0,
+      "n": 21,
+      "unit": "港元／呎（GFA）",
+      "basis": "psf_basis=GFA"
+    },
+    "beds_per_room": {
+      "min": 1.01,
+      "median": 1.69,
+      "max": 2.83,
+      "n": 11,
+      "unit": "床／房",
+      "basis": "beds_after÷rooms 或來源 beds_per_room"
+    },
+    "rent_per_bed_hkd_month": {
+      "min": 4250.0,
+      "median": 11564.0,
+      "max": 23900.0,
+      "n": 15,
+      "unit": "港元／床／月（約）",
+      "basis": "room_types 租金觀測均值；唔係成交租金"
+    },
+    "months_deal_to_open": {
+      "min": 2.0,
+      "median": 10.5,
+      "max": 13.0,
+      "n": 6,
+      "unit": "月",
+      "basis": "有來源／calc 之 months_deal_to_open"
+    }
+  },
+  "alt_announced_plus_media": {
+    "scope": "announced_plus_media",
+    "pool_n": 30,
+    "price_per_room_hkd_m": {
+      "min": 1.33,
+      "median": 3.56,
+      "max": 8.67,
+      "n": 27,
+      "unit": "百萬港元／房",
+      "basis": "有來源之 price_per_room_hkd_m"
+    },
+    "price_per_bed_hkd_m": {
+      "min": 1.01,
+      "median": 1.68,
+      "max": 2.82,
+      "n": 11,
+      "unit": "百萬港元／床",
+      "basis": "有來源之 price_per_bed_hkd_m（未含翻新）"
+    },
+    "price_psf_hkd": {
+      "min": 2786.0,
+      "median": 8728.0,
+      "max": 15060.0,
+      "n": 29,
+      "unit": "港元／呎（GFA）",
+      "basis": "psf_basis=GFA"
+    },
+    "beds_per_room": {
+      "min": 1.01,
+      "median": 1.69,
+      "max": 2.83,
+      "n": 11,
+      "unit": "床／房",
+      "basis": "beds_after÷rooms 或來源 beds_per_room"
+    },
+    "rent_per_bed_hkd_month": {
+      "min": 4250.0,
+      "median": 11624.5,
+      "max": 23900.0,
+      "n": 16,
+      "unit": "港元／床／月（約）",
+      "basis": "room_types 租金觀測均值；唔係成交租金"
+    },
+    "months_deal_to_open": {
+      "min": 2.0,
+      "median": 8.0,
+      "max": 13.0,
+      "n": 7,
+      "unit": "月",
+      "basis": "有來源／calc 之 months_deal_to_open"
+    }
+  }
+}

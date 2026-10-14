@@ -602,6 +602,54 @@
       : `<p class="muted">呢個範圍未有${withMedia ? "" : "已公布"}成交。</p>`;
   }
 
+
+  /* ---------- 可比區間總表（comps_ranges.json） ---------- */
+  let COMPS = null;
+  const COMPS_LABELS = {
+    price_per_room_hkd_m: "每房價",
+    price_per_bed_hkd_m: "每床價（未含翻新）",
+    price_psf_hkd: "呎價（建築面積）",
+    beds_per_room: "房改床比率",
+    rent_per_bed_hkd_month: "每床月租（觀測）",
+    months_deal_to_open: "成交→開業月數",
+  };
+  function compsFmt(key, v) {
+    if (v === null || v === undefined || Number.isNaN(v)) return "—";
+    if (key === "price_per_room_hkd_m" || key === "price_per_bed_hkd_m") return "$" + fmtNum(v, 2) + "百萬";
+    if (key === "price_psf_hkd") return "$" + fmtNum(Math.round(v), 0);
+    if (key === "beds_per_room") return fmtNum(v, 2);
+    if (key === "rent_per_bed_hkd_month") return "$" + fmtNum(Math.round(v), 0);
+    if (key === "months_deal_to_open") return fmtNum(v, 0) + "個月";
+    return String(v);
+  }
+  function renderCompsRanges(scope) {
+    const host = $("#comps-body");
+    if (!host) return;
+    if (!COMPS) {
+      host.innerHTML = `<tr><td colspan="6" class="muted">未有 comps_ranges.json。</td></tr>`;
+      return;
+    }
+    const block = COMPS[scope] || COMPS.primary;
+    const upd = $("#comps-updated");
+    if (upd) upd.textContent = COMPS.as_of ? `資料 as_of ${COMPS.as_of} · 池 n=${block.pool_n}` : "";
+    const keys = Object.keys(COMPS_LABELS);
+    host.innerHTML = keys.map((k) => {
+      const s = block[k] || {};
+      const n = s.n || 0;
+      if (!n) {
+        return `<tr><th scope="row">${esc(COMPS_LABELS[k])}</th><td class="num c-empty" colspan="3">未有足夠來源數字</td><td class="num">n=0</td><td class="muted">${esc(s.unit || "")}</td></tr>`;
+      }
+      return `<tr>
+        <th scope="row">${esc(COMPS_LABELS[k])}</th>
+        <td class="num">${compsFmt(k, s.min)}</td>
+        <td class="num"><b>${compsFmt(k, s.median)}</b></td>
+        <td class="num">${compsFmt(k, s.max)}</td>
+        <td class="num">n=${n}</td>
+        <td class="muted">${esc((s.unit || "") + (s.basis ? " · " + s.basis : ""))}</td>
+      </tr>`;
+    }).join("");
+  }
+
   function renderDeals(data) {
     const all = data.deals || [];
     const table = $("table.deals");
@@ -853,14 +901,16 @@
   }
 
   try {
-    const [deals, news, watch, scen, sd] = await Promise.all([
+    const [deals, news, watch, scen, sd, comps] = await Promise.all([
       loadJSON("data/deals.json"),
       loadJSON("data/news.json"),
       loadJSON("data/watch.json"),
       loadJSON("data/capex_scenarios.json").catch(() => null),
       loadJSON("data/supply_demand.json").catch(() => null),
+      loadJSON("data/comps_ranges.json").catch(() => null),
     ]);
     SCEN = scen;
+    COMPS = comps;
     if ($("#est-note")) $("#est-note").hidden = true;
     DEAL_BY_ID = Object.fromEntries((deals.deals || []).filter((d) => d.id).map((d) => [d.id, d]));
     const ref = news.updated;
@@ -869,6 +919,12 @@
     renderDeals(deals);
     renderLeads(deals.leads_to_verify || []);
     renderProjects(deals.deals || []);
+    renderCompsRanges(($("#comps-scope") && $("#comps-scope").value) || "primary");
+    const compsSel = $("#comps-scope");
+    if (compsSel && !compsSel.dataset.bound) {
+      compsSel.dataset.bound = "1";
+      compsSel.addEventListener("change", () => renderCompsRanges(compsSel.value));
+    }
     renderGaps(watch);
     const list = deals.deals || [];
     MODEL_DEALS = list;

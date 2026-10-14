@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=40" />
+  <link rel="stylesheet" href="css/style.css?v=41" />
 </head>
 <body>
   <header class="site-header">
@@ -103,6 +103,34 @@
           <button type="button" class="f-reset" id="f-reset">重設</button>
         </div>
       </details>
+
+      <div class="comps-ranges" id="comps-ranges" aria-labelledby="h-comps">
+        <h3 id="h-comps">可比區間總表</h3>
+        <p class="method">用正式成交表有來源數字計。預設只計 <strong>已公布</strong> 且非「媒體報導價」衝突項；可切換口徑。缺數唔估計。每指標顯示 min／中位／max 同 n=宗。</p>
+        <div class="comps-controls">
+          <label>口徑<select id="comps-scope">
+            <option value="primary">已公布（撇除媒體價衝突）</option>
+            <option value="alt_announced_incl_media_price">已公布（含媒體價）</option>
+            <option value="alt_announced_plus_media">已公布＋媒體報導</option>
+          </select></label>
+          <span class="muted small" id="comps-updated"></span>
+        </div>
+        <div class="table-wrap">
+          <table class="comps" aria-label="可比區間">
+            <thead>
+              <tr>
+                <th>指標</th>
+                <th class="num">最低</th>
+                <th class="num">中位數</th>
+                <th class="num">最高</th>
+                <th class="num">n</th>
+                <th>口徑／單位</th>
+              </tr>
+            </thead>
+            <tbody id="comps-body"><tr><td colspan="6" class="muted">載入中…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
 
       <div class="summary" aria-live="polite">
         <p class="sum-n"><span id="sum-n">&nbsp;</span>
@@ -199,6 +227,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=40"></script>
+  <script src="js/app.js?v=41"></script>
 </body>
 </html>
