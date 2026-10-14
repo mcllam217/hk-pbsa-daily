@@ -526,3 +526,16 @@ table.comps th, table.comps td {
 table.comps th.num, table.comps td.num { text-align: right; font-variant-numeric: tabular-nums; }
 table.comps tbody tr:last-child td { border-bottom: none; }
 table.comps .c-empty { color: var(--muted, #6b7280); }
+
+/* 業界估計區塊（非官方） */
+.sd-industry {
+  margin-top: 1.1rem;
+  padding: 0.85rem 1rem;
+  border: 1px dashed var(--border, #c9c4b8);
+  border-radius: 8px;
+  background: var(--bg-soft, #f7f5f0);
+}
+.sd-industry h3 { margin: 0 0 6px; font-size: 0.92rem; font-weight: 700; }
+.sd-industry .method { margin: 0 0 10px; font-size: 0.82rem; }
+.sd-tag-ind { background: #efe6d4; color: #6a4f12; }
+.sd-industry-list { margin: 0; }
