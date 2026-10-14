@@ -87,16 +87,41 @@
   const BUCKETS = [
     ["放盤", "可以睇，但未成交。叫價唔好當可比。"],
     ["新成交", "先用嚟改收購價假設。"],
-    ["新供應", "新城規或城中學舍。影響之後嘅租金，唔係今日買入價。"],
+    ["新供應", "只列政府官方數據／消息，同各大代理行 research study。單一成交或單一項目申請唔入呢欄。"],
     ["政策", "收生或規則有變，先至改需求假設。"],
   ];
+  /** 新供應：只收政府官方 + 代理行研究；單一成交／單一項目申請唔入。 */
+  function isAgencyResearchNews(n) {
+    const src = String(n.source || "");
+    const blob = src + " " + String(n.title || "") + " " + String(n.summary || "") + " " + String(n.report_title || "");
+    const firm = /仲量聯行|JLL|CBRE|世邦魏理仕|萊坊|Knight\s*Frank|第一太平戴維斯|Savills|高力國際|Colliers|戴德梁行|Cushman|中原測量師|美聯/;
+    const study = /研究報告|研究稿|新聞稿|Viewpoint|Research|預測|缺口|估計|展望|白皮書|Smart Growth|順勢部署|業界估計|報告指出|報告刊/;
+    return firm.test(src) || (firm.test(blob) && study.test(blob));
+  }
+  function isGovSupplyNews(n) {
+    const src = String(n.source || "");
+    const t = String(n.title || "") + " " + String(n.summary || "");
+    const blob = src + " " + t;
+    const govSrc = /政府|施政報告|立法會|發展局|教育局|規劃署|地政總署|新聞公報|Policy Address|DEVB|EDB|財委會|行政長官/;
+    const supplyTopic = /城中學舍|Hostels in the City|宿舍用地|學生宿舍用地|賣地|宿位供應|確認資格|申請過關|擬推.*宿舍|推售.*宿舍|管道|供應/;
+    // 單一項目申請／啟用／改裝唔當「新供應」欄官方匯總
+    const singleAsset = /廣場申請|酒店申請|大廈申請|擬提供\d+房|啟用：|完成改裝項目之一|聯僑|MU88|個別項目/;
+    if (singleAsset.test(blob) && !/施政報告|約\d+宗|本財年|全港|全市/.test(blob)) return false;
+    return (govSrc.test(src) || govSrc.test(t)) && supplyTopic.test(blob);
+  }
   function newsBucket(n) {
+    if (n.bucket === "新供應" || n.bucket === "新成交" || n.bucket === "放盤" || n.bucket === "政策" || n.bucket === "口徑" || n.bucket === "其他") {
+      return n.bucket;
+    }
     const t = String(n.title || "") + String(n.summary || "");
-    if (/收生上限|非本地生|宿舍守則|規例修訂|政策/.test(t)) return "政策";
+    if (/收生上限|非本地生|宿舍守則|規例修訂|政策/.test(t) && !isAgencyResearchNews(n)) return "政策";
     if (/放售|意向價|叫價|尋退場|放盤/.test(t) && !/億購|完成收購/.test(t)) return "放盤";
-    if (/城中學舍|申請改|城規會|擬提供\d|批出改|宿舍用地/.test(t)) return "新供應";
+    // 新供應：政府官方匯總／賣地／城中學舍計劃級消息，或代理行 research —— 先於「單一申請／成交」判斷
+    if (isGovSupplyNews(n) || isAgencyResearchNews(n)) return "新供應";
     if (/購|斥資|收購|易手|合營/.test(t)) return "新成交";
     if (/出租率|入住率|回報|短缺|缺口|未見飽和|租金/.test(t)) return "口徑";
+    // 單一項目城規／改裝申請 → 其他（唔入新供應）
+    if (/城中學舍|申請改|城規會|擬提供\d|批出改|宿舍用地/.test(t)) return "其他";
     return "其他";
   }
   function newsItemHtml(n) {

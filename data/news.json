@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14T16:50:00+08:00",
+  "updated": "2026-10-14T17:00:00+08:00",
   "items": [
     {
       "date": "2026-10-14",
@@ -11,7 +11,8 @@
       "source": "CBRE 新聞稿",
       "url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
       "report_title": "Smart Growth: The Education Sector as a New Catalyst for Real Estate Demand",
-      "auto": false
+      "auto": false,
+      "bucket": "新供應"
     },
     {
       "date": "2026-10-14",
@@ -23,7 +24,8 @@
       "source": "仲量聯行新聞稿",
       "url": "https://www.jll.com/zh-hk/newsroom/hk-student-bed-shortage-set-to-approach-150000-by-2030",
       "report_title": "Investing in Adaptation: PBSA as a Resilient Alternative Asset Class（《順勢部署：專用學生宿舍成另類資產投資機遇》）",
-      "auto": false
+      "auto": false,
+      "bucket": "新供應"
     },
     {
       "date": "2026-10-14",
@@ -127,7 +129,8 @@
       "url2_label": "發展局 2026-07-26",
       "source_date": "2026-10-05",
       "source_date_label": "星島 2026-10-05",
-      "earlier_date_label": "發展局 2026-07-26"
+      "earlier_date_label": "發展局 2026-07-26",
+      "bucket": "新供應"
     },
     {
       "date": "2026-10-02",
@@ -135,7 +138,8 @@
       "title": "觀塘聯僑廣場申請改學生宿舍 擬提供240房、434宿位",
       "summary": "黃保欣家族持有的觀塘勵業街11號聯僑廣場（約9.54萬呎活化商廈）向城規會申請將1至10樓約9萬呎改為學生宿舍，240間單人／雙人房（約81–211呎）、434宿位，教育局已確認符合「城中學舍」資格，目標2028年6月營運。屬業主自行改建申請，非買賣成交。",
       "source": "The Standard／東網／大公報",
-      "url": "https://www.thestandard.com.hk/property/article/344438/United-Overseas-Plaza-poised-for-conversion-into-240-room-student-housing"
+      "url": "https://www.thestandard.com.hk/property/article/344438/United-Overseas-Plaza-poised-for-conversion-into-240-room-student-housing",
+      "bucket": "其他"
     },
     {
       "date": "2026-09-28",
@@ -231,7 +235,8 @@
         "deal-202406-mu88"
       ],
       "source_date": "2026-08-21",
-      "source_date_label": "am730／大公報 2026-08-21"
+      "source_date_label": "am730／大公報 2026-08-21",
+      "bucket": "其他"
     },
     {
       "date": "2026-08-17",
