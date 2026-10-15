@@ -1,47 +1,78 @@
 {
-  "updated": "2026-10-14T17:20:00+08:00",
+  "updated": "2026-10-15T11:24:00+08:00",
   "title": "需求推算框架（床位）",
-  "method": "以非本地全日制學生做主幹，可加本地一年級；人數 × 住宿 capturerate − 供應＝缺口。有來源先填數；capture rate、增長率未定標「待你定／未披露」，唔估數。上方「需求」四項係唔同口徑，唔相加。",
+  "method": "官方 CSPE 專上就學人數（本地／非本地）× 已確認住宿比例：本地 25% + 非本地 75%。主幹用教育局《專上教育主要統計數字》2024/25（30 所院校；經本地評審專上；全日制＋兼讀面授；公帑資助＋自資；不含遙距）。唔計管道折扣（供應端另議／OUT OF SCOPE）。教資會資助全日制僅作對照。",
   "formula": {
-    "zh": "床位需求 ≈（非本地全日制 ± 本地一年級）× 住宿比例；缺口 ≈ 床位需求 −（大學宿＋已營運私營 PBSA＋折扣後管道）"
+    "zh": "床位需求 ≈ 本地就學人數 × 25% + 非本地就學人數 × 75%"
+  },
+  "confirmed_assumptions": {
+    "local_rate": 0.25,
+    "non_local_rate": 0.75,
+    "note_zh": "Michael 已確認 capture rate：本地生 25%、非本地生 75%；並確認採用 CSPE 2024/25 數字作需求主幹。"
   },
   "steps": [
     {
       "id": "step1",
-      "title": "1. 需求池（人數）",
+      "title": "1. 需求池（人數）— CSPE 2024/25 官方就學人數",
       "inputs": [
         {
-          "id": "nonlocal_ft",
-          "label": "非本地全日制學生（主幹）",
-          "value": 79300,
-          "unit": "名",
+          "id": "total_enrol_cspe",
+          "label": "專上就學人數合計（四程度相加）",
+          "value": 286900,
+          "unit": "名（headcount）",
           "as_of": "2024/25",
           "status": "sourced",
-          "source_name": "立法會發展事務委員會 CB(1)1068/2025(03)",
-          "source_url": "https://www.legco.gov.hk/yr2025/chinese/panels/dev/papers/dev20250624cb1-1068-3-c.pdf",
-          "note": "報讀人數；四年間倍增至約 79,300。"
+          "source_name": "教育局專上教育統計專頁《專上教育主要統計數字》（Key Statistics on Post-secondary Education）2024/25",
+          "source_url": "https://www.cspe.edu.hk/f/page/679/postsec_keystat202425.pdf",
+          "source_date": "2025-08-12",
+          "note": "副學位 55 900＋學士 138 500＋研究院修課 73 000＋研究院研究 19 500＝286 900。PDF 未另印總計；由四程度已刊數字相加。口徑：30 所院校；經本地評審專上；全日制＋兼讀面授；公帑資助＋自資；遙距課程不包括在內。PDF 最後更新 12/8/2025。"
         },
         {
-          "id": "ft_ug_pg",
-          "label": "全日制本＋研總人數（對照）",
-          "value": 192000,
-          "unit": "名",
+          "id": "non_local_cspe",
+          "label": "非本地就學人數（CSPE 已刊）",
+          "value": 92000,
+          "unit": "名（headcount）",
           "as_of": "2024/25",
           "status": "sourced",
-          "source_name": "立法會發展事務委員會 CB(1)1068/2025(03)",
-          "source_url": "https://www.legco.gov.hk/yr2025/chinese/panels/dev/papers/dev20250624cb1-1068-3-c.pdf",
-          "note": "本地＋非本地；唔等於全部要 PBSA 床。"
+          "source_name": "教育局專上教育統計專頁《專上教育主要統計數字》（Key Statistics on Post-secondary Education）2024/25",
+          "source_url": "https://www.cspe.edu.hk/f/page/679/postsec_keystat202425.pdf",
+          "source_date": "2025-08-12",
+          "note": "PDF「非本地學生人數」2024/25 已刊 92 000（副學位 3 000＋學士 23 300＋修課 49 100＋研究 16 600）。與合計池同一口徑。"
         },
         {
-          "id": "fyfd",
-          "label": "教資會一年級學額 FYFD（流量上限參考）",
-          "value": 15000,
-          "unit": "個／學年",
-          "as_of": "2025-02",
+          "id": "local_cspe_derived",
+          "label": "本地就學人數（衍生：合計 − 非本地）",
+          "value": 194900,
+          "unit": "名（headcount）",
+          "as_of": "2024/25",
           "status": "sourced",
-          "source_name": "立法會參考資料摘要 EDB(HE)CR 7/2041/19",
-          "source_url": "https://www.legco.gov.hk/yr2025/english/brief/edbhecr7204119_20250226-e.pdf",
-          "note": "本地一年級額度參考；唔當全市場需求。"
+          "source_name": "教育局專上教育統計專頁《專上教育主要統計數字》（Key Statistics on Post-secondary Education）2024/25（衍生：合計 − 非本地）",
+          "source_url": "https://www.cspe.edu.hk/f/page/679/postsec_keystat202425.pdf",
+          "source_date": "2025-08-12",
+          "note": "衍生數字：286 900 − 92 000＝194 900。PDF 未另刊「本地」單獨一行；標明為 total−non-local。"
+        },
+        {
+          "id": "scope_note",
+          "label": "口徑說明（CSPE）",
+          "value": "30 院校；FT+PT 面授；公帑＋自資；不含遙距",
+          "unit": "",
+          "status": "sourced",
+          "source_name": "教育局專上教育統計專頁《專上教育主要統計數字》（Key Statistics on Post-secondary Education）2024/25",
+          "source_url": "https://www.cspe.edu.hk/f/page/679/postsec_keystat202425.pdf",
+          "source_date": "2025-08-12",
+          "note": "註[1]：提供全日制經本地評審專上課程的院校（2024/25：30 所）。註[6]：全日制及非全日制指面授；遙距不包括在內。涵蓋公帑資助及自資。"
+        },
+        {
+          "id": "ugc_ft_contrast",
+          "label": "對照：教資會資助全日制（本地／非本地）",
+          "value": "80016／30297（2025/26）；78700／26592（2024/25）",
+          "unit": "名（headcount）",
+          "as_of": "2025/26 及 2024/25",
+          "status": "sourced",
+          "source_name": "data.gov.hk／教資會秘書處（就學人數，按原居地及修課形式）",
+          "source_url": "https://data.gov.hk/en-data/dataset/hk-ugc-ugc-student-statistics",
+          "source_date": "2026-07-24",
+          "note": "僅作對照，非需求主幹。口徑窄於 CSPE（只計教資會資助全日制；不含自資／兼讀）。門戶最後更新 2026-07-24。"
         },
         {
           "id": "quota_40",
@@ -52,110 +83,149 @@
           "status": "sourced",
           "source_name": "立法會教育事務委員會 CB(3)1369/2025(01)",
           "source_url": "https://www.legco.gov.hk/yr2025/english/panels/ed/papers/ed20251003cb3-1369-1-e.pdf",
-          "note": "近端增長天花板之一；實際用盡率另計。"
-        },
-        {
-          "id": "local_y1_optional",
-          "label": "本地一年級（可選加項，CBRE 類口徑）",
-          "value": null,
-          "unit": "名",
-          "status": "pending",
-          "note": "待你定是否計入；CBRE 假設「本地一年級＋全部全日制非本地」住宿舍。未披露人數。"
+          "source_date": "2025-10",
+          "note": "近端增長天花板之一；研究院研究課程不適用此上限。"
         }
       ]
     },
     {
       "id": "step2",
-      "title": "2. 住宿比例（人數 → 床）",
+      "title": "2. 住宿比例 → 床位需求（而家）",
       "inputs": [
         {
-          "id": "capture_pbsa",
-          "label": "目標人群住學生宿舍／PBSA 比例",
-          "value": null,
+          "id": "local_rate",
+          "label": "本地生住宿 capture rate",
+          "value": 25,
           "unit": "%",
-          "status": "pending",
-          "note": "待你定（低／中／高）。唔假設 100% 非本地都住 PBSA。"
+          "status": "assumption",
+          "source_name": "站內需求框架假設（Michael 確認）",
+          "source_date": "2026-10-15",
+          "note": "Michael 已確認：本地 25%。"
+        },
+        {
+          "id": "non_local_rate",
+          "label": "非本地生住宿 capture rate",
+          "value": 75,
+          "unit": "%",
+          "status": "assumption",
+          "source_name": "站內需求框架假設（Michael 確認）",
+          "source_date": "2026-10-15",
+          "note": "Michael 已確認：非本地 75%。"
         },
         {
           "id": "beds_demand_now",
-          "label": "由此計出嚟嘅床位需求（而家）",
-          "value": null,
+          "label": "床位需求（而家）",
+          "value": 117725,
           "unit": "床",
-          "status": "pending",
-          "note": "要有 capture rate 先計得；未披露。"
+          "as_of": "2024/25 CSPE 人數 × 25%/75%",
+          "status": "sourced",
+          "source_name": "自算：CSPE 2024/25 headcount × 已確認 capture rate；人數來源 教育局專上教育統計專頁《專上教育主要統計數字》（Key Statistics on Post-secondary Education）2024/25",
+          "source_url": "https://www.cspe.edu.hk/f/page/679/postsec_keystat202425.pdf",
+          "source_date": "2025-08-12",
+          "note": "194 900×25%＋92 000×75%＝48 725＋69 000＝117 725 床。本地人數為衍生（合計 − 非本地）。"
         }
       ]
     },
     {
       "id": "step3",
-      "title": "3. 十年投影（人數）",
+      "title": "3. 十年投影（推算／forecast，非官方）",
       "inputs": [
         {
           "id": "horizon",
           "label": "投影年期",
-          "value": "10 年（至約 2035）",
+          "value": "至約 2035（約 10 年）",
           "unit": "",
           "status": "assumption",
-          "note": "近 3–5 年跟政策上限用盡率；5–10 年先情景化研究生／自資增長。"
+          "source_name": "站內推算框架",
+          "source_date": "2026-10-15",
+          "note": "以下情景屬推算，唔係政府／CSPE／教資會官方預測。"
         },
         {
-          "id": "util_near",
-          "label": "近端：相對 40% 上限嘅用盡率",
-          "value": null,
-          "unit": "%",
-          "status": "pending",
-          "note": "待你定。CBRE 指 2025/26 非本地本科約佔本科 26%，仍低於 40% 上限。"
+          "id": "util_target_mid",
+          "label": "情景中假設：逼近 40% 非本地修課上限之約 90%",
+          "value": 90,
+          "unit": "%（相對 40% 上限＝相當於本地學額約 36%）",
+          "status": "assumption",
+          "source_name": "推算假設；底數來自立法會 CB(3)315/2025(01)",
+          "source_url": "https://www.legco.gov.hk/yr2025/english/panels/ed/ed_ieh/papers/ed_ieh20250218cb3-315-1-e.pdf",
+          "source_date": "2025-02",
+          "note": "推算假設。官方 2024/25 學士本地學額 74 082（立法會 CB(3)315/2025(01)）；74 082×40%×90%≈26 670 名非本地學士（FTE／學額口徑推算）。"
+        },
+        {
+          "id": "scen_mid_ug_nl",
+          "label": "情景中：推算非本地學士（相對本地學額 36%）",
+          "value": 26670,
+          "unit": "名（推算）",
+          "status": "assumption",
+          "source_name": "推算＝74 082×0.4×0.9；底數來自立法會 CB(3)315/2025(01)",
+          "source_url": "https://www.legco.gov.hk/yr2025/english/panels/ed/ed_ieh/papers/ed_ieh20250218cb3-315-1-e.pdf",
+          "source_date": "2025-02",
+          "note": "推算／forecast，非官方。研究院研究課程無 40% 上限，此數只覆蓋學士修課部分。仍屬教資會學額口徑推算，未改寫 CSPE 全池。"
+        },
+        {
+          "id": "scen_mid_nl_ft_held",
+          "label": "情景中：非本地全日制合計（機械持平其他程度；教資會對照口徑）",
+          "value": 36874,
+          "unit": "名（推算）",
+          "status": "assumption",
+          "source_name": "推算（教資會全日制對照池）",
+          "source_date": "2026-10-15",
+          "note": "推算：學士非本地改用 26670，其餘程度沿用 2025/26 教資會全日制非本地（研究院研究 10110＋修課 91＋副學位 3）。未另估 CSPE 全池／自資增長；與而家 CSPE 主幹口徑不同，僅作對照推算。"
+        },
+        {
+          "id": "scen_mid_beds",
+          "label": "情景中：床位需求（同一 25%/75%；教資會對照池）",
+          "value": 47660,
+          "unit": "床（推算）",
+          "status": "assumption",
+          "source_name": "推算（教資會全日制對照池 × 25%/75%）",
+          "source_date": "2026-10-15",
+          "note": "推算：本地仍用 2025/26 教資會 80016×25%＋非本地推算 36874×75%＝47659.5 → 約 47660 床。屬舊教資會對照口徑推算，唔直接與 CSPE 而家 117 725 床相減。低／高情景未定；CSPE 全池十年推算待另定。"
         },
         {
           "id": "scen_low",
-          "label": "情景低：2035 非本地全日制",
+          "label": "情景低：2035 非本地／床位（CSPE 全池）",
           "value": null,
-          "unit": "名",
+          "unit": "",
           "status": "pending",
-          "note": "待定。"
-        },
-        {
-          "id": "scen_mid",
-          "label": "情景中：2035 非本地全日制",
-          "value": null,
-          "unit": "名",
-          "status": "pending",
-          "note": "待定。"
+          "note": "待定；唔估數。推算標籤保留。"
         },
         {
           "id": "scen_high",
-          "label": "情景高：2035 非本地全日制",
+          "label": "情景高：2035 非本地／床位（CSPE 全池）",
           "value": null,
-          "unit": "名",
+          "unit": "",
           "status": "pending",
-          "note": "待定。"
+          "note": "待定；唔估數。推算標籤保留。"
         }
       ]
     },
     {
       "id": "step4",
-      "title": "4. 供應對沖 → 缺口",
+      "title": "4. 供應對沖 → 缺口（管道折扣 OUT OF SCOPE）",
       "inputs": [
         {
           "id": "uni_beds",
-          "label": "大學宿位（對沖）",
+          "label": "大學宿位（對沖參考）",
           "value": 42000,
           "unit": "床（約）",
           "as_of": "2026-09",
           "status": "industry",
           "source_name": "CBRE《Smart Growth》2026-09 Figure 19",
           "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
+          "source_date": "2026-09-07",
           "note": "業界估計。立法會另有「約 44,000 宿舍單位」——口徑未必等同床。"
         },
         {
           "id": "private_pbsa",
-          "label": "已營運私營 PBSA",
+          "label": "已營運私營 PBSA（對沖參考）",
           "value": 9500,
           "unit": "床（約）",
           "as_of": "2026-中",
           "status": "industry",
           "source_name": "CBRE《Smart Growth》2026-09",
           "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate",
+          "source_date": "2026-09-07",
           "note": "業界估計（正文約 9,500）。"
         },
         {
@@ -164,7 +234,7 @@
           "value": null,
           "unit": "床",
           "status": "pending",
-          "note": "城中學舍待批／政府用地唔當 100%；待你定折扣。"
+          "note": "OUT OF SCOPE：需求工作唔計管道 haircut；城中學舍／賣地供應另議。"
         },
         {
           "id": "gap",
@@ -172,7 +242,7 @@
           "value": null,
           "unit": "床",
           "status": "pending",
-          "note": "自算結果待 capture rate 同情景齊先填。"
+          "note": "需求側而家床位需求 117 725（CSPE 2024/25 × 25%/75%）；缺口待供應口徑（官方／業界）齊備後再算。管道折扣 OUT OF SCOPE。"
         }
       ]
     }
@@ -181,7 +251,7 @@
     {
       "label": "CBRE 學生住宿總需求",
       "value": "約 14 萬床（2030）／約 17.5 萬床（2035）",
-      "note": "業界估計；假設本地一年級＋全日制非本地住宿舍。單一來源。",
+      "note": "業界估計；假設本地一年級＋全日制非本地住宿舍。單一來源。與本站 25%/75%×CSPE 全池口徑不同。",
       "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate"
     },
     {
@@ -197,10 +267,16 @@
       "source_url": "https://www.cbre.com.hk/press-releases/education-paper-emerging-as-major-new-driver-for-hk-real-estate"
     }
   ],
+  "gaps": [
+    "本地 194 900 為衍生（CSPE 合計 286 900 − 非本地 92 000）；PDF 未另刊「本地」單獨總行。",
+    "CSPE 含全日制＋兼讀面授；住宿 capture rate 原按全日制思路確認，兼讀生住宿行為未另拆。",
+    "十年低／高情景（CSPE 全池）未定；情景中仍為教資會全日制對照口徑推算，未改寫為 CSPE 全池增長。",
+    "管道折扣（城中學舍／賣地）OUT OF SCOPE；缺口待供應口徑齊備。"
+  ],
   "next_decisions": [
-    "是否把本地一年級計入需求池",
-    "capture rate 低／中／高三檔各定幾多 %",
-    "近 3–5 年用盡 40% 上限嘅速度",
-    "管道（城中學舍／賣地）打幾多折先入供應"
+    "兼讀生是否另設較低 capture rate（抑或沿用同一 25%/75%）",
+    "CSPE 全池十年低／中／高情景點樣定（取代教資會對照推算）",
+    "缺口計算用官方宿位單位定業界床位估計",
+    "管道（城中學舍／賣地）折扣——供應工作另議，需求 OUT OF SCOPE"
   ]
 }
