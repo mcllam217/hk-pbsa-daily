@@ -605,3 +605,41 @@ table.comps .c-empty { color: var(--muted, #6b7280); }
   line-height: 1.4;
   color: var(--muted, #6b7280);
 }
+
+/* Demand forecast chart */
+.sd-demand-chart-wrap {
+  margin: 12px 0 10px;
+  padding: 10px 8px 4px;
+  background: #f8fafb;
+  border: 1px solid var(--line, #e3e7ec);
+  border-radius: 8px;
+}
+.sd-demand-chart-title {
+  margin: 0 0 6px;
+  padding: 0 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text, #1c2430);
+}
+.sd-demand-chart-wrap canvas {
+  width: 100% !important;
+  max-height: 220px;
+}
+.sd-forecast-note {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--muted, #6b7280);
+}
+.sd-forecast-tag {
+  display: inline-block;
+  margin-right: 4px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #fdf3dc;
+  color: #8a5a00;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  vertical-align: 0.05em;
+}

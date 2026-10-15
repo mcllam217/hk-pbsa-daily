@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-15T11:35:00+08:00",
+  "updated": "2026-10-15T11:55:00+08:00",
   "title": "需求推算框架（床位）",
   "method": "官方 CSPE 專上就學人數（本地／非本地）× 已確認住宿比例：本地 25% + 非本地 75%。主幹用教育局《專上教育主要統計數字》2024/25（30 所院校；經本地評審專上；全日制＋兼讀面授；公帑資助＋自資；不含遙距）。唔計管道折扣（供應端另議／OUT OF SCOPE）。教資會資助全日制僅作對照。",
   "formula": {
@@ -174,29 +174,33 @@
         },
         {
           "id": "scen_mid_beds",
-          "label": "情景中：床位需求（同一 25%/75%；教資會對照池）",
-          "value": 47660,
+          "label": "情景中：2034/35 床位需求（CSPE 全池）",
+          "value": 144405,
           "unit": "床（推算）",
           "status": "assumption",
-          "source_name": "推算（教資會全日制對照池 × 25%/75%）",
+          "source_name": "推算（CSPE 全池 × 25%/75%；增長倍率橋接自教資會 40%×90% 路徑）",
           "source_date": "2026-10-15",
-          "note": "推算：本地仍用 2025/26 教資會 80016×25%＋非本地推算 36874×75%＝47659.5 → 約 47660 床。屬舊教資會對照口徑推算，唔直接與 CSPE 而家 117 725 床相減。低／高情景未定；CSPE 全池十年推算待另定。"
+          "note": "推算：本地持平 194900×25%＋非本地終點 127573×75%＝144405 床。舊教資會對照口徑推算已由 CSPE 全池十年推算取代作圖表主線；教資會絕對人數仍只作增長倍率橋接。"
         },
         {
           "id": "scen_low",
-          "label": "情景低：2035 非本地／床位（CSPE 全池）",
-          "value": null,
-          "unit": "",
-          "status": "pending",
-          "note": "待定；唔估數。推算標籤保留。"
+          "label": "情景低：2034/35 床位需求（CSPE 全池）",
+          "value": 131064,
+          "unit": "床（推算）",
+          "status": "assumption",
+          "note": "推算：見 forecast.series；非本地升幅＝中位之 0.5×。",
+          "source_name": "站內推算假設",
+          "source_date": "2026-10-15"
         },
         {
           "id": "scen_high",
-          "label": "情景高：2035 非本地／床位（CSPE 全池）",
-          "value": null,
-          "unit": "",
-          "status": "pending",
-          "note": "待定；唔估數。推算標籤保留。"
+          "label": "情景高：2034/35 床位需求（CSPE 全池）",
+          "value": 157744,
+          "unit": "床（推算）",
+          "status": "assumption",
+          "note": "推算：見 forecast.series；非本地升幅＝中位之 1.5×。",
+          "source_name": "站內推算假設",
+          "source_date": "2026-10-15"
         }
       ]
     },
@@ -270,12 +274,12 @@
   "gaps": [
     "本地 194 900 為衍生（CSPE 合計 286 900 − 非本地 92 000）；PDF 未另刊「本地」單獨總行。",
     "CSPE 含全日制＋兼讀面授；住宿 capture rate 原按全日制思路確認，兼讀生住宿行為未另拆。",
-    "十年低／高情景（CSPE 全池）未定；情景中仍為教資會全日制對照口徑推算，未改寫為 CSPE 全池增長。",
-    "管道折扣（城中學舍／賣地）OUT OF SCOPE；缺口待供應口徑齊備。"
+    "管道折扣（城中學舍／賣地）OUT OF SCOPE；缺口待供應口徑齊備。",
+    "十年推算已入 forecast（CSPE 全池低／中／高）；增長倍率橋接自教資會 40%×90% 路徑，非 CSPE 官方預測。"
   ],
   "next_decisions": [
+    "十年推算倍率／低高帶是否要改（而家用教資會 40%×90% 倍率橋接＋0.5×／1.5×）",
     "兼讀生是否另設較低 capture rate（抑或沿用同一 25%/75%）",
-    "CSPE 全池十年低／中／高情景點樣定（取代教資會對照推算）",
     "缺口計算用官方宿位單位定業界床位估計",
     "管道（城中學舍／賣地）折扣——供應工作另議，需求 OUT OF SCOPE"
   ],
@@ -302,6 +306,195 @@
       "as_of": "2024/25",
       "pdf_last_updated": "2025-08-12",
       "citation_zh": "教育局自資專上教育資訊平台（CSPE）《專上教育主要統計數字》2024/25；本地 194,900＝總 286,900−非本地 92,000；住宿比例 25%/75% 係假設，非官方。"
+    }
+  },
+  "forecast": {
+    "label_zh": "十年床位需求推算（CSPE 全池）",
+    "status": "推算",
+    "disclaimer_zh": "推算／forecast，非官方；唔係政府／CSPE／教資會預測。",
+    "base_year": "2024/25",
+    "horizon_end": "2034/35",
+    "years": 10,
+    "capture_rates": {
+      "local_pct": 25,
+      "non_local_pct": 75,
+      "note_zh": "全程沿用已確認 25%/75%；推算唔另改 capture rate。"
+    },
+    "assumptions_zh": [
+      "主線路徑 B（政策對齊）：非本地增長倍率對齊「逼近 40% 非本地修課上限之約 90%」教資會路徑；套用至 CSPE 基年。敏感度 A（+3%/年）只存 JSON，唔入主圖。",
+      "基年：CSPE 2024/25 本地 194,900（衍生）×25%＋非本地 92,000×75%＝117,725 床。",
+      "本地就學人數：十年持平 194,900（推算假設；唔估本地增長）。",
+      "非本地就學人數（情景中）：由 92,000 線性升至約 127,573（2034/35）。增長幅度對齊先前教資會口徑「逼近 40% 上限之 90%」路徑：教資會全日制非本地 2024/25 的 26,592 → 情景中終點 36,874（學士用 74,082×40%×90%＋其餘程度持平），倍率 ≈1.3867；同一倍率套用喺 CSPE 非本地基年（唔直接套用教資會絕對人數，因 CSPE 含自資／兼讀）。",
+      "情景低／高：非本地十年升幅分別為中位升幅之 0.5×／1.5×（線性），終點約 109,786／145,359。",
+      "40%×90% 只係用嚟定增長倍率嘅教資會修課上限框架；CSPE 全池無同等官方上限。"
+    ],
+    "ugc_growth_bridge": {
+      "note_zh": "增長倍率橋接（推算）：教資會非本地全日制 26,592（2024/25）→ 情景中終點 36,874；倍率套用 CSPE 非本地 92,000。",
+      "ugc_nl_ft_2024_25": 26592,
+      "ugc_nl_ft_mid_endpoint": 36874,
+      "growth_factor": 1.386658,
+      "cspe_nl_mid_endpoint": 127573,
+      "cspe_nl_low_endpoint": 109786,
+      "cspe_nl_high_endpoint": 145359
+    },
+    "endpoints_2034_35": {
+      "beds_low": 131064,
+      "beds_mid": 144405,
+      "beds_high": 157744,
+      "non_local_enrol_low": 109786,
+      "non_local_enrol_mid": 127573,
+      "non_local_enrol_high": 145359,
+      "local_enrol": 194900
+    },
+    "series": [
+      {
+        "year": "2024/25",
+        "t": 0,
+        "local_enrol": 194900,
+        "non_local_enrol_low": 92000,
+        "non_local_enrol_mid": 92000,
+        "non_local_enrol_high": 92000,
+        "beds_low": 117725,
+        "beds_mid": 117725,
+        "beds_high": 117725
+      },
+      {
+        "year": "2025/26",
+        "t": 1,
+        "local_enrol": 194900,
+        "non_local_enrol_low": 93779,
+        "non_local_enrol_mid": 95557,
+        "non_local_enrol_high": 97336,
+        "beds_low": 119059,
+        "beds_mid": 120393,
+        "beds_high": 121727
+      },
+      {
+        "year": "2026/27",
+        "t": 2,
+        "local_enrol": 194900,
+        "non_local_enrol_low": 95557,
+        "non_local_enrol_mid": 99115,
+        "non_local_enrol_high": 102672,
+        "beds_low": 120393,
+        "beds_mid": 123061,
+        "beds_high": 125729
+      },
+      {
+        "year": "2027/28",
+        "t": 3,
+        "local_enrol": 194900,
+        "non_local_enrol_low": 97336,
+        "non_local_enrol_mid": 102672,
+        "non_local_enrol_high": 108008,
+        "beds_low": 121727,
+        "beds_mid": 125729,
+        "beds_high": 129731
+      },
+      {
+        "year": "2028/29",
+        "t": 4,
+        "local_enrol": 194900,
+        "non_local_enrol_low": 99114,
+        "non_local_enrol_mid": 106229,
+        "non_local_enrol_high": 113344,
+        "beds_low": 123060,
+        "beds_mid": 128397,
+        "beds_high": 133733
+      },
+      {
+        "year": "2029/30",
+        "t": 5,
+        "local_enrol": 194900,
+        "non_local_enrol_low": 100893,
+        "non_local_enrol_mid": 109786,
+        "non_local_enrol_high": 118680,
+        "beds_low": 124395,
+        "beds_mid": 131064,
+        "beds_high": 137735
+      },
+      {
+        "year": "2030/31",
+        "t": 6,
+        "local_enrol": 194900,
+        "non_local_enrol_low": 102672,
+        "non_local_enrol_mid": 113344,
+        "non_local_enrol_high": 124015,
+        "beds_low": 125729,
+        "beds_mid": 133733,
+        "beds_high": 141736
+      },
+      {
+        "year": "2031/32",
+        "t": 7,
+        "local_enrol": 194900,
+        "non_local_enrol_low": 104450,
+        "non_local_enrol_mid": 116901,
+        "non_local_enrol_high": 129351,
+        "beds_low": 127062,
+        "beds_mid": 136401,
+        "beds_high": 145738
+      },
+      {
+        "year": "2032/33",
+        "t": 8,
+        "local_enrol": 194900,
+        "non_local_enrol_low": 106229,
+        "non_local_enrol_mid": 120458,
+        "non_local_enrol_high": 134687,
+        "beds_low": 128397,
+        "beds_mid": 139068,
+        "beds_high": 149740
+      },
+      {
+        "year": "2033/34",
+        "t": 9,
+        "local_enrol": 194900,
+        "non_local_enrol_low": 108007,
+        "non_local_enrol_mid": 124016,
+        "non_local_enrol_high": 140023,
+        "beds_low": 129730,
+        "beds_mid": 141737,
+        "beds_high": 153742
+      },
+      {
+        "year": "2034/35",
+        "t": 10,
+        "local_enrol": 194900,
+        "non_local_enrol_low": 109786,
+        "non_local_enrol_mid": 127573,
+        "non_local_enrol_high": 145359,
+        "beds_low": 131064,
+        "beds_mid": 144405,
+        "beds_high": 157744
+      }
+    ],
+    "chart": {
+      "y_label_zh": "床位需求（推算）",
+      "series_order": [
+        "beds_low",
+        "beds_mid",
+        "beds_high"
+      ],
+      "labels_zh": {
+        "beds_low": "低",
+        "beds_mid": "中（主線）",
+        "beds_high": "高"
+      },
+      "primary": "beds_mid",
+      "note_zh": "主線＝情景中（B：40%×90% 倍率）；低／高＝中位升幅 0.5×／1.5×。全部標推算。"
+    },
+    "mid_path_id": "B",
+    "mid_path_label_zh": "B：逼近公帑資助非本地修課上限 40% 之約 90%（政策對齊；倍率橋接至 CSPE）",
+    "sensitivity_a": {
+      "id": "A",
+      "label_zh": "敏感度 A：非本地 +3%/年複合（十年）",
+      "status": "推算",
+      "note_zh": "非主線。僅作敏感度對照；圖表主線用 B（40%×90%）。",
+      "non_local_cagr_pct": 3,
+      "non_local_enrol_2034_35": 123640,
+      "beds_2034_35": 141455,
+      "compare_to_mid_beds": 144405
     }
   }
 }

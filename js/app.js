@@ -829,7 +829,103 @@
     if (n === null || n === undefined || n === "") return "—";
     return Number(n).toLocaleString("en-US");
   }
-  /** Demand column: only CSPE ×25%/75% main line + durable SOURCE (from demand_framework.json main_line). */
+  let demandChart = null;
+  function renderDemandForecastChart(fc) {
+    const canvas = document.getElementById("sd-demand-chart");
+    if (!canvas || !fc || !Array.isArray(fc.series) || !fc.series.length) return;
+    if (typeof Chart === "undefined") {
+      canvas.parentElement.insertAdjacentHTML("beforeend", `<p class="muted small">圖表庫未載入。</p>`);
+      return;
+    }
+    const labels = fc.series.map((r) => r.year);
+    const low = fc.series.map((r) => r.beds_low);
+    const mid = fc.series.map((r) => r.beds_mid);
+    const high = fc.series.map((r) => r.beds_high);
+    if (demandChart) {
+      demandChart.destroy();
+      demandChart = null;
+    }
+    demandChart = new Chart(canvas.getContext("2d"), {
+      type: "line",
+      data: {
+        labels,
+        datasets: [
+          {
+            label: "高（推算）",
+            data: high,
+            borderColor: "rgba(168, 50, 30, 0.45)",
+            backgroundColor: "transparent",
+            borderWidth: 1.5,
+            borderDash: [4, 3],
+            pointRadius: 0,
+            tension: 0.15,
+            order: 3,
+          },
+          {
+            label: "中（主線／B）",
+            data: mid,
+            borderColor: "#0f6e6a",
+            backgroundColor: "rgba(15, 110, 106, 0.12)",
+            borderWidth: 2.5,
+            pointRadius: 2,
+            pointHoverRadius: 4,
+            tension: 0.15,
+            fill: false,
+            order: 1,
+          },
+          {
+            label: "低（推算）",
+            data: low,
+            borderColor: "rgba(85, 96, 110, 0.5)",
+            backgroundColor: "transparent",
+            borderWidth: 1.5,
+            borderDash: [4, 3],
+            pointRadius: 0,
+            tension: 0.15,
+            order: 2,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 1.7,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: {
+            position: "bottom",
+            labels: { boxWidth: 12, boxHeight: 2, font: { size: 11 }, color: "#5f6b7a" },
+          },
+          tooltip: {
+            callbacks: {
+              label: (ctx) => {
+                const v = ctx.parsed.y;
+                return ` ${ctx.dataset.label}: ${Number(v).toLocaleString("en-US")} 床`;
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            ticks: { maxRotation: 45, minRotation: 0, font: { size: 10 }, color: "#5f6b7a",
+              callback: function (val, i) { return i % 2 === 0 ? this.getLabelForValue(val) : ""; } },
+            grid: { display: false },
+          },
+          y: {
+            beginAtZero: false,
+            ticks: {
+              font: { size: 10 },
+              color: "#5f6b7a",
+              callback: (v) => (v >= 1000 ? Math.round(v / 1000) + "k" : v),
+            },
+            title: { display: true, text: "床位（推算）", font: { size: 11 }, color: "#5f6b7a" },
+            grid: { color: "rgba(227, 231, 236, 0.9)" },
+          },
+        },
+      },
+    });
+  }
+  /** Demand column: CSPE main line + 10y forecast chart + SOURCE (no clutter tables). */
   function renderDemandMainLine(fw) {
     const el = $("#sd-demand");
     if (!el) return;
@@ -850,20 +946,38 @@
       ? esc(m.display_zh)
       : `CSPE ${year}: local ${local} × ${lr}% + non-local ${nonLocal} × ${nr}% = ${beds} beds`;
     const name = esc(src.name_zh || "教育局自資專上教育資訊平台（CSPE）《專上教育主要統計數字》");
-    const pdf = src.pdf_url
-      ? link(src.pdf_url, "PDF")
-      : "";
-    const page = src.page_url
-      ? link(src.page_url, "專頁")
-      : "";
+    const pdf = src.pdf_url ? link(src.pdf_url, "PDF") : "";
+    const page = src.page_url ? link(src.page_url, "專頁") : "";
     const links = [pdf, page].filter(Boolean).join(" · ");
     const derived = esc(m.local_derived_note_zh || `本地 ${local}＝總 ${total}−非本地 ${nonLocal}`);
     const ratesNote = esc(m.rates_note_zh || "住宿比例 25%/75% 係假設，非官方");
+    const fc = fw.forecast;
+    let chartBlock = "";
+    if (fc && Array.isArray(fc.series) && fc.series.length) {
+      const end = fc.endpoints_2034_35 || {};
+      const midEnd = fmtEnrol(end.beds_mid);
+      const lowEnd = fmtEnrol(end.beds_low);
+      const highEnd = fmtEnrol(end.beds_high);
+      chartBlock = `<div class="sd-demand-chart-wrap">
+        <p class="sd-demand-chart-title">十年床位需求推算（2024/25→2034/35）</p>
+        <canvas id="sd-demand-chart" aria-label="床位需求十年推算圖" role="img" height="200"></canvas>
+      </div>
+      <p class="sd-forecast-note"><span class="sd-forecast-tag">推算</span>主線：本地持平；非本地線性逼近「40% 上限×約 90%」倍率（政策對齊，CSPE 池）。2034/35 中 ${midEnd} 床（低 ${lowEnd}／高 ${highEnd}）。非官方預測。</p>`;
+    }
     el.innerHTML = `<div class="sd-main-line">
       <p class="sd-main-calc">${headline}</p>
+      ${chartBlock}
       <p class="sd-main-source"><span class="sd-src-label">SOURCE</span> ${name}${links ? `（${links}）` : ""}</p>
       <p class="sd-main-note">${derived}；${ratesNote}</p>
     </div>`;
+    if (fc) {
+      // Chart.js may load with defer; retry briefly if needed.
+      const tryChart = (n) => {
+        if (typeof Chart !== "undefined") renderDemandForecastChart(fc);
+        else if (n > 0) setTimeout(() => tryChart(n - 1), 50);
+      };
+      tryChart(40);
+    }
   }
   function renderDemandFramework(fw) {
     const box = $("#sd-framework");
