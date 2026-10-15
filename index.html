@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=41" />
+  <link rel="stylesheet" href="css/style.css?v=42" />
 </head>
 <body>
   <header class="site-header">
@@ -57,9 +57,9 @@
     <!-- 2. 供求分析 -->
     <section id="supply-demand" aria-labelledby="h-sd">
       <h2 id="h-sd">2. 供求分析</h2>
-      <p class="method">上方三欄以官方／立法會來源為主；業界顧問估計另見下方，標「單一來源」同「業界估計」。缺數見文末缺口。</p>
+      <p class="method">需求欄只顯示 CSPE ×25%/75% 主線一條。供應／管道以官方／立法會來源為主。詳細對照、業界估計摺埋，預設唔顯示。</p>
       <div class="sd-grid">
-        <div class="sd-col">
+        <div class="sd-col sd-col-demand">
           <h3>需求</h3>
           <div id="sd-demand"><p class="muted">載入中…</p></div>
         </div>
@@ -72,8 +72,8 @@
           <div id="sd-pipeline"><p class="muted">載入中…</p></div>
         </div>
       </div>
-      <details class="fold sd-framework" id="sd-framework" open>
-        <summary>需求推算框架<span class="n" id="sd-fw-n"></span></summary>
+      <details class="fold sd-framework" id="sd-framework" hidden>
+        <summary>需求詳細對照（可略過）<span class="n" id="sd-fw-n"></span></summary>
         <p class="method" id="sd-fw-method"></p>
         <p class="method" id="sd-fw-formula"></p>
         <div id="sd-fw-steps"></div>
@@ -82,12 +82,12 @@
         <h4 class="sd-fw-h">等你拍板</h4>
         <ul id="sd-fw-next"></ul>
       </details>
-      <div class="sd-industry" id="sd-industry-wrap">
-        <h3>業界估計（非官方）</h3>
+      <details class="fold sd-industry" id="sd-industry-wrap" hidden>
+        <summary>業界估計（非官方，可略過）</summary>
         <p class="method">顧問／代理報告口徑；標「單一來源」。IRR、租金假設只作參考，唔當成交均價，亦唔覆蓋上方官方數字。</p>
-        <div id="sd-industry"><p class="muted">載入中…</p></div>
-      </div>
-      <details class="fold" id="sd-gaps">
+        <div id="sd-industry"></div>
+      </details>
+      <details class="fold" id="sd-gaps" hidden>
         <summary>供求資料缺口<span class="n" id="sd-gaps-n"></span></summary>
         <ul id="sd-gaps-list"></ul>
       </details>
@@ -267,6 +267,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=41"></script>
+  <script src="js/app.js?v=42"></script>
 </body>
 </html>

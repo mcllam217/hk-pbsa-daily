@@ -568,3 +568,40 @@ table.comps .c-empty { color: var(--muted, #6b7280); }
 .fw-step { margin-bottom: 0.6rem; }
 .fw-item { list-style: none; }
 .sd-tag-pend { background: #e8e8e8; color: #555; }
+
+/* Demand main line only (CSPE ×25%/75%) */
+.sd-col-demand .sd-main-line {
+  margin: 0;
+  padding: 0;
+}
+.sd-main-calc {
+  margin: 0 0 10px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--text, #1a1a1a);
+}
+.sd-main-source {
+  margin: 0 0 6px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--muted, #4b5563);
+}
+.sd-src-label {
+  display: inline-block;
+  margin-right: 4px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #e8eef6;
+  color: #1e3a5f;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  vertical-align: 0.05em;
+}
+.sd-main-note {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--muted, #6b7280);
+}

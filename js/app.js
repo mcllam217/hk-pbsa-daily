@@ -825,14 +825,56 @@
     if (typeof inp.value === "number") return fmtNum(inp.value, Number.isInteger(inp.value) ? 0 : 1);
     return String(inp.value);
   }
+  function fmtEnrol(n) {
+    if (n === null || n === undefined || n === "") return "—";
+    return Number(n).toLocaleString("en-US");
+  }
+  /** Demand column: only CSPE ×25%/75% main line + durable SOURCE (from demand_framework.json main_line). */
+  function renderDemandMainLine(fw) {
+    const el = $("#sd-demand");
+    if (!el) return;
+    const m = fw && fw.main_line;
+    if (!m) {
+      el.innerHTML = `<p class="muted">未有需求主線資料。</p>`;
+      return;
+    }
+    const src = m.source || {};
+    const local = fmtEnrol(m.local_enrol);
+    const nonLocal = fmtEnrol(m.non_local_enrol);
+    const total = fmtEnrol(m.total_enrol);
+    const beds = fmtEnrol(m.beds);
+    const lr = m.local_rate_pct != null ? m.local_rate_pct : 25;
+    const nr = m.non_local_rate_pct != null ? m.non_local_rate_pct : 75;
+    const year = esc(m.year || "2024/25");
+    const headline = m.display_zh
+      ? esc(m.display_zh)
+      : `CSPE ${year}: local ${local} × ${lr}% + non-local ${nonLocal} × ${nr}% = ${beds} beds`;
+    const name = esc(src.name_zh || "教育局自資專上教育資訊平台（CSPE）《專上教育主要統計數字》");
+    const pdf = src.pdf_url
+      ? link(src.pdf_url, "PDF")
+      : "";
+    const page = src.page_url
+      ? link(src.page_url, "專頁")
+      : "";
+    const links = [pdf, page].filter(Boolean).join(" · ");
+    const derived = esc(m.local_derived_note_zh || `本地 ${local}＝總 ${total}−非本地 ${nonLocal}`);
+    const ratesNote = esc(m.rates_note_zh || "住宿比例 25%/75% 係假設，非官方");
+    el.innerHTML = `<div class="sd-main-line">
+      <p class="sd-main-calc">${headline}</p>
+      <p class="sd-main-source"><span class="sd-src-label">SOURCE</span> ${name}${links ? `（${links}）` : ""}</p>
+      <p class="sd-main-note">${derived}；${ratesNote}</p>
+    </div>`;
+  }
   function renderDemandFramework(fw) {
     const box = $("#sd-framework");
+    renderDemandMainLine(fw);
+    /* Keep detailed framework / UGC / scenarios out of default demand UI. */
     if (!box) return;
-    if (!fw) { box.hidden = true; return; }
-    box.hidden = false;
+    box.hidden = true;
+    if (!fw) return;
     const steps = fw.steps || [];
     const nPend = steps.reduce((n, s) => n + (s.inputs || []).filter((i) => i.status === "pending").length, 0);
-    if ($("#sd-fw-n")) $("#sd-fw-n").textContent = nPend ? `${nPend} 項待定` : "框架";
+    if ($("#sd-fw-n")) $("#sd-fw-n").textContent = nPend ? `${nPend} 項待定` : "";
     if ($("#sd-fw-method")) $("#sd-fw-method").textContent = fw.method || "";
     if ($("#sd-fw-formula")) $("#sd-fw-formula").textContent = (fw.formula && fw.formula.zh) || "";
     const stepsEl = $("#sd-fw-steps");
@@ -864,19 +906,20 @@
 
   function renderSupplyDemand(data) {
     if (!data) {
-      $("#sd-demand").innerHTML = `<p class="muted">未有供求資料檔。</p>`;
+      /* Demand main line is filled by renderDemandFramework; leave placeholder if neither loads. */
+      if ($("#sd-demand") && !$("#sd-demand").querySelector(".sd-main-line")) {
+        $("#sd-demand").innerHTML = `<p class="muted">未有供求資料檔。</p>`;
+      }
       $("#sd-supply").innerHTML = "";
       $("#sd-pipeline").innerHTML = "";
-      $("#sd-gaps").hidden = true;
+      if ($("#sd-gaps")) $("#sd-gaps").hidden = true;
+      if ($("#sd-industry-wrap")) $("#sd-industry-wrap").hidden = true;
       return;
     }
-    const demand = data.demand || [];
     const supply = data.supply || [];
     const pipeline = data.pipeline || [];
     const industry = data.industry || [];
-    $("#sd-demand").innerHTML = demand.length
-      ? `<ul class="sd-list">${demand.map(sdItemHtml).join("")}</ul>`
-      : `<p class="muted">暫無</p>`;
+    /* Demand column: do NOT list UGC / FYFD / multi-item clutter — main line only (see renderDemandMainLine). */
     $("#sd-supply").innerHTML = supply.length
       ? `<ul class="sd-list">${supply.map(sdItemHtml).join("")}</ul>`
       : `<p class="muted">暫無</p>`;
@@ -885,19 +928,19 @@
       : `<p class="muted">暫無</p>`;
     const indEl = $("#sd-industry");
     const indWrap = $("#sd-industry-wrap");
-    if (indEl) {
-      if (!industry.length) {
-        if (indWrap) indWrap.hidden = true;
-        indEl.innerHTML = "";
-      } else {
-        if (indWrap) indWrap.hidden = false;
-        indEl.innerHTML = `<ul class="sd-list sd-industry-list">${industry.map(sdItemHtml).join("")}</ul>`;
-      }
+    if (indEl && indWrap) {
+      /* Consultant figures: keep in JSON, hide from default demand UI. */
+      indWrap.hidden = true;
+      indEl.innerHTML = industry.length
+        ? `<ul class="sd-list sd-industry-list">${industry.map(sdItemHtml).join("")}</ul>`
+        : "";
     }
     const gaps = data.gaps || [];
-    if (!gaps.length) $("#sd-gaps").hidden = true;
-    else {
-      $("#sd-gaps").hidden = false;
+    if (!gaps.length) {
+      if ($("#sd-gaps")) $("#sd-gaps").hidden = true;
+    } else {
+      /* Gaps stay folded + hidden from default view (too much demand clutter). */
+      $("#sd-gaps").hidden = true;
       $("#sd-gaps-n").textContent = String(gaps.length);
       $("#sd-gaps-list").innerHTML = gaps.map((g) => `<li>${esc(g)}</li>`).join("");
     }

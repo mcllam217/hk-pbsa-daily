@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-15T11:24:00+08:00",
+  "updated": "2026-10-15T11:35:00+08:00",
   "title": "需求推算框架（床位）",
   "method": "官方 CSPE 專上就學人數（本地／非本地）× 已確認住宿比例：本地 25% + 非本地 75%。主幹用教育局《專上教育主要統計數字》2024/25（30 所院校；經本地評審專上；全日制＋兼讀面授；公帑資助＋自資；不含遙距）。唔計管道折扣（供應端另議／OUT OF SCOPE）。教資會資助全日制僅作對照。",
   "formula": {
@@ -278,5 +278,30 @@
     "CSPE 全池十年低／中／高情景點樣定（取代教資會對照推算）",
     "缺口計算用官方宿位單位定業界床位估計",
     "管道（城中學舍／賣地）折扣——供應工作另議，需求 OUT OF SCOPE"
-  ]
+  ],
+  "main_line": {
+    "id": "cspe-2024-25-25-75",
+    "label_zh": "CSPE 2024/25 床位需求（主線）",
+    "display_zh": "CSPE 2024/25: local 194,900 × 25% + non-local 92,000 × 75% = 117,725 beds",
+    "year": "2024/25",
+    "total_enrol": 286900,
+    "local_enrol": 194900,
+    "non_local_enrol": 92000,
+    "local_derived": true,
+    "local_derived_note_zh": "本地 194,900＝總 286,900−非本地 92,000（PDF 未另刊本地單獨總行）",
+    "local_rate_pct": 25,
+    "non_local_rate_pct": 75,
+    "rates_assumption": true,
+    "rates_note_zh": "住宿比例 25%/75% 係假設，非官方",
+    "beds": 117725,
+    "calc_note_zh": "194,900×25% + 92,000×75% = 48,725 + 69,000 = 117,725",
+    "source": {
+      "name_zh": "教育局自資專上教育資訊平台（CSPE）《專上教育主要統計數字》2024/25",
+      "pdf_url": "https://www.cspe.edu.hk/f/page/679/postsec_keystat202425.pdf",
+      "page_url": "https://www.cspe.edu.hk/tc/statistics/key-statistics-on-post-secondary-education/",
+      "as_of": "2024/25",
+      "pdf_last_updated": "2025-08-12",
+      "citation_zh": "教育局自資專上教育資訊平台（CSPE）《專上教育主要統計數字》2024/25；本地 194,900＝總 286,900−非本地 92,000；住宿比例 25%/75% 係假設，非官方。"
+    }
+  }
 }
