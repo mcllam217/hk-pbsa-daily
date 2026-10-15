@@ -838,9 +838,17 @@
       return;
     }
     const labels = fc.series.map((r) => r.year);
-    const beds = fc.series.map((r) => (r.beds != null ? r.beds : r.beds_mid));
-    const seriesLabel = (fc.chart && fc.chart.labels_zh && fc.chart.labels_zh.beds) || "推算／非官方";
+    const zh = (fc.chart && fc.chart.labels_zh) || {};
     const yTitle = (fc.chart && fc.chart.y_label_zh) || "床位需求（推算／非官方）";
+    const localBeds = fc.series.map((r) =>
+      r.beds_local != null ? r.beds_local : Math.round((r.local_enrol || 0) * 0.25)
+    );
+    const nonLocalBeds = fc.series.map((r) => {
+      if (r.beds_non_local != null) return r.beds_non_local;
+      if (r.beds != null && r.beds_local != null) return r.beds - r.beds_local;
+      return Math.round((r.non_local_enrol || 0) * 0.75);
+    });
+    const totalBeds = fc.series.map((r) => (r.beds != null ? r.beds : r.beds_mid));
     if (demandChart) {
       demandChart.destroy();
       demandChart = null;
@@ -851,15 +859,41 @@
         labels,
         datasets: [
           {
-            label: seriesLabel,
-            data: beds,
+            label: zh.beds_local || "本地",
+            data: localBeds,
+            borderColor: "#5b6b7c",
+            backgroundColor: "transparent",
+            borderWidth: 2,
+            borderDash: [5, 3],
+            pointRadius: 0,
+            pointHoverRadius: 3,
+            tension: 0.15,
+            fill: false,
+            order: 3,
+          },
+          {
+            label: zh.beds_non_local || "非本地",
+            data: nonLocalBeds,
+            borderColor: "#c47a2c",
+            backgroundColor: "transparent",
+            borderWidth: 2,
+            pointRadius: 2,
+            pointHoverRadius: 4,
+            tension: 0.15,
+            fill: false,
+            order: 2,
+          },
+          {
+            label: zh.beds || "合計",
+            data: totalBeds,
             borderColor: "#0f6e6a",
-            backgroundColor: "rgba(15, 110, 106, 0.12)",
+            backgroundColor: "rgba(15, 110, 106, 0.10)",
             borderWidth: 2.5,
             pointRadius: 2,
             pointHoverRadius: 4,
             tension: 0.15,
             fill: false,
+            order: 1,
           },
         ],
       },
@@ -933,14 +967,18 @@
     if (fc && Array.isArray(fc.series) && fc.series.length) {
       const end = (fc.endpoints && fc.endpoints.year_10) || fc.endpoints_2034_35 || {};
       const y0 = (fc.endpoints && fc.endpoints.year_0) || {};
-      const endBeds = fmtEnrol(end.beds != null ? end.beds : end.beds_mid);
-      const y0Beds = fmtEnrol(y0.beds != null ? y0.beds : m.beds);
+      const y0L = fmtEnrol(y0.beds_local != null ? y0.beds_local : Math.round((m.local_enrol || 0) * 0.25));
+      const y0N = fmtEnrol(y0.beds_non_local != null ? y0.beds_non_local : Math.round((m.non_local_enrol || 0) * 0.75));
+      const y0T = fmtEnrol(y0.beds != null ? y0.beds : m.beds);
+      const y10L = fmtEnrol(end.beds_local != null ? end.beds_local : (y0.beds_local != null ? y0.beds_local : Math.round((m.local_enrol || 0) * 0.25)));
+      const y10N = fmtEnrol(end.beds_non_local != null ? end.beds_non_local : (end.beds != null && end.beds_local != null ? end.beds - end.beds_local : null));
+      const y10T = fmtEnrol(end.beds != null ? end.beds : end.beds_mid);
       const tag = esc(fc.status || "推算／非官方");
       chartBlock = `<div class="sd-demand-chart-wrap">
         <p class="sd-demand-chart-title">十年床位需求推算（2024/25→2034/35）</p>
-        <canvas id="sd-demand-chart" aria-label="床位需求十年推算圖" role="img" height="200"></canvas>
+        <canvas id="sd-demand-chart" aria-label="床位需求十年推算圖（本地、非本地、合計）" role="img" height="200"></canvas>
       </div>
-      <p class="sd-forecast-note"><span class="sd-forecast-tag">${tag}</span>本地持平；非本地每年複合增長 5%。基年 ${y0Beds} 床 → 2034/35 約 ${endBeds} 床。非官方。</p>`;
+      <p class="sd-forecast-note"><span class="sd-forecast-tag">${tag}</span>本地持平×25%；非本地 +5%/年複合×75%；合計＝本地＋非本地。基年 本地 ${y0L}／非本地 ${y0N}／合計 ${y0T} → 2034/35 本地 ${y10L}／非本地 ${y10N}／合計 ${y10T}。非官方。</p>`;
     }
     el.innerHTML = `<div class="sd-main-line">
       <p class="sd-main-calc">${headline}</p>
