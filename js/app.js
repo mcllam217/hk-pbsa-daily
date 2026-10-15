@@ -838,9 +838,9 @@
       return;
     }
     const labels = fc.series.map((r) => r.year);
-    const low = fc.series.map((r) => r.beds_low);
-    const mid = fc.series.map((r) => r.beds_mid);
-    const high = fc.series.map((r) => r.beds_high);
+    const beds = fc.series.map((r) => (r.beds != null ? r.beds : r.beds_mid));
+    const seriesLabel = (fc.chart && fc.chart.labels_zh && fc.chart.labels_zh.beds) || "推算／非官方";
+    const yTitle = (fc.chart && fc.chart.y_label_zh) || "床位需求（推算／非官方）";
     if (demandChart) {
       demandChart.destroy();
       demandChart = null;
@@ -851,19 +851,8 @@
         labels,
         datasets: [
           {
-            label: "高（推算）",
-            data: high,
-            borderColor: "rgba(168, 50, 30, 0.45)",
-            backgroundColor: "transparent",
-            borderWidth: 1.5,
-            borderDash: [4, 3],
-            pointRadius: 0,
-            tension: 0.15,
-            order: 3,
-          },
-          {
-            label: "中（主線／B）",
-            data: mid,
+            label: seriesLabel,
+            data: beds,
             borderColor: "#0f6e6a",
             backgroundColor: "rgba(15, 110, 106, 0.12)",
             borderWidth: 2.5,
@@ -871,18 +860,6 @@
             pointHoverRadius: 4,
             tension: 0.15,
             fill: false,
-            order: 1,
-          },
-          {
-            label: "低（推算）",
-            data: low,
-            borderColor: "rgba(85, 96, 110, 0.5)",
-            backgroundColor: "transparent",
-            borderWidth: 1.5,
-            borderDash: [4, 3],
-            pointRadius: 0,
-            tension: 0.15,
-            order: 2,
           },
         ],
       },
@@ -900,7 +877,7 @@
             callbacks: {
               label: (ctx) => {
                 const v = ctx.parsed.y;
-                return ` ${ctx.dataset.label}: ${Number(v).toLocaleString("en-US")} 床`;
+                return ` ${ctx.dataset.label}：${Number(v).toLocaleString("zh-HK")} 床`;
               },
             },
           },
@@ -916,16 +893,16 @@
             ticks: {
               font: { size: 10 },
               color: "#5f6b7a",
-              callback: (v) => (v >= 1000 ? Math.round(v / 1000) + "k" : v),
+              callback: (v) => (v >= 10000 ? Math.round(v / 10000) + "萬" : Number(v).toLocaleString("zh-HK")),
             },
-            title: { display: true, text: "床位（推算）", font: { size: 11 }, color: "#5f6b7a" },
+            title: { display: true, text: yTitle, font: { size: 11 }, color: "#5f6b7a" },
             grid: { color: "rgba(227, 231, 236, 0.9)" },
           },
         },
       },
     });
   }
-  /** Demand column: CSPE main line + 10y forecast chart + SOURCE (no clutter tables). */
+  /** 需求欄：CSPE 主線＋十年推算圖＋來源（唔顯示雜項表）。 */
   function renderDemandMainLine(fw) {
     const el = $("#sd-demand");
     if (!el) return;
@@ -944,7 +921,7 @@
     const year = esc(m.year || "2024/25");
     const headline = m.display_zh
       ? esc(m.display_zh)
-      : `CSPE ${year}: local ${local} × ${lr}% + non-local ${nonLocal} × ${nr}% = ${beds} beds`;
+      : `CSPE ${year}：本地 ${local} × ${lr}%＋非本地 ${nonLocal} × ${nr}%＝${beds} 床`;
     const name = esc(src.name_zh || "教育局自資專上教育資訊平台（CSPE）《專上教育主要統計數字》");
     const pdf = src.pdf_url ? link(src.pdf_url, "PDF") : "";
     const page = src.page_url ? link(src.page_url, "專頁") : "";
@@ -954,20 +931,21 @@
     const fc = fw.forecast;
     let chartBlock = "";
     if (fc && Array.isArray(fc.series) && fc.series.length) {
-      const end = fc.endpoints_2034_35 || {};
-      const midEnd = fmtEnrol(end.beds_mid);
-      const lowEnd = fmtEnrol(end.beds_low);
-      const highEnd = fmtEnrol(end.beds_high);
+      const end = (fc.endpoints && fc.endpoints.year_10) || fc.endpoints_2034_35 || {};
+      const y0 = (fc.endpoints && fc.endpoints.year_0) || {};
+      const endBeds = fmtEnrol(end.beds != null ? end.beds : end.beds_mid);
+      const y0Beds = fmtEnrol(y0.beds != null ? y0.beds : m.beds);
+      const tag = esc(fc.status || "推算／非官方");
       chartBlock = `<div class="sd-demand-chart-wrap">
         <p class="sd-demand-chart-title">十年床位需求推算（2024/25→2034/35）</p>
         <canvas id="sd-demand-chart" aria-label="床位需求十年推算圖" role="img" height="200"></canvas>
       </div>
-      <p class="sd-forecast-note"><span class="sd-forecast-tag">推算</span>主線：本地持平；非本地線性逼近「40% 上限×約 90%」倍率（政策對齊，CSPE 池）。2034/35 中 ${midEnd} 床（低 ${lowEnd}／高 ${highEnd}）。非官方預測。</p>`;
+      <p class="sd-forecast-note"><span class="sd-forecast-tag">${tag}</span>本地持平；非本地每年複合增長 5%。基年 ${y0Beds} 床 → 2034/35 約 ${endBeds} 床。非官方。</p>`;
     }
     el.innerHTML = `<div class="sd-main-line">
       <p class="sd-main-calc">${headline}</p>
       ${chartBlock}
-      <p class="sd-main-source"><span class="sd-src-label">SOURCE</span> ${name}${links ? `（${links}）` : ""}</p>
+      <p class="sd-main-source"><span class="sd-src-label">來源</span> ${name}${links ? `（${links}）` : ""}</p>
       <p class="sd-main-note">${derived}；${ratesNote}</p>
     </div>`;
     if (fc) {
