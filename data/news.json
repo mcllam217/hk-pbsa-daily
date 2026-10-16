@@ -1,38 +1,19 @@
 {
-  "updated": "2026-10-16T08:52:57+08:00",
+  "updated": "2026-10-16T08:55:09+08:00",
   "items": [
     {
       "date": "2026-10-15",
       "date_label": "2026年10月15日",
-      "title": "香港非本地生收生上限提至50% 第三季學生宿舍資產投放53億港元",
-      "summary": "自動收錄標題，開連結核對原文。成交金額未核實前不會寫入成交表。",
-      "source": "觀點網",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1qaG9GSUI5X1M3S0ZtV2NTOXAtVVQyME5kU2Z3ZFFjMjhnQVktQ1laRl9IekFlWm5BY0x0eHdIZTRCRHBrNWpnZUI2UlZ5b2pLMVJ1RV9pNGRHYUtvQk82SUtjRFk?oc=5",
+      "title": "政府本季擬推售沙田小瀝源學生宿舍用地 初步估算約600宿位（屬賣地計劃非成交）",
+      "summary": "政府新聞公報（2026-10-15）：公布2026年10至12月季度賣地計劃。發展局於2026年1月就啟德、沙田小瀝源及東涌東三幅商業用地發展學生宿舍邀請意向書，市場反應積極；計劃於本季度推售沙田小瀝源用地，初步估算可提供約600個宿位，鄰近港鐵第一城站和石門站；視乎推售情況再考慮另外兩幅。實際招標時間表視籌備進度，地政總署將於招標前公布詳細安排。屬賣地計劃公布，非已成交，成交表未收錄。信報（2026-10-16）另稱市場估值約3.2億至5.4億元——屬媒體市場估值／單一來源，非官方叫價或成交價。高力（am730 2026-10-15）指小瀝源鄰近恒生大學及石門／第一城站，三幅用地年初共收22份意向書。",
+      "source": "政府新聞公報",
+      "url": "https://www.info.gov.hk/gia/general/202610/15/P2026101500655p.htm",
+      "url2": "https://www.hkej.com/dailynews/headline/article/4540619/%E6%B2%99%E7%94%B0%E9%A6%96%E5%B9%85%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D%E5%9C%B0+%E6%8F%90%E4%BE%9B%E5%85%AD%E7%99%BE%E5%AE%BF%E4%BD%8D",
+      "url2_label": "信報 2026-10-16",
       "source_date": "2026-10-15",
-      "source_date_label": "觀點網 2026-10-15",
-      "auto": true
-    },
-    {
-      "date": "2026-10-15",
-      "date_label": "2026年10月15日",
-      "title": "陳茂波甯漢豪到訪都大首間學生宿舍MU88 提供逾400宿位助推「留學香港」",
-      "summary": "自動收錄標題，開連結核對原文。成交金額未核實前不會寫入成交表。",
-      "source": "巴士的報",
-      "url": "https://news.google.com/rss/articles/CBMi6wJBVV95cUxNbDJqYWVSaUlzVjByYl9Gd1hOVkgyYW84TThjVWxaOEczdE85MFdIU0w4VE9lRnVjOWg2ZEh5SWh5SVZhWHdJa2xTT3dGbVNMNlR0VXJ3cjJGbEd1UENWMXFpbktOUUFheUNTSlMycFJZWlhVWjdmY29jWnVrVG9kWWZnU2RtMDlsWlV4dmk0cE9qWnJ0N3h0ZTNHZF9uSHBkaFFNZmwtMnNjRjdMNHowb2wtcVNXUEVHNVBvVngtOGFaeElCY0FlSXBiZmRCamd6LVlNRC1XNkE2eWNSS0s1OS0zbV9sbVR1VDdsYTQ5eFdraC05dHlVQjRwS0dNb3l5NTZJSmZxNk9FQjdFdFRmbTNudFBkYjdoYzhFc2pYZXI3WFp5QkpnRTl6QklwVTBITGU1TWxIbm9aOTV6Y0paSlVFeVlEaHZtZXVuemd5NVB5Q2stdmZXOEM1emN3RDJaWnJwbXc4bnM2R1U?oc=5",
-      "source_date": "2026-10-15",
-      "source_date_label": "巴士的報 2026-10-15",
-      "auto": true
-    },
-    {
-      "date": "2026-10-15",
-      "date_label": "2026年10月15日",
-      "title": "高力：首推學生宿舍地 反映政策回應市場需要 (17:55) - 20261015 - 即時地產新聞",
-      "summary": "自動收錄標題，開連結核對原文。成交金額未核實前不會寫入成交表。",
-      "source": "明報財經網",
-      "url": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxPMGtCLXRSX1BIbXhaQzM0dEt6YnJVMGUydXZfbHVYVkgteXBxa2c2cmI5ZHZ1ZzAzelFVOHZ1eUZLMGM0NnVJaGdqRjRfT3V6eHA5U1AtZ3g3blJKUmMyNk1ONGg4NzAtSzRBZmZ5Mk9lQXd6cGg1a253MHRIeHZ4ZzdiM2RQNGpzQW9YbnR6SEtYOUlhYnF2OFlmMENEaFlVMzM0U0g3anZ3RmRCOGJlTEVCUFpuWmZ1ZnZxRFVPaExnakM2cFZ0ZXNadGdqVGtJWkk1UXA0RjhqbXNlQk15VWFsdVZRVWRiTW5ReFFmZGtha3hseXpaVVhhQ2txbmtOTW5tWTNnNzNVY3FqelY5Mk5nLWtiams3VzZSeHBKUkFFMHdMY0RUeHU4NHNnQ2lwV3NHd3JXV1JfNGVUS3hud3RWd1Z3bTFpSEJEMzNYbElKNE9hQVU5QQ?oc=5",
-      "source_date": "2026-10-15",
-      "source_date_label": "明報財經網 2026-10-15",
-      "auto": true
+      "source_date_label": "政府新聞公報 2026-10-15",
+      "bucket": "新供應",
+      "auto": false
     },
     {
       "date": "2026-10-15",
