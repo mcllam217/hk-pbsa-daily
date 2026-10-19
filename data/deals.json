@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14T16:55:00+08:00",
+  "updated": "2026-10-19T08:58:32+08:00",
   "deals": [
     {
       "id": "deal-202609-yanwoo",
@@ -310,8 +310,8 @@
       "price_psf_hkd_max": 11488,
       "psf_basis": "GFA",
       "opening_date": null,
-      "opening_status": "target",
-      "opening_label": "預計2026年下半年全面轉換為學生宿舍",
+      "opening_status": "open_or_converted",
+      "opening_label": "am730（2026-07-21）稱已全面改建為學生宿舍（約399床；單一來源）",
       "completion_year": 1993,
       "guaranteed_income_hkd_m_pa": 45,
       "guaranteed_years": 3,
@@ -337,10 +337,16 @@
       },
       "rent_roll": {
         "status": "not_open_or_undisclosed",
-        "note": "2026-10-14 已查：未見改建後公開招租房型／租金／面積（或尚未開業）",
-        "as_of": "2026-10-14"
+        "note": "2026-10-19：am730（2026-07-21）稱已全面改建約399床；未見公開招租房型／分房租金表，故租金欄仍未披露",
+        "as_of": "2026-10-19"
       },
-      "former_name": "九龍海景絲麗酒店"
+      "former_name": "九龍海景絲麗酒店",
+      "beds": 399,
+      "beds_note": "am730 2026-07-21 稱改建後約399床；單一來源",
+      "beds_source": "am730 2026-07-21",
+      "beds_source_url": "https://www.am730.com.hk/article/1042740",
+      "opening_source": "am730 2026-07-21",
+      "opening_source_url": "https://www.am730.com.hk/article/1042740"
     },
     {
       "id": "deal-202607-218-apartment",

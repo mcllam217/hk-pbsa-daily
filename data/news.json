@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T08:56:30+08:00",
+  "updated": "2026-10-19T08:58:32+08:00",
   "items": [
     {
       "date": "2026-10-17",
@@ -13,15 +13,19 @@
       "auto": true
     },
     {
-      "date": "2026-10-17",
-      "date_label": "2026年10月17日",
+      "date": "2026-07-21",
+      "date_label": "2026年7月21日",
       "title": "京東斥7.5億正式買入油麻地海景絲麗酒店 已全面改建成學生宿舍",
-      "summary": "自動收錄標題，開連結核對原文。成交金額未核實前不會寫入成交表。",
+      "summary": "am730（2026-07-21）：遠東發展旗下帝盛以約HK$7.5億售油麻地上海街268號海景絲麗酒店予京東；原文稱原268間客房已全面改建為約399床位學生住宿，並稱屬首宗完成成交的酒店改學生住宿資產。成交金額與買／賣方已於站內成交表 deal-202607-silka（2026-07）收錄；399床位為 am730 單一來源，未另核。Google 新聞 RSS 曾誤標為2026-10-17，已更正。",
       "source": "am730",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFByem1uNS05WWJRTjNkenJNZ0E4M1JXR2NFR0NsVkZqd01uRlJvSlVVRDlRbTEyMUlFb3dNZC1jdlRCUWtOcVExWk5TbDhZTTdxR0E?oc=5",
-      "source_date": "2026-10-17",
-      "source_date_label": "am730 2026-10-17",
-      "auto": true
+      "url": "https://www.am730.com.hk/article/1042740",
+      "source_date": "2026-07-21",
+      "source_date_label": "am730 2026-07-21",
+      "auto": false,
+      "deal_ids": [
+        "deal-202607-silka"
+      ],
+      "bucket": "其他"
     },
     {
       "date": "2026-10-12",
