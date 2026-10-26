@@ -1,10 +1,12 @@
 {
-  "updated": "2026-10-23T08:58:00+08:00",
+  "updated": "2026-10-26T09:00:00+08:00",
+  "notes": "公開報道整理；部分價格／床位為媒體披露，未經土地註冊處核實。比率欄位：metric_basis 標示 source（來源列明）或 calc（按來源輸入計算）；缺漏輸入一律不估算。",
   "deals": [
     {
       "id": "deal-202609-yanwoo",
       "date": "2026-09",
       "deal_date": "2026-09-25",
+      "date_label": "2026年9月",
       "asset": "Yan Woo Building (70 Java Road)",
       "asset_zh": "北角渣華道仁和大廈全幢",
       "location": "北角渣華道70號",
@@ -14,7 +16,7 @@
       "original_use": "住宅",
       "original_use_note": "商住大廈：42個住宅單位＋9個商舖",
       "deal_status": "announced",
-      "status_basis": "勝捷企業新交所公告（Business Times 報道）",
+      "status_basis": "勝捷企業新交所公告（The Business Times 2026-09-25 報道）；公告原文連結未能取得，價格按媒體價處理",
       "status_pending": "待完成（預計2026-11-28）",
       "price_hkd_m": 364,
       "price_label": "HK$3.64億",
@@ -27,10 +29,87 @@
       "opening_status": null,
       "completion_year": 2000,
       "lease_note": "政府租契75年由1921年9月5日起，可續75年",
+      "mixed_use": "含商舖",
+      "psf_alt": [
+        {
+          "v": 10704,
+          "s": "香港01 2026-08-27"
+        },
+        {
+          "v": 10671,
+          "s": "阿思達克 2026-08-27"
+        }
+      ],
+      "flags": [
+        "用途未定"
+      ],
+      "flag_note": "公告稱「優質租賃住所」；媒體稱學生宿舍或服務式住宅",
+      "source_date": "2026-09-25",
+      "sources": [
+        {
+          "n": "The Business Times",
+          "d": "2026-09-25",
+          "u": "https://www.businesstimes.com.sg/zh-hans/companies-markets/centurion-acquire-yan-woo-building-hong-kong-us46-4-million"
+        },
+        {
+          "n": "香港01",
+          "d": "2026-08-27",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60383899/%E6%98%9F%E8%B3%87%E5%8B%9D%E6%8D%B7%E4%BC%81%E6%A5%AD3-64%E5%84%84%E8%B3%BC%E5%8C%97%E8%A7%92%E4%BB%81%E5%92%8C%E5%A4%A7%E5%BB%88-%E6%96%99%E7%BF%BB%E6%96%B0%E4%BD%9C%E5%AE%BF%E8%88%8D%E6%88%96%E6%9C%8D%E5%8B%99%E5%BC%8F%E4%BD%8F%E5%AE%85"
+        },
+        {
+          "n": "星島",
+          "d": "2026-08-27",
+          "u": "https://www.stheadline.com/realtime-property/3608667/"
+        },
+        {
+          "n": "信報",
+          "d": "2026-08-27",
+          "u": "https://www.hkej.com/dailynews/property/article/4494338/"
+        },
+        {
+          "n": "阿思達克",
+          "d": "2026-08-27",
+          "u": "https://pchome.megatime.com.tw/news/cat6/20260827/9900100000001541228.html"
+        },
+        {
+          "n": "易發睇樓團（Yahoo財經）",
+          "d": "2026-08-27",
+          "u": "https://hk.finance.yahoo.com/news/%E4%B8%AD%E5%A4%96%E8%B3%87%E6%90%B6%E5%A5%AA%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D-%E6%98%9F%E4%BC%813-6%E5%84%84%E8%B3%BC%E5%8C%97%E8%A7%92%E4%BB%81%E5%92%8C%E5%A4%A7%E5%BB%88-%E6%94%B9%E5%BB%BA%E5%9B%9E%E5%A0%B1%E9%80%BE5-5%E5%8E%98-090303562.html"
+        }
+      ],
+      "price_sources": [
+        {
+          "n": "The Business Times",
+          "d": "2026-09-25",
+          "u": "https://www.businesstimes.com.sg/zh-hans/companies-markets/centurion-acquire-yan-woo-building-hong-kong-us46-4-million"
+        },
+        {
+          "n": "香港01",
+          "d": "2026-08-27",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60383899/%E6%98%9F%E8%B3%87%E5%8B%9D%E6%8D%B7%E4%BC%81%E6%A5%AD3-64%E5%84%84%E8%B3%BC%E5%8C%97%E8%A7%92%E4%BB%81%E5%92%8C%E5%A4%A7%E5%BB%88-%E6%96%99%E7%BF%BB%E6%96%B0%E4%BD%9C%E5%AE%BF%E8%88%8D%E6%88%96%E6%9C%8D%E5%8B%99%E5%BC%8F%E4%BD%8F%E5%AE%85"
+        },
+        {
+          "n": "星島",
+          "d": "2026-08-27",
+          "u": "https://www.stheadline.com/realtime-property/3608667/"
+        },
+        {
+          "n": "信報",
+          "d": "2026-08-27",
+          "u": "https://www.hkej.com/dailynews/property/article/4494338/"
+        },
+        {
+          "n": "阿思達克",
+          "d": "2026-08-27",
+          "u": "https://pchome.megatime.com.tw/news/cat6/20260827/9900100000001541228.html"
+        }
+      ],
+      "price_outlets": 5,
       "metrics": "2000年落成（信報、香港01、星島 2026-08-27；勝捷公告）；樓高並列：24層（香港01、星島 2026-08-27）／26層（信報 2026-08-27；Business Times 引勝捷新交所公告 2026-09-25）；42個住宅單位，全屬實用約422平方呎兩房（信報、阿思達克 2026-08-27）＋9個商業單位；GFA約34,286平方呎（住宅約26,070）；呎價並列：約10,617元（星島 2026-08-27；即3.64億÷34,286）／約10,704元（香港01、易發睇樓團 2026-08-27）／約10,671元（阿思達克 2026-08-27）；用途：學生宿舍或服務式住宅（香港01、星島 2026-08-27；公告稱「優質租賃住所」）；買方公司 CENTURION HOLDINGS (HK) LIMITED，董事包括梁兆發（單一來源：香港01 2026-08-27）；早前叫價約5.5億、本地老牌家族持有（單一來源：阿思達克 2026-08-27）；預計2026年11月28日完成（公告）",
       "type": "住宅改租賃住所（學生宿舍或服務式住宅）",
-      "status": "confirmed",
-      "source": "The Business Times（SGX 公告）",
+      "status": "media_price",
+      "region": "香港",
+      "source": "The Business Times（報道 SGX 公告）",
       "source_url": "https://www.businesstimes.com.sg/zh-hans/companies-markets/centurion-acquire-yan-woo-building-hong-kong-us46-4-million",
       "other_sources": [
         "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60383899/%E6%98%9F%E8%B3%87%E5%8B%9D%E6%8D%B7%E4%BC%81%E6%A5%AD3-64%E5%84%84%E8%B3%BC%E5%8C%97%E8%A7%92%E4%BB%81%E5%92%8C%E5%A4%A7%E5%BB%88-%E6%96%99%E7%BF%BB%E6%96%B0%E4%BD%9C%E5%AE%BF%E8%88%8D%E6%88%96%E6%9C%8D%E5%8B%99%E5%BC%8F%E4%BD%8F%E5%AE%85",
@@ -45,27 +124,23 @@
         "price_per_room_hkd_m": "calc",
         "price_psf_hkd": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "not_open_or_undisclosed",
-        "note": "2026-10-14 已查：未見改建後公開招租房型／租金／面積（或尚未開業）",
-        "as_of": "2026-10-14"
-      },
-      "former_name": "仁和大廈"
+        "gfa_sqft": "source",
+        "mixed_use": "source"
+      }
     },
     {
       "id": "deal-202609-cr-ease",
       "date": "2026-09",
       "deal_date": "2026-09",
+      "date_label": "2026年9月",
       "asset": "Hotel Ease Tsuen Wan + Hotel Ease Access (Kwai Chung)",
-      "asset_zh": "旭逸酒店·荃灣 + 旭逸雅捷酒店（葵涌）",
-      "location": "荃灣＋葵涌",
-      "district": "荃灣＋葵涌",
+      "asset_zh": "旭逸酒店·荃灣（葵涌圳邊街）+ Hotel Ease Access（葵涌）",
+      "location": "葵涌（旭逸酒店·荃灣：圳邊街15–19號）",
+      "district": "葵青",
       "buyer": "華潤隆地（CR Longdation）",
       "seller": "已故「舖王」鄧成波家族（前持有人）",
       "original_use": "酒店",
-      "original_use_note": "兩幢酒店（旭逸酒店·荃灣、旭逸雅捷酒店）",
+      "original_use_note": "兩幢酒店（旭逸酒店·荃灣、Hotel Ease Access）",
       "deal_status": "media",
       "status_basis": "The Standard、東方日報報道；未見交易方公告",
       "price_hkd_m": 440,
@@ -77,10 +152,37 @@
       "psf_basis": "GFA",
       "opening_date": null,
       "opening_status": null,
+      "flags": [
+        "買家待確認"
+      ],
+      "flag_note": "買方只見 The Standard 報道",
+      "source_date": "2026-09-24",
+      "sources": [
+        {
+          "n": "The Standard",
+          "d": "2026-09-24",
+          "u": "https://www.thestandard.com.hk/property/article/343728/CR-Longdation-acquires-two-hotels-in-Kwai-Chung-for-student-housing-conversion"
+        },
+        {
+          "n": "東方日報",
+          "d": "2025-09-04",
+          "u": "https://orientaldaily.on.cc/content/%E7%94%A2%E7%B6%93/odn-20250904-0904_00204_045/%E9%84%A7%E6%88%90%E6%B3%A2%E5%AE%B6%E6%97%8F4-5%E5%84%84%E6%94%BE%E8%91%B5%E6%B6%8C%E9%85%92%E5%BA%97"
+        }
+      ],
+      "price_sources": [
+        {
+          "n": "The Standard",
+          "d": "2026-09-24",
+          "u": "https://www.thestandard.com.hk/property/article/343728/CR-Longdation-acquires-two-hotels-in-Kwai-Chung-for-student-housing-conversion"
+        }
+      ],
+      "price_outlets": 1,
+      "single_source": true,
       "metrics": "兩幢酒店合共330間客房；總樓面約157,906平方呎（來源呎價約HK$2,786）；擬改學生宿舍；旭逸酒店·荃灣：24層、160房、樓面逾10.74萬呎（2025年9月放售資料）",
       "note_zh": "2023年7月都會大學曾洽購旭逸酒店·荃灣（約4.3億）未成事。",
       "type": "酒店改學生公寓",
       "status": "confirmed",
+      "region": "香港",
       "source": "The Standard",
       "source_url": "https://www.thestandard.com.hk/property/article/343728/CR-Longdation-acquires-two-hotels-in-Kwai-Chung-for-student-housing-conversion",
       "other_sources": [
@@ -90,21 +192,16 @@
       "room_types": [],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "not_open_or_undisclosed",
-        "note": "2026-10-14 已查：未見改建後公開招租房型／租金／面積（或尚未開業）",
-        "as_of": "2026-10-14"
-      },
-      "former_name": "旭逸酒店·荃灣及旭逸雅捷酒店（葵涌）"
+      }
     },
     {
       "id": "deal-202609-ibis",
       "date": "2026-09",
-      "deal_date": "2026-09-18",
+      "deal_date": "2026-09",
+      "date_label": "2026年9月",
       "asset": "Ibis Hong Kong Central & Sheung Wan",
       "asset_zh": "宜必思香港中上環酒店",
       "location": "上環德輔道西28號",
@@ -116,8 +213,9 @@
       "original_use": "酒店",
       "original_use_note": "宜必思酒店（550房）",
       "deal_status": "announced",
-      "status_basis": "買方法律顧問 JSM 律師行公布（2026-09-18）",
+      "status_basis": "買方法律顧問 JSM 律師行公布（2026-09-18）；未見土地註冊紀錄",
       "status_source_url": "https://www.jsm.com/news/2026/09/jsm-advises-capitaland-investment-on-acquisition-of-ibis-hong-kong-central-sheung-wan/",
+      "status_pending": "待土地註冊",
       "price_hkd_m": 2300,
       "price_label": "約HK$23億",
       "rooms": 550,
@@ -129,9 +227,47 @@
       "opening_status": null,
       "completion_year": 2012,
       "lease_note": "999年地契",
-      "metrics": "34層；550間客房；GFA 217,978平方呎（約HK$10,552/呎、每房略低於HK$420萬）；改學生宿舍，作 Ascott 香港住宿平台種子資產，預計以 Adoor 品牌營運；CBRE 非正式招標",
+      "source_date": "2026-09-18",
+      "sources": [
+        {
+          "n": "JSM 律師行",
+          "d": "2026-09-18",
+          "u": "https://www.jsm.com/news/2026/09/jsm-advises-capitaland-investment-on-acquisition-of-ibis-hong-kong-central-sheung-wan/"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2026-09-14",
+          "u": "https://www.mingtiandi.com/real-estate/finance/capitaland-buys-ibis-hotel-in-hong-kong-from-butterfly-hospitality/"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2026-09-22",
+          "u": "https://www.mingtiandi.com/real-estate/finance/shorea-buys-the-pemberton-in-hong-kong-for-student-housing/"
+        }
+      ],
+      "status_source_date": "2026-09-18",
+      "price_sources": [
+        {
+          "n": "JSM 律師行",
+          "d": "2026-09-18",
+          "u": "https://www.jsm.com/news/2026/09/jsm-advises-capitaland-investment-on-acquisition-of-ibis-hong-kong-central-sheung-wan/"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2026-09-14",
+          "u": "https://www.mingtiandi.com/real-estate/finance/capitaland-buys-ibis-hotel-in-hong-kong-from-butterfly-hospitality/"
+        },
+        {
+          "n": "東方日報",
+          "d": "2026-10-03",
+          "u": "https://orientaldaily.on.cc/content/%E7%94%A2%E7%B6%93/odn-20261003-1003_00205_071/%E5%B7%A5%E5%95%86%E5%B0%88%E9%A1%8C%EF%BC%9A%E6%98%9F%E8%B3%87%E9%A0%BB%E8%B3%BC%E5%95%86%E5%BB%88%E6%93%AC%E6%94%B9%E5%AE%BF%E8%88%8D"
+        }
+      ],
+      "price_outlets": 3,
+      "metrics": "34層；550間客房；GFA 217,978平方呎（約HK$10,552/呎、每房略低於HK$420萬，Mingtiandi）；東方日報（2026-10-03，引中原工商舖）報33層、約225,860平方呎、呎價約10,183元——與 Mingtiandi 34層、217,978平方呎並列；改學生宿舍，作 Ascott 香港住宿平台種子資產，預計以 Adoor 品牌營運；CBRE 非正式招標",
       "type": "酒店改學生公寓",
       "status": "confirmed",
+      "region": "香港",
       "source": "JSM 律師行公布 / Mingtiandi",
       "source_url": "https://www.jsm.com/news/2026/09/jsm-advises-capitaland-investment-on-acquisition-of-ibis-hong-kong-central-sheung-wan/",
       "other_sources": [
@@ -142,23 +278,16 @@
       "room_types": [],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
-      },
-      "date_note": "律師行公布日，與本頁消息同日；成交月份仍作2026-09",
-      "rent_roll": {
-        "status": "not_open_or_undisclosed",
-        "note": "2026-10-14 已查：未見改建後公開招租房型／租金／面積（或尚未開業）",
-        "as_of": "2026-10-14"
-      },
-      "former_name": "宜必思香港中上環酒店",
-      "price_per_room_note": "自行計算：price_hkd_m÷rooms＝2300/550≈4.18（原存 4.2）"
+      }
     },
     {
       "id": "deal-202609-pemberton",
       "date": "2026-09",
       "deal_date": "2026-09",
+      "date_label": "2026年9月",
       "asset": "The Pemberton (22–26 Bonham Strand)",
       "asset_zh": "上環柏廷坊全幢",
       "location": "上環文咸東街22–26號",
@@ -170,9 +299,9 @@
       "original_use": "寫字樓",
       "original_use_note": "24層商廈",
       "deal_status": "media",
-      "status_basis": "HomeDash、Mingtiandi 報道；代理 Colliers 未披露價",
+      "status_basis": "HomeDash、Mingtiandi、東方日報（2026-10-03，引中原工商舖）報道；代理 Colliers 未披露價",
       "price_hkd_m": 378.5,
-      "price_label": "HK$3.785億（HomeDash）；Mingtiandi 市場消息稱HK$4.3–4.4億",
+      "price_label": "HK$3.785億（HomeDash）；Mingtiandi 市場消息稱HK$4.3–4.4億；東方日報（2026-10-03，引中原工商舖）稱約HK$4.3億",
       "gfa_sqft": 58000,
       "price_psf_hkd": 6526,
       "psf_basis": "GFA",
@@ -180,32 +309,71 @@
       "opening_status": null,
       "completion_year": 1990,
       "lease_note": "999年地契",
-      "metrics": "24層商廈；GFA約58,000平方呎；銀主招標；Colliers 未披露價；擬改高質素住宿（市場消息：學生宿舍）；Octa 2016年以HK$10億購入；價錢：HomeDash 報 HK$3.785億；Mingtiandi 引市場中標區間 HK$4.3–4.4億；Colliers 拒披露",
+      "psf_alt": [
+        {
+          "v": 7414,
+          "s": "Mingtiandi，按4.3–4.4億"
+        },
+        {
+          "v": 7442,
+          "s": "東方日報，按約4.3億÷57,778平方呎"
+        }
+      ],
+      "price_alt_label": "4.3–4.4億（Mingtiandi 2026-09-22）／約4.3億（東方日報 2026-10-03）",
+      "flags": [
+        "買家待確認",
+        "用途未定"
+      ],
+      "flag_note": "買方只見媒體；擬改「高質素住宿」，學生宿舍屬市場消息",
+      "source_date": "2026-09-22",
+      "sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2026-09-22",
+          "u": "https://www.mingtiandi.com/real-estate/finance/shorea-buys-the-pemberton-in-hong-kong-for-student-housing/"
+        },
+        {
+          "n": "HomeDash（轉載香港01）",
+          "d": "2026-09-28",
+          "u": "https://www.homedash.hk/blog/news-flash/1093874"
+        },
+        {
+          "n": "東方日報",
+          "d": "2026-10-03",
+          "u": "https://orientaldaily.on.cc/content/%E7%94%A2%E7%B6%93/odn-20261003-1003_00205_071/%E5%B7%A5%E5%95%86%E5%B0%88%E9%A1%8C%EF%BC%9A%E6%98%9F%E8%B3%87%E9%A0%BB%E8%B3%BC%E5%95%86%E5%BB%88%E6%93%AC%E6%94%B9%E5%AE%BF%E8%88%8D"
+        }
+      ],
+      "price_sources": [
+        {
+          "n": "HomeDash（轉載香港01）",
+          "d": "2026-09-28",
+          "u": "https://www.homedash.hk/blog/news-flash/1093874"
+        }
+      ],
+      "price_outlets": 1,
+      "single_source": true,
+      "metrics": "樓高並列：24層（Mingtiandi 2026-09-22）／23層（HomeDash 2026-09-28）；成交價並列：HK$3.785億（HomeDash 轉載香港01，單一來源）／HK$4.3–4.4億（Mingtiandi 市場消息）／約HK$4.3億（東方日報）；GFA並列：約58,000平方呎（Mingtiandi）／約57,778平方呎（東方日報 2026-10-03 引中原；呎價約7,442元按約4.3億計）；銀主招標；Colliers 未披露價；擬改高質素住宿（市場消息：學生宿舍）；Octa 2016年以HK$10億購入",
       "type": "寫字樓改學生公寓",
       "status": "media_price",
+      "region": "香港",
       "source": "Mingtiandi / HomeDash",
       "source_url": "https://www.mingtiandi.com/real-estate/finance/shorea-buys-the-pemberton-in-hong-kong-for-student-housing/",
       "other_sources": [
-        "https://www.homedash.hk/blog/news-flash/1093874"
+        "https://www.homedash.hk/blog/news-flash/1093874",
+        "https://orientaldaily.on.cc/content/%E7%94%A2%E7%B6%93/odn-20261003-1003_00205_071/%E5%B7%A5%E5%95%86%E5%B0%88%E9%A1%8C%EF%BC%9A%E6%98%9F%E8%B3%87%E9%A0%BB%E8%B3%BC%E5%95%86%E5%BB%88%E6%93%AC%E6%94%B9%E5%AE%BF%E8%88%8D"
       ],
       "project_url": null,
       "room_types": [],
       "metric_basis": {
         "price_psf_hkd": "calc",
         "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "not_open_or_undisclosed",
-        "note": "2026-10-14 已查：未見改建後公開招租房型／租金／面積（或尚未開業）",
-        "as_of": "2026-10-14"
-      },
-      "former_name": "柏廷坊",
-      "price_note": "HomeDash 報 HK$3.785億；Mingtiandi 引市場指中標區間 HK$4.3–4.4億；Colliers 拒披露"
+      }
     },
     {
       "id": "deal-202608-quad",
       "date": "2026-08",
       "deal_date": "2026-08-28",
+      "date_label": "2026年8月28日",
       "asset": "The Quad（CM+U Hung Hom）",
       "asset_zh": "The Quad／CM+U 紅磡學生公寓",
       "location": "紅磡漆咸道北470–478號",
@@ -237,9 +405,83 @@
       "occupancy_pct": 100,
       "annual_revenue_hkd_m": 18.9,
       "gross_yield_pct": 3.58,
+      "mixed_use": "含商舖",
+      "source_date": "2026-08-28",
+      "sources": [
+        {
+          "n": "招商房託港交所公告",
+          "d": "2026-08-28",
+          "u": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082804015_c.pdf"
+        },
+        {
+          "n": "香港商報",
+          "d": "2026-08-31",
+          "u": "https://www.hkcd.com.hk/hkcdweb/content/2026/08/31/content_8772484.html"
+        },
+        {
+          "n": "招商房託新聞稿（美通社）",
+          "d": "2026-08-31",
+          "u": "https://www.prnewswire.com/apac/zh/news-releases/--302864581.html"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2026-08-31",
+          "u": "https://www.mingtiandi.com/real-estate/finance/china-merchants-reit-bgo-buy-hong-kong-student-housing/"
+        },
+        {
+          "n": "28Hse",
+          "d": "2026-08-07",
+          "u": "https://www.28hse.com/news/%E6%8B%9B%E5%95%86%E5%B1%80%E7%8B%82%E6%8E%83%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D-5-4%E5%84%84%E8%B3%BC%E7%B4%85%E7%A3%A1%E6%A3%AE%E9%87%8C%E5%85%A8%E5%B9%A2%E4%B8%A8%E5%B9%B4%E5%85%A7%E4%B8%89%E5%BA%A6%E5%85%A5%E5%B8%82-%E6%B6%89%E8%B3%878-8%E5%84%84%E5%85%83-77168"
+        },
+        {
+          "n": "經濟通（永義新聞稿）",
+          "d": "2025-06-18",
+          "u": "https://www.etnet.com.hk/www/tc/news/mediaoutreach_news_detail.php?newsid=389741"
+        },
+        {
+          "n": "文匯報",
+          "d": "2025-06-18",
+          "u": "https://www.wenweipo.com/a/202506/18/AP6852ba73e4b0cd0493ec1845.html"
+        },
+        {
+          "n": "香港01",
+          "d": "2021-06-01",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/632268/"
+        },
+        {
+          "n": "香港商報",
+          "d": "2021-06-01",
+          "u": "https://hkcd.com/content/2021-06/01/content_1271833.html"
+        }
+      ],
+      "status_source_date": "2026-08-31",
+      "price_sources": [
+        {
+          "n": "招商房託港交所公告",
+          "d": "2026-08-28",
+          "u": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082804015_c.pdf"
+        },
+        {
+          "n": "招商房託新聞稿（美通社）",
+          "d": "2026-08-31",
+          "u": "https://www.prnewswire.com/apac/zh/news-releases/--302864581.html"
+        },
+        {
+          "n": "香港商報",
+          "d": "2026-08-31",
+          "u": "https://www.hkcd.com.hk/hkcdweb/content/2026/08/31/content_8772484.html"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2026-08-31",
+          "u": "https://www.mingtiandi.com/real-estate/finance/china-merchants-reit-bgo-buy-hong-kong-student-housing/"
+        }
+      ],
+      "price_outlets": 3,
       "metrics": "主金額按招商房託港交所公告（2026-08-28）：協定價值5.285億，仲量聯行獨立估值5.694億（2026-05-31），折讓約7.2%，最終作價按資產淨值調整（公告；香港商報、招商房託新聞稿 2026-08-31）；2025年落成、樓高25層、總樓面約3,890平方米／約4.2萬平方呎、逾200宿位及數個商舖、新學年主要租賃安排已完成（公告；香港商報 2026-08-31）；房／床並列：184個單位（公告 2026-08-28）／逾200宿位（新聞稿、香港商報 2026-08-31）／205床（Mingtiandi）；截至2026年3月止12個月收入HK$1,890萬（Mingtiandi）；較早媒體附註：28Hse（2026-08-07）報招商局約5.4億購入、29層、近200房、月租約6,800元起；永義新聞稿及文匯報（2025-06-18）：29層、近200房、夥 iRENT 招租、雙人房月租約6,800元起——29層與公告25層並列；2021-06-01 永義以底價3億元強拍統一漆咸道北472–478號業權（香港01、香港商報 2021-06-01）",
       "type": "營運中PBSA整售",
       "status": "confirmed",
+      "region": "香港",
       "source": "招商房託港交所公告（2026-08-28）",
       "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082804015_c.pdf",
       "other_sources": [
@@ -252,42 +494,25 @@
         "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/632268/",
         "https://hkcd.com/content/2021-06/01/content_1271833.html"
       ],
-      "project_url": "https://www.cmplusu.com.hk/",
-      "room_types": [
-        {
-          "name": "雙人房（亦有一人房，未列每款間數）",
-          "rent_hkd_month": 6800,
-          "rent_basis": "未註明每房或每床",
-          "rent_note": "招租價由6,800起，已包水電同網絡。不可直接當每床收入。",
-          "source_url": "https://www.am730.com.hk/article/571337",
-          "as_of": "2026-10-14",
-          "size_note": "已查營運商／媒體，面積未披露"
-        }
-      ],
+      "project_url": null,
+      "room_types": [],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "source",
-        "price_per_bed_hkd_m": "source",
+        "price_psf_hkd": "calc",
+        "price_per_bed_hkd_m": "calc",
         "beds_per_room": "calc",
         "gross_yield_pct": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "operating",
-        "note": "近200個房間，本表床數205，所以大部分應是單人。雙人房6,800起未註明是每房還是每床，而且是2025年6月招租價。租金據報已包水電同網絡。",
-        "rooms": 200,
-        "beds": 205,
-        "occupancy_pct": 100,
-        "as_of": "2025-06-18",
-        "source_url": "https://www.am730.com.hk/article/571337"
-      },
-      "name_after": "The Quad（CM+U 紅磡）"
+        "gfa_sqft": "source",
+        "beds_after": "source",
+        "mixed_use": "source"
+      }
     },
     {
       "id": "deal-202607-silka",
       "date": "2026-07",
       "deal_date": "2026-07",
+      "date_label": "2026年7月",
       "asset": "Silka Seaview Hotel",
       "asset_zh": "九龍海景絲麗酒店",
       "location": "油麻地上海街268號",
@@ -298,27 +523,75 @@
       "original_use_note": "前身海景絲麗酒店，客房已逐步轉作學生宿舍單位",
       "original_use_source_url": "https://www.hkcd.com.hk/hkcdweb/content/2026/07/06/content_8763365.html",
       "deal_status": "announced",
-      "status_basis": "遠東發展港交所公告（香港商報報道）",
-      "status_source_url": "https://www.hkcd.com.hk/hkcdweb/content/2026/07/06/content_8763365.html",
+      "status_basis": "遠東發展港交所公告（2026-07-06）",
+      "status_source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0706/2026070600001.pdf",
       "price_hkd_m": 750,
       "price_label": "HK$7.50億",
       "rooms": 268,
       "gfa_sqft": 65284,
       "gfa_sqft_max": 67826,
       "price_per_room_hkd_m": 2.8,
-      "price_psf_hkd": 11488,
+      "price_psf_hkd": 11058,
       "price_psf_hkd_max": 11488,
       "psf_basis": "GFA",
       "opening_date": null,
-      "opening_status": "open_or_converted",
-      "opening_label": "am730（2026-07-21）稱已全面改建為學生宿舍（約399床；單一來源）",
+      "opening_status": "target",
+      "opening_label": "預計2026年下半年全面轉換為學生宿舍",
       "completion_year": 1993,
       "guaranteed_income_hkd_m_pa": 45,
       "guaranteed_years": 3,
       "guaranteed_yield_pct": 6.0,
-      "metrics": "268間客房（信報稱原有206間）；總樓面約65,284（信報）至67,826平方呎（老虎證券轉述資料）；1993年落成；酒店改學生公寓；賣方附屬公司完成後續管理3年，每年保證收入HK$4,500萬；賣方預計入賬收益約HK$4.23億；呎價按 7.5億÷GFA 65,284 ≈ HK$11,488（原欄 11,058 已按公式修正）",
+      "source_date": "2026-07-06",
+      "sources": [
+        {
+          "n": "BONARD",
+          "d": "2026-07-06",
+          "u": "https://www.bonard.com/insights/jdcom-buys-fec-yau-ma-tei-student-accommodation-project"
+        },
+        {
+          "n": "信報",
+          "d": "2026-07-07",
+          "u": "https://www.hkej.com/dailynews/property/article/4450886/%E4%BA%AC%E6%9D%B17.5%E5%84%84%E8%B3%BC%E6%B2%B9%E9%BA%BB%E5%9C%B0%E7%B5%B2%E9%BA%97%E9%85%92%E5%BA%97"
+        },
+        {
+          "n": "老虎證券",
+          "d": "2026-07-07",
+          "u": "https://www.itiger.com/hant/news/2649984367"
+        },
+        {
+          "n": "香港商報",
+          "d": "2026-07-06",
+          "u": "https://www.hkcd.com.hk/hkcdweb/content/2026/07/06/content_8763365.html"
+        }
+      ],
+      "status_source_date": "2026-07-06",
+      "price_sources": [
+        {
+          "n": "遠東發展港交所公告",
+          "d": "2026-07-06",
+          "u": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0706/2026070600001.pdf"
+        },
+        {
+          "n": "BONARD",
+          "d": "2026-07-06",
+          "u": "https://www.bonard.com/insights/jdcom-buys-fec-yau-ma-tei-student-accommodation-project"
+        },
+        {
+          "n": "信報",
+          "d": "2026-07-07",
+          "u": "https://www.hkej.com/dailynews/property/article/4450886/%E4%BA%AC%E6%9D%B17.5%E5%84%84%E8%B3%BC%E6%B2%B9%E9%BA%BB%E5%9C%B0%E7%B5%B2%E9%BA%97%E9%85%92%E5%BA%97"
+        },
+        {
+          "n": "香港商報",
+          "d": "2026-07-06",
+          "u": "https://www.hkcd.com.hk/hkcdweb/content/2026/07/06/content_8763365.html"
+        }
+      ],
+      "price_outlets": 4,
+      "metrics": "268間客房（信報稱原有206間）；總樓面約65,284（信報）至67,826平方呎（老虎證券轉述資料）；1993年落成；酒店改學生公寓；賣方附屬公司完成後續管理3年，每年保證收入HK$4,500萬；賣方預計入賬收益約HK$4.23億",
       "type": "酒店改學生公寓",
       "status": "confirmed",
+      "region": "香港",
       "source": "BONARD / Knight Frank",
       "source_url": "https://www.bonard.com/insights/jdcom-buys-fec-yau-ma-tei-student-accommodation-project",
       "other_sources": [
@@ -334,76 +607,13 @@
         "guaranteed_yield_pct": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "not_open_or_undisclosed",
-        "note": "2026-10-19：am730（2026-07-21）稱已全面改建約399床；未見公開招租房型／分房租金表，故租金欄仍未披露",
-        "as_of": "2026-10-19"
-      },
-      "former_name": "九龍海景絲麗酒店",
-      "beds": 399,
-      "beds_note": "am730 2026-07-21 稱改建後約399床；單一來源",
-      "beds_source": "am730 2026-07-21",
-      "beds_source_url": "https://www.am730.com.hk/article/1042740",
-      "opening_source": "am730 2026-07-21",
-      "opening_source_url": "https://www.am730.com.hk/article/1042740"
-    },
-    {
-      "id": "deal-202607-218-apartment",
-      "date": "2026-07",
-      "deal_date": "2026-07",
-      "asset": "218 Apartment",
-      "asset_zh": "灣仔軒尼詩道218號「218 Apartment」全幢酒店／服務式公寓",
-      "location": "灣仔軒尼詩道216–218號",
-      "district": "灣仔",
-      "buyer": "京東（JD.com）相關單位（媒體）",
-      "seller": "北京首都開發（Beijing Capital Development／首開集團）",
-      "original_use": "酒店",
-      "original_use_note": "前商業大廈改服務式公寓／酒店，59套房",
-      "deal_status": "media",
-      "status_basis": "兩間以上獨立媒體報導購入並擬改學生宿舍（HVS、BONARD、英文虎報／The Standard 經 Leasing Hub、香港01、香港商報）",
-      "status_source_url": "https://www.hotelnewsresource.com/article142350.html",
-      "price_hkd_m": 280,
-      "price_label": "約HK$2.8億（媒體）",
-      "rooms": 59,
-      "gfa_sqft": 32695,
-      "price_per_room_hkd_m": 4.75,
-      "price_psf_hkd": 8564,
-      "psf_basis": "GFA",
-      "opening_date": null,
-      "opening_status": "target",
-      "opening_label": "媒體：預計2026年下半年完成改建（待官方確認）",
-      "type": "酒店／服務式公寓改學生公寓",
-      "status": "confirmed",
-      "source": "HVS Asia Pacific Hotel Transactions Bulletin（2026-08-03）",
-      "source_url": "https://www.hotelnewsresource.com/article142350.html",
-      "other_sources": [
-        "https://www.bonard.com/insights/jdcom-acquires-wan-chai-serviced-apartments-for-hk280-million",
-        "https://www.leasinghub.com/zh/resources/market-news/article/jd-com-buys-wan-chai-hotel-for-hk$280m-amid-booming-student-housing-market-2943",
-        "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60372834/%E7%81%A3%E4%BB%94218-apartment%E9%85%92%E5%BA%972-8%E5%84%84%E6%B2%BD-%E4%BA%AC%E6%9D%B1%E6%8E%A5%E8%B2%A8%E5%91%BC%E8%81%B2%E9%AB%98-%E6%96%99%E6%94%B9%E4%BD%9C%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D",
-        "https://www.hkcd.com.hk/hkcdweb/content/2026/07/23/content_8766247.html"
-      ],
-      "project_url": null,
-      "room_types": [],
-      "metric_basis": {
-        "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "calc",
-        "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "metrics": "HVS（2026-08-03）：JD.com 以 HKD2.8億購入灣仔 218 Apartment（59套房），擬改學生住宿，GFA約3,037.5平方米；BONARD（2026-07-23）：同價、59 units、賣方北京首都開發、擬改學生宿舍；Leasing Hub 引英文虎報（2026-07-24）：市場消息京東約2.8億購入；香港01／香港商報（2026-07-23）較早報約2.8億、料改學生宿舍。未見京東官方公告，故 deal_status=media。",
-      "rent_roll": {
-        "status": "not_open",
-        "note": "改建中／未見招租",
-        "as_of": "2026-10-14"
-      },
-      "former_name": "218 Apartment",
-      "name_after": null
+      }
     },
     {
       "id": "deal-202607-quay",
       "date": "2026-07",
       "deal_date": "2026-07",
+      "date_label": "2026年7月",
       "asset": "The Quay (HEREIN)",
       "asset_zh": "The Quay 學生公寓（HEREIN）",
       "location": "何文田漆咸道北409–411號",
@@ -422,7 +632,7 @@
       "rooms": 54,
       "gfa_sqft": 17000,
       "price_per_room_hkd_m": 2.67,
-      "price_psf_hkd": 8470,
+      "price_psf_hkd": 8471,
       "psf_basis": "GFA",
       "opening_date": null,
       "opening_status": null,
@@ -430,59 +640,56 @@
       "occupancy_pct": 100,
       "reported_yield_pct": 6.0,
       "reported_yield_note": "Savills 稱回報接近6%",
+      "mixed_use": "含商舖",
+      "flags": [
+        "買家待確認"
+      ],
+      "flag_note": "代理 Savills 稱買家未公開",
+      "source_date": "2026-07-14",
+      "sources": [
+        {
+          "n": "BONARD",
+          "d": "2026-07-14",
+          "u": "https://www.bonard.com/insights/the-quay-student-accommodation-sells-for-hkd-144-million-in-hong-kong"
+        }
+      ],
+      "status_source_date": "2026-07-14",
+      "price_sources": [
+        {
+          "n": "第一太平戴維斯 Savills",
+          "d": "2026-07-14",
+          "u": "https://www.savills.in/insight-and-opinion/savills-news/237116/savills-facilitates-en-bloc-transaction-of-the-quay--a-premium-residential-building-in-ho-man-tin"
+        },
+        {
+          "n": "BONARD",
+          "d": "2026-07-14",
+          "u": "https://www.bonard.com/insights/the-quay-student-accommodation-sells-for-hkd-144-million-in-hong-kong"
+        }
+      ],
+      "price_outlets": 2,
       "metrics": "21層；54個住宅單位；GFA約17,000平方呎；約HK$8,470/呎；Savills稱回報近6%；CBRE於2025年9月首推時指示價約HK$2億",
       "type": "營運中PBSA整售",
       "status": "confirmed",
+      "region": "香港",
       "source": "BONARD / Savills",
       "source_url": "https://www.bonard.com/insights/the-quay-student-accommodation-sells-for-hkd-144-million-in-hong-kong",
       "other_sources": [],
-      "project_url": "https://herein.com.hk/",
-      "room_types": [
-        {
-          "name": "Room A（標準層）",
-          "size_sqft": 139,
-          "rent_hkd_month": 11564,
-          "rent_basis": "每房月租起價（第三方平台）",
-          "rent_note": "uhomes 列項目月租約 HK$11,564；非營運商官網標價，面積來自平台描述",
-          "source_url": "https://en.uhomes.com/hk/hongkong/detail-apartments-1564176",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "Room B（標準層）",
-          "size_sqft": 153,
-          "rent_hkd_month": null,
-          "rent_note": "面積來自 uhomes；租金未分房型披露",
-          "source_url": "https://en.uhomes.com/hk/hongkong/detail-apartments-1564176",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "Room C（標準層）",
-          "size_sqft": 133,
-          "rent_hkd_month": null,
-          "rent_note": "面積來自 uhomes；租金未分房型披露",
-          "source_url": "https://en.uhomes.com/hk/hongkong/detail-apartments-1564176",
-          "as_of": "2026-10-14"
-        }
-      ],
+      "project_url": null,
+      "room_types": [],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
+        "reported_yield_pct": "source",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "operating",
-        "note": "營運商放盤頁顯示何文田 The Quay 售罄，未列現時叫價。第三方寫標準層約133至153平方呎單人房，月租由約11,800起，未核對到官網房型表。",
-        "occupancy_pct": 100,
-        "as_of": "2026-10-12",
-        "source_url": "https://herein.com.hk/rent/?typ=1"
-      },
-      "name_after": "HEREIN The Quay（這裡）"
+        "gfa_sqft": "source",
+        "mixed_use": "source"
+      }
     },
     {
       "id": "deal-202606-bedford",
       "date": "2026-06",
       "deal_date": "2026-06",
+      "date_label": "2026年6月",
       "asset": "One Bedford Place",
       "asset_zh": "大角咀 ONE BEDFORD PLACE",
       "location": "大角咀",
@@ -493,38 +700,66 @@
       "original_use": "寫字樓",
       "original_use_note": "26層甲級商廈（新落成）",
       "deal_status": "announced",
-      "status_basis": "偉合控股新交所公告（未披露價，價格屬媒體報道）",
+      "status_basis": "偉合控股新交所公告（媒體報道；公告原文連結未能取得；未披露價，價格屬媒體報道）",
       "price_hkd_m": 750,
       "price_label": "約HK$7.5億（媒體：略低於7.5億；官方未披露）",
-      "gfa_sqft": null,
-      "beds_after": null,
-      "price_psf_hkd": null,
+      "gfa_sqft": 184000,
+      "beds_after": 500,
+      "price_psf_hkd": 4076,
       "psf_basis": "GFA",
-      "price_per_bed_hkd_m": null,
+      "price_per_bed_hkd_m": 1.5,
       "opening_date": null,
       "opening_status": "target",
       "opening_label": "目標2028年上半年營運",
-      "metrics": "26層甲級商廈；銀主盤；媒體價約HK$7.5億（略低於）；GFA／擬改床位來源未核實，暫標未披露；目標2028年上半年營運",
+      "source_date": "2026-06",
+      "sources": [
+        {
+          "n": "EdgeProp",
+          "d": "2026-06",
+          "u": "https://www.edgeprop.sg/property-news/wee-hur-buys-hong-kong-office-building-one-bedford-place-reposition-student-accommodation"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2026-09-22",
+          "u": "https://www.mingtiandi.com/real-estate/finance/shorea-buys-the-pemberton-in-hong-kong-for-student-housing/"
+        }
+      ],
+      "price_sources": [
+        {
+          "n": "EdgeProp",
+          "d": "2026-06",
+          "u": "https://www.edgeprop.sg/property-news/wee-hur-buys-hong-kong-office-building-one-bedford-place-reposition-student-accommodation"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2026-09-22",
+          "u": "https://www.mingtiandi.com/real-estate/finance/shorea-buys-the-pemberton-in-hong-kong-for-student-housing/"
+        }
+      ],
+      "price_outlets": 2,
+      "metrics": "26層甲級商廈；GFA約184,000平方呎；擬改約500床PBSA；目標2028年上半年營運",
       "type": "寫字樓改學生公寓",
       "status": "media_price",
-      "source": "Mingtiandi（媒體提及）／EdgeProp（主連結失效）",
+      "region": "香港",
+      "source": "EdgeProp / Mingtiandi",
       "source_url": "https://www.edgeprop.sg/property-news/wee-hur-buys-hong-kong-office-building-one-bedford-place-reposition-student-accommodation",
-      "other_sources": [],
+      "other_sources": [
+        "https://www.mingtiandi.com/real-estate/finance/shorea-buys-the-pemberton-in-hong-kong-for-student-housing/"
+      ],
       "project_url": null,
       "room_types": [],
-      "metric_basis": {},
-      "rent_roll": {
-        "status": "not_open_or_undisclosed",
-        "note": "2026-10-14 已查：未見改建後公開招租房型／租金／面積（或尚未開業）",
-        "as_of": "2026-10-14"
-      },
-      "former_name": "ONE BEDFORD PLACE",
-      "note_zh": "EdgeProp 主連結失效；GFA／床位來源未核實改未披露"
+      "metric_basis": {
+        "price_psf_hkd": "calc",
+        "price_per_bed_hkd_m": "calc",
+        "gfa_sqft": "source",
+        "beds_after": "source"
+      }
     },
     {
       "id": "deal-202606-crystal",
       "date": "2026-06",
       "deal_date": "2026-06",
+      "date_label": "2026年6月",
       "asset": "Smart A (348–352 Prince Edward Road West)",
       "asset_zh": "九龍城 Smart A 薈學坊全幢",
       "location": "九龍城太子道西348–352號",
@@ -544,9 +779,36 @@
       "opening_status": null,
       "monthly_rent_income_hkd_m": 1.33,
       "gross_yield_pct": 5.32,
+      "flags": [
+        "買家待確認"
+      ],
+      "flag_note": "買方只見媒體報道（香港01）",
+      "source_date": "2026-06-09",
+      "sources": [
+        {
+          "n": "香港01",
+          "d": "2026-06-09",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D"
+        },
+        {
+          "n": "觀點網",
+          "d": "2026-06-11",
+          "u": "https://www.guandian.cn/article/20260611/566451.html"
+        }
+      ],
+      "price_sources": [
+        {
+          "n": "香港01",
+          "d": "2026-06-09",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D"
+        }
+      ],
+      "price_outlets": 1,
+      "single_source": true,
       "metrics": "8層教育主題商廈（另1層地庫）；樓面約36,231平方呎；呎價約HK$8,280；現時月租收入約HK$133萬；擬改建／重建學生宿舍",
       "type": "商廈改建／重建學生宿舍",
       "status": "confirmed",
+      "region": "香港",
       "source": "香港01 / 觀點網",
       "source_url": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D",
       "other_sources": [
@@ -555,21 +817,16 @@
       "project_url": null,
       "room_types": [],
       "metric_basis": {
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
         "gross_yield_pct": "calc",
         "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "not_open_or_undisclosed",
-        "note": "2026-10-14 已查：未見改建後公開招租房型／租金／面積（或尚未開業）",
-        "as_of": "2026-10-14"
-      },
-      "former_name": "Smart A 薈學坊"
+      }
     },
     {
       "id": "deal-202606-crystal-chunwui",
       "date": "2026-06",
       "deal_date": "2026-06",
+      "date_label": "2026年6月",
       "asset": "Chun Wui (411 Chatham Road North)",
       "asset_zh": "紅磡晉匯全幢住宅",
       "location": "紅磡漆咸道北411號",
@@ -584,15 +841,42 @@
       "price_label": "HK$1.4338億",
       "rooms": 54,
       "gfa_sqft": 17451,
-      "price_per_room_hkd_m": 2.655,
+      "price_per_room_hkd_m": 2.66,
       "price_psf_hkd": 8216,
       "psf_basis": "GFA",
       "opening_date": null,
       "opening_status": null,
       "completion_year": 2019,
+      "flags": [
+        "買家待確認"
+      ],
+      "flag_note": "買方只見媒體報道（香港01）",
+      "source_date": "2026-06-09",
+      "sources": [
+        {
+          "n": "香港01",
+          "d": "2026-06-09",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D"
+        },
+        {
+          "n": "觀點網",
+          "d": "2026-06-11",
+          "u": "https://www.guandian.cn/article/20260611/566451.html"
+        }
+      ],
+      "price_sources": [
+        {
+          "n": "香港01",
+          "d": "2026-06-09",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D"
+        }
+      ],
+      "price_outlets": 1,
+      "single_source": true,
       "metrics": "21層住宅；54個開放式單位；樓面約17,451平方呎；呎價約HK$8,216；每單位約HK$265.5萬；2025年底招商局置地曾洽購約1.4億未成事",
       "type": "住宅改學生宿舍",
       "status": "confirmed",
+      "region": "香港",
       "source": "香港01",
       "source_url": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D",
       "other_sources": [
@@ -601,22 +885,17 @@
       "project_url": null,
       "room_types": [],
       "metric_basis": {
-        "price_per_room_hkd_m": "source",
-        "price_psf_hkd": "source",
+        "price_per_room_hkd_m": "calc",
+        "price_psf_hkd": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "not_open_or_undisclosed",
-        "note": "2026-10-14 已查：未見改建後公開招租房型／租金／面積（或尚未開業）",
-        "as_of": "2026-10-14"
-      },
-      "former_name": "晉匯"
+      }
     },
     {
       "id": "deal-202603-regal",
       "date": "2026-03",
       "deal_date": "2026-03-23",
+      "date_label": "2026年3月",
       "asset": "Regal Oriental Hotel",
       "asset_zh": "富豪東方酒店（CampusOne／壹社）",
       "location": "九龍城沙浦道30–38號",
@@ -627,7 +906,8 @@
       "original_use": "酒店",
       "original_use_note": "富豪東方酒店（494房）",
       "deal_status": "announced",
-      "status_basis": "富豪產業信託公告；中原投資公布",
+      "status_basis": "富豪產業信託港交所公告（2026-03-22）；中原投資公布",
+      "status_source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0322/2026032200063.pdf",
       "price_hkd_m": 1518,
       "price_label": "HK$15.18億",
       "rooms": 494,
@@ -638,11 +918,8 @@
       "total_investment_hkd_m": 2000,
       "total_investment_note": "總投資額逾HK$20億（觀點網稱約20億）",
       "price_per_room_hkd_m": 3.07,
-      "price_psf_hkd": 6629,
-      "price_psf_hkd_calc_range": [
-        6247,
-        6629
-      ],
+      "price_psf_hkd": 6247,
+      "price_psf_hkd_max": 6629,
       "psf_basis": "GFA",
       "price_per_bed_hkd_m": 1.01,
       "price_per_bed_hkd_m_max": 1.08,
@@ -651,75 +928,76 @@
       "all_in_note": "以來源總投資額HK$20億（含收購及改建）÷ 床位計；來源稱「逾」，屬下限",
       "beds_per_room": 2.83,
       "beds_per_room_max": 3.04,
-      "opening_date": "2026-09",
-      "opening_status": "target",
-      "opening_label": "目標2026年9月部分開業",
-      "months_deal_to_open": 6,
+      "opening_date": null,
+      "opening_status": null,
+      "opening_label": "第1期已招租，出租率約90%（am730 2026-08-23）；原目標2026年9月部分開業（大公報 2026-03-24）",
       "completion_year": 1982,
-      "metrics": "1982年落成；494間客房（129–1,130平方呎）；總樓面約22.9萬（大公報）／24.3萬平方呎（富豪系披露）；擬提供1,400–1,500床；總投資逾HK$20億；較2025年底估值約HK$16.47億折讓約7.8%",
-      "type": "酒店改學生公寓",
-      "status": "confirmed",
-      "source": "大公文匯（epaper）",
-      "source_url": "https://epaper.tkww.hk/a/202603/24/AP69c1a1b1e4b04773b06a49bc.html",
-      "other_sources": [
-        "https://finance730.com.hk/2026/03/23/%E5%AF%8C%E8%B1%AA%E6%9D%B1%E6%96%B9%E9%85%92%E5%BA%97-%E4%B8%AD%E5%8E%9F-%E6%94%B6%E8%B3%BC-%E5%AD%B8%E7%94%9F%E5%85%AC%E5%AF%93/",
-        "https://house.stockstar.com/CP2026033100029882.shtml"
-      ],
-      "project_url": "https://campusonecommunities.com/one-hub/",
-      "room_types": [
+      "source_date": "2026-03-23",
+      "sources": [
         {
-          "name": "三人房",
-          "beds_per_room": 3,
-          "rent_hkd_month": 6800,
-          "rent_basis": "每床起價",
-          "rent_note": "包水電、WiFi及設施。2026年6月1日招租。",
-          "source_url": "https://hkcd.com/content_app/2026-06/01/content_8757747.html",
-          "as_of": "2026-06-01"
+          "n": "Finance730",
+          "d": "2026-03-23",
+          "u": "https://finance730.com.hk/2026/03/23/%E5%AF%8C%E8%B1%AA%E6%9D%B1%E6%96%B9%E9%85%92%E5%BA%97-%E4%B8%AD%E5%8E%9F-%E6%94%B6%E8%B3%BC-%E5%AD%B8%E7%94%9F%E5%85%AC%E5%AF%93/"
         },
         {
-          "name": "四人房",
-          "beds_per_room": 4,
-          "rent_hkd_month": 6450,
-          "rent_basis": "每床起價",
-          "rent_note": "包水電、WiFi及設施。2026年6月1日招租。",
-          "source_url": "https://hkcd.com/content_app/2026-06/01/content_8757747.html",
-          "as_of": "2026-06-01"
+          "n": "大公報",
+          "d": "2026-03-24",
+          "u": "https://epaper.tkww.hk/a/202603/24/AP69c1a1b1e4b04773b06a49bc.html"
         },
         {
-          "name": "三人房／四人房（較近的綜述）",
-          "rent_label": "每床約6,100–6,400起",
-          "rent_basis": "每床",
-          "rent_note": "觀點網綜述，不是逐間租約。第1期約700床，出租率逾90%。",
-          "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
-          "as_of": "2026-10-07"
+          "n": "證券之星",
+          "d": "2026-03-31",
+          "u": "https://house.stockstar.com/CP2026033100029882.shtml"
         }
       ],
+      "status_source_date": "2026-03-22",
+      "price_sources": [
+        {
+          "n": "富豪產業信託港交所公告",
+          "d": "2026-03-22",
+          "u": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0322/2026032200063.pdf"
+        },
+        {
+          "n": "Finance730",
+          "d": "2026-03-23",
+          "u": "https://finance730.com.hk/2026/03/23/%E5%AF%8C%E8%B1%AA%E6%9D%B1%E6%96%B9%E9%85%92%E5%BA%97-%E4%B8%AD%E5%8E%9F-%E6%94%B6%E8%B3%BC-%E5%AD%B8%E7%94%9F%E5%85%AC%E5%AF%93/"
+        },
+        {
+          "n": "大公報",
+          "d": "2026-03-24",
+          "u": "https://epaper.tkww.hk/a/202603/24/AP69c1a1b1e4b04773b06a49bc.html"
+        }
+      ],
+      "price_outlets": 3,
+      "metrics": "富豪產業信託港交所公告（2026-03-22）：協定物業價值HK$15.18億、1982年落成、494間客房（12–105平方米）、總樓面約21,281平方米（約22.9萬平方呎）；總樓面並列：約22.9萬（公告；大公報）／24.3萬平方呎（Finance730 引富豪系披露）；擬提供1,400–1,500床；總投資逾HK$20億；較2025年底估值約HK$16.47億折讓約7.8%",
+      "type": "酒店改學生公寓",
+      "status": "confirmed",
+      "region": "香港",
+      "source": "富豪REIT／中原投資公告報道",
+      "source_url": "https://finance730.com.hk/2026/03/23/%E5%AF%8C%E8%B1%AA%E6%9D%B1%E6%96%B9%E9%85%92%E5%BA%97-%E4%B8%AD%E5%8E%9F-%E6%94%B6%E8%B3%BC-%E5%AD%B8%E7%94%9F%E5%85%AC%E5%AF%93/",
+      "other_sources": [
+        "https://epaper.tkww.hk/a/202603/24/AP69c1a1b1e4b04773b06a49bc.html",
+        "https://house.stockstar.com/CP2026033100029882.shtml"
+      ],
+      "project_url": "https://campusonecommunities.com/hk/",
+      "room_types": [],
       "metric_basis": {
-        "price_per_room_hkd_m": "source",
-        "price_psf_hkd": "source",
+        "price_per_room_hkd_m": "calc",
+        "price_psf_hkd": "calc",
         "price_per_bed_hkd_m": "calc",
         "all_in_per_bed_hkd_m": "calc",
         "beds_per_room": "calc",
-        "months_deal_to_open": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "ref_label": "富豪東方／CampusOne",
-      "rent_roll": {
-        "status": "leasing",
-        "note": "第1期約700床，2026年10月7日報道出租率已逾90%。全項目其後約1,500床以上。主打三人房同四人房。6月招租價高過10月綜述，DCF應列明用哪一個日期。",
-        "beds": 700,
-        "occupancy_pct": 90,
-        "as_of": "2026-10-07",
-        "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
-      },
-      "name_after": "一匯居·啟德（ONE HUB）",
-      "former_name": "富豪東方酒店"
+        "gfa_sqft": "source",
+        "beds_after": "source",
+        "total_investment_hkd_m": "source"
+      }
     },
     {
       "id": "deal-202603-cozi",
       "date": "2026-03",
       "deal_date": "2026-03-01",
+      "date_label": "2026年3月",
       "asset": "Hotel Cozi Oasis → Brim Youth",
       "asset_zh": "悅品酒店·荃灣（博譽 Brim Youth）",
       "location": "葵涌青山公路葵涌段443號",
@@ -741,86 +1019,82 @@
       "psf_basis": "GFA",
       "price_per_bed_hkd_m": 1.06,
       "beds_per_room": 1.54,
-      "opening_date": "2026-05",
-      "opening_status": "actual",
-      "opening_note": "2026年5月正式推出招租（信報 2026-05-11；am730）；官網 2026/27 學年開放預訂",
-      "rent_per_bed_min_hkd": 6900,
-      "rent_per_bed_max_hkd": 15000,
+      "opening_date": null,
+      "opening_status": null,
+      "opening_note": "2026年5月正式推出招租（iRENT 支援部分樓層租務）",
+      "rent_per_bed_min_hkd": 6500,
+      "rent_per_bed_max_hkd": 9600,
+      "rent_label": "起價／叫價月租",
+      "source_date": "2026-03",
+      "sources": [
+        {
+          "n": "高力 Colliers 新聞稿",
+          "d": "2026-03",
+          "u": "https://www.colliers.com/zh-hk/news/2026-03-hotel-cozi-oasis"
+        },
+        {
+          "n": "am730",
+          "d": "2026-05-11",
+          "u": "https://www.am730.com.hk/article/1029934"
+        },
+        {
+          "n": "The Standard",
+          "d": "2026-09-24",
+          "u": "https://www.thestandard.com.hk/property/article/343728/CR-Longdation-acquires-two-hotels-in-Kwai-Chung-for-student-housing-conversion"
+        },
+        {
+          "n": "網易轉載經濟日報",
+          "d": "2025-12-11",
+          "u": "https://www.163.com/dy/article/KGH468NQ05384BVH.html"
+        }
+      ],
+      "price_sources": [
+        {
+          "n": "高力 Colliers 新聞稿",
+          "d": "2026-03",
+          "u": "https://www.colliers.com/zh-hk/news/2026-03-hotel-cozi-oasis"
+        },
+        {
+          "n": "The Standard",
+          "d": "2026-09-24",
+          "u": "https://www.thestandard.com.hk/property/article/343728/CR-Longdation-acquires-two-hotels-in-Kwai-Chung-for-student-housing-conversion"
+        }
+      ],
+      "price_outlets": 2,
       "metrics": "583間客房；GFA約293,000平方呎；擬約900宿位；Colliers + Knight Frank 代理；2025年12月已有媒體報道約9.5億洽購／盡職審查，2026年3月1日簽署買賣合約",
       "type": "酒店改學生公寓",
       "status": "confirmed",
-      "source": "am730",
-      "source_url": "https://www.am730.com.hk/article/1029934",
+      "region": "香港",
+      "source": "Colliers 新聞稿",
+      "source_url": "https://www.colliers.com/zh-hk/news/2026-03-hotel-cozi-oasis",
       "other_sources": [
+        "https://www.am730.com.hk/article/1029934",
         "https://www.thestandard.com.hk/property/article/343728/CR-Longdation-acquires-two-hotels-in-Kwai-Chung-for-student-housing-conversion",
-        "https://www.163.com/dy/article/KGH468NQ05384BVH.html",
-        "https://www.colliers.com/zh-hk/news/2026-03-hotel-cozi-oasis"
+        "https://www.163.com/dy/article/KGH468NQ05384BVH.html"
       ],
       "project_url": "https://brimyouth.com.hk/",
       "room_types": [
         {
-          "name": "樸居 Basic Single",
-          "size_sqft": 162,
-          "size_sqft_max": 166,
+          "name": "單人套房（共6款戶型之一）",
+          "size_sqft": 163,
+          "size_sqft_max": 260,
+          "size_basis": "未註明實用／建築（全項目6款戶型範圍）",
           "rent_hkd_month": 9600,
-          "rent_basis": "每房起價",
-          "source_url": "https://brimyouth.com.hk/",
-          "as_of": "2026-10-14"
+          "rent_basis": "每房（單人）",
+          "rent_note": "月租起價",
+          "source_url": "https://www.am730.com.hk/article/1029934",
+          "as_of": "2026-10-06"
         },
         {
-          "name": "怡居 Cozy Single",
-          "size_sqft": 167,
-          "size_sqft_max": 169,
-          "rent_hkd_month": 10100,
-          "rent_basis": "每房起價",
-          "source_url": "https://brimyouth.com.hk/",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "逸居 Prime Single",
-          "size_sqft": 177,
-          "size_sqft_max": 183,
-          "rent_hkd_month": 11600,
-          "rent_basis": "每房起價",
-          "source_url": "https://brimyouth.com.hk/",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "尚居 Premium Single",
-          "size_sqft": 232,
-          "size_sqft_max": 237,
-          "rent_hkd_month": 13600,
-          "rent_basis": "每房起價",
-          "source_url": "https://brimyouth.com.hk/",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "臻居 Luxury Single",
-          "size_sqft": 260,
-          "size_sqft_max": 262,
-          "rent_hkd_month": 15000,
-          "rent_basis": "每房起價",
-          "source_url": "https://brimyouth.com.hk/",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "伴居 Basic Twin",
-          "size_sqft": 250,
-          "size_sqft_max": 254,
-          "rent_hkd_month": 6900,
-          "rent_basis": "每人起價",
-          "rent_note": "官網雙人房每人起價；am730 較早報導寫每位6,500起",
-          "source_url": "https://brimyouth.com.hk/",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "睦居 Cozy Twin",
-          "size_sqft": 250,
-          "size_sqft_max": 254,
-          "rent_hkd_month": 6900,
-          "rent_basis": "每人起價",
-          "source_url": "https://brimyouth.com.hk/",
-          "as_of": "2026-10-14"
+          "name": "雙人套房",
+          "size_sqft": 163,
+          "size_sqft_max": 260,
+          "size_basis": "未註明實用／建築（全項目6款戶型範圍）",
+          "rent_hkd_month": 6500,
+          "rent_basis": "每人",
+          "rent_note": "每位月租起價",
+          "source_url": "https://www.am730.com.hk/article/1029934",
+          "as_of": "2026-10-06"
         }
       ],
       "metric_basis": {
@@ -829,22 +1103,15 @@
         "price_per_bed_hkd_m": "calc",
         "beds_per_room": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "leasing",
-        "note": "約900床，單人套房同雙人套房共6款，163–260平方呎。未公布每款幾多間。單人按房計，雙人按床計。",
-        "beds": 900,
-        "as_of": "2026-05-11",
-        "source_url": "https://www.am730.com.hk/article/1029934"
-      },
-      "name_after": "博譽 Brim Youth",
-      "former_name": "悅品酒店·荃灣"
+        "gfa_sqft": "source",
+        "beds_after": "source"
+      }
     },
     {
       "id": "deal-202602-60west",
       "date": "2026-02",
       "deal_date": "2026-02",
+      "date_label": "2026年2月",
       "asset": "60 West (60–64 Des Voeux Road West)",
       "asset_zh": "上環西城六十全幢",
       "location": "上環德輔道西60–64號",
@@ -865,9 +1132,33 @@
       "opening_date": null,
       "opening_status": null,
       "completion_year": 1977,
+      "mixed_use": "含寫字樓",
+      "flags": [
+        "買家待確認",
+        "用途未定"
+      ],
+      "flag_note": "買方只見香港01；香港01稱「料」改作學生宿舍",
+      "source_date": "2026-02-19",
+      "sources": [
+        {
+          "n": "香港01",
+          "d": "2026-02-19",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60322796/%E4%B8%8A%E7%92%B0%E8%A5%BF%E5%9F%8E%E5%85%AD%E5%8D%81%E5%85%A8%E5%B9%A24-3%E5%84%84%E6%98%93%E6%89%8B-%E6%B8%AF%E8%B3%87%E7%A7%81%E5%8B%9F%E5%9F%BA%E9%87%91%E6%89%BF%E6%8E%A5-%E6%96%99%E4%BD%9C%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D"
+        }
+      ],
+      "price_sources": [
+        {
+          "n": "香港01",
+          "d": "2026-02-19",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60322796/%E4%B8%8A%E7%92%B0%E8%A5%BF%E5%9F%8E%E5%85%AD%E5%8D%81%E5%85%A8%E5%B9%A24-3%E5%84%84%E6%98%93%E6%89%8B-%E6%B8%AF%E8%B3%87%E7%A7%81%E5%8B%9F%E5%9F%BA%E9%87%91%E6%89%BF%E6%8E%A5-%E6%96%99%E4%BD%9C%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D"
+        }
+      ],
+      "price_outlets": 1,
+      "single_source": true,
       "metrics": "22層；3–17樓共60間酒店客房，18–21樓寫字樓；樓面約57,356平方呎（HK$7,514/呎）；料改作學生宿舍；Savills 促成",
       "type": "酒店／商廈改學生宿舍",
       "status": "confirmed",
+      "region": "香港",
       "source": "香港01",
       "source_url": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60322796/%E4%B8%8A%E7%92%B0%E8%A5%BF%E5%9F%8E%E5%85%AD%E5%8D%81%E5%85%A8%E5%B9%A24-3%E5%84%84%E6%98%93%E6%89%8B-%E6%B8%AF%E8%B3%87%E7%A7%81%E5%8B%9F%E5%9F%BA%E9%87%91%E6%89%BF%E6%8E%A5-%E6%96%99%E4%BD%9C%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D",
       "other_sources": [],
@@ -875,21 +1166,17 @@
       "room_types": [],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "not_open_or_undisclosed",
-        "note": "2026-10-14 已查：未見改建後公開招租房型／租金／面積（或尚未開業）",
-        "as_of": "2026-10-14"
-      },
-      "former_name": "西城六十"
+        "gfa_sqft": "source",
+        "mixed_use": "source"
+      }
     },
     {
       "id": "deal-202512-austin",
       "date": "2025-12",
       "deal_date": "2025-12-29",
+      "date_label": "2025年12月",
       "asset": "Habyt Austin Avenue → CM+U Tsim Sha Tsui",
       "asset_zh": "柯士甸路酒店／CM+U 尖沙咀",
       "location": "尖沙咀柯士甸路2號",
@@ -900,15 +1187,18 @@
       "original_use": "酒店",
       "original_use_note": "Habyt Austin Avenue 酒店（29房）",
       "deal_status": "announced",
-      "status_basis": "招商局商業房託港交所公告（香港商報等報道）",
-      "status_source_url": "https://hk.finance.yahoo.com/news/%E6%B8%AF%E6%A8%93-%E6%8B%9B%E5%95%86%E5%B1%80%E5%95%86%E6%A5%AD%E6%88%BF%E8%A8%97-01503-hk-%E6%96%A5%E9%80%BE2%E5%84%84%E5%85%83%E8%B3%BC%E6%9F%AF%E5%A3%AB%E7%94%B8%E8%B7%AF%E9%85%92%E5%BA%97-013207639.html",
+      "status_basis": "招商局商業房託港交所公告（2025-12-29）",
+      "status_source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/1229/2025122902317.pdf",
       "price_hkd_m": 205.95,
       "price_label": "約HK$2.06億（HK$2.0595億，須受流動資產調整）",
       "rooms": 29,
-      "gfa_sqft": 23600,
+      "gfa_sqft": 23304,
+      "gfa_sqft_max": 23600,
       "beds_after": 73,
+      "beds_planned": 85,
       "price_per_room_hkd_m": 7.1,
-      "price_psf_hkd": 8728,
+      "price_psf_hkd": 8727,
+      "price_psf_hkd_max": 8838,
       "psf_basis": "GFA",
       "price_per_bed_hkd_m": 2.82,
       "beds_per_room": 2.52,
@@ -916,50 +1206,96 @@
       "opening_status": "actual",
       "months_deal_to_open": 8,
       "occupancy_pct": 100,
-      "metrics": "19層；原29間客房；總樓面約2.36萬平方呎；呎價約HK$8,728；收購時計劃85床，官網現列73床（單人至三人房）；萊坊估值HK$2.13億（折讓3.3%）；已100%租出",
+      "source_date": "2025-12-30",
+      "sources": [
+        {
+          "n": "香港商報",
+          "d": "2025-12-30",
+          "u": "https://www.hkcd.com/hkcdweb/content/2025/12/30/content_8733284.html"
+        },
+        {
+          "n": "招商房託港交所公告",
+          "d": "2025-12-29",
+          "u": "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/1229/2025122902317.pdf"
+        },
+        {
+          "n": "阿思達克（Yahoo財經）",
+          "d": "2025-12-30",
+          "u": "https://hk.finance.yahoo.com/news/%E6%B8%AF%E6%A8%93-%E6%8B%9B%E5%95%86%E5%B1%80%E5%95%86%E6%A5%AD%E6%88%BF%E8%A8%97-01503-hk-%E6%96%A5%E9%80%BE2%E5%84%84%E5%85%83%E8%B3%BC%E6%9F%AF%E5%A3%AB%E7%94%B8%E8%B7%AF%E9%85%92%E5%BA%97-013207639.html"
+        },
+        {
+          "n": "36氪",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.36kr.com/p/3631520108475144"
+        },
+        {
+          "n": "CM+U 官網",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.cmplusu.com.hk/"
+        },
+        {
+          "n": "招商房託新聞稿（美通社）",
+          "d": "2026-08-31",
+          "u": "https://www.prnewswire.com/apac/zh/news-releases/--302864581.html"
+        }
+      ],
+      "status_source_date": "2025-12-29",
+      "price_sources": [
+        {
+          "n": "招商房託港交所公告",
+          "d": "2025-12-29",
+          "u": "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/1229/2025122902317.pdf"
+        },
+        {
+          "n": "香港商報",
+          "d": "2025-12-30",
+          "u": "https://www.hkcd.com/hkcdweb/content/2025/12/30/content_8733284.html"
+        },
+        {
+          "n": "阿思達克（Yahoo財經）",
+          "d": "2025-12-30",
+          "u": "https://hk.finance.yahoo.com/news/%E6%B8%AF%E6%A8%93-%E6%8B%9B%E5%95%86%E5%B1%80%E5%95%86%E6%A5%AD%E6%88%BF%E8%A8%97-01503-hk-%E6%96%A5%E9%80%BE2%E5%84%84%E5%85%83%E8%B3%BC%E6%9F%AF%E5%A3%AB%E7%94%B8%E8%B7%AF%E9%85%92%E5%BA%97-013207639.html"
+        }
+      ],
+      "price_outlets": 3,
+      "metrics": "19層；原29間客房（招商房託港交所公告 2025-12-29）；總樓面並列：約2,165平方米（約23,304平方呎，公告）／約2.36萬平方呎（香港商報 2025-12-30；按此呎價約HK$8,728）；收購時計劃85床，官網現列73床（單人至三人房）；萊坊估值HK$2.13億（折讓3.3%）；已100%租出",
       "type": "酒店改學生公寓",
       "status": "confirmed",
+      "region": "香港",
       "source": "香港商報／港交所相關報道",
       "source_url": "https://www.hkcd.com/hkcdweb/content/2025/12/30/content_8733284.html",
       "other_sources": [
+        "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/1229/2025122902317.pdf",
+        "https://hk.finance.yahoo.com/news/%E6%B8%AF%E6%A8%93-%E6%8B%9B%E5%95%86%E5%B1%80%E5%95%86%E6%A5%AD%E6%88%BF%E8%A8%97-01503-hk-%E6%96%A5%E9%80%BE2%E5%84%84%E5%85%83%E8%B3%BC%E6%9F%AF%E5%A3%AB%E7%94%B8%E8%B7%AF%E9%85%92%E5%BA%97-013207639.html",
         "https://www.36kr.com/p/3631520108475144",
         "https://www.cmplusu.com.hk/",
-        "https://www.prnewswire.com/apac/zh/news-releases/--302864581.html",
-        "https://hk.finance.yahoo.com/news/%E6%B8%AF%E6%A8%93-%E6%8B%9B%E5%95%86%E5%B1%80%E5%95%86%E6%A5%AD%E6%88%BF%E8%A8%97-01503-hk-%E6%96%A5%E9%80%BE2%E5%84%84%E5%85%83%E8%B3%BC%E6%9F%AF%E5%A3%AB%E7%94%B8%E8%B7%AF%E9%85%92%E5%BA%97-013207639.html"
+        "https://www.prnewswire.com/apac/zh/news-releases/--302864581.html"
       ],
       "project_url": "https://www.cmplusu.com.hk/",
       "room_types": [
         {
           "name": "單人房A／單人房B／豪華雙人房／標準雙人房／三人房",
-          "rent_note": "官網列出房型名稱，未列面積及租金；須繳交全年房費（已查 2026-10-14 仍無）",
+          "rent_note": "官網列出房型名稱，未列面積及租金；須繳交全年房費",
           "source_url": "https://www.cmplusu.com.hk/",
-          "as_of": "2026-10-14"
+          "as_of": "2026-10-06"
         }
       ],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
         "price_per_bed_hkd_m": "calc",
         "beds_per_room": "calc",
         "months_deal_to_open": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "operating",
-        "note": "已營運。官網有房型名稱，未列面積同租金，所以未有可入DCF的單價。",
-        "beds": 73,
-        "occupancy_pct": 100,
-        "as_of": "2026-10-06",
-        "source_url": "https://www.cmplusu.com.hk/"
-      },
-      "name_after": "CM+U 尖沙咀",
-      "former_name": "柯士甸路酒店"
+        "gfa_sqft": "source",
+        "beds_after": "source"
+      }
     },
     {
       "id": "deal-2025-bonham",
       "date": "2025-08",
       "deal_date": "2025-08-29",
+      "date_label": "2025年8月",
       "asset": "Bonham Residence",
       "asset_zh": "西半山般咸軒（壹社）",
       "location": "西半山般咸道38C號",
@@ -972,7 +1308,7 @@
       "original_use_note": "YWCA 服務式住宿大樓（serviced hostel）",
       "original_use_source_url": "https://www.jsm.com/zh/news/2025/09/jsm-advises-hong-kong-young-womens-christian-association-on-asset-disposal/",
       "deal_status": "announced",
-      "status_basis": "中原投資公布；賣方法律顧問 JSM 律師行公布",
+      "status_basis": "賣方法律顧問 JSM 律師行公布（2025-09-09）；代理 CBRE 網頁列為成交（HK$3.35億）；中原投資公布",
       "status_source_url": "https://www.jsm.com/zh/news/2025/09/jsm-advises-hong-kong-young-womens-christian-association-on-asset-disposal/",
       "price_hkd_m": 335,
       "price_label": "HK$3.35億",
@@ -983,7 +1319,7 @@
       "beds_after_max": 200,
       "capex_hkd_m": 60,
       "capex_hkd_m_max": 65,
-      "price_per_room_hkd_m": 3.56,
+      "price_per_room_hkd_m": 3.49,
       "price_per_room_hkd_m_max": 3.56,
       "price_psf_hkd": 9138,
       "psf_basis": "GFA",
@@ -993,51 +1329,99 @@
       "all_in_per_bed_hkd_m_max": 2.35,
       "beds_per_room": 1.77,
       "beds_per_room_max": 2.13,
-      "opening_date": "2026-09",
-      "opening_status": "target",
-      "months_deal_to_open": 13,
+      "opening_date": null,
+      "opening_status": "actual",
+      "opening_label": "2026/27學年以一步居38營運，155床已全數租出（信報 2026-08-22、am730 2026-08-23）",
       "completion_year": 1998,
+      "rent_per_bed_min_hkd": 8000,
+      "rent_per_bed_max_hkd": 8000,
+      "rent_label": "起價／叫價月租",
+      "source_date": "2025-08-29",
+      "sources": [
+        {
+          "n": "香港商報",
+          "d": "2025-08-29",
+          "u": "https://www.hkcd.com/hkcdweb/content/2025/08/29/content_8711254.html"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2025-11-19",
+          "u": "https://www.mingtiandi.com/real-estate/finance/centaline-buys-hong-kongs-bonham-residence-for-student-housing/"
+        },
+        {
+          "n": "CBRE（代理）學生宿舍頁",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.cbre.com.hk/services/property-types/alternatives/student-accommodation"
+        },
+        {
+          "n": "大公報",
+          "d": "2026-03-24",
+          "u": "https://epaper.tkww.hk/a/202603/24/AP69c1a1b1e4b04773b06a49bc.html"
+        },
+        {
+          "n": "JSM 律師行",
+          "d": "2025-09-09",
+          "u": "https://www.jsm.com/zh/news/2025/09/jsm-advises-hong-kong-young-womens-christian-association-on-asset-disposal/"
+        },
+        {
+          "n": "香港01",
+          "d": "2026-06-01",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60355593/"
+        },
+        {
+          "n": "信報",
+          "d": "2026-08-22",
+          "u": "https://www.hkej.com/dailynews/property/article/4490792/"
+        },
+        {
+          "n": "am730",
+          "d": "2026-08-23",
+          "u": "https://www.am730.com.hk/article/1049014"
+        }
+      ],
+      "status_source_date": "2025-09-09",
+      "price_sources": [
+        {
+          "n": "香港商報",
+          "d": "2025-08-29",
+          "u": "https://www.hkcd.com/hkcdweb/content/2025/08/29/content_8711254.html"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2025-11-19",
+          "u": "https://www.mingtiandi.com/real-estate/finance/centaline-buys-hong-kongs-bonham-residence-for-student-housing/"
+        },
+        {
+          "n": "CBRE（代理）學生宿舍頁",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.cbre.com.hk/services/property-types/alternatives/student-accommodation"
+        }
+      ],
+      "price_outlets": 3,
       "metrics": "94間客房（香港商報）／96間（Mingtiandi、JSM）；總樓面36,660平方呎（JSM 律師行）；擬改170–200床；改建投資HK$6,000萬（大公報）至HK$6,500萬（Mingtiandi）；較年初叫價4億低約16%；預計每床月租約HK$8,000起；報道指即「一步居38」：香港01（2026-06-01）稱一步居38前身為YWCA、地址般咸道38C、125個單位、155床（待物業名完全核對）；中原投資公布一步居38提供155床、西半山、步行約10分鐘到港大、已全數租出（信報 2026-08-22、am730 2026-08-23）；房／床並列：94–96房（收購時）／125個單位（香港01）／155床（營運）／170–200床（收購時計劃）；2026年6月公布之月租屬招租價（單人房獨立衛生間16,245元、同用衛生間13,585元，香港01 2026-06-01，單一來源），非8月成交租金",
       "type": "服務式住宅改學生公寓",
       "status": "confirmed",
+      "region": "香港",
       "source": "香港商報 / Mingtiandi",
       "source_url": "https://www.hkcd.com/hkcdweb/content/2025/08/29/content_8711254.html",
       "other_sources": [
         "https://www.mingtiandi.com/real-estate/finance/centaline-buys-hong-kongs-bonham-residence-for-student-housing/",
+        "https://www.cbre.com.hk/services/property-types/alternatives/student-accommodation",
         "https://epaper.tkww.hk/a/202603/24/AP69c1a1b1e4b04773b06a49bc.html",
         "https://www.jsm.com/zh/news/2025/09/jsm-advises-hong-kong-young-womens-christian-association-on-asset-disposal/",
         "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60355593/",
         "https://www.hkej.com/dailynews/property/article/4490792/",
         "https://www.am730.com.hk/article/1049014"
       ],
-      "project_url": "https://campusonecommunities.com/hk/one-pace-38/",
+      "project_url": "https://campusonecommunities.com/hk/",
       "room_types": [
         {
-          "name": "單人房（獨立洗手間）",
-          "beds_per_room": 1,
-          "rent_hkd_month": 16245,
-          "rent_basis": "每床起價",
-          "rent_note": "包水電、WiFi及設施使用費。同篇另寫單人床位約13,500起，口徑衝突，正式報價以16,245這行較具體。",
-          "source_url": "https://hkcd.com/content_app/2026-06/01/content_8757747.html",
-          "as_of": "2026-06-01"
-        },
-        {
-          "name": "單人房（在租綜述）",
-          "beds_per_room": 1,
-          "rent_label": "約17,000–18,000／房",
-          "rent_basis": "每房",
-          "rent_note": "觀點網。另有單宗120呎全包16,720（尺租約139）的市場報道，是個別成交不是房型表。",
-          "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
-          "as_of": "2026-10-07"
-        },
-        {
-          "name": "雙人房",
-          "beds_per_room": 2,
-          "rent_label": "每床約11,300–14,000",
+          "name": "床位（房型未公布）",
+          "rent_hkd_month": 8000,
           "rent_basis": "每床",
-          "rent_note": "觀點網綜述，未分豪華或露台。未公布雙人房幾多間。",
-          "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
-          "as_of": "2026-10-07"
+          "rent_note": "收購時預計月租約HK$8,000起（計劃價，非現行租金）",
+          "source_url": "https://www.mingtiandi.com/real-estate/finance/centaline-buys-hong-kongs-bonham-residence-for-student-housing/",
+          "as_of": "2026-10-06"
         }
       ],
       "metric_basis": {
@@ -1046,27 +1430,17 @@
         "price_per_bed_hkd_m": "calc",
         "all_in_per_bed_hkd_m": "calc",
         "beds_per_room": "calc",
-        "months_deal_to_open": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "ref_label": "一步居38（般咸軒）",
-      "rent_roll": {
-        "status": "operating",
-        "note": "125間、155床，單人房同雙人房。新學年前已滿租。收購時「約8,000起」是計劃價，不要再用。6月同10月的叫價範圍唔一致，DCF要註明用哪條。",
-        "rooms": 125,
-        "beds": 155,
-        "occupancy_pct": 100,
-        "as_of": "2026-10-07",
-        "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
-      },
-      "name_after": "一步居·38（ONE PACE 38）",
-      "former_name": "般咸軒"
+        "gfa_sqft": "source",
+        "beds_after": "source",
+        "capex_hkd_m": "source"
+      }
     },
     {
       "id": "deal-202508-kamlam",
       "date": "2025-08",
       "deal_date": "2025-08",
+      "date_label": "2025年8月",
       "asset": "Kam Lam Building (98–104 Reclamation Street)",
       "asset_zh": "油麻地新填地街甘霖大廈全幢",
       "location": "油麻地新填地街98–104號",
@@ -1075,8 +1449,9 @@
       "seller": "老牌業主",
       "original_use": "住宅",
       "original_use_note": "17層商住大廈，24伙",
-      "deal_status": "media",
-      "status_basis": "香港01報道",
+      "deal_status": "announced",
+      "status_basis": "代理 CBRE 學生宿舍頁列為其成交（HK$1.08億、23,254平方呎）；買家未公布",
+      "status_source_url": "https://www.cbre.com.hk/services/property-types/alternatives/student-accommodation",
       "price_hkd_m": 108,
       "price_label": "HK$1.08億",
       "rooms": 24,
@@ -1087,33 +1462,69 @@
       "opening_date": null,
       "opening_status": null,
       "completion_year": 1980,
+      "mixed_use": "含商舖",
+      "flags": [
+        "買家待確認",
+        "用途未定"
+      ],
+      "flag_note": "首報「本地投資者」，其後香港01報道為 Gate3 Capital，未見官方確認；擬改學生宿舍只見媒體",
+      "source_date": "2025-08-26",
+      "sources": [
+        {
+          "n": "香港01",
+          "d": "2025-08-26",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60270115/%E6%8A%95%E8%B3%87%E8%80%851-08%E5%84%84%E6%94%B6%E8%B3%BC%E6%B2%B9%E9%BA%BB%E5%9C%B0%E5%85%A8%E5%B9%A2%E8%88%8A%E6%A8%93-%E6%93%AC%E7%87%9F%E9%81%8B%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D-%E5%B9%B3%E5%8F%AB%E5%83%B9%E4%B8%80%E5%8D%8A"
+        },
+        {
+          "n": "CBRE（代理）學生宿舍頁",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.cbre.com.hk/services/property-types/alternatives/student-accommodation"
+        },
+        {
+          "n": "香港01",
+          "d": "2026-02-19",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60322796/%E4%B8%8A%E7%92%B0%E8%A5%BF%E5%9F%8E%E5%85%AD%E5%8D%81%E5%85%A8%E5%B9%A24-3%E5%84%84%E6%98%93%E6%89%8B-%E6%B8%AF%E8%B3%87%E7%A7%81%E5%8B%9F%E5%9F%BA%E9%87%91%E6%89%BF%E6%8E%A5-%E6%96%99%E4%BD%9C%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D"
+        }
+      ],
+      "status_source_date": "瀏覽 2026-10-07",
+      "price_sources": [
+        {
+          "n": "香港01",
+          "d": "2025-08-26",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60270115/%E6%8A%95%E8%B3%87%E8%80%851-08%E5%84%84%E6%94%B6%E8%B3%BC%E6%B2%B9%E9%BA%BB%E5%9C%B0%E5%85%A8%E5%B9%A2%E8%88%8A%E6%A8%93-%E6%93%AC%E7%87%9F%E9%81%8B%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D-%E5%B9%B3%E5%8F%AB%E5%83%B9%E4%B8%80%E5%8D%8A"
+        },
+        {
+          "n": "CBRE（代理）學生宿舍頁",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.cbre.com.hk/services/property-types/alternatives/student-accommodation"
+        }
+      ],
+      "price_outlets": 2,
       "metrics": "17層商住；24伙住宅；樓面約23,254平方呎（HK$4,644/呎）；較2023年叫價2.3億低53%；擬改裝學生宿舍自行營運",
       "type": "住宅改學生宿舍",
       "status": "confirmed",
+      "region": "香港",
       "source": "香港01",
       "source_url": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60270115/%E6%8A%95%E8%B3%87%E8%80%851-08%E5%84%84%E6%94%B6%E8%B3%BC%E6%B2%B9%E9%BA%BB%E5%9C%B0%E5%85%A8%E5%B9%A2%E8%88%8A%E6%A8%93-%E6%93%AC%E7%87%9F%E9%81%8B%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D-%E5%B9%B3%E5%8F%AB%E5%83%B9%E4%B8%80%E5%8D%8A",
       "other_sources": [
+        "https://www.cbre.com.hk/services/property-types/alternatives/student-accommodation",
         "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60322796/%E4%B8%8A%E7%92%B0%E8%A5%BF%E5%9F%8E%E5%85%AD%E5%8D%81%E5%85%A8%E5%B9%A24-3%E5%84%84%E6%98%93%E6%89%8B-%E6%B8%AF%E8%B3%87%E7%A7%81%E5%8B%9F%E5%9F%BA%E9%87%91%E6%89%BF%E6%8E%A5-%E6%96%99%E4%BD%9C%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D"
       ],
       "project_url": null,
       "room_types": [],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "not_open_or_undisclosed",
-        "note": "2026-10-14 已查：未見改建後公開招租房型／租金／面積（或尚未開業）",
-        "as_of": "2026-10-14"
-      },
-      "former_name": "甘霖大廈"
+        "gfa_sqft": "source",
+        "mixed_use": "source"
+      }
     },
     {
       "id": "deal-202507-ease-mk",
       "date": "2025-07",
       "deal_date": "2025-07-31",
+      "date_label": "2025年7月",
       "asset": "Hotel Ease Mong Kok → Sunny House @Mong Kok",
       "asset_zh": "旭逸酒店·旺角（砵蘭街60號）→ 日新舍旺角",
       "location": "旺角砵蘭街60號",
@@ -1125,9 +1536,10 @@
       "original_use": "酒店",
       "original_use_note": "旭逸酒店·旺角（199房）",
       "deal_status": "announced",
-      "status_basis": "宏安地產／宏安集團港交所公告（價格來自代理）",
+      "status_basis": "賣方代理 CBRE 公布成交價（2025-08-01）；宏安地產港交所公告（2025-07-31）披露合營、199房及樓面",
+      "status_source_url": "https://www.linkedin.com/posts/cbre-asia-pacific_capital-markets-done-deal-60-portland-street-activity-7356896784515821568-mGtE",
       "price_hkd_m": 435,
-      "price_label": "HK$4.35億",
+      "price_label": "HK$4.35億（CBRE 2025-08-01；Mingtiandi）；CBRE 學生宿舍頁另列HK$4.32億",
       "rooms": 199,
       "gfa_sqft": 48595,
       "beds_after": 200,
@@ -1141,201 +1553,141 @@
       "opening_status": null,
       "opening_note": "官網已列為營運中（逾200床，主要單人房）；開業月份未披露",
       "completion_year": 2014,
-      "metrics": "30層；199間客房；GFA 48,595平方呎（約HK$8,952/呎、每房HK$219萬）；合營企業資本承擔最多HK$2.91億；改為逾200床（官網）",
+      "psf_alt": [
+        {
+          "v": 8880,
+          "s": "CBRE 2025-08-01"
+        }
+      ],
+      "source_date": "2025-08-03",
+      "sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2025-08-03",
+          "u": "https://www.mingtiandi.com/real-estate/finance/angelo-gordon-wang-on-buy-hotel-ease-mong-kok-in-hong-kong/"
+        },
+        {
+          "n": "CBRE（代理）LinkedIn",
+          "d": "2025-08-01",
+          "u": "https://www.linkedin.com/posts/cbre-asia-pacific_capital-markets-done-deal-60-portland-street-activity-7356896784515821568-mGtE"
+        },
+        {
+          "n": "宏安地產港交所公告",
+          "d": "2025-07-31",
+          "u": "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/0731/2025073101290.pdf"
+        },
+        {
+          "n": "CBRE（代理）學生宿舍頁",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.cbre.com.hk/services/property-types/alternatives/student-accommodation"
+        },
+        {
+          "n": "日新舍官網",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://sunnyhouse.hk/en/home/"
+        },
+        {
+          "n": "36氪",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.36kr.com/p/3631520108475144"
+        }
+      ],
+      "status_source_date": "2025-08-01",
+      "price_sources": [
+        {
+          "n": "CBRE（代理）LinkedIn",
+          "d": "2025-08-01",
+          "u": "https://www.linkedin.com/posts/cbre-asia-pacific_capital-markets-done-deal-60-portland-street-activity-7356896784515821568-mGtE"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2025-08-03",
+          "u": "https://www.mingtiandi.com/real-estate/finance/angelo-gordon-wang-on-buy-hotel-ease-mong-kok-in-hong-kong/"
+        }
+      ],
+      "price_outlets": 2,
+      "metrics": "30層；199間客房、總樓面約48,595平方呎（宏安地產港交所公告 2025-07-31）；呎價並列：約HK$8,952（計算）／HK$8,880（CBRE）；成交價並列：HK$4.35億（CBRE LinkedIn、Mingtiandi）／HK$4.32億（CBRE 學生宿舍頁）；合營企業資本承擔最多HK$2.91億（公告）；改為逾200床（官網）",
       "type": "酒店改學生公寓",
       "status": "confirmed",
+      "region": "香港",
       "source": "Mingtiandi / 宏安港交所公告",
       "source_url": "https://www.mingtiandi.com/real-estate/finance/angelo-gordon-wang-on-buy-hotel-ease-mong-kok-in-hong-kong/",
       "other_sources": [
+        "https://www.linkedin.com/posts/cbre-asia-pacific_capital-markets-done-deal-60-portland-street-activity-7356896784515821568-mGtE",
+        "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/0731/2025073101290.pdf",
+        "https://www.cbre.com.hk/services/property-types/alternatives/student-accommodation",
         "https://sunnyhouse.hk/en/home/",
         "https://www.36kr.com/p/3631520108475144"
       ],
-      "project_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
+      "project_url": "https://sunnyhouse.hk/en/home/",
       "room_types": [
         {
-          "name": "單人房 S1",
-          "beds_per_room": 1,
+          "name": "Single Room S1",
           "size_sqft": 134,
           "size_sqft_max": 149,
-          "size_basis": "官網^，未定義實用或建築；高架床加沙發床",
-          "rent_note": "租金官網未列",
-          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
-          "as_of": "2026-10-12"
+          "size_basis": "實用",
+          "rent_note": "租金未披露",
+          "source_url": "https://sunnyhouse.hk/en/shmk/room-types/",
+          "as_of": "2026-10-06"
         },
         {
-          "name": "單人房 S2",
-          "beds_per_room": 1,
+          "name": "Single Room S2",
           "size_sqft": 155,
-          "size_basis": "官網^，由155呎起；高架床",
-          "rent_note": "租金官網未列",
-          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
-          "as_of": "2026-10-12"
+          "size_basis": "實用",
+          "rent_note": "由155呎起；租金未披露",
+          "source_url": "https://sunnyhouse.hk/en/shmk/room-types/",
+          "as_of": "2026-10-06"
         },
         {
-          "name": "單人房 S3",
-          "beds_per_room": 1,
+          "name": "Single Room S3",
           "size_sqft": 124,
           "size_sqft_max": 156,
-          "size_basis": "官網^；平床",
-          "rent_note": "租金官網未列",
-          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
-          "as_of": "2026-10-12"
+          "size_basis": "實用",
+          "rent_note": "租金未披露",
+          "source_url": "https://sunnyhouse.hk/en/shmk/room-types/",
+          "as_of": "2026-10-06"
         },
         {
-          "name": "單人房 S4",
-          "beds_per_room": 1,
+          "name": "Single Room S4",
           "size_sqft": 166,
-          "size_basis": "官網^；子母床",
-          "rent_note": "租金官網未列",
-          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
-          "as_of": "2026-10-12"
+          "size_basis": "實用",
+          "rent_note": "租金未披露",
+          "source_url": "https://sunnyhouse.hk/en/shmk/room-types/",
+          "as_of": "2026-10-06"
         },
         {
-          "name": "單人房 S5",
-          "beds_per_room": 1,
+          "name": "Single Room S5",
           "size_sqft": 185,
-          "size_basis": "官網^；平床加沙發床",
-          "rent_note": "租金官網未列",
-          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
-          "as_of": "2026-10-12"
+          "size_basis": "實用",
+          "rent_note": "租金未披露",
+          "source_url": "https://sunnyhouse.hk/en/shmk/room-types/",
+          "as_of": "2026-10-06"
         },
         {
-          "name": "雙人房 D1",
-          "beds_per_room": 2,
+          "name": "Twin Room D1/D2/D3",
           "size_sqft": 186,
-          "size_basis": "官網^；雙層床一張",
-          "rent_note": "租金官網未列",
-          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
-          "as_of": "2026-10-12"
-        },
-        {
-          "name": "雙人房 D2",
-          "beds_per_room": 2,
-          "size_sqft": 198,
-          "size_basis": "官網^；雙層床一張",
-          "rent_note": "租金官網未列",
-          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
-          "as_of": "2026-10-12"
-        },
-        {
-          "name": "雙人房 D3",
-          "beds_per_room": 2,
-          "size_sqft": 230,
-          "size_basis": "官網^；雙層床一張",
-          "rent_note": "租金官網未列",
-          "source_url": "https://sunnyhouse.hk/shmk/shmk-rooms/",
-          "as_of": "2026-10-12"
-        },
-        {
-          "name": "單人房叫價（媒體，非官網）",
-          "beds_per_room": 1,
-          "rent_hkd_month": 14500,
-          "rent_basis": "每房起價",
-          "rent_note": "觀點網：旺角主打單人房，約14,500起。未分S1至S5，亦未說是否包水電。",
-          "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
-          "as_of": "2026-10-07"
-        }
-      ],
-      "metric_basis": {
-        "price_per_room_hkd_m": "source",
-        "price_psf_hkd": "source",
-        "price_per_bed_hkd_m": "calc",
-        "beds_per_room": "calc",
-        "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "operating",
-        "note": "官網FAQ：199個單位，只有單人同雙人，面積約134–230平方呎。單位數不等於床數。單人房叫價見媒體，官網仍未標租金。啟德加旺角合計出租率據報97%，不是旺角單獨數字。",
-        "rooms": 199,
-        "as_of": "2026-10-07",
-        "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
-      },
-      "name_after": "日新舍旺角",
-      "former_name": "旭逸酒店·旺角"
-    },
-    {
-      "id": "deal-202402-dash-queens",
-      "date": "2024-02",
-      "deal_date": "2024-02-06",
-      "asset": "The Sheung Wan by Ovolo → Dash Living on Queen's",
-      "asset_zh": "上環皇后大道中286號奧華酒店 → Dash Living on Queen's",
-      "location": "上環皇后大道中286號",
-      "district": "中西區",
-      "nearest_university": "港大（鄰近）",
-      "nearest_mtr": "上環／中環站",
-      "buyer": "PGIM Real Estate + Dash Living（合資）",
-      "seller": "未披露（星島：原財團2004年以約5,930萬購入）",
-      "original_use": "酒店",
-      "original_use_note": "The Sheung Wan by Ovolo，56房；2021年3月起由 Ovolo 與 Dash 共同管理",
-      "deal_status": "announced",
-      "status_basis": "Dash Living 新聞稿（Media OutReach 2024-02-06）；作價見星島日報",
-      "status_source_url": "https://www.media-outreach.com/news/hong-kong/2024/02/06/277384/dash-living-and-pgim-real-estate-expand-existing-partnership-with-acquisition-of-the-sheung-wan-by-ovolo/",
-      "price_hkd_m": 320,
-      "price_label": "約HK$3.2億（星島日報；官方新聞稿未列作價）",
-      "rooms": 56,
-      "gfa_sqft": 26000,
-      "price_per_room_hkd_m": 5.71,
-      "price_psf_hkd": 12307,
-      "psf_basis": "GFA",
-      "opening_date": "2024",
-      "opening_status": "actual",
-      "opening_note": "收購後改為 Dash Living on Queen's（共居；非專屬學生）",
-      "completion_year": 1999,
-      "type": "酒店改共居（非專屬學生）",
-      "status": "media_price",
-      "source": "Dash Living 新聞稿（Media OutReach）／星島日報",
-      "source_url": "https://www.media-outreach.com/news/hong-kong/2024/02/06/277384/dash-living-and-pgim-real-estate-expand-existing-partnership-with-acquisition-of-the-sheung-wan-by-ovolo/",
-      "other_sources": [
-        "https://852.house/zh/newses/181189",
-        "https://www.klgates.com/KL-Gates-Advises-Dash-Living-On-Second-Joint-Venture-with-PGIM-Real-Estate-for-the-Acquisition-and-Development-of-The-Sheung-Wan-by-Ovolo-3-5-2024",
-        "https://www.dash.co/en/hong-kong/dash-living-on-queens"
-      ],
-      "project_url": "https://www.dash.co/en/hong-kong/dash-living-on-queens",
-      "name_after": "Dash Living on Queen's",
-      "former_name": "The Sheung Wan by Ovolo／奧華酒店",
-      "room_types": [
-        {
-          "name": "Superior Queen High",
-          "size_sqft": 130,
-          "size_m2": 12,
-          "rent_hkd_month": 21800,
-          "rent_basis": "每房／每30晚起價",
-          "rent_note": "官網列 from HK$21,800–22,300 per 30 nights",
-          "source_url": "https://www.dash.co/en/hong-kong/dash-living-on-queens",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "Deluxe Queen High",
-          "size_sqft": 150,
-          "size_m2": 14,
-          "rent_hkd_month": 24600,
-          "rent_basis": "每房／每30晚起價",
-          "source_url": "https://www.dash.co/en/hong-kong/dash-living-on-queens",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "Deluxe Queen Low",
-          "size_sqft": 150,
-          "size_m2": 14,
-          "rent_hkd_month": 23800,
-          "rent_basis": "每房／每30晚起價",
-          "source_url": "https://www.dash.co/en/hong-kong/dash-living-on-queens",
-          "as_of": "2026-10-14"
+          "size_sqft_max": 230,
+          "size_basis": "實用",
+          "rent_note": "租金未披露",
+          "source_url": "https://sunnyhouse.hk/en/shmk/room-types/",
+          "as_of": "2026-10-06"
         }
       ],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
+        "price_per_bed_hkd_m": "calc",
+        "beds_per_room": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "metrics": "官方新聞稿確認收購 56-key The Sheung Wan by Ovolo，改 Dash Living on Queen's；星島日報（2024-02-06）報作價約3.2億、總面積約2.6萬呎、呎價約12,307元、每房約571萬。價屬媒體報導，故 status=media_price。"
+        "gfa_sqft": "source",
+        "beds_after": "source"
+      }
     },
     {
       "id": "deal-202408-y36",
       "date": "2024-08",
       "deal_date": "2024-08",
+      "date_label": "2024年8月",
       "asset": "Incredible Residences → Y36",
       "asset_zh": "紅磡新柳街3號 Incredible Residences → Y36（Y.X）",
       "location": "紅磡新柳街3號",
@@ -1347,7 +1699,8 @@
       "original_use_note": "25層商住大廈：61個住宅單位＋5個商舖",
       "original_use_source_url": "https://hk.on.cc/hk/bkn/cnt/finance/20240717/bkn-20240717182550899-0717_00842_001.html",
       "deal_status": "announced",
-      "status_basis": "晶苑投資新聞稿；一手住宅物業銷售資訊網紀錄（東網報道）",
+      "status_basis": "晶苑投資新聞稿（2024-08-30）確認收購，未披露價；價格只見媒體（東網引一手住宅銷售紀錄、Mingtiandi）",
+      "status_source_url": "https://www.prnasia.com/story/458984-1.shtml",
       "price_hkd_m": 123,
       "price_label": "HK$1.23億",
       "rooms": 61,
@@ -1361,60 +1714,67 @@
       "opening_date": null,
       "opening_status": null,
       "completion_year": 2020,
-      "metrics": "25層商住；5個商舖＋61個住宅單位（東網）；樓面23,878平方呎（HK$5,151/呎）；改建後61間單人及雙人房、82床；2020年落成（據報發展成本HK$4–4.2億）",
-      "type": "住宅改學生公寓",
-      "status": "confirmed",
-      "source": "Mingtiandi / 晶苑新聞稿",
-      "source_url": "https://www.mingtiandi.com/real-estate/finance/hong-kongs-crystal-buys-kowloon-buildings-for-student-housing/",
-      "other_sources": [
-        "https://hk.on.cc/hk/bkn/cnt/finance/20240717/bkn-20240717182550899-0717_00842_001.html"
-      ],
-      "project_url": "https://ydotx.com/zh/locations/y36/",
-      "room_types": [
+      "mixed_use": "含商舖",
+      "source_date": "2024-09-04",
+      "sources": [
         {
-          "name": "單人間",
-          "beds_per_room": 1,
-          "size_label": "約14.9平方米／160平方呎",
-          "rent_hkd_month": 16000,
-          "rent_basis": "官網標價，未註明每床或每房",
-          "rent_note": "港幣16,000元起。簡體頁曾寫15,500起，以繁體官網為準。",
-          "source_url": "https://ydotx.com/zh/locations/y36/",
-          "as_of": "2026-10-12"
+          "n": "Mingtiandi",
+          "d": "2024-09-04",
+          "u": "https://www.mingtiandi.com/real-estate/finance/hong-kongs-crystal-buys-kowloon-buildings-for-student-housing/"
         },
         {
-          "name": "雙人間",
-          "beds_per_room": 2,
-          "size_label": "約13.5平方米／145平方呎",
-          "rent_hkd_month": 9000,
-          "rent_basis": "官網標價，未註明每床或每房",
-          "rent_note": "港幣9,000元起。",
-          "source_url": "https://ydotx.com/zh/locations/y36/",
-          "as_of": "2026-10-12"
+          "n": "東網",
+          "d": "2024-07-17",
+          "u": "https://hk.on.cc/hk/bkn/cnt/finance/20240717/bkn-20240717182550899-0717_00842_001.html"
+        },
+        {
+          "n": "晶苑投資新聞稿（美通社）",
+          "d": "2024-08-30",
+          "u": "https://www.prnasia.com/story/458984-1.shtml"
         }
       ],
+      "status_source_date": "2024-08-30",
+      "price_sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2024-09-04",
+          "u": "https://www.mingtiandi.com/real-estate/finance/hong-kongs-crystal-buys-kowloon-buildings-for-student-housing/"
+        },
+        {
+          "n": "東網",
+          "d": "2024-07-17",
+          "u": "https://hk.on.cc/hk/bkn/cnt/finance/20240717/bkn-20240717182550899-0717_00842_001.html"
+        }
+      ],
+      "price_outlets": 2,
+      "metrics": "25層商住；5個商舖＋61個住宅單位（東網）；樓面23,878平方呎（HK$5,151/呎）；改建後61間單人及雙人房、82床；2020年落成（據報發展成本HK$4–4.2億）",
+      "type": "住宅改學生公寓",
+      "status": "media_price",
+      "region": "香港",
+      "source": "Mingtiandi",
+      "source_url": "https://www.mingtiandi.com/real-estate/finance/hong-kongs-crystal-buys-kowloon-buildings-for-student-housing/",
+      "other_sources": [
+        "https://hk.on.cc/hk/bkn/cnt/finance/20240717/bkn-20240717182550899-0717_00842_001.html",
+        "https://www.prnasia.com/story/458984-1.shtml"
+      ],
+      "project_url": null,
+      "room_types": [],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
         "price_per_bed_hkd_m": "calc",
         "beds_per_room": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "operating",
-        "rooms": 61,
-        "beds": 82,
-        "as_of": "2026-10-12",
-        "source_url": "https://ydotx.com/zh/locations/y36/",
-        "note": "官網寫約82個床位，單人同雙人。2024年8月報道為61個房間。標價未註明每床定每房。"
-      },
-      "name_after": "Y36",
-      "former_name": "Incredible Residences"
+        "gfa_sqft": "source",
+        "beds_after": "source",
+        "mixed_use": "source"
+      }
     },
     {
-      "id": "deal-202408-park",
+      "id": "deal-202407-popway",
       "date": "2024-07",
       "deal_date": "2024-07",
+      "date_label": "2024年7月",
       "asset": "Popway Hotel → One Pace 117",
       "asset_zh": "尖沙咀珀薈酒店 → 一步居117（壹社）",
       "location": "尖沙咀漆咸道南117號",
@@ -1427,7 +1787,7 @@
       "original_use_note": "珀薈精品酒店（2015年改建）",
       "original_use_source_url": "https://hk.on.cc/hk/bkn/cnt/finance/20240807/bkn-20240807181020949-0807_00842_001.html",
       "deal_status": "announced",
-      "status_basis": "中原投資公布",
+      "status_basis": "中原投資公開交代收購（信報、The Standard 報道）；未見正式新聞稿，價格屬媒體報道",
       "price_hkd_m": 180,
       "price_label": "HK$1.80億",
       "rooms": 63,
@@ -1435,7 +1795,7 @@
       "beds_after": 121,
       "capex_hkd_m": 20,
       "price_per_room_hkd_m": 2.86,
-      "price_psf_hkd": 7300,
+      "price_psf_hkd": 7332,
       "psf_basis": "GFA",
       "price_per_bed_hkd_m": 1.49,
       "all_in_per_bed_hkd_m": 1.65,
@@ -1447,10 +1807,78 @@
       "occupancy_note": "截至2025年8月出租率近99%",
       "rent_per_bed_min_hkd": 6355,
       "rent_per_bed_max_hkd": 18270,
-      "metrics": "20層；63間客房；總建築面積約24,551平方呎（東網）；呎價約HK$7,300；另投放約HK$2,000萬翻新；收購時計劃約150床，營運時121床；2025年8月中開業；最高呎租約HK$91；房／床並列：63房／121床；2026/27學年再度100%出租、距理大約5分鐘（中原投資公布，信報 2026-08-22、am730 2026-08-23）",
+      "rent_label": "起價／叫價月租",
+      "source_date": "2024-09-09",
+      "sources": [
+        {
+          "n": "信報",
+          "d": "2024-09-09",
+          "u": "https://www.hkej.com/instantnews/property/article/3873545/%E4%B8%AD%E5%8E%9F%E6%8A%95%E8%B3%871.8%E5%84%84%E8%B3%BC%E7%8F%80%E8%96%88%E9%85%92%E5%BA%97+%E6%89%93%E9%80%A0%E5%AD%B8%E7%94%9F%E5%85%AC%E5%AF%93"
+        },
+        {
+          "n": "The Standard",
+          "d": "2024-09-10",
+          "u": "https://www.thestandard.com.hk/finance/article/66064/Centaline-buys-hotel-for-student-housing"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2024-07-24",
+          "u": "https://www.mingtiandi.com/real-estate/finance/hotelier-david-lau-ka-wai-sells-popway-hotel-in-tsim-sha-tsui/"
+        },
+        {
+          "n": "壹社官網",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://campusonecommunities.com/hk/one-pace-117/"
+        },
+        {
+          "n": "36氪",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.36kr.com/p/3631520108475144"
+        },
+        {
+          "n": "大公報",
+          "d": "2026-03-24",
+          "u": "https://epaper.tkww.hk/a/202603/24/AP69c1a1b1e4b04773b06a49bc.html"
+        },
+        {
+          "n": "東網",
+          "d": "2024-08-07",
+          "u": "https://hk.on.cc/hk/bkn/cnt/finance/20240807/bkn-20240807181020949-0807_00842_001.html"
+        },
+        {
+          "n": "信報",
+          "d": "2026-08-22",
+          "u": "https://www.hkej.com/dailynews/property/article/4490792/"
+        },
+        {
+          "n": "am730",
+          "d": "2026-08-23",
+          "u": "https://www.am730.com.hk/article/1049014"
+        }
+      ],
+      "price_sources": [
+        {
+          "n": "信報",
+          "d": "2024-09-09",
+          "u": "https://www.hkej.com/instantnews/property/article/3873545/%E4%B8%AD%E5%8E%9F%E6%8A%95%E8%B3%871.8%E5%84%84%E8%B3%BC%E7%8F%80%E8%96%88%E9%85%92%E5%BA%97+%E6%89%93%E9%80%A0%E5%AD%B8%E7%94%9F%E5%85%AC%E5%AF%93"
+        },
+        {
+          "n": "東網",
+          "d": "2024-08-07",
+          "u": "https://hk.on.cc/hk/bkn/cnt/finance/20240807/bkn-20240807181020949-0807_00842_001.html"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2024-07-24",
+          "u": "https://www.mingtiandi.com/real-estate/finance/hotelier-david-lau-ka-wai-sells-popway-hotel-in-tsim-sha-tsui/"
+        }
+      ],
+      "price_outlets": 3,
+      "metrics": "20層；63間客房；總建築面積約24,551平方呎（東網）；呎價約HK$7,300（Mingtiandi；按24,551平方呎計約HK$7,332）；另投放約HK$2,000萬翻新；收購時計劃約150床，營運時121床；2025年8月中開業；最高呎租約HK$91；房／床並列：63房／121床；2026/27學年再度100%出租、距理大約5分鐘（中原投資公布，信報 2026-08-22、am730 2026-08-23）",
       "type": "酒店改學生公寓",
-      "status": "confirmed",
-      "source": "信報／The Standard／中原投資",
+      "status": "media_price",
+      "region": "香港",
+      "source": "信報",
       "source_url": "https://www.hkej.com/instantnews/property/article/3873545/%E4%B8%AD%E5%8E%9F%E6%8A%95%E8%B3%871.8%E5%84%84%E8%B3%BC%E7%8F%80%E8%96%88%E9%85%92%E5%BA%97+%E6%89%93%E9%80%A0%E5%AD%B8%E7%94%9F%E5%85%AC%E5%AF%93",
       "other_sources": [
         "https://www.thestandard.com.hk/finance/article/66064/Centaline-buys-hotel-for-student-housing",
@@ -1506,54 +1934,38 @@
           "rent_note": "中原地產學生居舍刊登：每位月租起價",
           "source_url": "https://hk.centanet.com/student-accommodation/room_191172",
           "as_of": "2026-10-06"
-        },
-        {
-          "name": "在租水平（媒體綜述）",
-          "rent_label": "單人房約18,000–20,000；雙人床約9,100；三人床約6,300起",
-          "rent_basis": "單人按房，多人按床",
-          "rent_note": "不是逐張租約，亦不是平均租金。新學年前已滿租。",
-          "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
-          "as_of": "2026-10-07"
         }
       ],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
         "price_per_bed_hkd_m": "calc",
         "all_in_per_bed_hkd_m": "calc",
         "beds_per_room": "calc",
         "months_deal_to_open": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "ref_label": "一步居117",
-      "rent_roll": {
-        "status": "operating",
-        "note": "67間房、121床。二人房約佔八成，但官網未列每款幾多間，所以未有完整租務表，只能用起價同意最近的綜述做區間。",
-        "rooms": 67,
-        "beds": 121,
-        "occupancy_pct": 100,
-        "as_of": "2026-10-07",
-        "source_url": "https://www.guandian.hk/article/20261007/10020188.html"
-      },
-      "name_after": "一步居117（ONE PACE 117）",
-      "former_name": "珀薈酒店"
+        "gfa_sqft": "source",
+        "beds_after": "source",
+        "capex_hkd_m": "source"
+      }
     },
     {
       "id": "deal-202406-ease-lck",
       "date": "2024-06",
       "deal_date": "2024-06",
-      "asset": "旭逸雅捷酒店 – Lai Chi Kok",
-      "asset_zh": "長沙灣永康街42A號 旭逸雅捷酒店（Y.X）",
+      "date_label": "2024年6月",
+      "asset": "Hotel Ease Access – Lai Chi Kok",
+      "asset_zh": "長沙灣永康街42A號 Hotel Ease Access（Y.X）",
       "location": "長沙灣永康街42A號",
       "district": "深水埗",
       "nearest_mtr": "荔枝角站（步行約7分鐘）",
       "buyer": "晶苑投資旗下 Y.X",
       "seller": "鄧成波家族",
       "original_use": "酒店",
-      "original_use_note": "旭逸雅捷酒店（2022年由商廈改酒店）",
+      "original_use_note": "Hotel Ease Access（2022年由商廈改酒店）",
       "deal_status": "announced",
-      "status_basis": "晶苑投資新聞稿",
+      "status_basis": "晶苑投資新聞稿（2024-08-30）確認收購，未披露價；價格只見媒體及第三方代理評論",
+      "status_source_url": "https://www.prnasia.com/story/458984-1.shtml",
       "price_hkd_m": 220,
       "price_label": "HK$2.2億",
       "rooms": 119,
@@ -1563,33 +1975,68 @@
       "psf_basis": "GFA",
       "opening_date": null,
       "opening_status": null,
-      "metrics": "21層；119間客房；樓面38,619平方呎（HK$5,697/呎、每房HK$185萬）；較2023年6月估值HK$4.1億折讓46%；2022年由商廈改酒店；SCMP 指4月下旬購入、Mingtiandi 指6月",
+      "source_date": "2024-09-04",
+      "sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2024-09-04",
+          "u": "https://www.mingtiandi.com/real-estate/finance/hong-kongs-crystal-buys-kowloon-buildings-for-student-housing/"
+        },
+        {
+          "n": "戴德梁行新聞稿",
+          "d": "2024-11-27",
+          "u": "https://n.yam.com/Article/20241127778068"
+        },
+        {
+          "n": "晶苑投資新聞稿（美通社）",
+          "d": "2024-08-30",
+          "u": "https://www.prnasia.com/story/458984-1.shtml"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2026-09-14",
+          "u": "https://www.mingtiandi.com/real-estate/finance/capitaland-buys-ibis-hotel-in-hong-kong-from-butterfly-hospitality/"
+        }
+      ],
+      "status_source_date": "2024-08-30",
+      "price_sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2024-09-04",
+          "u": "https://www.mingtiandi.com/real-estate/finance/hong-kongs-crystal-buys-kowloon-buildings-for-student-housing/"
+        },
+        {
+          "n": "戴德梁行新聞稿",
+          "d": "2024-11-27",
+          "u": "https://n.yam.com/Article/20241127778068"
+        }
+      ],
+      "price_outlets": 2,
+      "metrics": "21層；119間客房；樓面38,619平方呎（HK$5,697/呎、每房HK$185萬）；較2023年6月估值HK$4.1億折讓46%；2022年由商廈改酒店；成交月份並列：4月下旬（SCMP）／5月（戴德梁行 2024-11-27）／6月（Mingtiandi 2024-09-04）；晶苑新聞稿（2024-08-30）確認收購但未披露價",
       "type": "酒店改學生公寓",
-      "status": "confirmed",
-      "source": "Mingtiandi / 晶苑新聞稿",
+      "status": "media_price",
+      "region": "香港",
+      "source": "Mingtiandi",
       "source_url": "https://www.mingtiandi.com/real-estate/finance/hong-kongs-crystal-buys-kowloon-buildings-for-student-housing/",
       "other_sources": [
+        "https://n.yam.com/Article/20241127778068",
+        "https://www.prnasia.com/story/458984-1.shtml",
         "https://www.mingtiandi.com/real-estate/finance/capitaland-buys-ibis-hotel-in-hong-kong-from-butterfly-hospitality/"
       ],
       "project_url": null,
       "room_types": [],
       "metric_basis": {
-        "price_per_room_hkd_m": "source",
-        "price_psf_hkd": "source",
+        "price_per_room_hkd_m": "calc",
+        "price_psf_hkd": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "not_open_or_undisclosed",
-        "note": "2026-10-14 已查：未見改建後公開招租房型／租金／面積（或尚未開業）",
-        "as_of": "2026-10-14"
-      },
-      "former_name": "旭逸雅捷酒店（長沙灣）"
+      }
     },
     {
       "id": "deal-202406-mu88",
       "date": "2024-06",
       "deal_date": "2024-06",
+      "date_label": "2024年6月",
       "asset": "Urbanwood Hung Hom → MU88",
       "asset_zh": "紅磡城木酒店 → 都會大學 MU88",
       "location": "紅磡蕪湖街84–102號",
@@ -1608,18 +2055,76 @@
       "rooms": 255,
       "gfa_sqft": 66400,
       "beds_after": 430,
-      "price_per_room_hkd_m": 3.9,
+      "price_per_room_hkd_m": 3.92,
       "price_psf_hkd": 15060,
       "psf_basis": "GFA",
       "price_per_bed_hkd_m": 2.33,
       "beds_per_room": 1.69,
-      "opening_date": "2024-08",
-      "opening_status": "target",
-      "opening_note": "收購時公布2024年8月啟用（最多480人）；其後停運改裝，2026/27學年以約430床重開",
-      "months_deal_to_open": 2,
-      "metrics": "兩幢16層；255間客房；GFA約66,400平方呎（約HK$15,060/呎、每房HK$390萬）；最初可住480人，改裝後約430床；Savills 代理；2026-08-20開幕、8月21日起入住：紅磡蕪湖街84–102號（大公報 2026-08-21；都大官網）、酒店改建、城中學舍首批完成改裝項目之一、以雙人房為主、逾八成宿位已出租（am730、大公報、文匯報 2026-08-21）；宿位並列：約430（am730、大公報、文匯報 2026-08-21）／434（都大官網）；房數並列：255間（文匯報 2026-08-21）／約200間（am730）／逾200間（大公報）；A、B兩座分別16層及14層（大公報、文匯報）；2026/27秋＋春兩學期宿費：三人房6.7萬、雙人房7.2萬–7.7萬、單人房12.6萬元（都大官網；大公報、am730 2026-08-21）；宿位主要供全日制非本地本科生，其餘預留交換生及訪問學者（am730、大公報）；校長稱租金只用於營運，無計劃以租金收回購入成本（am730、大公報 2026-08-21）；約10億仍屬媒體價（校方未披露）；都大官網 mu88 連結本次核對回 403",
+      "opening_date": "2026-08",
+      "opening_status": "actual",
+      "opening_note": "2026-08-20開幕、8月21日起入住（am730、大公報 2026-08-21）；收購時曾公布2024年8月啟用（最多480人），其後停運改裝",
+      "months_deal_to_open": 26,
+      "source_date": "2024-07-01",
+      "sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2024-07-01",
+          "u": "https://www.mingtiandi.com/real-estate/finance/university-buys-hong-kong-hotel-for-128m-as-mainland-enrollment-surges/"
+        },
+        {
+          "n": "都會大學官網",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.hkmu.edu.hk/mu88/"
+        },
+        {
+          "n": "The Standard",
+          "d": "2024-09-10",
+          "u": "https://www.thestandard.com.hk/finance/article/66064/Centaline-buys-hotel-for-student-housing"
+        },
+        {
+          "n": "am730",
+          "d": "2026-08-21",
+          "u": "https://www.am730.com.hk/article/1048699"
+        },
+        {
+          "n": "大公報",
+          "d": "2026-08-21",
+          "u": "https://epaper.tkww.hk/a/202608/21/AP6a876376e4b099d2ba4902aa.html"
+        },
+        {
+          "n": "文匯報",
+          "d": "2026-08-21",
+          "u": "https://www.wenweipo.com/a/202608/21/AP6a8767aae4b0c1e500259e8c.html"
+        },
+        {
+          "n": "都會大學 MU88 FAQ",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.hkmu.edu.hk/sao/mu88/mu88-student-residence-faq/"
+        },
+        {
+          "n": "都會大學 MU88 申請頁",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.hkmu.edu.hk/sao/mu88/application-and-contacts/application-continuing-students/"
+        }
+      ],
+      "status_source_date": "瀏覽 2026-10-07",
+      "price_sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2024-07-01",
+          "u": "https://www.mingtiandi.com/real-estate/finance/university-buys-hong-kong-hotel-for-128m-as-mainland-enrollment-surges/"
+        },
+        {
+          "n": "The Standard",
+          "d": "2024-09-10",
+          "u": "https://www.thestandard.com.hk/finance/article/66064/Centaline-buys-hotel-for-student-housing"
+        }
+      ],
+      "price_outlets": 2,
+      "metrics": "兩幢16層；255間客房；GFA約66,400平方呎（約HK$15,060/呎、每房HK$390萬）；最初可住480人，改裝後約430床；Savills 代理；2026-08-20開幕、8月21日起入住：紅磡蕪湖街84–102號（大公報 2026-08-21；都大官網）、酒店改建、城中學舍首批完成改裝項目之一、以雙人房為主、逾八成宿位已出租（am730、大公報、文匯報 2026-08-21）；宿位並列：約430（am730、大公報、文匯報 2026-08-21）／434（都大官網）；房數並列：255間（文匯報 2026-08-21）／約200間（am730）／逾200間（大公報）；A、B兩座分別16層及14層（大公報、文匯報）；2026/27秋＋春兩學期宿費：三人房6.7萬、雙人房7.2萬–7.7萬、單人房12.6萬元（都大官網；大公報、am730 2026-08-21）；宿位主要供全日制非本地本科生，其餘預留交換生及訪問學者（am730、大公報）；校長稱租金只用於營運，無計劃以租金收回購入成本（am730、大公報 2026-08-21）；約10億仍屬媒體價（校方未披露）",
       "type": "大學購酒店作宿舍",
       "status": "media_price",
+      "region": "香港",
       "source": "Mingtiandi / 都大",
       "source_url": "https://www.mingtiandi.com/real-estate/finance/university-buys-hong-kong-hotel-for-128m-as-mainland-enrollment-surges/",
       "other_sources": [
@@ -1628,78 +2133,36 @@
         "https://www.am730.com.hk/article/1048699",
         "https://epaper.tkww.hk/a/202608/21/AP6a876376e4b099d2ba4902aa.html",
         "https://www.wenweipo.com/a/202608/21/AP6a8767aae4b0c1e500259e8c.html",
-        "https://www.hkmu.edu.hk/sao/tc/mu88-student-residence-faq/",
+        "https://www.hkmu.edu.hk/sao/mu88/mu88-student-residence-faq/",
         "https://www.hkmu.edu.hk/sao/mu88/application-and-contacts/application-continuing-students/"
       ],
       "project_url": "https://www.hkmu.edu.hk/mu88/",
       "room_types": [
         {
-          "name": "單人房",
-          "beds_per_room": 1,
-          "size_label": "實用約9–11平方米",
-          "rent_label": "兩學期126,000；暑假25,300；全年151,300",
-          "rent_basis": "每床宿費",
-          "rent_note": "秋季+春季為2026-08-21至2027-05-20。非牟利，不是私人項目可收租金。",
-          "source_url": "https://www.hkmu.edu.hk/sao/mu88/facilities-and-living/student-rooms/",
-          "as_of": "2026-08-25"
-        },
-        {
-          "name": "雙人房（A座）",
-          "beds_per_room": 2,
-          "size_label": "實用約14–16平方米",
-          "rent_label": "兩學期77,000；暑假14,600；全年91,600",
-          "rent_basis": "每床宿費",
-          "rent_note": "官網未寫這筆係每床定每房。對照香港01「二人房月租7,700」，較似每位。",
-          "source_url": "https://www.hkmu.edu.hk/sao/mu88/facilities-and-living/student-rooms/",
-          "as_of": "2026-08-25"
-        },
-        {
-          "name": "雙人房（B座）",
-          "beds_per_room": 2,
-          "size_label": "實用約10–12平方米",
-          "rent_label": "兩學期72,000；暑假13,700；全年85,700",
-          "rent_basis": "每床宿費",
-          "rent_note": "香港01對應月租約7,200。",
-          "source_url": "https://www.hkmu.edu.hk/sao/mu88/facilities-and-living/student-rooms/",
-          "as_of": "2026-08-25"
-        },
-        {
-          "name": "三人房",
-          "beds_per_room": 3,
-          "size_label": "實用約14–16平方米",
-          "rent_label": "兩學期67,000；暑假12,500；全年79,500",
-          "rent_basis": "每床宿費",
-          "rent_note": "香港01對應月租約6,700。未公布每款幾多間。",
-          "source_url": "https://www.hkmu.edu.hk/sao/mu88/facilities-and-living/student-rooms/",
-          "as_of": "2026-08-25"
+          "name": "單人房（2024/25，改裝前）",
+          "rent_hkd_month": 112000,
+          "rent_basis": "每人每年",
+          "rent_note": "校方公布年費HK$112,000，包水電及HK$8,000按金",
+          "source_url": "https://www.mingtiandi.com/real-estate/finance/university-buys-hong-kong-hotel-for-128m-as-mainland-enrollment-surges/",
+          "as_of": "2024-07"
         }
       ],
       "metric_basis": {
-        "price_per_room_hkd_m": "source",
-        "price_psf_hkd": "source",
+        "price_per_room_hkd_m": "calc",
+        "price_psf_hkd": "calc",
         "price_per_bed_hkd_m": "calc",
         "beds_per_room": "calc",
         "months_deal_to_open": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "operating",
-        "note": "大學非牟利宿舍。文匯報：255間房、約430床，以雙人房為主；明報引政府網站則寫448個宿位，床數未統一。約八成已出租。宿費是學期價，不要除一個未核實的月數當成市場月租。香港01曾把單人房寫成月租12,600。",
-        "rooms": 255,
-        "beds": 430,
-        "occupancy_pct": 80,
-        "as_of": "2026-08-20",
-        "source_url": "https://www.wenweipo.com/a/202608/20/AP6a8685ace4b0c1e500258a75.html"
-      },
-      "name_after": "都會大學 MU88",
-      "former_name": "城木酒店",
-      "note_zh": "都大項目網頁 hkmu.edu.hk/mu88/ 回 403／無法核實；約10億維持媒體價"
+        "gfa_sqft": "source",
+        "beds_after": "source"
+      }
     },
     {
       "id": "deal-202212-pentahotel",
       "date": "2022-12",
       "deal_date": "2022-12-28",
+      "date_label": "2022年12月",
       "asset": "Pentahotel Hong Kong, Kowloon → Sunny House @Kai Tak",
       "asset_zh": "新蒲崗貝爾特酒店 → 日新舍啟德",
       "location": "新蒲崗六合街19號",
@@ -1734,9 +2197,51 @@
       "opening_status": "actual",
       "opening_note": "2024年翻新為日新舍啟德（36氪）",
       "completion_year": 2013,
+      "source_date": "2022-12-29",
+      "sources": [
+        {
+          "n": "宏安地產新聞稿",
+          "d": "2022-12-29",
+          "u": "https://www.woproperties.com/uploaded_files/news/83/0bebebfe262eacd6107777b722836de2f6e186e5.pdf"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2025-08-03",
+          "u": "https://www.mingtiandi.com/real-estate/finance/angelo-gordon-wang-on-buy-hotel-ease-mong-kok-in-hong-kong/"
+        },
+        {
+          "n": "日新舍官網",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://sunnyhouse.hk/en/home/"
+        },
+        {
+          "n": "36氪",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.36kr.com/p/3631520108475144"
+        },
+        {
+          "n": "日新舍官網轉載信報",
+          "d": "2024-06-24",
+          "u": "https://sunnyhouse.hk/en/press/hkej/"
+        }
+      ],
+      "price_sources": [
+        {
+          "n": "宏安地產新聞稿",
+          "d": "2022-12-29",
+          "u": "https://www.woproperties.com/uploaded_files/news/83/0bebebfe262eacd6107777b722836de2f6e186e5.pdf"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2025-08-03",
+          "u": "https://www.mingtiandi.com/real-estate/finance/angelo-gordon-wang-on-buy-hotel-ease-mong-kok-in-hong-kong/"
+        }
+      ],
+      "price_outlets": 2,
       "metrics": "695間客房；GFA約285,000平方呎；地盤約23,800平方呎；改為逾1,400床（官網；36氪稱720房、可容1,424人；信報稱720房、可容1,450人）；總投資額HK$22億（信報）；2025年6月宏安據報將20%權益售予GIC",
       "type": "酒店改學生公寓",
       "status": "confirmed",
+      "region": "香港",
       "source": "宏安地產新聞稿／港交所公告",
       "source_url": "https://www.woproperties.com/uploaded_files/news/83/0bebebfe262eacd6107777b722836de2f6e186e5.pdf",
       "other_sources": [
@@ -1745,7 +2250,7 @@
         "https://www.36kr.com/p/3631520108475144",
         "https://sunnyhouse.hk/en/press/hkej/"
       ],
-      "project_url": "https://sunnyhouse.hk/shkt/shkt-rooms/",
+      "project_url": "https://sunnyhouse.hk/en/home/",
       "room_types": [
         {
           "name": "Single Room S1",
@@ -1780,43 +2285,25 @@
           "rent_note": "由480呎起；租金未披露",
           "source_url": "https://sunnyhouse.hk/en/shkt/shkt-rooms/",
           "as_of": "2026-10-06"
-        },
-        {
-          "name": "雙人房叫價（媒體，非官網）",
-          "beds_per_room": 2,
-          "rent_hkd_month": 8500,
-          "rent_basis": "未註明每房或每床",
-          "rent_note": "觀點網寫「月租約8,500起」，未說明是每床。單人房當時已滿，沒有單人叫價。",
-          "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
-          "as_of": "2026-10-07"
         }
       ],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
         "price_per_bed_hkd_m": "calc",
         "all_in_per_bed_hkd_m": "calc",
         "beds_per_room": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "operating",
-        "note": "官網FAQ：720個單位，單人至四人房，面積約230–480平方呎。單位數不等於床數（成交表床數1,400–1,450）。2026年8月10日新聞稿：啟德單人房已租滿。10月7日：只剩小部分雙人房，約8,500起。啟德加旺角合計出租率97%。",
-        "rooms": 720,
-        "occupancy_pct": 97,
-        "as_of": "2026-10-07",
-        "source_url": "https://www.guandian.hk/article/20261007/10020188.html",
-        "occupancy_scope": "合計（啟德＋旺角）",
-        "occupancy_note": "啟德加旺角合計口徑，非啟德單項目"
-      },
-      "name_after": "日新舍啟德",
-      "former_name": "貝爾特酒店"
+        "gfa_sqft": "source",
+        "beds_after": "source",
+        "total_investment_hkd_m": "source"
+      }
     },
     {
       "id": "deal-2022-grand-city",
       "date": "2022-05",
       "deal_date": "2022-05-11",
+      "date_label": "2022年5月",
       "asset": "Grand City Hotel → Weave Studios / Weave Campus – Sai Ying Pun",
       "asset_zh": "西營盤 Grand City Hotel（Weave Campus）",
       "location": "西營盤皇后大道西338–346號",
@@ -1833,78 +2320,56 @@
       "rooms": 214,
       "gfa_sqft": 60150,
       "price_per_room_hkd_m": 4.21,
-      "price_psf_hkd": 14960,
+      "price_psf_hkd": 14963,
       "psf_basis": "GFA",
       "opening_date": "2023",
       "opening_status": "actual",
-      "opening_note": "2023年以 Weave Studios 開業；2026/27學年改為 Weave Campus 學生公寓；2026/27學年合約期約2026-09-01至2027-07-31（Weave Campus 官網）",
+      "opening_note": "2023年以 Weave Studios 開業；2026/27學年改為 Weave Campus 學生公寓",
+      "source_date": "2022-05-11",
+      "sources": [
+        {
+          "n": "Weave Living 新聞稿（美通社）",
+          "d": "2022-05-11",
+          "u": "https://en.prnasia.com/releases/apac/weave-living-grows-hong-kong-island-footprint-with-new-central-western-district-property-360968.shtml"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2026-06-12",
+          "u": "https://www.mingtiandi.com/real-estate/finance/weave-rejigs-in-hong-kong-with-student-housing-and-kai-tak-sale/"
+        }
+      ],
+      "price_sources": [
+        {
+          "n": "Weave Living 新聞稿（美通社）",
+          "d": "2022-05-11",
+          "u": "https://en.prnasia.com/releases/apac/weave-living-grows-hong-kong-island-footprint-with-new-central-western-district-property-360968.shtml"
+        }
+      ],
+      "price_outlets": 1,
+      "single_source": true,
       "metrics": "32層；214個單位；總樓面60,150平方呎（HK$14,960/呎）；原共居，2026/27學年起定位學生公寓品牌 Weave Campus",
       "type": "酒店改共居 → 學生公寓",
       "status": "confirmed",
+      "region": "香港",
       "source": "Weave 新聞稿 / Mingtiandi",
       "source_url": "https://en.prnasia.com/releases/apac/weave-living-grows-hong-kong-island-footprint-with-new-central-western-district-property-360968.shtml",
       "other_sources": [
         "https://www.mingtiandi.com/real-estate/finance/weave-rejigs-in-hong-kong-with-student-housing-and-kai-tak-sale/"
       ],
-      "project_url": "https://www.weave-living.com/hong-kong/weave-campus-sai-ying-pun",
-      "room_types": [
-        {
-          "name": "Studio Single",
-          "size_sqft": 152,
-          "size_m2": 14,
-          "beds_per_room": 1,
-          "rent_hkd_month": null,
-          "rent_note": "官網房型頁未列租金；項目學生住頁寫 From HK$20,800/month（未分房型）",
-          "source_url": "https://www.weave-living.com/hong-kong/weave-campus-sai-ying-pun/campus-syp-studio-single",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "Studio Queen",
-          "size_sqft": 170,
-          "size_m2": 16,
-          "beds_per_room": 2,
-          "rent_hkd_month": null,
-          "rent_note": "官網房型頁未列租金",
-          "source_url": "https://www.weave-living.com/hong-kong/weave-campus-sai-ying-pun/campus-syp-studio-single",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "Studio Premier",
-          "size_sqft": 318,
-          "size_m2": 30,
-          "beds_per_room": 2,
-          "rent_hkd_month": null,
-          "rent_note": "官網房型頁未列租金",
-          "source_url": "https://www.weave-living.com/hong-kong/weave-campus-sai-ying-pun/campus-syp-studio-premier",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "項目起價（未分房型）",
-          "rent_hkd_month": 20800,
-          "rent_basis": "每房起價（項目學生住頁）",
-          "rent_note": "Weave Campus 學生住頁：Sai Ying Pun From HK$20,800/month；港大 Cedars 另列 From HK$16,800（需向營運商確認）",
-          "source_url": "https://www.weave-living.com/en/student-housing",
-          "as_of": "2026-10-14"
-        }
-      ],
+      "project_url": "https://www.weave-living.com/",
+      "room_types": [],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
-        "price_psf_hkd": "source",
+        "price_psf_hkd": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "operating",
-        "note": "Weave 已營運。今次未找到西營盤 Grand City 按房型的公開叫價，所以未入租金。",
-        "as_of": "2026-10-12"
-      },
-      "name_after": "Weave Campus – 西營盤",
-      "former_name": "Grand City Hotel"
+      }
     },
     {
       "id": "deal-202204-rosedale",
       "date": "2022-04",
       "deal_date": "2022-04",
+      "date_label": "2022年4月",
       "asset": "Rosedale Hotel Kowloon → Weave Studios – Kowloon West",
       "asset_zh": "大角咀珀麗酒店 → Weave Studios – Kowloon West",
       "location": "大角咀大角咀道86號",
@@ -1915,70 +2380,75 @@
       "original_use": "酒店",
       "original_use_note": "珀麗酒店（435房）",
       "deal_status": "announced",
-      "status_basis": "PGIM 新聞稿",
-      "price_hkd_m": 1370,
-      "price_label": "HK$13.7億",
+      "status_basis": "德祥地產港交所公告（2022-04-04）；PGIM 新聞稿",
+      "status_source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2022/0404/2022040402078.pdf",
+      "price_hkd_m": 1375,
+      "price_label": "約HK$13.75億（德祥地產公告代價）；Mingtiandi 報HK$13.7億",
       "rooms": 435,
       "gfa_sqft": 111000,
       "price_per_room_hkd_m": 3.16,
-      "price_psf_hkd": 12342,
+      "price_psf_hkd": 12387,
       "psf_basis": "GFA",
       "opening_date": "2023-05",
       "opening_status": "actual",
       "months_deal_to_open": 13,
-      "metrics": "435間客房；樓面約111,000平方呎；改為435個開放式租住單位；2023年5月開業；德祥地產港交所公告",
+      "source_date": "2022-04-05",
+      "sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2022-04-05",
+          "u": "https://www.mingtiandi.com/real-estate/finance/weave-living-pgim-buy-rosedale-hotel-in-kowloon/"
+        },
+        {
+          "n": "德祥地產港交所公告",
+          "d": "2022-04-04",
+          "u": "https://www1.hkexnews.hk/listedco/listconews/sehk/2022/0404/2022040402078.pdf"
+        },
+        {
+          "n": "PGIM 刊物",
+          "d": "2023-09-17",
+          "u": "https://www.pgim.com/content/dam/pgim/us/en/pgim-real-estate/active/documents/portfolios/PGIM-Real-Estate-expands-rental-housing-portfolio-in-Asia-Pacific.pdf"
+        }
+      ],
+      "status_source_date": "2022-04-04",
+      "price_sources": [
+        {
+          "n": "德祥地產港交所公告",
+          "d": "2022-04-04",
+          "u": "https://www1.hkexnews.hk/listedco/listconews/sehk/2022/0404/2022040402078.pdf"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2022-04-05",
+          "u": "https://www.mingtiandi.com/real-estate/finance/weave-living-pgim-buy-rosedale-hotel-in-kowloon/"
+        }
+      ],
+      "price_outlets": 2,
+      "metrics": "435間客房；樓面約111,000平方呎；改為435個開放式租住單位；2023年5月開業；德祥地產港交所公告（2022-04-04）：27層、435房、代價約HK$13.75億、估值HK$13.6億",
       "type": "酒店改共居（非專屬學生）",
       "status": "confirmed",
+      "region": "香港",
       "source": "Mingtiandi / PGIM 新聞稿",
       "source_url": "https://www.mingtiandi.com/real-estate/finance/weave-living-pgim-buy-rosedale-hotel-in-kowloon/",
       "other_sources": [
+        "https://www1.hkexnews.hk/listedco/listconews/sehk/2022/0404/2022040402078.pdf",
         "https://www.pgim.com/content/dam/pgim/us/en/pgim-real-estate/active/documents/portfolios/PGIM-Real-Estate-expands-rental-housing-portfolio-in-Asia-Pacific.pdf"
       ],
-      "project_url": "https://www.weave-living.com/hong-kong/weave-studios-kowloon-west",
-      "room_types": [
-        {
-          "name": "Studio Single",
-          "beds_per_room": 1,
-          "size_sqft": 150,
-          "size_basis": "業主盤實用",
-          "rent_hkd_month": 15500,
-          "rent_basis": "每房",
-          "rent_note": "一人入住。包水電、管理費、WiFi、每週清潔。12個月或以上。官網同日附近亦見由15,500起（原價18,000）。",
-          "source_url": "https://www.28hse.com/en/rent/residential/property-2677669",
-          "as_of": "2026-09-01"
-        },
-        {
-          "name": "Studio Double",
-          "beds_per_room": 2,
-          "size_sqft": 160,
-          "size_basis": "官網約160平方呎／15平方米",
-          "rent_hkd_month": 16920,
-          "rent_basis": "每房（兩人合共）",
-          "rent_note": "不要拆成每床除非租約寫明分租。業主盤寫16,920起、二人入住。",
-          "source_url": "https://www.weave-living.com/tc/hong-kong/weave-studios-kowloon-west/kowloon-west-studio-double",
-          "as_of": "2026-10-12"
-        }
-      ],
+      "project_url": "https://www.weave-living.com/",
+      "room_types": [],
       "metric_basis": {
-        "price_per_room_hkd_m": "source",
+        "price_per_room_hkd_m": "calc",
         "price_psf_hkd": "calc",
         "months_deal_to_open": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "operating",
-        "note": "共居叫價，不是學年學生宿位。全房月租，雙人房是兩人共住一間的總租金，不要再乘二，亦不要當成每床。業主盤2026年9月1日。",
-        "as_of": "2026-09-01",
-        "source_url": "https://www.28hse.com/en/rent/residential/property-2677669"
-      },
-      "name_after": "Weave Studios – Kowloon West",
-      "former_name": "珀麗酒店"
+      }
     },
     {
       "id": "deal-202201-travelodge",
       "date": "2022-01",
       "deal_date": "2022-01",
+      "date_label": "2022年1月",
       "asset": "Travelodge Central Hollywood Road → Dash Living on Hollywood",
       "asset_zh": "上環荷李活道263號 Travelodge（Dash Living on Hollywood）",
       "location": "上環荷李活道263號",
@@ -1998,78 +2468,60 @@
       "price_psf_hkd": 14586,
       "psf_basis": "GFA",
       "opening_date": null,
-      "opening_status": "actual",
+      "opening_status": null,
       "completion_year": 1998,
+      "source_date": "2022-01-24",
+      "sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2022-01-24",
+          "u": "https://www.mingtiandi.com/real-estate/finance/pgim-buys-hong-kong-travelodge-hotel-for-co-living-project/"
+        },
+        {
+          "n": "PGIM 刊物",
+          "d": "2023-09-17",
+          "u": "https://www.pgim.com/content/dam/pgim/us/en/pgim-real-estate/active/documents/portfolios/PGIM-Real-Estate-expands-rental-housing-portfolio-in-Asia-Pacific.pdf"
+        },
+        {
+          "n": "The Straits Times",
+          "d": "2023-09-14",
+          "u": "https://www.straitstimes.com/business/investors-scour-hong-kong-hotels-for-student-dorms-rentals"
+        }
+      ],
+      "status_source_date": "2023-09-17",
+      "price_sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2022-01-24",
+          "u": "https://www.mingtiandi.com/real-estate/finance/pgim-buys-hong-kong-travelodge-hotel-for-co-living-project/"
+        }
+      ],
+      "price_outlets": 1,
+      "single_source": true,
       "metrics": "23層；148間客房；GFA 58,275平方呎；約HK$14,586/呎、每房HK$574萬；改共居；Straits Times 指 PGIM 兩項酒店改建租戶為年輕專業人士及學生混合",
       "type": "酒店改共居（非專屬學生）",
       "status": "media_price",
+      "region": "香港",
       "source": "Mingtiandi",
       "source_url": "https://www.mingtiandi.com/real-estate/finance/pgim-buys-hong-kong-travelodge-hotel-for-co-living-project/",
       "other_sources": [
         "https://www.pgim.com/content/dam/pgim/us/en/pgim-real-estate/active/documents/portfolios/PGIM-Real-Estate-expands-rental-housing-portfolio-in-Asia-Pacific.pdf",
         "https://www.straitstimes.com/business/investors-scour-hong-kong-hotels-for-student-dorms-rentals"
       ],
-      "project_url": "https://www.dash.co/en/hong-kong/dash-living-on-hollywood",
-      "room_types": [
-        {
-          "name": "Superior Queen（低／中／高層）",
-          "size_sqft": 140,
-          "size_m2": 13,
-          "rent_hkd_month": 14999,
-          "rent_basis": "每房／每30晚起價（低層）",
-          "rent_note": "官網：Superior Queen Low from HK$14,999 per 30 nights；高層約17,100",
-          "source_url": "https://www.dash.co/en/hong-kong/dash-living-on-hollywood?stayType=nightly",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "Deluxe Queen／Twin／King",
-          "size_sqft": 170,
-          "size_m2": 16,
-          "rent_hkd_month": 16500,
-          "rent_basis": "每房／每30晚起價",
-          "rent_note": "官網：Deluxe 系列 from 約 HK$16,500–17,100 per 30 nights",
-          "source_url": "https://www.dash.co/en/hong-kong/dash-living-on-hollywood?stayType=nightly",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "Premier Queen／Twin",
-          "size_sqft": 170,
-          "size_m2": 16,
-          "rent_hkd_month": 17300,
-          "rent_basis": "每房／每30晚起價",
-          "rent_note": "官網：Premier 系列 from 約 HK$17,300–18,300 per 30 nights",
-          "source_url": "https://www.dash.co/en/hong-kong/dash-living-on-hollywood?stayType=nightly",
-          "as_of": "2026-10-14"
-        },
-        {
-          "name": "Executive Queen／Twin",
-          "size_sqft": 270,
-          "size_m2": 25,
-          "rent_hkd_month": 21000,
-          "rent_basis": "每房／每30晚起價",
-          "rent_note": "官網：Executive Twin from HK$21,000；Executive Queen from HK$22,100 per 30 nights",
-          "source_url": "https://www.dash.co/en/hong-kong/dash-living-on-hollywood?stayType=nightly",
-          "as_of": "2026-10-14"
-        }
-      ],
+      "project_url": null,
+      "room_types": [],
       "metric_basis": {
-        "price_per_room_hkd_m": "source",
-        "price_psf_hkd": "source",
+        "price_per_room_hkd_m": "calc",
+        "price_psf_hkd": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "not_open",
-        "note": "其後作共居，今次未找到按房型公開租金。"
-      },
-      "name_after": "Dash Living on Hollywood",
-      "former_name": "Travelodge（荷李活道263號）",
-      "opening_note": "Dash Living on Hollywood 約2023年12月開業（Dash／PGIM 新聞稿 2024-02 引述）"
+      }
     },
     {
       "id": "deal-202112-hotel-sav",
       "date": "2021-12",
       "deal_date": "2021-12-20",
+      "date_label": "2021年12月",
       "asset": "Hotel Sav → Y83",
       "asset_zh": "紅磡逸．酒店 → Y83（Y.X）",
       "location": "紅磡蕪湖街83號",
@@ -2081,15 +2533,16 @@
       "original_use": "酒店",
       "original_use_note": "逸．酒店（1996年商廈、2014年改酒店）",
       "deal_status": "announced",
-      "status_basis": "莊士機構公告；Mingtiandi 報道",
-      "price_hkd_m": 1650,
-      "price_label": "HK$16.5億",
+      "status_basis": "莊士機構港交所公告（2021-12-20）",
+      "status_source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2021/1220/2021122001251.pdf",
+      "price_hkd_m": 1651,
+      "price_label": "HK$16.51億（莊士公告估計代價）；Mingtiandi 報HK$16.5億",
       "rooms": 388,
       "gfa_sqft": 122108,
       "beds_after": 600,
       "beds_after_note": "來源稱「近600床」",
       "price_per_room_hkd_m": 4.26,
-      "price_psf_hkd": 13513,
+      "price_psf_hkd": 13521,
       "psf_basis": "GFA",
       "price_per_bed_hkd_m": 2.75,
       "beds_per_room": 1.55,
@@ -2101,154 +2554,121 @@
       "occupancy_note": "Knight Frank：首年約85%、第二年100%",
       "rent_per_bed_min_hkd": 8100,
       "rent_per_bed_max_hkd": 13200,
-      "metrics": "388間客房；GFA 122,108平方呎（呎價按公式約 HK$13,513；Mingtiandi 刊 HK$13,251；每房HK$426萬）；改為近600床 Y83；1996年落成商廈、2014年改酒店；2022年2月完成交易",
+      "rent_label": "起價／叫價月租",
+      "mixed_use": "含商舖",
+      "psf_alt": [
+        {
+          "v": 13251,
+          "s": "Mingtiandi 2021-12-21"
+        }
+      ],
+      "source_date": "2021-12-21",
+      "sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2021-12-21",
+          "u": "https://www.mingtiandi.com/real-estate/finance/aew-buys-hong-kong-hotel-from-chuangs-consortium/"
+        },
+        {
+          "n": "莊士機構港交所公告",
+          "d": "2021-12-20",
+          "u": "https://www1.hkexnews.hk/listedco/listconews/sehk/2021/1220/2021122001251.pdf"
+        },
+        {
+          "n": "Knight Frank 報告",
+          "d": "2025-03-18",
+          "u": "https://content.knightfrank.com/research/2947/documents/en/investing-in-student-living-opportunities-in-hotel-conversions-11781.pdf"
+        },
+        {
+          "n": "香港01",
+          "d": "2026-06-09",
+          "u": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D"
+        },
+        {
+          "n": "The Straits Times",
+          "d": "2023-09-14",
+          "u": "https://www.straitstimes.com/business/investors-scour-hong-kong-hotels-for-student-dorms-rentals"
+        }
+      ],
+      "status_source_date": "2021-12-20",
+      "price_sources": [
+        {
+          "n": "莊士機構港交所公告",
+          "d": "2021-12-20",
+          "u": "https://www1.hkexnews.hk/listedco/listconews/sehk/2021/1220/2021122001251.pdf"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2021-12-21",
+          "u": "https://www.mingtiandi.com/real-estate/finance/aew-buys-hong-kong-hotel-from-chuangs-consortium/"
+        }
+      ],
+      "price_outlets": 2,
+      "metrics": "莊士公告（2021-12-20）：24層、總樓面約122,108平方呎（含地下及1樓商舖）、酒店388房、估計代價HK$16.51億；呎價並列：約HK$13,521（代價÷公告樓面，計算）／HK$13,251（Mingtiandi）；每房約HK$426萬（含商舖樓面，不計入每房統計）；改為近600床 Y83；1996年落成商廈、2014年改酒店；2022年2月完成交易",
       "type": "酒店改學生公寓",
       "status": "confirmed",
+      "region": "香港",
       "source": "Mingtiandi / 莊士公告 / Knight Frank",
       "source_url": "https://www.mingtiandi.com/real-estate/finance/aew-buys-hong-kong-hotel-from-chuangs-consortium/",
       "other_sources": [
+        "https://www1.hkexnews.hk/listedco/listconews/sehk/2021/1220/2021122001251.pdf",
         "https://content.knightfrank.com/research/2947/documents/en/investing-in-student-living-opportunities-in-hotel-conversions-11781.pdf",
         "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D",
         "https://www.straitstimes.com/business/investors-scour-hong-kong-hotels-for-student-dorms-rentals"
       ],
-      "project_url": "https://ydotx.com/zh/locations/y83/",
+      "project_url": null,
       "room_types": [
         {
-          "name": "標準雙人房 D5",
-          "size_label": "約15.4平方米／166平方呎",
-          "rent_hkd_month": 9800,
-          "rent_basis": "官網標價，未註明每床或每房",
-          "rent_note": "港幣9,800起。",
-          "source_url": "https://ydotx.com/zh/locations/y83/",
-          "as_of": "2026-10-14",
-          "size_sqft": 165.9,
-          "size_m2": 15.4,
-          "size_basis": "官網約數"
+          "name": "單人／雙人房（2023年）",
+          "rent_hkd_month": 7000,
+          "rent_hkd_month_max": 12500,
+          "rent_basis": "每月（房型未分）",
+          "rent_note": "Knight Frank：2023年月租範圍",
+          "source_url": "https://content.knightfrank.com/research/2947/documents/en/investing-in-student-living-opportunities-in-hotel-conversions-11781.pdf",
+          "as_of": "2024-12"
         },
         {
-          "name": "標準雙人房 D1",
-          "size_label": "約15.7平方米／169平方呎",
-          "rent_hkd_month": 10000,
-          "rent_basis": "官網標價，未註明每床或每房",
-          "rent_note": "港幣10,000起。",
-          "source_url": "https://ydotx.com/zh/locations/y83/",
-          "as_of": "2026-10-14",
-          "size_sqft": 169.1,
-          "size_m2": 15.7,
-          "size_basis": "官網約數"
+          "name": "單人／雙人房（2024年）",
+          "rent_hkd_month": 8300,
+          "rent_hkd_month_max": 14800,
+          "rent_basis": "每月（房型未分）",
+          "rent_note": "Knight Frank：2024年月租範圍",
+          "source_url": "https://content.knightfrank.com/research/2947/documents/en/investing-in-student-living-opportunities-in-hotel-conversions-11781.pdf",
+          "as_of": "2024-12"
         },
         {
-          "name": "標準雙人房 D4",
-          "size_label": "約18.4平方米／198平方呎",
-          "rent_hkd_month": 10000,
-          "rent_basis": "官網標價，未註明每床或每房",
-          "source_url": "https://ydotx.com/zh/locations/y83/",
-          "as_of": "2026-10-14",
-          "size_sqft": 198.4,
-          "size_m2": 18.4,
-          "size_basis": "官網約數"
-        },
-        {
-          "name": "標準雙人房 D6",
-          "size_label": "約16.3平方米／176平方呎",
-          "rent_hkd_month": 10000,
-          "rent_basis": "官網標價，未註明每床或每房",
-          "source_url": "https://ydotx.com/zh/locations/y83/",
-          "as_of": "2026-10-14",
-          "size_sqft": 175.7,
-          "size_m2": 16.3,
-          "size_basis": "官網約數"
-        },
-        {
-          "name": "標準雙人房 D2",
-          "size_label": "約15.2平方米／163平方呎",
-          "rent_hkd_month": 10200,
-          "rent_basis": "官網標價，未註明每床或每房",
-          "source_url": "https://ydotx.com/zh/locations/y83/",
-          "as_of": "2026-10-14",
-          "size_sqft": 163.4,
-          "size_m2": 15.2,
-          "size_basis": "官網約數"
-        },
-        {
-          "name": "標準雙人房 D3",
-          "size_label": "約15.6平方米／167平方呎",
-          "rent_hkd_month": 10200,
-          "rent_basis": "官網標價，未註明每床或每房",
-          "source_url": "https://ydotx.com/zh/locations/y83/",
-          "as_of": "2026-10-14",
-          "size_sqft": 167.4,
-          "size_m2": 15.6,
-          "size_basis": "官網約數"
-        },
-        {
-          "name": "標準單人房 S1",
-          "beds_per_room": 1,
-          "size_label": "約13.6平方米／146平方呎",
-          "rent_hkd_month": 15000,
-          "rent_basis": "官網標價，較似每房",
-          "rent_note": "港幣15,000起。",
-          "source_url": "https://ydotx.com/zh/locations/y83/",
-          "as_of": "2026-10-14",
-          "size_sqft": 146.1,
-          "size_m2": 13.6,
-          "size_basis": "官網約數"
-        },
-        {
-          "name": "豪華單人房 S2",
-          "beds_per_room": 1,
-          "size_label": "約14.4平方米／155平方呎",
-          "rent_hkd_month": 16200,
-          "rent_basis": "官網標價，較似每房",
-          "rent_note": "港幣16,200起。",
-          "source_url": "https://ydotx.com/zh/locations/y83/",
-          "as_of": "2026-10-14",
-          "size_sqft": 154.6,
-          "size_m2": 14.4,
-          "size_basis": "官網約數"
-        },
-        {
-          "name": "香港01口徑",
-          "rent_label": "單人房約13,200；雙人床約8,100",
-          "rent_basis": "單人按房，雙人按床",
-          "rent_note": "同官網標價範圍不同，兩條都保留，不要取平均。",
+          "name": "單人房",
+          "rent_hkd_month": 13200,
+          "rent_basis": "每房（單人）",
+          "rent_note": "香港01：月租起價",
           "source_url": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D",
           "as_of": "2026-06"
         },
         {
-          "name": "Knight Frank 2024年範圍",
-          "rent_hkd_month": 8300,
-          "rent_hkd_month_max": 14800,
-          "rent_basis": "每月，房型未分",
-          "rent_note": "歷史研究範圍，不是現時房型表。",
-          "source_url": "https://content.knightfrank.com/research/2947/documents/en/investing-in-student-living-opportunities-in-hotel-conversions-11781.pdf",
-          "as_of": "2024-12"
+          "name": "雙人房",
+          "rent_hkd_month": 8100,
+          "rent_basis": "每床",
+          "rent_note": "香港01：以每張床位計約",
+          "source_url": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60358485/%E6%99%B6%E8%8B%914-4%E5%84%84%E6%8E%83%E4%B9%9D%E9%BE%8D%E5%9F%8E%E5%95%86%E5%BB%88%E5%8F%8A%E7%B4%85%E7%A3%A1%E4%BD%8F%E5%AE%85-%E6%96%99%E6%94%B9%E8%A3%9D%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D",
+          "as_of": "2026-06"
         }
       ],
       "metric_basis": {
-        "price_per_room_hkd_m": "source",
+        "price_per_room_hkd_m": "calc",
         "price_psf_hkd": "calc",
         "price_per_bed_hkd_m": "calc",
         "beds_per_room": "calc",
         "rooms": "source",
-        "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "operating",
-        "note": "官網可住約600人，未列每款幾多間。官網標價未寫明每床定每房；2026年6月香港01寫單人房約13,200、雙人床約8,100，同官網「10,000+／15,000+」對唔齊。DCF先當叫價區間，不要取中間數。",
-        "beds": 600,
-        "occupancy_pct": 100,
-        "as_of": "2026-10-12",
-        "source_url": "https://ydotx.com/zh/locations/y83/"
-      },
-      "name_after": "Y83",
-      "former_name": "逸．酒店",
-      "price_note": "Mingtiandi 刊 HK$13,251/呎，但按 GFA 122,108×價 16.5億公式約 HK$13,513"
+        "gfa_sqft": "source",
+        "beds_after": "source",
+        "mixed_use": "source"
+      }
     },
     {
       "id": "deal-202111-butterfly-prat",
       "date": "2021-11",
       "deal_date": "2021-11-24",
+      "date_label": "2021年11月",
       "asset": "Butterfly on Prat → Dash Living on Prat",
       "asset_zh": "尖沙咀寶勒巷 Butterfly on Prat 酒店（Dash Living on Prat）",
       "location": "尖沙咀",
@@ -2266,24 +2686,60 @@
       "gfa_sqft": 70000,
       "gfa_sqft_max": 71600,
       "price_per_room_hkd_m": 5.85,
-      "price_psf_hkd": 13214,
-      "price_psf_hkd_calc_range": [
-        12919,
-        13214
-      ],
+      "price_psf_hkd": 12919,
+      "price_psf_hkd_max": 13214,
       "psf_basis": "GFA",
       "opening_date": null,
       "opening_status": "actual",
       "opening_label": "2023年初以 Dash Living on Prat 開業",
-      "metrics": "158間客房；面積約70,000（Hines）／71,600平方呎（Mingtiandi）；約HK$13,214/呎（按 GFA 70,000 公式；Mingtiandi 刊區間見 calc_range）；改共居，主要對象為年輕專業人士",
+      "source_date": "2021-11-24",
+      "sources": [
+        {
+          "n": "Hines 新聞稿",
+          "d": "2021-11-24",
+          "u": "https://www.hines.com/news/hines-invests-in-hong-kong-co-living"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2022-01-24",
+          "u": "https://www.mingtiandi.com/real-estate/finance/pgim-buys-hong-kong-travelodge-hotel-for-co-living-project/"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2026-02-22",
+          "u": "https://www.mingtiandi.com/real-estate/finance/dash-living-picks-up-hong-kong-hotel-from-gale-well-at-70-off/"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2026-09-14",
+          "u": "https://www.mingtiandi.com/real-estate/finance/capitaland-buys-ibis-hotel-in-hong-kong-from-butterfly-hospitality/"
+        },
+        {
+          "n": "Dash Living 官網",
+          "d": "瀏覽 2026-10-07",
+          "u": "https://www.dash.co/en/hong-kong/dash-living-on-prat"
+        }
+      ],
+      "status_source_date": "2021-11-24",
+      "price_sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2026-09-14",
+          "u": "https://www.mingtiandi.com/real-estate/finance/capitaland-buys-ibis-hotel-in-hong-kong-from-butterfly-hospitality/"
+        }
+      ],
+      "price_outlets": 1,
+      "single_source": true,
+      "metrics": "158間客房；面積約70,000（Hines）／71,600平方呎（Mingtiandi）；約HK$12,919/呎；改共居，主要對象為年輕專業人士",
       "type": "酒店改共居（非專屬學生）",
       "status": "media_price",
-      "source": "Mingtiandi（Ibis 文回顧 Butterfly）",
-      "source_url": "https://www.mingtiandi.com/real-estate/finance/capitaland-buys-ibis-hotel-in-hong-kong-from-butterfly-hospitality/",
+      "region": "香港",
+      "source": "Mingtiandi / Hines 新聞稿",
+      "source_url": "https://www.hines.com/news/hines-invests-in-hong-kong-co-living",
       "other_sources": [
-        "https://www.hines.com/news/hines-invests-in-hong-kong-co-living",
         "https://www.mingtiandi.com/real-estate/finance/pgim-buys-hong-kong-travelodge-hotel-for-co-living-project/",
         "https://www.mingtiandi.com/real-estate/finance/dash-living-picks-up-hong-kong-hotel-from-gale-well-at-70-off/",
+        "https://www.mingtiandi.com/real-estate/finance/capitaland-buys-ibis-hotel-in-hong-kong-from-butterfly-hospitality/",
         "https://www.dash.co/en/hong-kong/dash-living-on-prat"
       ],
       "project_url": "https://www.dash.co/en/hong-kong/dash-living-on-prat",
@@ -2311,24 +2767,17 @@
         }
       ],
       "metric_basis": {
-        "price_per_room_hkd_m": "source",
+        "price_per_room_hkd_m": "calc",
         "price_psf_hkd": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "operating",
-        "note": "共居，租金按每30晚計，不是學年宿位。要同學生宿舍比較，先確認租期同是否包水電。",
-        "as_of": "2026-10-06",
-        "source_url": "https://www.dash.co/en/hong-kong/dash-living-on-prat"
-      },
-      "name_after": "Dash Living on Prat",
-      "former_name": "Butterfly on Prat"
+      }
     },
     {
       "id": "deal-2021-weave-tk",
       "date": "2021-07",
       "deal_date": "2021-07",
+      "date_label": "2021年7月",
       "asset": "Weave Studios – Kai Tak (103 Tam Kung Road)",
       "asset_zh": "土瓜灣譚公道103號酒店物業（Weave Studios – Kai Tak）",
       "location": "土瓜灣譚公道103號",
@@ -2350,54 +2799,53 @@
       "opening_status": "actual",
       "months_deal_to_open": 7,
       "completion_year": 2018,
-      "metrics": "原99間酒店客房；2018年落成；樓面30,072平方呎（2026年放售資料）；2022年2月中以 Weave Studios 開業；2026年叫價HK$4.6億放售",
+      "out_of_window": true,
+      "source_date": "2026-06-12",
+      "sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2026-06-12",
+          "u": "https://www.mingtiandi.com/real-estate/finance/weave-rejigs-in-hong-kong-with-student-housing-and-kai-tak-sale/"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2022-01-24",
+          "u": "https://www.mingtiandi.com/real-estate/finance/pgim-buys-hong-kong-travelodge-hotel-for-co-living-project/"
+        },
+        {
+          "n": "Weave Living 新聞稿（美通社）",
+          "d": "2022-05-11",
+          "u": "https://en.prnasia.com/releases/apac/weave-living-grows-hong-kong-island-footprint-with-new-central-western-district-property-360968.shtml"
+        }
+      ],
+      "price_sources": [
+        {
+          "n": "Mingtiandi",
+          "d": "2026-06-12",
+          "u": "https://www.mingtiandi.com/real-estate/finance/weave-rejigs-in-hong-kong-with-student-housing-and-kai-tak-sale/"
+        }
+      ],
+      "price_outlets": 1,
+      "single_source": true,
+      "metrics": "原99間酒店客房；2018年落成；樓面30,072平方呎（2026年放售資料）；2022年2月中以 Weave Studios 開業；2026年叫價HK$4.6億放售（見待核實）",
       "type": "酒店改共居（非專屬學生）",
       "status": "confirmed",
+      "region": "香港",
       "source": "Mingtiandi",
       "source_url": "https://www.mingtiandi.com/real-estate/finance/weave-rejigs-in-hong-kong-with-student-housing-and-kai-tak-sale/",
       "other_sources": [
         "https://www.mingtiandi.com/real-estate/finance/pgim-buys-hong-kong-travelodge-hotel-for-co-living-project/",
         "https://en.prnasia.com/releases/apac/weave-living-grows-hong-kong-island-footprint-with-new-central-western-district-property-360968.shtml"
       ],
-      "project_url": "https://www.weave-living.com/en/hong-kong/weave-studios-kai-tak",
-      "room_types": [
-        {
-          "name": "Studio Single",
-          "beds_per_room": 1,
-          "size_sqft": 118,
-          "size_basis": "業主盤其中一間的實用面積，不是全項目",
-          "rent_hkd_month": 15200,
-          "rent_basis": "每房起價",
-          "rent_note": "一人入住。包水電、管理費、WiFi、每週清潔。三個月租期的放盤條件，短過學年。",
-          "source_url": "https://www.28hse.com/rent/residential/property-2092829",
-          "as_of": "2026-09-28"
-        },
-        {
-          "name": "Studio Double",
-          "beds_per_room": 2,
-          "rent_hkd_month": 16340,
-          "rent_basis": "每房起價（兩人合共）",
-          "rent_note": "二人入住的全房租金，不要再乘二。",
-          "source_url": "https://www.28hse.com/rent/residential/property-2092829",
-          "as_of": "2026-09-28"
-        }
-      ],
+      "project_url": "https://www.weave-living.com/",
+      "room_types": [],
       "metric_basis": {
         "price_per_room_hkd_m": "calc",
         "price_psf_hkd": "calc",
         "months_deal_to_open": "calc",
         "rooms": "source",
         "gfa_sqft": "source"
-      },
-      "rent_roll": {
-        "status": "operating",
-        "note": "共居叫價。官網相關卡片寫99個單位、約118–243平方呎。業主盤單人房由15,200（例：118呎），雙人房由16,340，是全房月租。",
-        "rooms": 99,
-        "as_of": "2026-09-28",
-        "source_url": "https://www.28hse.com/rent/residential/property-2092829"
-      },
-      "name_after": "Weave Studios – Kai Tak",
-      "former_name": "譚公道103號酒店物業"
+      }
     }
   ],
   "leads_to_verify": [
@@ -2406,92 +2854,94 @@
       "note": "第一太平戴維斯獨家放售；意向價約HK$4.5億；總樓面約37,228呎、162房；1–14樓酷點（Kudian）約8年包租，連地下零售預計回報約4.5厘。屬叫價／放售，非已成交。與下方 Casa Hotel／PGIM 舊線索分開：本條為2026年10月放售。",
       "source_url": "https://www.savills.co.id/insight-and-opinion/savills-news/239244/savills-appointed-sole-agent-for-the-sale-of-kasa--an-en-bloc-student-hostel-in-yau-ma-tei",
       "source": "第一太平戴維斯／The Standard",
-      "source_date": "2026-10-12",
-      "review_note": "維持：叫價／放售（Savills），非已成交",
-      "reviewed_as_of": "2026-10-14"
+      "source_date": "2026-10-12"
     },
     {
       "asset": "大角咀晏架街10號全幢商業大廈",
       "note": "CBRE獨家招標；估值約HK$1.5億（約20,821呎、約每呎7,200元）；截標2026-12-02；已獲城中學舍批核、交吉；擬83房／112床。屬估值／招標，非已成交。",
       "source_url": "https://www.cbre.com.hk/zh-hk/press-releases/cbre-appointed-as-sole-agent-of-no10-anchor-street-hk",
       "source": "世邦魏理仕／on.cc東網",
-      "source_date": "2026-10-13",
-      "review_note": "維持：招標／估值（CBRE），非已成交",
-      "reviewed_as_of": "2026-10-14"
+      "source_date": "2026-10-13"
     },
     {
       "asset": "Weave Studios – Kai Tak",
       "note": "Weave 委託萊坊／世邦魏理仕尋求買家，叫價約HK$4.6億；屬待售非已成交。",
       "source_url": "https://www.mingtiandi.com/real-estate/finance/weave-rejigs-in-hong-kong-with-student-housing-and-kai-tak-sale/",
       "source": "Mingtiandi",
-      "source_date": "2026-06-12",
-      "review_note": "維持：待售叫價約4.6億（Mingtiandi），非已成交",
-      "reviewed_as_of": "2026-10-14"
+      "source_date": "2026-06-12"
     },
     {
       "asset": "觀塘鴻圖道90號（城中學舍已批核）",
       "note": "中原工商舖＋CBRE 聯合代理；指示價約HK$2.2億；128床已批核；屬放售。",
       "source_url": "https://www.cbre.co.uk/press-releases/cbre-appointed-as-joint-sole-agent-of-90-htr-basket-hk",
       "source": "CBRE 新聞稿",
-      "source_date": "2026-08-24",
-      "review_note": "維持：放售／指示價（CBRE），非已成交",
-      "reviewed_as_of": "2026-10-14"
+      "source_date": "2026-08-24"
     },
     {
       "asset": "SC Capital 港島南住宅資產",
       "note": "Business Times：SC Capital 稱已投資港島南住宅並考慮重新定位服務優質住宿／學生需求；細節待查。",
       "source_url": "https://www.businesstimes.com.sg/property/investors-home-singapore-co-living-hong-kong-student-housing-apacs-us13-8-billion-living-boom",
       "source": "The Business Times",
-      "source_date": "2026-07-26",
-      "review_note": "維持：單一報導、細節不足，用途未確認",
-      "reviewed_as_of": "2026-10-14"
+      "source_date": "2026-07-26"
+    },
+    {
+      "asset": "灣仔軒尼詩道218號「218 Apartment」全幢酒店",
+      "note": "市場消息（香港01、香港商報 2026-07-23）：約HK$2.8億成交、總樓面約32,695平方呎、59房、呎價約8,564元、原業主首開集團（2007年1.78億購入）、新買家以京東呼聲最高、料改學生宿舍。買家未獲官方確認，故不入成交表；與九龍海景絲麗酒店（7.50億，已入表）屬兩項物業，不可合併。易發睇樓團（Yahoo財經 2026-08-27）稱京東「逾10億元購入兩幢本地酒店」，無逐幢地址，只作附註（單一來源）。",
+      "source_url": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/60372834/%E7%81%A3%E4%BB%94218-apartment%E9%85%92%E5%BA%972-8%E5%84%84%E6%B2%BD-%E4%BA%AC%E6%9D%B1%E6%8E%A5%E8%B2%A8%E5%91%BC%E8%81%B2%E9%AB%98-%E6%96%99%E6%94%B9%E4%BD%9C%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D",
+      "source_url2": "https://www.hkcd.com.hk/hkcdweb/content/2026/07/23/content_8766247.html",
+      "source": "香港01／香港商報",
+      "source_date": "2026-07-23"
     },
     {
       "asset": "灣仔駱克道366號星網商務精品酒店",
       "note": "2025年12月聯合出版集團（僑商置業）以約HK$2.05億購入（63房、樓面約27,077呎）；成交已見報，但改學生宿舍屬媒體推測（「可改裝」），用途未確認。",
       "source_url": "https://hk.finance.yahoo.com/news/%E8%81%AF%E5%90%88%E5%87%BA%E7%89%88%E9%9B%86%E5%9C%98%E6%96%A52-05%E5%84%84%E8%B3%BC%E7%81%A3%E4%BB%94%E9%85%92%E5%BA%97%E5%85%A8%E5%B9%A2-%E5%B9%B3%E5%9D%87%E6%AF%8F%E9%96%93%E6%88%BF%E5%80%BC325%E8%90%AC-%E5%8E%9F%E6%A5%AD%E4%B8%BB%E6%8C%81%E8%B2%A835%E5%B9%B4%E5%A4%A7%E8%B3%BA10%E5%80%8D-044926114.html",
       "source": "Yahoo財經",
-      "source_date": "2025-12-15",
-      "review_note": "維持：成交已見報，但改學生宿舍僅媒體推測，用途未確認；2026-10-14 再查無第二來源確認 PBSA 用途",
-      "reviewed_as_of": "2026-10-14"
+      "source_date": "2025-12-15"
     },
     {
       "asset": "灣仔摩理臣山道39號（前 Butterfly on Morrison／BeLIVING Youth Hub）",
       "note": "Dash Living 2026年收購（Mingtiandi 市場消息HK$3.6億；Dash 新聞稿稱約HK$4億；98房、55,238呎）；官方定位為混合酒店及服務式公寓，非學生宿舍，故未列入成交。",
       "source_url": "https://www.mingtiandi.com/real-estate/finance/dash-living-picks-up-hong-kong-hotel-from-gale-well-at-70-off/",
       "source": "Mingtiandi",
-      "source_date": "2026-02-22",
-      "review_note": "維持：Dash 官方定位混合酒店／服務式公寓，非學生宿舍",
-      "reviewed_as_of": "2026-10-14"
+      "source_date": "2026-02-22"
     },
     {
       "asset": "油麻地彌敦道487–489號 Casa Hotel",
       "note": "Mingtiandi（2022年1月）引經濟日報稱 PGIM 以約HK$5.9億購入作共居；但 PGIM 2023年新聞稿所列兩間香港酒店不包括 Casa，成交是否完成待核實。",
       "source_url": "https://www.mingtiandi.com/real-estate/finance/pgim-buys-hong-kong-travelodge-hotel-for-co-living-project/",
       "source": "Mingtiandi",
-      "source_date": "2022-01-24",
-      "review_note": "維持：PGIM 是否完成購入待核實；PGIM 2023 新聞稿未列 Casa",
-      "reviewed_as_of": "2026-10-14"
+      "source_date": "2022-01-24"
     },
     {
       "asset": "西營盤干諾道西138號 The Connaught 酒店",
       "note": "2025年9月以HK$4.1億售予一家族信託受託人（JSM 公布）；新聞稿僅提及住宿需求含國際學生，買家用途未確認。",
       "source_url": "https://www.jsm.com/news/2025/09/jsm-advises-on-hk410-million-acquisition-of-the-connaught-amid-hong-kongs-living-sector-growth/",
       "source": "JSM 律師行",
-      "source_date": "2025-09-11",
-      "review_note": "維持：JSM 公布成交，但買家用途未確認為 PBSA",
-      "reviewed_as_of": "2026-10-14"
-    },
-    {
-      "asset": "尖沙咀柯士甸道108號耀基大廈（利駿／陳洪楷相關）",
-      "note": "香港01等報約HK$1.5億購入，擬翻新作服務式住宅（含來港學生客群）；並非明確「買嚟做 PBSA／學生公寓」官方定位，用途未確認，故不入成交表。",
-      "source_url": "https://www.hk01.com/%E5%9C%B0%E7%94%A2%E6%A8%93%E5%B8%82/1023373/%E5%88%A9%E9%A7%BF%E9%99%B3%E6%B4%AA%E6%A5%B71-5%E5%84%84%E8%B3%BC%E6%9F%AF%E5%A3%AB%E7%94%B8%E9%81%93%E5%95%86%E4%BD%8F%E6%A8%93-%E5%82%85%E4%B8%96%E5%BD%AA%E5%AE%B6%E6%97%8F%E8%9D%9553",
-      "source": "香港01",
-      "source_date": "2024-09",
-      "review_note": "2026-10-14 掃描：服務式住宅為主，PBSA 用途未達升格門檻",
-      "reviewed_as_of": "2026-10-14"
+      "source_date": "2025-09-11"
     }
   ],
-  "pending_approval": [],
-  "pending_approval_note": "新發現、擬列作正式成交嘅項目先放呢度，標明「未批准」。須 Michael FINAL CHECK 批准後，先移入 deals[]；未批准前唔入正式成交表、唔計 comps。放售／叫價／用途未確認仍用 leads_to_verify。"
+  "corrections_20261006": [
+    "v6（2026-10-07）：每宗成交補來源名稱及日期（source_date／sources）及價格來源數（單一來源標示）；遠東絲麗、富豪東方、招商柯士甸、莊士逸酒店、德祥珀麗改以港交所公告為狀態依據；逸酒店代價改用公告HK$16.51億、珀麗改用公告約HK$13.75億（媒體數並列）；旭逸旺角改以賣方代理 CBRE 公布為依據（HK$4.35億，另列 CBRE 頁4.32億）；甘霖大廈改為已公布（CBRE 網頁）；仁和大廈、Y36、旭逸荔枝角、珀薈：未找到披露價格的官方原文，價格改按媒體價（移出預設統計）；柯士甸路總樓面並列公告2,165平方米與媒體2.36萬呎；富豪東方、Butterfly 呎價改為按兩個面積計的範圍；混合用途大廈（含商舖／寫字樓）每房價標示並不計入每房統計；deal-202408-park 改 id 為 deal-202407-popway（成交月份2024-07）；MU88 及般咸軒營運狀態更新；Weave 啟德早於近5年範圍，保留並標示。",
+    "deal-202609-cr-ease：中文名「宜逸酒店·荃灣」更正為「旭逸酒店·荃灣」（東方日報）；『宜逸酒店·葵涌』改為英文原名 Hotel Ease Access（中文名未見來源）。",
+    "deal-202606-crystal：原合併兩項（約4.4億）拆分為 Smart A（約3億）及新條目 deal-202606-crystal-chunwui 晉匯（1.4338億，香港01）。",
+    "deal-202603-regal：床位由「約1,400–1,580」更正為1,400–1,500（大公報）；總樓面維持22.9萬–24.3萬範圍並註明出處。",
+    "deal-202603-cozi：補充2025年12月已見報洽購／盡職審查；成交日期以Colliers 2026-03-01 簽約為準。",
+    "deal-202512-austin：價格更精確為HK$2.0595億；床位：計劃85床，官網現列73床（採用73計每床價）。",
+    "deal-2025-bonham：日期「2025（約）」更正為2025-08-29；資產名「Bonham Xanadu → 一步居·38」更正為 Bonham Residence（般咸軒）（『一步居·38』未見來源）；房數94/96；改建投資由6,000萬改為6,000–6,500萬範圍；賣方補YWCA；主來源改為香港商報（原連結為富豪東方報道）。",
+    "deal-202408-park：資產名「Park Hotel」更正為 Popway Hotel（珀薈酒店）→ 一步居117；成交月份2024-08更正為2024-07（Mingtiandi、東網：7月易手，中原9月公布）；補賣方。",
+    "deal-2022-grand-city：日期2022 → 2022-05-11（Weave 新聞稿）；補賣方 Magnificent Hotel；GFA 60,150呎。",
+    "deal-2021-weave-tk：日期2021 → 2021-07；確認即 Weave Studios – Kai Tak（2022年2月開業）；類型改為共居（非專屬學生）。注意：此成交早於2021年10月範圍，保留原條目。",
+    "deal-202606-bedford：賣方更正為東亞銀行委任接管人（Mingtiandi）。",
+    "leads：凱德宜必思中上環已有 JSM 律師行公布及多家媒體報道，由 leads_to_verify 升為成交 deal-202609-ibis。",
+    "deal-202607-silka：補總樓面65,284–67,826平方呎（信報／老虎證券轉述）及1993年落成；信報稱原有206間客房，與 BONARD 268間不同，房數維持268並於指標註明。",
+    "deal-2025-bonham：補總樓面36,660平方呎（JSM 律師行公布、信報）。",
+    "deal-202408-park：補總建築面積24,551平方呎（東網）。",
+    "deal-202512-austin：賣方由「未詳列」更正為 Champfield Holdings Limited（招商局商業房託須予披露交易公告，阿思達克報道）。",
+    "deal-202408-y36：補原有61個住宅單位（東網），原「原單位數未披露」更正。",
+    "全部成交：新增 original_use（原用途）及備註／來源。",
+    "v5（2026-10-06）：仁和大廈補樓高（24／26層並列）、呎價三個報道並列、買方公司及叫價標單一來源；CM+U紅磡主來源改為港交所公告（2026-08-28），補估值、落成、層數（25／29並列）、房床並列、較早媒體附註；一步居117／38（般咸軒）補2026-08出租資料及房床並列；MU88補開幕資料、宿位430／434及房數並列、宿費；218 Apartment 線索補香港商報。",
+    "全部成交：新增 deal_status（已公布／媒體報導／傳聞／已核對土地註冊）及依據；暫無成交引用土地註冊處紀錄。deal-202609-ibis 標為「已公布、待土地註冊」（JSM 律師行2026-09-18公布），news-03 及今日要留意同步更新，不再稱「未確認」。",
+    "deal-202212-pentahotel：補總投資額HK$22億（宏安地產行政總裁，信報2024-06-12，日新舍官網轉載）及床位上限1,450（同一來源「可容納1,450人」），用作翻新後每床價。"
+  ]
 }

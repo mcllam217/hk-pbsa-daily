@@ -1,75 +1,233 @@
 {
-  "updated": "2026-10-23T08:58:00+08:00",
+  "updated": "2026-10-26T09:00:00+08:00",
   "items": [
     {
-      "priority": "medium",
-      "text": "樹仁大學灣仔峽道校舍改建宿舍：2026-10-21動工、官網稱最快2027年Q3約170宿位；早前城規／傳媒曾稱約50單位——追蹤實際床位、入伙時間及是否僅供樹仁生（非成交）。"
-    },
-    {
-      "priority": "medium",
-      "text": "第一服務AINA／嘉賢臺（堅尼地道98／120號）：160套學生公寓裝修中，叫租約1.6萬–2.2萬、料2026-11月底起入住（傳媒轉述，單一來源）。追蹤實際開業、實收租金與業權／管理安排——叫租不是成交租金。"
-    },
-    {
       "priority": "high",
-      "text": "星星集團亞洲觀塘偉業街107–109號（擬專建學生宿舍）：2026-10-21公告改契基本條款已獲地政總署確認，補地價待估價組評定；正式改契仍待接納補地價。星島2026-04-08稱約988房／約1,339床（單一來源）。追蹤補地價數字、改契簽立及融資／動工時間表——非成交。"
-    },
-    {
-      "priority": "high",
-      "text": "大角咀晏架街10號公開招標（世邦魏理仕 2026-10-13）：估值約1.5億、約20,821呎、呎價約7,200；已獲城中學舍批准，方案約83房／112床；招標截止2026-12-02。放盤不是成交，成交表不要先入數。"
-    },
-    {
-      "priority": "high",
-      "text": "油麻地彌敦道KASA放售（意向價約4.5億、162客房、8年包租）——仍是放盤，未見買家公布，成交表不要先入數。"
-    },
-    {
-      "priority": "medium",
-      "text": "【自動】新公開標題——投資者對香港學生宿舍改建項目興趣濃 新加坡資本入市；從宿位短缺到大學城崛起：香港「教育地產」的興起｜樓·言板；破學生宿舍供不應求困局 多管齊下為關鍵策略！｜汪敦敬｜學生宿舍 ｜校長Talk。只作線索，成交表金額仍要人手核實。"
-    },
-    {
-      "priority": "high",
-      "text": "世邦魏理仕2026-10-06：短缺逾5萬床，料2030年約7.5萬；第三季約53億投向學宿改建，酒店改建回報約5.5至6厘——用作供應同回報口徑，不是單宗成交。"
-    },
-    {
-      "priority": "high",
-      "text": "政府本季擬推售沙田小瀝源學生宿舍用地（初步估算約600宿位；政府新聞公報 2026-10-15）——追蹤實際招標時間表、投標結果及啟德／東涌東另外兩幅是否跟進；影響一級宿舍用地定價與改建供應節奏。"
-    },
-    {
-      "priority": "medium",
-      "text": "城規會批出改裝個案（星島統計至少7宗、約2,100宿位，最大私人項目觀塘 LT Tower 517床）及新申請（見最新消息）——九龍東供應正快速累積，留意對觀塘一帶租金及估值的影響。"
-    },
-    {
-      "priority": "high",
-      "text": "凱德／宜必思上環（約23億、550房）：買方律師行已公布——留意交易完成及改建床位數，以計算核心區每床成本。",
-      "deal_ids": [
-        "deal-202609-ibis"
+      "text": "油麻地KASA（彌敦道487–489號、前Casa Hotel）全幢學生宿舍放售：意向價約HK$4.5億；1–14樓酷點約8年包租、162房；連地下零售預計回報約4.5厘——屬叫價非成交，留意成交結果及每床／呎價。",
+      "sources": [
+        {
+          "n": "The Standard",
+          "d": "2026-10-11",
+          "u": "https://www.thestandard.com.hk/property/article/345121/Student-residence-KASA-in-Yau-Ma-Tei-put-up-for-sale-at-HK450m"
+        },
+        {
+          "n": "第一太平戴維斯",
+          "d": "2026-10-12",
+          "u": "https://www.savills.co.id/insight-and-opinion/savills-news/239244/savills-appointed-sole-agent-for-the-sale-of-kasa--an-en-bloc-student-hostel-in-yau-ma-tei"
+        },
+        {
+          "n": "on.cc東網",
+          "d": "2026-10-11",
+          "u": "https://hk.on.cc/hk/bkn/cnt/finance/20261011/bkn-20261011153011492-1011_00842_001.html"
+        }
       ]
     },
     {
       "priority": "high",
-      "text": "關注 Weave Kai Tak（叫價約4.6億）及觀塘鴻圖道90號（指示價約2.2億、已批128床）成交結果——用作估值可比。"
+      "text": "大角咀晏架街10號全幢商廈招標（CBRE獨家）：估值約HK$1.5億、截標2026-12-02；已獲城中學舍批核、交吉、擬83房／112床——屬估值非成交，留意中標價及每床成本。",
+      "sources": [
+        {
+          "n": "世邦魏理仕",
+          "d": "2026-10-13",
+          "u": "https://www.cbre.com.hk/zh-hk/press-releases/cbre-appointed-as-sole-agent-of-no10-anchor-street-hk"
+        },
+        {
+          "n": "on.cc東網",
+          "d": "2026-10-13",
+          "u": "https://hk.on.cc/hk/bkn/cnt/finance/20261013/bkn-20261013164621937-1013_00842_001.html"
+        }
+      ]
+    },
+    {
+      "priority": "high",
+      "text": "政府本季擬推售沙田小瀝源學生宿舍用地（初步估算約600宿位；政府新聞公報 2026-10-15）——追蹤實際招標時間表、投標結果及啟德／東涌東另外兩幅是否跟進；影響一級宿舍用地定價與改建供應節奏。",
+      "sources": [
+        {
+          "n": "政府新聞公報",
+          "d": "2026-10-15",
+          "u": "https://www.info.gov.hk/gia/general/202610/15/P2026101500655p.htm"
+        },
+        {
+          "n": "信報",
+          "d": "2026-10-16",
+          "u": "https://www.hkej.com/dailynews/headline/article/4540619/%E6%B2%99%E7%94%B0%E9%A6%96%E5%B9%85%E5%AD%B8%E7%94%9F%E5%AE%BF%E8%88%8D%E5%9C%B0+%E6%8F%90%E4%BE%9B%E5%85%AD%E7%99%BE%E5%AE%BF%E4%BD%8D"
+        },
+        {
+          "n": "am730／高力",
+          "d": "2026-10-15",
+          "u": "https://www.am730.com.hk/article/1058695"
+        }
+      ]
     },
     {
       "priority": "medium",
-      "text": "非本地生收生上限提升至公帑資助學額50%（2026/27起）對實際入學與租務旺季的滯後影響。"
+      "text": "城規會批出商廈改學生宿舍個案（如觀塘 LT Tower 517宿位）及新申請（如觀塘聯僑廣場240房、434宿位）——九龍東供應正快速累積，留意對觀塘一帶租金及估值的影響。",
+      "sources": [
+        {
+          "n": "星島（LT Tower 申請）",
+          "d": "2026-03-06",
+          "u": "https://www.stheadline.com/realtime-property/3550350/"
+        },
+        {
+          "n": "28Hse（城規會批准）",
+          "d": "2026-05-27",
+          "u": "https://www.28hse.com/news/%E8%A7%80%E5%A1%98%E5%95%86%E5%BB%88%E6%89%B9%E5%BB%BA500%E5%AE%BF%E4%BD%8D%E8%BF%8E%E7%95%99%E5%AD%B8%E9%9C%80%E6%B1%82-%E8%BF%8E%E6%9E%97%E9%80%80%E5%A0%B4%E6%83%B9%E9%97%9C%E6%B3%A8-%E5%B0%88%E6%A5%AD%E7%AE%A1%E7%90%86%E5%A6%82%E4%BD%95%E6%94%B9%E5%96%84%E4%BD%8F%E5%AE%BF-76136"
+        },
+        {
+          "n": "The Standard（聯僑廣場）",
+          "d": "2026-10-02",
+          "u": "https://www.thestandard.com.hk/property/article/344438/United-Overseas-Plaza-poised-for-conversion-into-240-room-student-housing"
+        },
+        {
+          "n": "大公報（聯僑廣場）",
+          "d": "2026-10-03",
+          "u": "https://epaper.tkww.hk/a/202610/03/AP6ac013bfe4b0e1e2ee72882b.html"
+        }
+      ]
+    },
+    {
+      "priority": "high",
+      "text": "凱德／宜必思上環（約23億、550房）：買方律師行已公布，未見土地註冊紀錄——留意交易完成、土地註冊及改建床位數，以計算核心區每床成本。",
+      "deal_ids": [
+        "deal-202609-ibis"
+      ],
+      "sources": [
+        {
+          "n": "JSM 律師行",
+          "d": "2026-09-18",
+          "u": "https://www.jsm.com/news/2026/09/jsm-advises-capitaland-investment-on-acquisition-of-ibis-hong-kong-central-sheung-wan/"
+        },
+        {
+          "n": "Mingtiandi",
+          "d": "2026-09-14",
+          "u": "https://www.mingtiandi.com/real-estate/finance/capitaland-buys-ibis-hotel-in-hong-kong-from-butterfly-hospitality/"
+        }
+      ]
+    },
+    {
+      "priority": "high",
+      "text": "關注 Weave Kai Tak（叫價約4.6億，單一來源）及觀塘鴻圖道90號（代理指示價約2.2億、已批128床，單一來源）成交結果——屬叫價，非成交；成交後可作估值可比。",
+      "sources": [
+        {
+          "n": "Mingtiandi（Weave Kai Tak）",
+          "d": "2026-06-12",
+          "u": "https://www.mingtiandi.com/real-estate/finance/weave-rejigs-in-hong-kong-with-student-housing-and-kai-tak-sale/"
+        },
+        {
+          "n": "CBRE 新聞稿（鴻圖道90號）",
+          "d": "2026-08-24",
+          "u": "https://www.cbre.co.uk/press-releases/cbre-appointed-as-joint-sole-agent-of-90-htr-basket-hk"
+        }
+      ]
     },
     {
       "priority": "medium",
-      "text": "營運中資產（The Quad、The Quay、一步居系列）的實際租金、入住率與管理合約條款——機構買家定價關鍵。"
+      "text": "觀塘偉業街163號全幢酒店（598房、總樓面241,686平方呎）招標結果——第一太平戴維斯獨家代理標售，稱具改學生宿舍潛力。截標日並列：2026年11月16日正午（第一太平戴維斯英文新聞稿 2026-08-26）／2026年10月15日正午（am730 2026-08-26、阿思達克 2026-08-25），以代理公布為準；留意截標後買家及作價，可作東九龍大型酒店改建可比。",
+      "sources": [
+        {
+          "n": "第一太平戴維斯 Savills",
+          "d": "2026-08-26",
+          "u": "https://www.savills.com.hk/insight-and-opinion/savills-news/238722/savills-appointed-as-sole-agent-for-the-sale-of-en-bloc-hotel-in-kwun-tong"
+        },
+        {
+          "n": "am730",
+          "d": "2026-08-26",
+          "u": "https://www.am730.com.hk/article/1049485"
+        },
+        {
+          "n": "阿思達克（PChome 轉載）",
+          "d": "2026-08-25",
+          "u": "https://pchome.megatime.com.tw/news/cat6/20260825/9900100000001540592.html"
+        }
+      ]
     },
     {
       "priority": "medium",
-      "text": "Mapletree、Keppel、SC Capital 等亞太 living／PBSA 資金是否公開落子香港；留意 REIT／基金披露。"
+      "text": "非本地生自費收生上限由相當於本地學額的40%增至50%（2026/27學年起）——留意對實際入學人數及租務旺季的滯後影響。",
+      "sources": [
+        {
+          "n": "行政長官2025年施政報告第137段",
+          "d": "2025-09-17",
+          "u": "https://www.policyaddress.gov.hk/2025/tc/p137.html"
+        },
+        {
+          "n": "香港商報",
+          "d": "2025-09-17",
+          "u": "http://hkcd.com/hkcdweb/content/2025/09/17/content_8714345.html"
+        }
+      ]
+    },
+    {
+      "priority": "medium",
+      "text": "營運中資產（The Quad、The Quay、一步居系列）的實際租金、入住率與管理合約條款——機構買家定價關鍵。",
+      "deal_ids": [
+        "deal-202608-quad",
+        "deal-202607-quay",
+        "deal-202407-popway",
+        "deal-2025-bonham"
+      ],
+      "sources": [
+        {
+          "n": "信報（一步居出租）",
+          "d": "2026-08-22",
+          "u": "https://www.hkej.com/dailynews/property/article/4490792/"
+        },
+        {
+          "n": "第一太平戴維斯 Savills（The Quay）",
+          "d": "2026-07-14",
+          "u": "https://www.savills.in/insight-and-opinion/savills-news/237116/savills-facilitates-en-bloc-transaction-of-the-quay--a-premium-residential-building-in-ho-man-tin"
+        }
+      ]
+    },
+    {
+      "priority": "medium",
+      "text": "Mapletree、Keppel、SC Capital 等亞太 living／PBSA 資金是否公開落子香港；留意 REIT／基金披露。",
+      "sources": [
+        {
+          "n": "The Business Times",
+          "d": "2026-07-26",
+          "u": "https://www.businesstimes.com.sg/property/investors-home-singapore-co-living-hong-kong-student-housing-apacs-us13-8-billion-living-boom"
+        }
+      ]
     },
     {
       "priority": "low",
-      "text": "酒店／乙丙寫字樓業主轉讓及銀主盤清單（油尖旺、九龍城、中西區、葵涌）——改建庫存來源。"
+      "text": "酒店／乙丙寫字樓業主轉讓及銀主盤清單（油尖旺、九龍城、中西區、葵涌）——改建庫存來源。",
+      "deal_ids": [
+        "deal-202609-pemberton",
+        "deal-202606-bedford"
+      ],
+      "sources": [
+        {
+          "n": "東方日報（星資頻購商廈）",
+          "d": "2026-10-03",
+          "u": "https://orientaldaily.on.cc/content/%E7%94%A2%E7%B6%93/odn-20261003-1003_00205_071/%E5%B7%A5%E5%95%86%E5%B0%88%E9%A1%8C%EF%BC%9A%E6%98%9F%E8%B3%87%E9%A0%BB%E8%B3%BC%E5%95%86%E5%BB%88%E6%93%AC%E6%94%B9%E5%AE%BF%E8%88%8D"
+        }
+      ]
     },
     {
       "priority": "low",
-      "text": "本地營運商（壹社、iRENT、HEREIN、Weave Campus、Y Suites／Student Living）擴張與融資／上市動態。"
+      "text": "本地營運商（壹社、iRENT、HEREIN、Weave Campus、Y Suites／Student Living）擴張與融資／上市動態。",
+      "sources": [
+        {
+          "n": "信報（中原投資）",
+          "d": "2026-08-22",
+          "u": "https://www.hkej.com/dailynews/property/article/4490792/"
+        },
+        {
+          "n": "Mingtiandi（Weave Campus）",
+          "d": "2026-06-12",
+          "u": "https://www.mingtiandi.com/real-estate/finance/weave-rejigs-in-hong-kong-with-student-housing-and-kai-tak-sale/"
+        }
+      ]
     }
   ],
   "gaps": [
+    "土地註冊處（Land Registry）查冊：多數報道缺賣方詳情、實質成交價、按揭及業權結構；需對每宗交易補查冊。",
+    "床位／GFA／實用面積口徑不一（間數 vs 床位 vs 單位）；未有統一第三方審計數據。",
+    "2021–2023 年純 PBSA 整售極少見諸公開報道；早期多為共居／酒店收購後再定位，需律師／經紀口述補齊。",
+    "改建成本、城中學舍豁免地價／補價條件、消防與用途更改時間表——影響 IRR，未納入本頁成交表。",
+    "買家為離岸 SPV 時，最終實益擁有人（如京東、中資平台）需從公司查冊／公告交叉核實。",
     "租金水平、租約長度、保證收入條款（如 FEC–JD 三年保證）屬商業機密，公開來源有限。"
   ]
 }
