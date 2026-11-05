@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-15T11:24:00+08:00",
+  "updated": "2026-11-04T11:50:00+08:00",
   "notes": "只收錄有來源嘅數字；單一可靠來源亦會列出並標「單一來源」。需求主幹：CSPE 2024/25 專上就學人數（合計 286 900；非本地 92 000；本地衍生 194 900）× 已確認 25%/75% capture rate → 117 725 床。口徑：30 所院校；經本地評審專上；全日制＋兼讀面授；公帑資助＋自資；不含遙距。PDF 最後更新 12/8/2025。教資會資助全日制僅作對照，非主幹。官方／立法會數字見需求欄；業界估計另列。管道折扣 OUT OF SCOPE。缺數見 gaps。",
   "demand": [
     {
@@ -245,11 +245,12 @@
       "unit": "宗",
       "as_of": "2026-施政報告",
       "period": "計劃自 2025 年 7 月推出至 2026 年施政報告",
-      "note": "《行政長官 2026 年施政報告》第 148 段。",
+      "note": "《行政長官 2026 年施政報告》第 148 段。；已被 2026-10-28 立法會書面答覆更新（見 hitc-applications-45）取代作最新口徑。",
       "source_name": "《行政長官 2026 年施政報告》",
       "source_url": "https://www.policyaddress.gov.hk/2026/tc/chapter3.html",
       "doc_id": "pa2026_5",
-      "single_source": true
+      "single_source": true,
+      "superseded_by": "hitc-applications-45"
     },
     {
       "id": "hitc-beds-10800",
@@ -258,11 +259,12 @@
       "unit": "個宿位（約）",
       "as_of": "2026-施政報告",
       "period": "計劃自 2025 年 7 月推出至 2026 年施政報告",
-      "note": "原文「約 10 800 個宿位」；屬申請擬提供，非已入伙。",
+      "note": "原文「約 10 800 個宿位」；屬申請擬提供，非已入伙。；已被 2026-10-28 立法會書面答覆約 11,450 宿位（見 hitc-beds-11450）取代作最新口徑。",
       "source_name": "《行政長官 2026 年施政報告》",
       "source_url": "https://www.policyaddress.gov.hk/2026/tc/chapter3.html",
       "doc_id": "pa2026_5",
-      "single_source": true
+      "single_source": true,
+      "superseded_by": "hitc-beds-11450"
     },
     {
       "id": "hdf-fund-2018",
@@ -289,6 +291,45 @@
       "source_url": "https://www.legco.gov.hk/yr17-18/english/fc/fc/papers/f18-35e.pdf",
       "doc_id": "f18-35e",
       "single_source": true
+    },
+    {
+      "id": "hitc-applications-45",
+      "label": "城中學舍計劃已確認資格申請宗數（立法會書面答覆）",
+      "value": 45,
+      "unit": "宗",
+      "as_of": "2026-10-28",
+      "period": "截至 2026-10-28",
+      "note": "教育局共收到 52 宗申請；45 宗合資格、6 宗處理中、1 宗不獲確認。取代施政報告口徑 41 宗作最新官方數字。",
+      "source_name": "政府新聞公報（立法會書面答覆）2026-10-28",
+      "source_url": "https://www.info.gov.hk/gia/general/202610/28/P2026102800400.htm",
+      "doc_id": "P2026102800400",
+      "single_source": true
+    },
+    {
+      "id": "hitc-beds-11450",
+      "label": "城中學舍計劃已確認資格申請擬提供宿位（立法會書面答覆）",
+      "value": 11450,
+      "unit": "個宿位（約）",
+      "as_of": "2026-10-28",
+      "period": "截至 2026-10-28",
+      "note": "45 宗合資格共約 11,450 個宿位。屬申請擬提供，非已入伙。取代施政報告約 10,800。",
+      "source_name": "政府新聞公報（立法會書面答覆）2026-10-28",
+      "source_url": "https://www.info.gov.hk/gia/general/202610/28/P2026102800400.htm",
+      "doc_id": "P2026102800400",
+      "single_source": true
+    },
+    {
+      "id": "hitc-operating-4-projects",
+      "label": "城中學舍計劃已營運項目",
+      "value": 4,
+      "unit": "個項目（約 700 宿位）",
+      "as_of": "2026-10-28",
+      "period": "2026/27 學年",
+      "note": "4 個項目已落成並於 2026/27 學年投入營運，約 700 個專上學生宿位；另 5 宗（約 740 宿位）已取得發展管制相關批准、正改裝。",
+      "source_name": "政府新聞公報（立法會書面答覆）2026-10-28",
+      "source_url": "https://www.info.gov.hk/gia/general/202610/28/P2026102800400.htm",
+      "doc_id": "P2026102800400",
+      "single_source": true
     }
   ],
   "pipeline": [
@@ -307,17 +348,18 @@
     {
       "id": "hitc-land-sale",
       "label": "首幅學生宿舍用地推售（計劃）",
-      "value": "本財政年度內",
+      "value": "本財年第三季：沙田小瀝源（約 600 宿位）",
       "unit": "政府時間表",
-      "as_of": "2026-施政報告",
-      "note": "由市場競投興建新宿舍；具體地點／面積未於該段列明。",
-      "source_name": "《行政長官 2026 年施政報告》第 148 段",
-      "source_url": "https://www.policyaddress.gov.hk/2026/tc/chapter3.html",
+      "as_of": "2026-10-28",
+      "note": "2026-10-15 賣地計劃公布本季擬推沙田小瀝源；2026-10-28 立法會書面答覆確認仍定於本財政年度第三季度推售（初步約 600 宿位）。啟德及東涌東視乎該次推售情況再定。",
+      "source_name": "政府新聞公報 2026-10-15；立法會書面答覆 2026-10-28",
+      "source_url": "https://www.info.gov.hk/gia/general/202610/28/P2026102800400.htm",
       "doc_id": "pa2026_5",
-      "single_source": true
+      "single_source": false
     }
   ],
   "gaps": [
+    "城中學舍最新官方口徑：2026-10-28 立法會書面答覆 45 宗合資格／約 11,450 宿位（4 項目約 700 床已營運）；施政報告 41／約 10,800 已標 superseded。",
     "需求主幹已改用 CSPE 2024/25：合計 286 900（四程度相加）、非本地 92 000、本地衍生 194 900 × 25%/75% → 117 725 床。PDF 最後更新 12/8/2025。",
     "本地 194 900 為衍生（合計 − 非本地）；PDF 未另刊「本地」單獨總行。",
     "CSPE 含全日制＋兼讀面授；住宿 capture rate 未另拆兼讀。",
